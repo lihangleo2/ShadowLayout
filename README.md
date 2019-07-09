@@ -16,7 +16,7 @@
  - app build.gradle添加如下
     ```java
    dependencies {
-	        implementation 'com.github.lihangleo2:SmartLoadingView:1.3.2'
+	        implementation 'com.github.lihangleo2:ShadowLayout:1.0'
 	}
    ```
    
