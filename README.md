@@ -1,7 +1,7 @@
 ## ShadowLayout阴影布局（需要加阴影的控件只要被他嵌套，即刻享受）
 
 ## 效果展示（图片较模糊，下载demo自行观看。觉得不错就star下吧）
-后期有时间后，我会将功能完善的更好、敬请关注
+##### 后期有时间后，我会将功能完善的更好、敬请关注
 ![alt text](https://github.com/lihangleo2/ShadowLayout/blob/master/show.jpg)
 
 ## 添加依赖
