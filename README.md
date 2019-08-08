@@ -1,8 +1,18 @@
-## ShadowLayout阴影布局（需要加阴影的控件只要被他嵌套，即刻享受）
+## 万能阴影布局，定制化你要的阴影。 ShadowLayout 2.0震撼上线（需要阴影地方，被它嵌套即可享受阴影，阴影可定制化，效果赶超CardView）
+* 支持定制化阴影
+* 支持随意更改阴影颜色值
+* 支持x,y轴阴影偏移 
+* 可随意更改阴影扩散区域 
+* 支持阴影圆角属性
+* 支持单边或多边不显示阴影
+#### 2.0更新功能
+* 支持ShadowLayout背景填充颜色，圆角属性随阴影圆角改变
+* 支持动态修改ShadowLayout各种属性，及内部代码优化
 
-## 效果展示（图片较模糊，下载demo自行观看。觉得不错就star下吧）
-##### 后期有时间后，我会将功能完善的更好、敬请关注
-![alt text](https://github.com/lihangleo2/ShadowLayout/blob/master/show.jpg)
+## 效果展示（截图分辨率模糊，真机运行效果赶超CardView）
+|基础功能展示|各属性展示|随意更改颜色|
+|:---:|:---:|:---:|
+|![](https://github.com/lihangleo2/ShadowLayout/blob/master/main.jpg)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/first_show.gif)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/other_show.gif)
 
 ## 添加依赖
 
