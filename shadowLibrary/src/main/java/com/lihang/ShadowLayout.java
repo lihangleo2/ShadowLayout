@@ -20,6 +20,8 @@ import android.widget.FrameLayout;
 
 
 public class ShadowLayout extends FrameLayout {
+
+    private int mBackGroundColor;
     private int mShadowColor;
     private float mShadowLimit;
     private float mCornerRadius;
@@ -29,105 +31,168 @@ public class ShadowLayout extends FrameLayout {
     private boolean rightShow;
     private boolean topShow;
     private boolean bottomShow;
+    private Paint shadowPaint;
+    private Paint paint;
 
+    private int leftPading;
+    private int topPading;
+    private int rightPading;
+    private int bottomPading;
+    //阴影布局子空间区域
+    private RectF rectf = new RectF();
 
-    private boolean mInvalidateShadowOnSizeChanged = true;
-    private boolean mForceInvalidateShadow = false;
 
     public ShadowLayout(Context context) {
-        super(context);
-        initView(context, null);
+        this(context, null);
     }
 
     public ShadowLayout(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        initView(context, attrs);
+        this(context, attrs, 0);
     }
+
 
     public ShadowLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initView(context, attrs);
     }
 
-    @Override
-    protected int getSuggestedMinimumWidth() {
-        return 0;
+    public void setMDx(float mDx) {
+        if (Math.abs(mDx) > mShadowLimit) {
+            if (mDx > 0) {
+                this.mDx = mShadowLimit;
+            } else {
+                this.mDx = -mShadowLimit;
+            }
+        } else {
+            this.mDx = mDx;
+        }
+        setPading();
     }
 
-    @Override
-    protected int getSuggestedMinimumHeight() {
-        return 0;
+
+    public void setMDy(float mDy) {
+        if (Math.abs(mDy) > mShadowLimit) {
+            if (mDy > 0) {
+                this.mDy = mShadowLimit;
+            } else {
+                this.mDy = -mShadowLimit;
+            }
+        } else {
+            this.mDy = mDy;
+        }
+        setPading();
     }
+
+
+    public float getmCornerRadius() {
+        return mCornerRadius;
+    }
+
+
+    public void setmCornerRadius(int mCornerRadius) {
+        this.mCornerRadius = mCornerRadius;
+        setBackgroundCompat(getWidth(), getHeight());
+    }
+
+
+    public float getmShadowLimit() {
+        return mShadowLimit;
+    }
+
+    public void setmShadowLimit(int mShadowLimit) {
+        this.mShadowLimit = mShadowLimit;
+        setPading();
+    }
+
+
+    public void setmShadowColor(int mShadowColor) {
+        this.mShadowColor = mShadowColor;
+        setBackgroundCompat(getWidth(), getHeight());
+    }
+
+    public void setLeftShow(boolean leftShow) {
+        this.leftShow = leftShow;
+        setPading();
+    }
+
+    public void setRightShow(boolean rightShow) {
+        this.rightShow = rightShow;
+        setPading();
+    }
+
+    public void setTopShow(boolean topShow) {
+        this.topShow = topShow;
+        setPading();
+    }
+
+    public void setBottomShow(boolean bottomShow) {
+        this.bottomShow = bottomShow;
+        setPading();
+    }
+
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        if (w > 0 && h > 0 && (getBackground() == null || mInvalidateShadowOnSizeChanged || mForceInvalidateShadow)) {
-            mForceInvalidateShadow = false;
+        if (w > 0 && h > 0) {
             setBackgroundCompat(w, h);
         }
     }
 
-    @Override
-    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        super.onLayout(changed, left, top, right, bottom);
-        if (mForceInvalidateShadow) {
-            mForceInvalidateShadow = false;
-            setBackgroundCompat(right - left, bottom - top);
-        }
-    }
-
-    public void setInvalidateShadowOnSizeChanged(boolean invalidateShadowOnSizeChanged) {
-        mInvalidateShadowOnSizeChanged = invalidateShadowOnSizeChanged;
-    }
-
-    public void invalidateShadow() {
-        mForceInvalidateShadow = true;
-        requestLayout();
-        invalidate();
-    }
 
     private void initView(Context context, AttributeSet attrs) {
-        initAttributes(context, attrs);
+        initAttributes(attrs);
+        shadowPaint = new Paint();
+        shadowPaint.setAntiAlias(true);
+        shadowPaint.setStyle(Paint.Style.FILL);
 
+
+        //矩形画笔
+        paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paint.setStyle(Paint.Style.FILL);
+        paint.setColor(mBackGroundColor);
+
+        setPading();
+    }
+
+
+    public void setPading() {
         int xPadding = (int) (mShadowLimit + Math.abs(mDx));
         int yPadding = (int) (mShadowLimit + Math.abs(mDy));
-        int left;
-        int right;
-        int top;
-        int bottom;
+
         if (leftShow) {
-            left = xPadding;
+            leftPading = xPadding;
         } else {
-            left = 0;
+            leftPading = 0;
         }
 
         if (topShow) {
-            top = yPadding;
+            topPading = yPadding;
         } else {
-            top = 0;
+            topPading = 0;
         }
 
 
         if (rightShow) {
-            right = xPadding;
+            rightPading = xPadding;
         } else {
-            right = 0;
+            rightPading = 0;
         }
 
         if (bottomShow) {
-            bottom = yPadding;
+            bottomPading = yPadding;
         } else {
-            bottom = 0;
+            bottomPading = 0;
         }
 
-        setPadding(left, top, right, bottom);
+        setPadding(leftPading, topPading, rightPading, bottomPading);
     }
+
 
     @SuppressWarnings("deprecation")
     private void setBackgroundCompat(int w, int h) {
         Bitmap bitmap = createShadowBitmap(w, h, mCornerRadius, mShadowLimit, mDx, mDy, mShadowColor, Color.TRANSPARENT);
-        BitmapDrawable drawable = new BitmapDrawable(getResources(), bitmap);
+        BitmapDrawable drawable = new BitmapDrawable(bitmap);
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.JELLY_BEAN) {
             setBackgroundDrawable(drawable);
         } else {
@@ -136,8 +201,8 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
-    private void initAttributes(Context context, AttributeSet attrs) {
-        TypedArray attr = getTypedArray(context, attrs, R.styleable.ShadowLayout);
+    private void initAttributes(AttributeSet attrs) {
+        TypedArray attr = getContext().obtainStyledAttributes(attrs, R.styleable.ShadowLayout);
         if (attr == null) {
             return;
         }
@@ -148,20 +213,21 @@ public class ShadowLayout extends FrameLayout {
             rightShow = attr.getBoolean(R.styleable.ShadowLayout_hl_rightShow, true);
             bottomShow = attr.getBoolean(R.styleable.ShadowLayout_hl_bottomShow, true);
             topShow = attr.getBoolean(R.styleable.ShadowLayout_hl_topShow, true);
-
-            mCornerRadius = attr.getDimension(R.styleable.ShadowLayout_hl_cornerRadius, getResources().getDimension(R.dimen.dp_5));
+            mCornerRadius = attr.getDimension(R.styleable.ShadowLayout_hl_cornerRadius, getResources().getDimension(R.dimen.dp_0));
+            //默认扩散区域宽度
             mShadowLimit = attr.getDimension(R.styleable.ShadowLayout_hl_shadowLimit, getResources().getDimension(R.dimen.dp_5));
+
+            //x轴偏移量
             mDx = attr.getDimension(R.styleable.ShadowLayout_hl_dx, 0);
+            //y轴偏移量
             mDy = attr.getDimension(R.styleable.ShadowLayout_hl_dy, 0);
             mShadowColor = attr.getColor(R.styleable.ShadowLayout_hl_shadowColor, getResources().getColor(R.color.default_shadow_color));
+            mBackGroundColor = attr.getColor(R.styleable.ShadowLayout_hl_shadowBackColor, getResources().getColor(R.color.default_shadowback_color));
         } finally {
             attr.recycle();
         }
     }
 
-    private TypedArray getTypedArray(Context context, AttributeSet attributeSet, int[] attr) {
-        return context.obtainStyledAttributes(attributeSet, attr, 0, 0);
-    }
 
     private Bitmap createShadowBitmap(int shadowWidth, int shadowHeight, float cornerRadius, float shadowRadius,
                                       float dx, float dy, int shadowColor, int fillColor) {
@@ -187,22 +253,39 @@ public class ShadowLayout extends FrameLayout {
             shadowRect.left += dx;
             shadowRect.right -= dx;
         } else if (dx < 0) {
+
             shadowRect.left += Math.abs(dx);
             shadowRect.right -= Math.abs(dx);
         }
 
-        Paint shadowPaint = new Paint();
-        shadowPaint.setAntiAlias(true);
-        shadowPaint.setColor(fillColor);
-        shadowPaint.setStyle(Paint.Style.FILL);
 
+
+        shadowPaint.setColor(fillColor);
         if (!isInEditMode()) {
             shadowPaint.setShadowLayer(shadowRadius, dx, dy, shadowColor);
         }
 
         canvas.drawRoundRect(shadowRect, cornerRadius, cornerRadius, shadowPaint);
-
         return output;
+    }
+
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        rectf.left = leftPading;
+        rectf.top = topPading;
+        rectf.right = getWidth() - rightPading;
+        rectf.bottom = getHeight() - bottomPading;
+        int trueHeight = (int) (rectf.bottom - rectf.top);
+        if (mCornerRadius > trueHeight / 2) {
+            //画圆角矩形
+            canvas.drawRoundRect(rectf, trueHeight / 2, trueHeight / 2, paint);
+//            canvas.drawRoundRect(rectf, trueHeight / 2, trueHeight / 2, paintStroke);
+        } else {
+            canvas.drawRoundRect(rectf, mCornerRadius, mCornerRadius, paint);
+//            canvas.drawRoundRect(rectf, mCornerRadius, mCornerRadius, paintStroke);
+        }
     }
 
 }

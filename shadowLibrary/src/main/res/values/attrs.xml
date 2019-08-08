@@ -7,6 +7,7 @@
         <!--阴影的扩散范围(也可以理解为扩散程度)-->
         <attr name="hl_shadowLimit" format="dimension" />
         <attr name="hl_shadowColor" format="color" />
+        <attr name="hl_shadowBackColor" format="color" />
         <!--x轴的偏移量-->
         <attr name="hl_dx" format="dimension" />
         <!--y轴的偏移量-->
