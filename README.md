@@ -41,12 +41,12 @@
         app:hl_dy="0dp"
         app:hl_leftShow="false"
         app:hl_shadowColor="#2a000000"
+	app:hl_shadowBackColor="#fff"
         app:hl_shadowLimit="5dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="36dp"
-            android:background="@drawable/shape_show_"
             android:gravity="center"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
@@ -56,22 +56,25 @@
     </com.lihang.ShadowLayout>
 ```
 
- # Api说明
- ## ① 圆角属性
-  - app:hl_cornerRadius="18dp"  阴影圆角属性
+ # 自定义属性
+ ####  圆角属性
+ - app:hl_cornerRadius="18dp"  阴影圆角属性（同时如果设置了背景填充色也是背景圆角）
   
- ## ② 阴影扩散程度
-  - app:hl_shadowLimit="5dp"  阴影的扩散区域
+ #### 阴影扩散程度
+ - app:hl_shadowLimit="5dp"  阴影的扩散区域
   
- ## ③ 阴影的颜色
+ #### 阴影布局背景颜色值
+ - app:hl_shadowBackColor="#fff" 阴影布局背景填充色，圆角属性即是阴影圆角
+  
+ ####  阴影的颜色
  - app:hl_shadowColor="#2a000000"  阴影的颜色可以随便改变,透明度的改变可以改变阴影的清晰程度
 
- ## ④ x轴的偏移量
+ #### x轴的偏移量
  - app:hl_dx="0dp"    也可以理解为左右偏移量
  
- ## ⑤ y轴的偏移量
+ #### y轴的偏移量
  - app:hl_dy="0dp"    也可以理解为上下的偏移量
 
- ## ⑥ 阴影的4边可见不可见（与偏移量无关）
+ #### 阴影的4边可见不可见（与偏移量无关）
  - app:hl_leftShow="false"    左边的阴影不可见，其他3边保持不变
 
