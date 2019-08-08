@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--选中的箭头样式-->
+    <item android:drawable="@mipmap/check_on" android:state_selected="true" />
+    <!--未选中的箭头样式-->
+    <item android:drawable="@mipmap/check_off" android:state_selected="false" />
+</selector>
