@@ -69,7 +69,7 @@
  ####  阴影的颜色（注意必须有透明度）
  - app:hl_shadowColor="#2a000000"  阴影的颜色可以随便改变,透明度的改变可以改变阴影的清晰程度
 ```java
-	//这里是源码的描述，
+	//这里是setShadowLayer源码的描述，去掉了部分代码便于理解
 	/*
      * The alpha of the shadow will be the paint's alpha if the shadow color is
      * opaque, or the alpha from the shadow color if not.
