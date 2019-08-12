@@ -65,9 +65,23 @@
   
  #### 阴影布局背景颜色值
  - app:hl_shadowBackColor="#fff" 阴影布局背景填充色，圆角属性即是阴影圆角
-  
- ####  阴影的颜色
+ 
+   ####  阴影的颜色（注意必须有透明度）
  - app:hl_shadowColor="#2a000000"  阴影的颜色可以随便改变,透明度的改变可以改变阴影的清晰程度
+```java
+	//这里是源码的描述，
+	/*
+     * The alpha of the shadow will be the paint's alpha if the shadow color is
+     * opaque, or the alpha from the shadow color if not.
+     */
+    public void setShadowLayer(float radius, float dx, float dy, int shadowColor) {
+      mShadowLayerRadius = radius;
+      mShadowLayerDx = dx;
+      mShadowLayerDy = dy;
+      mShadowLayerColor = shadowColor;
+      nSetShadowLayer(mNativePaint, radius, dx, dy, shadowColor);
+    }
+```
 
  #### x轴的偏移量
  - app:hl_dx="0dp"    也可以理解为左右偏移量
@@ -77,4 +91,6 @@
 
  #### 阴影的4边可见不可见（与偏移量无关）
  - app:hl_leftShow="false"    左边的阴影不可见，其他3边保持不变
+ 
+ ### [最近有人反应内存情况，请看分析](https://juejin.im/post/5d4c1392f265da03bc126584#heading-12)
 
