@@ -40,17 +40,16 @@
         app:hl_dx="0dp"
         app:hl_dy="0dp"
         app:hl_leftShow="false"
-        app:hl_shadowColor="#2a000000"
+        app:hl_shadowColor="#2aff0000"
 	app:hl_shadowBackColor="#fff"
         app:hl_shadowLimit="5dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="36dp"
-            android:gravity="center"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:text="完全圆形圆角"
+            android:text="定制化你的阴影"
             android:textColor="#000" />
 
     </com.lihang.ShadowLayout>
