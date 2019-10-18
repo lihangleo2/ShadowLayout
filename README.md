@@ -16,6 +16,11 @@
 |:---:|:---:|:---:|
 |![](https://github.com/lihangleo2/ShadowLayout/blob/master/main.jpg)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/first_show.gif)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/other_show.gif)
 
+<br>
+
+## 扫描二维体验效果
+![](https://github.com/lihangleo2/ShadowLayout/blob/master/zxingCode.png)
+
 ## 添加依赖
 
  - 项目build.gradle添加如下
@@ -32,6 +37,7 @@
 	        implementation 'com.github.lihangleo2:ShadowLayout:2.0.1'
 	}
    ```
+
    
 ## 使用
 ```xml
