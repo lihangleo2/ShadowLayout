@@ -39,7 +39,7 @@
    ```
 
    
-## 使用
+## 使用(如果你想用默认的,那么这些属性都可以不加，已经有默认值)
 ```xml
       <com.lihang.ShadowLayout
         android:layout_width="wrap_content"
