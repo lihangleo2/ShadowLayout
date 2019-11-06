@@ -222,6 +222,7 @@ public class ShadowLayout extends FrameLayout {
             //y轴偏移量
             mDy = attr.getDimension(R.styleable.ShadowLayout_hl_dy, 0);
             mShadowColor = attr.getColor(R.styleable.ShadowLayout_hl_shadowColor, getResources().getColor(R.color.default_shadow_color));
+            isAddAlpha(mShadowColor);
             mBackGroundColor = attr.getColor(R.styleable.ShadowLayout_hl_shadowBackColor, getResources().getColor(R.color.default_shadowback_color));
         } finally {
             attr.recycle();
@@ -291,6 +292,28 @@ public class ShadowLayout extends FrameLayout {
         } else {
             canvas.drawRoundRect(rectf, mCornerRadius, mCornerRadius, paint);
 //            canvas.drawRoundRect(rectf, mCornerRadius, mCornerRadius, paintStroke);
+        }
+    }
+    
+    public void isAddAlpha(int color) {
+        if (Color.alpha(color) == 255) {
+            String red = Integer.toHexString(Color.red(color));
+            String green = Integer.toHexString(Color.green(color));
+            String blue = Integer.toHexString(Color.blue(color));
+
+            if (red.length() == 1) {
+                red = "0" + red;
+            }
+
+            if (green.length() == 1) {
+                green = "0" + green;
+            }
+
+            if (blue.length() == 1) {
+                blue = "0" + blue;
+            }
+            String endColor = "#2a" + red + green + blue;
+            mShadowColor = convertToColorInt(endColor);
         }
     }
 
