@@ -278,7 +278,28 @@ public class ShadowLayout extends FrameLayout {
         return output;
     }
     
-        public void isAddAlpha(int color) {
+
+   
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        rectf.left = leftPading;
+        rectf.top = topPading;
+        rectf.right = getWidth() - rightPading;
+        rectf.bottom = getHeight() - bottomPading;
+        int trueHeight = (int) (rectf.bottom - rectf.top);
+        if (mCornerRadius > trueHeight / 2) {
+            //画圆角矩形
+            canvas.drawRoundRect(rectf, trueHeight / 2, trueHeight / 2, paint);
+//            canvas.drawRoundRect(rectf, trueHeight / 2, trueHeight / 2, paintStroke);
+        } else {
+            canvas.drawRoundRect(rectf, mCornerRadius, mCornerRadius, paint);
+//            canvas.drawRoundRect(rectf, mCornerRadius, mCornerRadius, paintStroke);
+        }
+    }
+    
+    
+            public void isAddAlpha(int color) {
         //获取单签颜色值的透明度，如果没有设置透明度，默认加上#2a
         if (Color.alpha(color) == 255) {
             String red = Integer.toHexString(Color.red(color));
@@ -301,27 +322,16 @@ public class ShadowLayout extends FrameLayout {
         }
     }
     
-
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        rectf.left = leftPading;
-        rectf.top = topPading;
-        rectf.right = getWidth() - rightPading;
-        rectf.bottom = getHeight() - bottomPading;
-        int trueHeight = (int) (rectf.bottom - rectf.top);
-        if (mCornerRadius > trueHeight / 2) {
-            //画圆角矩形
-            canvas.drawRoundRect(rectf, trueHeight / 2, trueHeight / 2, paint);
-//            canvas.drawRoundRect(rectf, trueHeight / 2, trueHeight / 2, paintStroke);
-        } else {
-            canvas.drawRoundRect(rectf, mCornerRadius, mCornerRadius, paint);
-//            canvas.drawRoundRect(rectf, mCornerRadius, mCornerRadius, paintStroke);
-        }
-    }
     
-
+    public static int convertToColorInt(String argb)
+			throws IllegalArgumentException {
+ 
+		if (!argb.startsWith("#")) {
+			argb = "#" + argb;
+		}
+ 
+		return Color.parseColor(argb);
+	}
 
 }
 
