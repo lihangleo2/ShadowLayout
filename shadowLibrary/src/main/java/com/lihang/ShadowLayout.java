@@ -231,6 +231,7 @@ public class ShadowLayout extends FrameLayout {
 
     private Bitmap createShadowBitmap(int shadowWidth, int shadowHeight, float cornerRadius, float shadowRadius,
                                       float dx, float dy, int shadowColor, int fillColor) {
+        //优化阴影bitmap大小
         shadowWidth = shadowWidth / 4;
         shadowHeight = shadowHeight / 4;
         cornerRadius = cornerRadius / 4;
