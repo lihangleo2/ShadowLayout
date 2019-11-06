@@ -7,9 +7,12 @@
 * 可随意更改阴影扩散区域 
 * 支持阴影圆角属性
 * 支持单边或多边不显示阴影
-#### 2.0更新功能（最近发现有人直接拿去当自己项目，发布博客和github。我想说尊重下辛苦蜜蜂的劳动成果。转载请说明出处）
-* 支持ShadowLayout背景填充颜色，圆角属性随阴影圆角改变
-* 支持动态修改ShadowLayout各种属性，及内部代码优化  
+* 支持ShadowLayout背景填充颜色，背景圆角随阴影圆角改变
+
+#### 2.1.0 更新功能（转载请注明出处）
+* 优化阴影bitmap，且采用Bitmap.Config.ARGB_4444，减小内存
+* 新增添加颜色值不带透明度时，默认透明度为16%
+<br>
 
 ### [最近有人反应内存情况，请看分析](https://juejin.im/post/5d4c1392f265da03bc126584#heading-12)
 
@@ -22,6 +25,7 @@
 
 ## 扫描二维体验效果
 ![](https://github.com/lihangleo2/ShadowLayout/blob/master/zxingCode.png)
+<br>
 
 ## 添加依赖
 
@@ -36,11 +40,12 @@
  - app build.gradle添加如下
     ```java
    dependencies {
-	        implementation 'com.github.lihangleo2:ShadowLayout:2.0.1'
+	        implementation 'com.github.lihangleo2:ShadowLayout:2.1.0'
 	}
    ```
-
    
+<br>
+
 ## 使用(你也可以什么属性都不加，使用默认值)
 ```xml
       <com.lihang.ShadowLayout
@@ -64,6 +69,7 @@
 
     </com.lihang.ShadowLayout>
 ```
+<br>
 
  # 自定义属性
  ####  圆角属性
@@ -75,8 +81,9 @@
  #### 阴影布局背景颜色值
  - app:hl_shadowBackColor="#fff" 阴影布局背景填充色，圆角属性即是阴影圆角
  
- ####  阴影的颜色（注意必须有透明度）
- - app:hl_shadowColor="#2a000000"  阴影的颜色可以随便改变,透明度的改变可以改变阴影的清晰程度
+ ####  阴影的颜色
+ - app:hl_shadowColor="#2a000000"  阴影的颜色可以随便改变,透明度的改变可以改变阴影的清晰程度  
+ 特别注意：系统方法，颜色值必须带透明度。如果你不想加透明度，则默认透明度为16%
 ```java
 	//这里是setShadowLayer源码的描述，去掉了部分代码便于理解
 	/*
