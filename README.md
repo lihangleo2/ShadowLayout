@@ -9,7 +9,7 @@
 * 支持单边或多边不显示阴影
 * 支持ShadowLayout背景填充颜色，背景圆角随阴影圆角改变
 
-#### 2.1.1 更新功能（转载请注明出处）
+#### 2.1.4 更新功能（转载请注明出处）
 * 优化阴影bitmap，且采用Bitmap.Config.ARGB_4444，减小内存
 * 新增添加颜色值不带透明度时，默认透明度为16%
 <br>
@@ -41,7 +41,7 @@
  - app build.gradle添加如下
     ```java
    dependencies {
-	        implementation 'com.github.lihangleo2:ShadowLayout:2.0.1'
+	        implementation 'com.github.lihangleo2:ShadowLayout:2.1.4'
 	}
    ```
    
