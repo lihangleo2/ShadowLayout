@@ -222,6 +222,7 @@ public class ShadowLayout extends FrameLayout {
             //y轴偏移量
             mDy = attr.getDimension(R.styleable.ShadowLayout_hl_dy, 0);
             mShadowColor = attr.getColor(R.styleable.ShadowLayout_hl_shadowColor, getResources().getColor(R.color.default_shadow_color));
+            //判断传入的颜色值是否有透明度
             isAddAlpha(mShadowColor);
             mBackGroundColor = attr.getColor(R.styleable.ShadowLayout_hl_shadowBackColor, getResources().getColor(R.color.default_shadowback_color));
         } finally {
@@ -232,14 +233,14 @@ public class ShadowLayout extends FrameLayout {
 
     private Bitmap createShadowBitmap(int shadowWidth, int shadowHeight, float cornerRadius, float shadowRadius,
                                       float dx, float dy, int shadowColor, int fillColor) {
-        //优化阴影bitmap大小,将尺寸缩小至原来的4分之一
-        //阴影可能会模糊，但这里是阴影图片，不重要
+        //优化阴影bitmap大小,将尺寸缩小至原来的1/4。
+        dx = dx / 4;
+        dy = dy / 4;
         shadowWidth = shadowWidth / 4;
         shadowHeight = shadowHeight / 4;
         cornerRadius = cornerRadius / 4;
         shadowRadius = shadowRadius / 4;
-        dx = dx / 4;
-        dy = dy / 4;
+
         Bitmap output = Bitmap.createBitmap(shadowWidth, shadowHeight, Bitmap.Config.ARGB_4444);
         Canvas canvas = new Canvas(output);
 
@@ -276,27 +277,8 @@ public class ShadowLayout extends FrameLayout {
         canvas.drawRoundRect(shadowRect, cornerRadius, cornerRadius, shadowPaint);
         return output;
     }
-
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        rectf.left = leftPading;
-        rectf.top = topPading;
-        rectf.right = getWidth() - rightPading;
-        rectf.bottom = getHeight() - bottomPading;
-        int trueHeight = (int) (rectf.bottom - rectf.top);
-        if (mCornerRadius > trueHeight / 2) {
-            //画圆角矩形
-            canvas.drawRoundRect(rectf, trueHeight / 2, trueHeight / 2, paint);
-//            canvas.drawRoundRect(rectf, trueHeight / 2, trueHeight / 2, paintStroke);
-        } else {
-            canvas.drawRoundRect(rectf, mCornerRadius, mCornerRadius, paint);
-//            canvas.drawRoundRect(rectf, mCornerRadius, mCornerRadius, paintStroke);
-        }
-    }
     
-    public void isAddAlpha(int color) {
+        public void isAddAlpha(int color) {
         //获取单签颜色值的透明度，如果没有设置透明度，默认加上#2a
         if (Color.alpha(color) == 255) {
             String red = Integer.toHexString(Color.red(color));
@@ -318,6 +300,28 @@ public class ShadowLayout extends FrameLayout {
             mShadowColor = convertToColorInt(endColor);
         }
     }
+    
+
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        rectf.left = leftPading;
+        rectf.top = topPading;
+        rectf.right = getWidth() - rightPading;
+        rectf.bottom = getHeight() - bottomPading;
+        int trueHeight = (int) (rectf.bottom - rectf.top);
+        if (mCornerRadius > trueHeight / 2) {
+            //画圆角矩形
+            canvas.drawRoundRect(rectf, trueHeight / 2, trueHeight / 2, paint);
+//            canvas.drawRoundRect(rectf, trueHeight / 2, trueHeight / 2, paintStroke);
+        } else {
+            canvas.drawRoundRect(rectf, mCornerRadius, mCornerRadius, paint);
+//            canvas.drawRoundRect(rectf, mCornerRadius, mCornerRadius, paintStroke);
+        }
+    }
+    
+
 
 }
 
