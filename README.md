@@ -24,7 +24,7 @@
 <br>
 
 ## 扫描二维体验效果
-![](https://github.com/lihangleo2/ShadowLayout/blob/master/zxingCode.png)
+![](https://github.com/lihangleo2/ShadowLayout/blob/master/zxcode_leo.png)
 
 <br>
 
