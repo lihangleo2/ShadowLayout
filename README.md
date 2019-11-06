@@ -25,6 +25,7 @@
 
 ## 扫描二维体验效果
 ![](https://github.com/lihangleo2/ShadowLayout/blob/master/zxingCode.png)
+
 <br>
 
 ## 添加依赖
