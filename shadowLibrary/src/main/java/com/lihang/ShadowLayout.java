@@ -232,7 +232,8 @@ public class ShadowLayout extends FrameLayout {
 
     private Bitmap createShadowBitmap(int shadowWidth, int shadowHeight, float cornerRadius, float shadowRadius,
                                       float dx, float dy, int shadowColor, int fillColor) {
-        //优化阴影bitmap大小
+        //优化阴影bitmap大小,将尺寸缩小至原来的4分之一
+        //阴影可能会模糊，但这里是阴影图片，不重要
         shadowWidth = shadowWidth / 4;
         shadowHeight = shadowHeight / 4;
         cornerRadius = cornerRadius / 4;
@@ -296,6 +297,7 @@ public class ShadowLayout extends FrameLayout {
     }
     
     public void isAddAlpha(int color) {
+        //获取单签颜色值的透明度，如果没有设置透明度，默认加上#2a
         if (Color.alpha(color) == 255) {
             String red = Integer.toHexString(Color.red(color));
             String green = Integer.toHexString(Color.green(color));
