@@ -23,8 +23,8 @@
 
 <br>
 
-## 扫描二维体验效果
-![](https://github.com/lihangleo2/ShadowLayout/blob/master/zxcode_leo.png)
+## 扫描二维体验效果(下载密码是：123456)
+![](https://github.com/lihangleo2/ShadowLayout/blob/master/ShadowLayout_.png)
 
 <br>
 
