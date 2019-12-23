@@ -9,9 +9,9 @@
 * 支持单边或多边不显示阴影
 * 支持ShadowLayout背景填充颜色，背景圆角随阴影圆角改变
 
-#### 2.1.4 更新功能（转载请注明出处）
-* 优化阴影bitmap，且采用Bitmap.Config.ARGB_4444，减小内存
-* 新增添加颜色值不带透明度时，默认透明度为16%
+#### 2.1.5 更新功能（转载请注明出处）
+* 修复未渲染时，设置阴影颜色值bug
+* 增加点击状态时，切换阴影背景颜色状态hl_shadowBackColorClicked
 <br>
 
 ### [最近有人反应内存情况，请看分析](https://juejin.im/post/5d4c1392f265da03bc126584#heading-12)
@@ -41,7 +41,7 @@
  - app build.gradle添加如下
     ```java
    dependencies {
-	        implementation 'com.github.lihangleo2:ShadowLayout:2.1.4'
+	        implementation 'com.github.lihangleo2:ShadowLayout:2.1.5'
 	}
    ```
    
@@ -58,6 +58,7 @@
         app:hl_leftShow="false"
         app:hl_shadowColor="#2aff0000"
 	app:hl_shadowBackColor="#fff"
+	app:hl_shadowBackColorClicked="#ff0000"
         app:hl_shadowLimit="5dp">
 
         <TextView
@@ -110,6 +111,8 @@
  #### 阴影的4边可见不可见（与偏移量无关）
  - app:hl_leftShow="false"    左边的阴影不可见，其他3边保持不变
 
+ #### ShadowLayout点击时，切换背景颜色值。省了你去创建shape和selector
+ - app:hl_shadowBackColorClicked="#ff0000"    不点击状态下，显示hl_shadowBackColor颜色值。点击时切换成hl_shadowBackColorClicked。松开手指后恢复正常
 
 <br>
 
