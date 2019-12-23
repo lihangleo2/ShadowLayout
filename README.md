@@ -65,6 +65,7 @@
             android:layout_height="36dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
+	    android:gravity="center"
             android:text="定制化你的阴影"
             android:textColor="#000" />
 
