@@ -40,6 +40,7 @@
             </com.lihang.ShadowLayout>
 
             <com.lihang.ShadowLayout
+                android:id="@+id/mShadowLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -48,15 +49,18 @@
                 app:hl_dx="0dp"
                 app:hl_dy="0dp"
                 app:hl_shadowColor="#2a000000"
-                app:hl_shadowLimit="5dp">
+                app:hl_shadowLimit="5dp"
+                app:hl_shadowBackColorClicked="#ff0000"
+                >
 
                 <TextView
+                    android:id="@+id/txt_test"
                     android:layout_width="wrap_content"
                     android:layout_height="36dp"
                     android:gravity="center"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:text="圆角"
+                    android:text="点我，切换背景颜色"
                     android:textColor="#000" />
 
             </com.lihang.ShadowLayout>
@@ -89,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                app:hl_cornerRadius="18dp"
+                app:hl_cornerRadius="5dp"
                 app:hl_dx="0dp"
                 app:hl_dy="0dp"
                 app:hl_shadowColor="#2aff0000"
