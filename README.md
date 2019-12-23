@@ -75,16 +75,16 @@
 <br>
 
  # 自定义属性
- ####  圆角属性
+ #### 1、圆角属性
  - app:hl_cornerRadius="18dp"  阴影圆角属性（同时如果设置了背景填充色也是背景圆角）
   
- #### 阴影扩散程度
+ #### 2、阴影扩散程度
  - app:hl_shadowLimit="5dp"  阴影的扩散区域
   
- #### 阴影布局背景颜色值
+ #### 3、阴影布局背景颜色值
  - app:hl_shadowBackColor="#fff" 阴影布局背景填充色，圆角属性即是阴影圆角
  
- ####  阴影的颜色
+ #### 4、阴影的颜色
  - app:hl_shadowColor="#2a000000"  阴影的颜色可以随便改变,透明度的改变可以改变阴影的清晰程度  
  特别注意：系统方法，颜色值必须带透明度。如果你不想加透明度，则默认透明度为16%
 ```java
@@ -102,16 +102,16 @@
     }
 ```
 
- #### x轴的偏移量
+ #### 5、x轴的偏移量
  - app:hl_dx="0dp"    也可以理解为左右偏移量
  
- #### y轴的偏移量
+ #### 6、y轴的偏移量
  - app:hl_dy="0dp"    也可以理解为上下的偏移量
 
- #### 阴影的4边可见不可见（与偏移量无关）
+ #### 7、阴影的4边可见不可见（与偏移量无关）
  - app:hl_leftShow="false"    左边的阴影不可见，其他3边保持不变
 
- #### ShadowLayout点击时，切换背景颜色值。省了你去创建shape和selector
+ #### 8、ShadowLayout点击时，切换背景颜色值。省了你去创建shape和selector
  - app:hl_shadowBackColorClicked="#ff0000"    不点击状态下，显示hl_shadowBackColor颜色值。点击时切换成hl_shadowBackColorClicked。松开手指后恢复正常
 
 <br>
