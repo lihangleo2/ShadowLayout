@@ -16,12 +16,16 @@ import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.FrameLayout;
 
 
 public class ShadowLayout extends FrameLayout {
 
     private int mBackGroundColor;
+    private int mBackGroundColorClicked;
     private int mShadowColor;
     private float mShadowLimit;
     private float mCornerRadius;
@@ -56,6 +60,7 @@ public class ShadowLayout extends FrameLayout {
         initView(context, attrs);
     }
 
+    //动态设置x轴偏移量
     public void setMDx(float mDx) {
         if (Math.abs(mDx) > mShadowLimit) {
             if (mDx > 0) {
@@ -69,7 +74,7 @@ public class ShadowLayout extends FrameLayout {
         setPading();
     }
 
-
+    //动态设置y轴偏移量
     public void setMDy(float mDy) {
         if (Math.abs(mDy) > mShadowLimit) {
             if (mDy > 0) {
@@ -88,27 +93,32 @@ public class ShadowLayout extends FrameLayout {
         return mCornerRadius;
     }
 
-
+    //动态设置 圆角属性
     public void setmCornerRadius(int mCornerRadius) {
         this.mCornerRadius = mCornerRadius;
-        setBackgroundCompat(getWidth(), getHeight());
+        if (getWidth() != 0 && getHeight() != 0) {
+            setBackgroundCompat(getWidth(), getHeight());
+        }
     }
-
 
     public float getmShadowLimit() {
         return mShadowLimit;
     }
 
+    //动态设置阴影扩散区域
     public void setmShadowLimit(int mShadowLimit) {
         this.mShadowLimit = mShadowLimit;
         setPading();
     }
 
-
+    //动态设置阴影颜色值
     public void setmShadowColor(int mShadowColor) {
         this.mShadowColor = mShadowColor;
-        setBackgroundCompat(getWidth(), getHeight());
+        if (getWidth() != 0 && getHeight() != 0) {
+            setBackgroundCompat(getWidth(), getHeight());
+        }
     }
+
 
     public void setLeftShow(boolean leftShow) {
         this.leftShow = leftShow;
@@ -191,6 +201,8 @@ public class ShadowLayout extends FrameLayout {
 
     @SuppressWarnings("deprecation")
     private void setBackgroundCompat(int w, int h) {
+        //判断传入的颜色值是否有透明度
+        isAddAlpha(mShadowColor);
         Bitmap bitmap = createShadowBitmap(w, h, mCornerRadius, mShadowLimit, mDx, mDy, mShadowColor, Color.TRANSPARENT);
         BitmapDrawable drawable = new BitmapDrawable(bitmap);
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.JELLY_BEAN) {
@@ -222,9 +234,11 @@ public class ShadowLayout extends FrameLayout {
             //y轴偏移量
             mDy = attr.getDimension(R.styleable.ShadowLayout_hl_dy, 0);
             mShadowColor = attr.getColor(R.styleable.ShadowLayout_hl_shadowColor, getResources().getColor(R.color.default_shadow_color));
-            //判断传入的颜色值是否有透明度
-            isAddAlpha(mShadowColor);
             mBackGroundColor = attr.getColor(R.styleable.ShadowLayout_hl_shadowBackColor, getResources().getColor(R.color.default_shadowback_color));
+            mBackGroundColorClicked = attr.getColor(R.styleable.ShadowLayout_hl_shadowBackColorClicked, getResources().getColor(R.color.default_shadowback_color));
+            if (mBackGroundColorClicked != -1) {
+                setClickable(true);
+            }
         } finally {
             attr.recycle();
         }
@@ -268,7 +282,6 @@ public class ShadowLayout extends FrameLayout {
         }
 
 
-
         shadowPaint.setColor(fillColor);
         if (!isInEditMode()) {
             shadowPaint.setShadowLayer(shadowRadius, dx, dy, shadowColor);
@@ -277,9 +290,8 @@ public class ShadowLayout extends FrameLayout {
         canvas.drawRoundRect(shadowRect, cornerRadius, cornerRadius, shadowPaint);
         return output;
     }
-    
 
-   
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -297,9 +309,9 @@ public class ShadowLayout extends FrameLayout {
 //            canvas.drawRoundRect(rectf, mCornerRadius, mCornerRadius, paintStroke);
         }
     }
-    
-    
-            public void isAddAlpha(int color) {
+
+
+    public void isAddAlpha(int color) {
         //获取单签颜色值的透明度，如果没有设置透明度，默认加上#2a
         if (Color.alpha(color) == 255) {
             String red = Integer.toHexString(Color.red(color));
@@ -321,17 +333,36 @@ public class ShadowLayout extends FrameLayout {
             mShadowColor = convertToColorInt(endColor);
         }
     }
-    
-    
+
+
     public static int convertToColorInt(String argb)
-			throws IllegalArgumentException {
- 
-		if (!argb.startsWith("#")) {
-			argb = "#" + argb;
-		}
- 
-		return Color.parseColor(argb);
-	}
+            throws IllegalArgumentException {
+
+        if (!argb.startsWith("#")) {
+            argb = "#" + argb;
+        }
+
+        return Color.parseColor(argb);
+    }
+
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (mBackGroundColorClicked != -1) {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    paint.setColor(mBackGroundColorClicked);
+                    postInvalidate();
+                    break;
+
+                case MotionEvent.ACTION_UP:
+                    paint.setColor(mBackGroundColor);
+                    postInvalidate();
+                    break;
+            }
+        }
+        return super.onTouchEvent(event);
+    }
 
 }
 

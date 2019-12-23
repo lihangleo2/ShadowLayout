@@ -8,6 +8,7 @@
         <attr name="hl_shadowLimit" format="dimension" />
         <attr name="hl_shadowColor" format="color" />
         <attr name="hl_shadowBackColor" format="color" />
+        <attr name="hl_shadowBackColorClicked" format="color" />
         <!--x轴的偏移量-->
         <attr name="hl_dx" format="dimension" />
         <!--y轴的偏移量-->
@@ -20,6 +21,7 @@
         <attr name="hl_topShow" format="boolean" />
         <!--下面是否显示阴影-->
         <attr name="hl_bottomShow" format="boolean" />
+
 
     </declare-styleable>
 
