@@ -22,7 +22,6 @@
 |:---:|:---:|:---:|
 |![](https://github.com/lihangleo2/ShadowLayout/blob/master/main.jpg)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/first_show.gif)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/other_show.gif)
 |增加动态设置shape,selector功能|
-|:---:|
 |![](https://github.com/lihangleo2/ShadowLayout/blob/master/shape_gif.gif)|
 
 <br>
