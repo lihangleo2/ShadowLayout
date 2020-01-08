@@ -16,9 +16,7 @@ import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
-import android.view.View;
 import android.widget.FrameLayout;
 
 
@@ -45,6 +43,10 @@ public class ShadowLayout extends FrameLayout {
     //阴影布局子空间区域
     private RectF rectf = new RectF();
 
+    //ShadowLayout的样式，是只需要pressed还是selected,还是2者都需要，默认支持2者
+    private int selectorType = 3;
+    private boolean isShowShadow = true;
+
 
     public ShadowLayout(Context context) {
         this(context, null);
@@ -59,6 +61,23 @@ public class ShadowLayout extends FrameLayout {
         super(context, attrs, defStyleAttr);
         initView(context, attrs);
     }
+
+    //增加selector样式
+    @Override
+    public void setSelected(boolean selected) {
+        super.setSelected(selected);
+
+        if (selectorType == 3 || selectorType == 2) {
+            if (selected) {
+                paint.setColor(mBackGroundColorClicked);
+            } else {
+                paint.setColor(mBackGroundColor);
+            }
+            postInvalidate();
+            invalidate();
+        }
+    }
+
 
     //动态设置x轴偏移量
     public void setMDx(float mDx) {
@@ -149,7 +168,6 @@ public class ShadowLayout extends FrameLayout {
         }
     }
 
-
     private void initView(Context context, AttributeSet attrs) {
         initAttributes(attrs);
         shadowPaint = new Paint();
@@ -201,14 +219,19 @@ public class ShadowLayout extends FrameLayout {
 
     @SuppressWarnings("deprecation")
     private void setBackgroundCompat(int w, int h) {
-        //判断传入的颜色值是否有透明度
-        isAddAlpha(mShadowColor);
-        Bitmap bitmap = createShadowBitmap(w, h, mCornerRadius, mShadowLimit, mDx, mDy, mShadowColor, Color.TRANSPARENT);
-        BitmapDrawable drawable = new BitmapDrawable(bitmap);
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.JELLY_BEAN) {
-            setBackgroundDrawable(drawable);
+        if (isShowShadow) {
+            //判断传入的颜色值是否有透明度
+            isAddAlpha(mShadowColor);
+            Bitmap bitmap = createShadowBitmap(w, h, mCornerRadius, mShadowLimit, mDx, mDy, mShadowColor, Color.TRANSPARENT);
+            BitmapDrawable drawable = new BitmapDrawable(bitmap);
+            if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.JELLY_BEAN) {
+                setBackgroundDrawable(drawable);
+            } else {
+                setBackground(drawable);
+            }
         } else {
-            setBackground(drawable);
+            //解决不执行onDraw方法的bug就是给其设置一个透明色
+            this.setBackgroundColor(Color.parseColor("#00000000"));
         }
     }
 
@@ -221,6 +244,7 @@ public class ShadowLayout extends FrameLayout {
 
         try {
             //默认是显示
+            isShowShadow = attr.getBoolean(R.styleable.ShadowLayout_hl_isShowShadow, true);
             leftShow = attr.getBoolean(R.styleable.ShadowLayout_hl_leftShow, true);
             rightShow = attr.getBoolean(R.styleable.ShadowLayout_hl_rightShow, true);
             bottomShow = attr.getBoolean(R.styleable.ShadowLayout_hl_bottomShow, true);
@@ -239,6 +263,7 @@ public class ShadowLayout extends FrameLayout {
             if (mBackGroundColorClicked != -1) {
                 setClickable(true);
             }
+            selectorType = attr.getInt(R.styleable.ShadowLayout_hl_selectorMode, 3);
         } finally {
             attr.recycle();
         }
@@ -300,6 +325,7 @@ public class ShadowLayout extends FrameLayout {
         rectf.right = getWidth() - rightPading;
         rectf.bottom = getHeight() - bottomPading;
         int trueHeight = (int) (rectf.bottom - rectf.top);
+
         if (mCornerRadius > trueHeight / 2) {
             //画圆角矩形
             canvas.drawRoundRect(rectf, trueHeight / 2, trueHeight / 2, paint);
@@ -351,13 +377,17 @@ public class ShadowLayout extends FrameLayout {
         if (mBackGroundColorClicked != -1) {
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
-                    paint.setColor(mBackGroundColorClicked);
-                    postInvalidate();
+                    if (!ShadowLayout.this.isSelected() && selectorType != 2) {
+                        paint.setColor(mBackGroundColorClicked);
+                        postInvalidate();
+                    }
                     break;
 
                 case MotionEvent.ACTION_UP:
-                    paint.setColor(mBackGroundColor);
-                    postInvalidate();
+                    if (!ShadowLayout.this.isSelected() && selectorType != 2) {
+                        paint.setColor(mBackGroundColor);
+                        postInvalidate();
+                    }
                     break;
             }
         }
