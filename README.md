@@ -47,18 +47,14 @@
    
 <br>
 
-## 使用(你也可以什么属性都不加，使用默认值)
+## 使用(这里只放了几个基本属性，全部属性请看下方介绍)
 ```xml
       <com.lihang.ShadowLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:hl_cornerRadius="18dp"
-        app:hl_dx="0dp"
-        app:hl_dy="0dp"
-        app:hl_leftShow="false"
         app:hl_shadowColor="#2aff0000"
 	app:hl_shadowBackColor="#fff"
-	app:hl_shadowBackColorClicked="#ff0000"
         app:hl_shadowLimit="5dp">
 
         <TextView
