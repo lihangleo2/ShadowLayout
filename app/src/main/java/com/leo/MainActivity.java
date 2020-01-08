@@ -10,12 +10,20 @@ import android.view.View;
 import com.lihang.ShadowLayout;
 
 public class MainActivity extends AppCompatActivity {
+    ShadowLayout ShadowLayoutSelect;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViewById(R.id.buttonPanel).setOnClickListener(new View.OnClickListener() {
+        ShadowLayoutSelect = findViewById(R.id.ShadowLayoutSelect);
+        ShadowLayoutSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShadowLayoutSelect.setSelected(!ShadowLayoutSelect.isSelected());
+            }
+        });
+        findViewById(R.id.ShadowLayoutIntent).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, StarShowActivity.class));
