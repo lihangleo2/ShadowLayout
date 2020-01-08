@@ -22,6 +22,14 @@
         <!--下面是否显示阴影-->
         <attr name="hl_bottomShow" format="boolean" />
 
+        <!-- 新增selector样式，是pressed叫是sectored还是2者都需要 -->
+        <attr name="hl_selectorMode">
+            <flag name="pressed" value="1" />
+            <flag name="selected" value="2" />
+        </attr>
+
+<!--        是否要显示应用，可能有只想用shape这块，不想要阴影-->
+        <attr name="hl_isShowShadow" format="boolean" />
 
     </declare-styleable>
 
