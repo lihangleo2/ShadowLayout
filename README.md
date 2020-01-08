@@ -21,6 +21,8 @@
 |基础功能展示|各属性展示|随意更改颜色|
 |:---:|:---:|:---:|
 |![](https://github.com/lihangleo2/ShadowLayout/blob/master/main.jpg)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/first_show.gif)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/other_show.gif)
+|基础功能展示|
+|![](https://github.com/lihangleo2/ShadowLayout/blob/master/main.jpg)|
 
 <br>
 
