@@ -4,9 +4,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.lihang.ShadowLayout
+        android:id="@+id/ShadowLayoutHead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        app:hl_leftShow="false"
+        app:hl_rightShow="false"
+        app:hl_shadowColor="#2a000000"
+        app:hl_shadowLimit="5dp"
+        app:hl_topShow="false">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="ShadowLayout万能阴影布局2.0震撼上线"
+            android:textColor="#ff0000"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+    </com.lihang.ShadowLayout>
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/ShadowLayoutHead"
         android:overScrollMode="never"
         android:scrollbars="none">
 
@@ -16,28 +42,84 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <com.lihang.ShadowLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                app:hl_leftShow="false"
-                app:hl_rightShow="false"
-                app:hl_shadowColor="#2a000000"
-                app:hl_shadowLimit="5dp"
-                app:hl_topShow="false">
+                android:layout_marginTop="15dp"
+                android:text="2.1.6新增功能，再也不用写shape了"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+            <com.lihang.ShadowLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                app:hl_cornerRadius="18dp"
+                app:hl_dx="0dp"
+                app:hl_dy="0dp"
+                app:hl_shadowBackColorClicked="#ff0000"
+                app:hl_shadowColor="#4D0E5BE8"
+                app:hl_shadowLimit="7dp">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
                     android:gravity="center"
-                    android:text="ShadowLayout万能阴影布局2.0震撼上线"
-                    android:textColor="#ff0000"
-                    android:textSize="15dp"
-                    android:textStyle="bold" />
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="点我，selector的pressed样式"
+                    android:textColor="#000" />
 
             </com.lihang.ShadowLayout>
+
+
+            <com.lihang.ShadowLayout
+                android:id="@+id/ShadowLayoutSelect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                app:hl_cornerRadius="18dp"
+                app:hl_dx="0dp"
+                app:hl_dy="0dp"
+                app:hl_isShowShadow="false"
+                app:hl_selectorMode="selected"
+                app:hl_shadowBackColor="#00ff00"
+                app:hl_shadowBackColorClicked="#F60B0B"
+                app:hl_shadowLimit="7dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="点我，selector的selected样式"
+                    android:textColor="#000" />
+
+            </com.lihang.ShadowLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:background="#eeeeee" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:text="基本介绍"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
 
             <com.lihang.ShadowLayout
                 android:id="@+id/mShadowLayout"
@@ -49,9 +131,7 @@
                 app:hl_dx="0dp"
                 app:hl_dy="0dp"
                 app:hl_shadowColor="#2a000000"
-                app:hl_shadowLimit="5dp"
-                app:hl_shadowBackColorClicked="#ff0000"
-                >
+                app:hl_shadowLimit="5dp">
 
                 <TextView
                     android:id="@+id/txt_test"
@@ -60,9 +140,8 @@
                     android:gravity="center"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:text="点我，切换背景颜色"
+                    android:text="圆角"
                     android:textColor="#000" />
-
             </com.lihang.ShadowLayout>
 
             <com.lihang.ShadowLayout
@@ -223,13 +302,27 @@
 
     </ScrollView>
 
-    <Button
-        android:id="@+id/buttonPanel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+
+    <com.lihang.ShadowLayout
+        android:id="@+id/ShadowLayoutIntent"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="5dp"
-        android:text="动态设置阴影" />
+        app:hl_cornerRadius="60dp"
+        app:hl_shadowColor="#80F01818"
+        app:hl_shadowBackColor="#59F01818"
+        app:hl_shadowBackColorClicked="#29F01818"
+        app:hl_shadowLimit="25dp">
+
+        <TextView
+            android:padding="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="动态设置阴影"
+            android:textColor="#fff" />
+    </com.lihang.ShadowLayout>
+
+
 </RelativeLayout>
