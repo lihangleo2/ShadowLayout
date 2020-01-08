@@ -8,10 +8,11 @@
 * 支持阴影圆角属性
 * 支持单边或多边不显示阴影
 * 支持ShadowLayout背景填充颜色，背景圆角随阴影圆角改变
+* 控件支持动态设置shape和selector（项目里再也不用画shape了）
 
-#### 2.1.5 更新功能（转载请注明出处）
-* 修复未渲染时，设置阴影颜色值bug
-* 增加点击状态时，切换阴影背景颜色状态hl_shadowBackColorClicked
+#### Shadow成长历程及最新更新功能（转载请注明出处）
+ [Shadow成长历程](https://github.com/lihangleo2/ShadowLayout/wiki)  
+ 
 <br>
 
 ### [最近有人反应内存情况，请看分析](https://juejin.im/post/5d4c1392f265da03bc126584#heading-12)
