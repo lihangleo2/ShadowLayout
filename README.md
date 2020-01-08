@@ -76,27 +76,42 @@
  # 自定义属性
  #### 1、圆角属性 app:hl_cornerRadius="18dp"
  - 阴影圆角属性（同时如果设置了背景填充色也是背景圆角）
+ <br>
   
  #### 2、阴影扩散程度 app:hl_shadowLimit="5dp"
  - 阴影的扩散区域
+  <br>
   
  #### 3、阴影布局背景颜色值 app:hl_shadowBackColor="#fff"
  - 阴影布局背景填充色，同时注意圆角属性即是阴影圆角
+  <br>
  
  #### 4、阴影的颜色 app:hl_shadowColor="#2a000000"
  - 阴影的颜色可以随便改变,透明度的改变可以改变阴影的清晰程度，如果未设置透明度，则默认透明度为16% 
+  <br>
 
  #### 5、x轴的偏移量 app:hl_dx="0dp"
  - 也可以理解为左右偏移量
+  <br>
  
  #### 6、y轴的偏移量 app:hl_dy="0dp"
  - 也可以理解为上下的偏移量
+  <br>
 
  #### 7、阴影的4边可见不可见 app:hl_leftShow="false"
  - 左边的阴影不可见，其他3边保持不变
+  <br>
 
- #### 8、ShadowLayout点击时，切换背景颜色值。省了你去创建shape和selector
- - app:hl_shadowBackColorClicked="#ff0000"    不点击状态下，显示hl_shadowBackColor颜色值。点击时切换成hl_shadowBackColorClicked。松开手指后恢复正常
+ #### 8、动态设置shape,selector。pressed和selected背景颜色值 app:hl_shadowBackColorClicked="#ff0000"
+ - 不点击状态下，显示hl_shadowBackColor颜色值。点击时切换成hl_shadowBackColorClicked。松开手指后恢复正常；如果是setSelect（true）则显示hl_shadowBackColorClicked，false显示hl_shadowBackColor
+ <br>
+ 
+ #### 9、设置selector的样式 app:hl_selectorMode="selected"
+ - selected表示只支持selected样式；pressed表示只支持点击状态；selected|pressed则表示2者都支持
+ <br>
+ 
+ #### 10、是否使用阴影 app:hl_isShowShadow="false"
+ - 这个属性是因为有些同学只想使用shape和selector功能，那么就不使用阴影就好了
 
 <br>
 
