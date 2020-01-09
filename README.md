@@ -10,7 +10,7 @@
 * 支持ShadowLayout背景填充颜色，背景圆角随阴影圆角改变
 * 控件支持动态设置shape和selector（项目里再也不用画shape了）
 
-#### 2.1.6更新功能及Shadow成长历程（转载请注明出处）
+#### 2.1.6更新功能及ShadowLayout成长历程
  [Shadow成长历程](https://github.com/lihangleo2/ShadowLayout/wiki)  
  
 <br>
