@@ -31,6 +31,9 @@
 <!--        是否要显示应用，可能有只想用shape这块，不想要阴影-->
         <attr name="hl_isShowShadow" format="boolean" />
 
+        <!--控件区域是否对称，默认是对称。不对称的话，那么控件区域随着阴影区域走-->
+        <attr name="hl_isSym" format="boolean" />
+
     </declare-styleable>
 
 </resources>
