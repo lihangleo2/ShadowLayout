@@ -112,6 +112,12 @@
  
  #### 10、是否使用阴影 app:hl_isShowShadow="false"
  - 这个属性是因为有些同学只想使用shape和selector功能，那么就不使用阴影就好了
+ <br>
+ 
+ #### 11、 控件区域是否对称，默认是对称。不对称的话，那么控件区域随着阴影区域走:app:hl_isSym="false"
+ - 如下图：右边是对称，不管你怎么偏移，控件所占的区域都是均等的，这也造成了有些同学ui上不好控制。那么你可以加上app:hl_isSym="false"属性。控件区域随着阴影改变，如下图左边样子。
+
+ <img src="https://github.com/lihangleo2/ShadowLayout/blob/master/isSym.jpg" width="481" hegiht="849" align=center />
 
 <br>
 
