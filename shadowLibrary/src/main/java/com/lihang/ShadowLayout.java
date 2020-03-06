@@ -46,6 +46,7 @@ public class ShadowLayout extends FrameLayout {
     //ShadowLayout的样式，是只需要pressed还是selected,还是2者都需要，默认支持2者
     private int selectorType = 3;
     private boolean isShowShadow = true;
+    private boolean isSym;
 
 
     public ShadowLayout(Context context) {
@@ -185,33 +186,80 @@ public class ShadowLayout extends FrameLayout {
 
 
     public void setPading() {
-        int xPadding = (int) (mShadowLimit + Math.abs(mDx));
-        int yPadding = (int) (mShadowLimit + Math.abs(mDy));
+        //控件区域是否对称，默认是对称。不对称的话，那么控件区域随着阴影区域走
+        if (isSym) {
+            int xPadding = (int) (mShadowLimit + Math.abs(mDx));
+            int yPadding = (int) (mShadowLimit + Math.abs(mDy));
 
-        if (leftShow) {
-            leftPading = xPadding;
+            if (leftShow) {
+                leftPading = xPadding;
+            } else {
+                leftPading = 0;
+            }
+
+            if (topShow) {
+                topPading = yPadding;
+            } else {
+                topPading = 0;
+            }
+
+
+            if (rightShow) {
+                rightPading = xPadding;
+            } else {
+                rightPading = 0;
+            }
+
+            if (bottomShow) {
+                bottomPading = yPadding;
+            } else {
+                bottomPading = 0;
+            }
         } else {
-            leftPading = 0;
+            if (Math.abs(mDy) > mShadowLimit) {
+                if (mDy > 0) {
+                    mDy = mShadowLimit;
+                } else {
+                    mDy = 0 - mShadowLimit;
+                }
+            }
+
+
+            if (Math.abs(mDx) > mShadowLimit) {
+                if (mDx > 0) {
+                    mDx = mShadowLimit;
+                } else {
+                    mDx = 0 - mShadowLimit;
+                }
+            }
+
+            if (topShow) {
+                topPading = (int) (mShadowLimit - mDy);
+            } else {
+                topPading = 0;
+            }
+
+            if (bottomShow) {
+                bottomPading = (int) (mShadowLimit + mDy);
+            } else {
+                bottomPading = 0;
+            }
+
+
+            if (rightShow) {
+                rightPading = (int) (mShadowLimit - mDx);
+            } else {
+                rightPading = 0;
+            }
+
+
+            if (leftShow) {
+                leftPading = (int) (mShadowLimit + mDx);
+            } else {
+                leftPading = 0;
+            }
         }
 
-        if (topShow) {
-            topPading = yPadding;
-        } else {
-            topPading = 0;
-        }
-
-
-        if (rightShow) {
-            rightPading = xPadding;
-        } else {
-            rightPading = 0;
-        }
-
-        if (bottomShow) {
-            bottomPading = yPadding;
-        } else {
-            bottomPading = 0;
-        }
 
         setPadding(leftPading, topPading, rightPading, bottomPading);
     }
@@ -264,6 +312,7 @@ public class ShadowLayout extends FrameLayout {
                 setClickable(true);
             }
             selectorType = attr.getInt(R.styleable.ShadowLayout_hl_selectorMode, 3);
+            isSym = attr.getBoolean(R.styleable.ShadowLayout_hl_isSym, true);
         } finally {
             attr.recycle();
         }
@@ -289,26 +338,33 @@ public class ShadowLayout extends FrameLayout {
                 shadowWidth - shadowRadius,
                 shadowHeight - shadowRadius);
 
-        if (dy > 0) {
-            shadowRect.top += dy;
+        if (isSym) {
+            if (dy > 0) {
+                shadowRect.top += dy;
+                shadowRect.bottom -= dy;
+            } else if (dy < 0) {
+                shadowRect.top += Math.abs(dy);
+                shadowRect.bottom -= Math.abs(dy);
+            }
+
+            if (dx > 0) {
+                shadowRect.left += dx;
+                shadowRect.right -= dx;
+            } else if (dx < 0) {
+
+                shadowRect.left += Math.abs(dx);
+                shadowRect.right -= Math.abs(dx);
+            }
+        } else {
+            shadowRect.top -= dy;
             shadowRect.bottom -= dy;
-        } else if (dy < 0) {
-            shadowRect.top += Math.abs(dy);
-            shadowRect.bottom -= Math.abs(dy);
-        }
-
-        if (dx > 0) {
-            shadowRect.left += dx;
             shadowRect.right -= dx;
-        } else if (dx < 0) {
-
-            shadowRect.left += Math.abs(dx);
-            shadowRect.right -= Math.abs(dx);
+            shadowRect.left -= dx;
         }
 
 
         shadowPaint.setColor(fillColor);
-        if (!isInEditMode()) {
+        if (!isInEditMode()) {//dx  dy
             shadowPaint.setShadowLayer(shadowRadius, dx, dy, shadowColor);
         }
 
