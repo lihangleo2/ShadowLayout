@@ -22,9 +22,10 @@
 |基础功能展示|各属性展示|随意更改颜色|
 |:---:|:---:|:---:|
 |![](https://github.com/lihangleo2/ShadowLayout/blob/master/main.jpg)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/first_show.gif)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/other_show.gif)
-|增加动态设置shape,selector功能|
+|增加动态设置shape,selector功能|isSym属性对比|更改某个圆角的圆角大小|
+|:---:|:---:|:---:|
 |![](https://github.com/lihangleo2/ShadowLayout/blob/master/shape_gif.gif)|
-
+![](https://github.com/lihangleo2/ShadowLayout/blob/master/shape_gif.gif)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/shape_gif.gif)
 <br>
 
 ## 扫描二维体验效果(下载密码是：123456)
@@ -117,8 +118,16 @@
  
  #### 11、 控件区域是否对称，默认是对称。不对称的话，那么控件区域随着阴影区域走:app:hl_isSym="false"
  - 如下图：右边是对称，不管你怎么偏移，控件所占的区域都是均等的，这也造成了有些同学ui上不好控制。那么你可以加上app:hl_isSym="false"属性。控件区域随着阴影改变，如下图左边样子。
-<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/isSym_half.jpg" style="width: 240px;height:425px"/>
+<p align="center">
+	<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/isSym_half.jpg" alt="Sample"  width="350">
+	<p align="center">
+		<em>hl_isSym属性对比</em>
+	</p>
+</p>
+<br>
 
+#### 11、更改控件4个圆角的大小：app:hl_cornerRadius_leftTop="0dp"；app:hl_cornerRadius_leftBottom="0dp"；app:hl_cornerRadius_rigthTop="0dp"；app:hl_cornerRadius_rightBottom="0dp"
+- 这个属性是单独控制某一个圆角的圆角大小
 
 <br>
 
