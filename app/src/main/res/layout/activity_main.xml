@@ -47,6 +47,72 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
+                android:text="2.1.8新增功能，更改四个圆角大小"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <com.lihang.ShadowLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                app:hl_cornerRadius="18dp"
+                app:hl_dx="0dp"
+                app:hl_dy="0dp"
+                app:hl_shadowColor="#29000000"
+                app:hl_shadowLimit="5dp"
+                app:hl_cornerRadius_leftTop="0dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="更改左上圆角大小"
+                    android:textColor="#000" />
+
+            </com.lihang.ShadowLayout>
+
+
+
+            <com.lihang.ShadowLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                app:hl_cornerRadius="18dp"
+                app:hl_shadowColor="#5500bfff"
+                app:hl_shadowLimit="10dp"
+                app:hl_cornerRadius_leftTop="0dp"
+                app:hl_cornerRadius_rightBottom="0dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="更改左上，右下圆角大小"
+                    android:textColor="#000" />
+            </com.lihang.ShadowLayout>
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:background="#eeeeee" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
                 android:text="2.1.6新增功能，再也不用写shape了"
                 android:textColor="#000"
                 android:textSize="15sp"
@@ -90,7 +156,8 @@
                 app:hl_selectorMode="selected"
                 app:hl_shadowBackColor="#00ff00"
                 app:hl_shadowBackColorClicked="#F60B0B"
-                app:hl_shadowLimit="7dp">
+                app:hl_shadowLimit="7dp"
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -152,8 +219,9 @@
                 app:hl_cornerRadius="18dp"
                 app:hl_dx="0dp"
                 app:hl_dy="0dp"
-                app:hl_shadowColor="#2a000000"
-                app:hl_shadowLimit="5dp">
+                app:hl_shadowColor="#29000000"
+                app:hl_shadowLimit="5dp"
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -265,7 +333,8 @@
                 app:hl_dx="0dp"
                 app:hl_dy="5dp"
                 app:hl_shadowColor="#55ff00d5"
-                app:hl_shadowLimit="10dp">
+                app:hl_shadowLimit="10dp"
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
