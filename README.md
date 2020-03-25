@@ -22,10 +22,11 @@
 |基础功能展示|各属性展示|随意更改颜色|
 |:---:|:---:|:---:|
 |![](https://github.com/lihangleo2/ShadowLayout/blob/master/main.jpg)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/first_show.gif)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/other_show.gif)
-|增加动态设置shape,selector功能|isSym属性对比|更改某个圆角的圆角大小|
+
+### 后续功能更新
+|2.1.6新增shape,selector功能|2.1.7isSym属性对比|2.1.8单独更改某圆角大小|
 |:---:|:---:|:---:|
-|![](https://github.com/lihangleo2/ShadowLayout/blob/master/shape_gif.gif)|
-![](https://github.com/lihangleo2/ShadowLayout/blob/master/shape_gif.gif)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/shape_gif.gif)
+|![](https://github.com/lihangleo2/ShadowLayout/blob/master/shape_gif.gif)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/isSym.jpg)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/corners.gif)
 <br>
 
 ## 扫描二维体验效果(下载密码是：123456)
