@@ -12,10 +12,17 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RoundRectShape;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
 
@@ -48,6 +55,11 @@ public class ShadowLayout extends FrameLayout {
     private boolean isShowShadow = true;
     private boolean isSym;
 
+    //增加各个圆角的属性
+    private float mCornerRadius_leftTop;
+    private float mCornerRadius_rightTop;
+    private float mCornerRadius_leftBottom;
+    private float mCornerRadius_rightBottom;
 
     public ShadowLayout(Context context) {
         this(context, null);
@@ -298,6 +310,11 @@ public class ShadowLayout extends FrameLayout {
             bottomShow = attr.getBoolean(R.styleable.ShadowLayout_hl_bottomShow, true);
             topShow = attr.getBoolean(R.styleable.ShadowLayout_hl_topShow, true);
             mCornerRadius = attr.getDimension(R.styleable.ShadowLayout_hl_cornerRadius, getResources().getDimension(R.dimen.dp_0));
+            mCornerRadius_leftTop = attr.getDimension(R.styleable.ShadowLayout_hl_cornerRadius_leftTop, -1);
+            mCornerRadius_leftBottom = attr.getDimension(R.styleable.ShadowLayout_hl_cornerRadius_leftBottom, -1);
+            mCornerRadius_rightTop = attr.getDimension(R.styleable.ShadowLayout_hl_cornerRadius_rigthTop, -1);
+            mCornerRadius_rightBottom = attr.getDimension(R.styleable.ShadowLayout_hl_cornerRadius_rightBottom, -1);
+
             //默认扩散区域宽度
             mShadowLimit = attr.getDimension(R.styleable.ShadowLayout_hl_shadowLimit, getResources().getDimension(R.dimen.dp_5));
 
@@ -332,6 +349,7 @@ public class ShadowLayout extends FrameLayout {
         Bitmap output = Bitmap.createBitmap(shadowWidth, shadowHeight, Bitmap.Config.ARGB_4444);
         Canvas canvas = new Canvas(output);
 
+        //这里缩小limt的是因为，setShadowLayer后会将bitmap扩散到shadowWidth，shadowHeight
         RectF shadowRect = new RectF(
                 shadowRadius,
                 shadowRadius,
@@ -368,7 +386,79 @@ public class ShadowLayout extends FrameLayout {
             shadowPaint.setShadowLayer(shadowRadius, dx, dy, shadowColor);
         }
 
-        canvas.drawRoundRect(shadowRect, cornerRadius, cornerRadius, shadowPaint);
+        if (mCornerRadius_leftBottom == -1 && mCornerRadius_leftTop == -1 && mCornerRadius_rightTop == -1 && mCornerRadius_rightBottom == -1) {
+            //如果没有设置整个属性，那么按原始去画
+            canvas.drawRoundRect(shadowRect, cornerRadius, cornerRadius, shadowPaint);
+        } else {
+            //目前最佳的解决方案
+            rectf.left = leftPading;
+            rectf.top = topPading;
+            rectf.right = getWidth() - rightPading;
+            rectf.bottom = getHeight() - bottomPading;
+            int trueHeight;
+            int heightLength = (getHeight() - bottomPading - topPading);
+            int widthLength = getWidth() - rightPading - leftPading;
+            if (widthLength > heightLength) {
+                trueHeight = heightLength;
+            } else {
+                trueHeight = widthLength;
+            }
+            float rate = 0.62f;//0.56
+            //只要设置一个后就先按照全部圆角设置
+            canvas.drawRoundRect(shadowRect, trueHeight / 2, trueHeight / 2, shadowPaint);
+            if (mCornerRadius_leftTop != -1) {
+                float rate_left_top = mCornerRadius_leftTop / (trueHeight / 2);
+                if (rate_left_top <= rate) {
+                    canvas.drawRoundRect(new RectF(shadowRect.left, shadowRect.top, shadowRect.left + trueHeight / 8, shadowRect.top + trueHeight / 8), mCornerRadius_leftTop / 4, mCornerRadius_leftTop / 4, shadowPaint);
+                }
+            } else {
+                float rate_src = mCornerRadius / (trueHeight / 2);
+                if (rate_src <= rate) {
+                    canvas.drawRoundRect(new RectF(shadowRect.left, shadowRect.top, shadowRect.left + trueHeight / 8, shadowRect.top + trueHeight / 8), mCornerRadius / 4, mCornerRadius / 4, shadowPaint);
+                }
+            }
+
+
+            if (mCornerRadius_leftBottom != -1) {
+                float rate_left_bottom = mCornerRadius_leftBottom / (trueHeight / 2);
+                if (rate_left_bottom <= rate) {
+                    canvas.drawRoundRect(new RectF(shadowRect.left, shadowRect.bottom - trueHeight / 8, shadowRect.left + trueHeight / 8, shadowRect.bottom), mCornerRadius_leftBottom / 4, mCornerRadius_leftBottom / 4, shadowPaint);
+                }
+            } else {
+                float rate_src = mCornerRadius / (trueHeight / 2);
+                if (rate_src <= rate) {
+                    canvas.drawRoundRect(new RectF(shadowRect.left, shadowRect.bottom - trueHeight / 8, shadowRect.left + trueHeight / 8, shadowRect.bottom), mCornerRadius / 4, mCornerRadius / 4, shadowPaint);
+                }
+            }
+
+
+            if (mCornerRadius_rightTop != -1) {
+                float rate_right_top = mCornerRadius_rightTop / (trueHeight / 2);
+                if (rate_right_top <= rate) {
+                    canvas.drawRoundRect(new RectF(shadowRect.right - trueHeight / 8, shadowRect.top, shadowRect.right, shadowRect.top + trueHeight / 8), mCornerRadius_rightTop / 4, mCornerRadius_rightTop / 4, shadowPaint);
+                }
+            } else {
+                float rate_src = mCornerRadius / (trueHeight / 2);
+                if (rate_src <= rate) {
+                    canvas.drawRoundRect(new RectF(shadowRect.right - trueHeight / 8, shadowRect.top, shadowRect.right, shadowRect.top + trueHeight / 8), mCornerRadius / 4, mCornerRadius / 4, shadowPaint);
+                }
+            }
+
+
+            if (mCornerRadius_rightBottom != -1) {
+                float rate_right_bottom = mCornerRadius_rightBottom / (trueHeight / 2);
+                if (rate_right_bottom <= rate) {
+                    canvas.drawRoundRect(new RectF(shadowRect.right - trueHeight / 8, shadowRect.bottom - trueHeight / 8, shadowRect.right, shadowRect.bottom), mCornerRadius_rightBottom / 4, mCornerRadius_rightBottom / 4, shadowPaint);
+                }
+            } else {
+                float rate_src = mCornerRadius / (trueHeight / 2);
+                if (rate_src <= rate) {
+                    canvas.drawRoundRect(new RectF(shadowRect.right - trueHeight / 8, shadowRect.bottom - trueHeight / 8, shadowRect.right, shadowRect.bottom), mCornerRadius / 4, mCornerRadius / 4, shadowPaint);
+                }
+            }
+
+        }
+
         return output;
     }
 
@@ -381,15 +471,73 @@ public class ShadowLayout extends FrameLayout {
         rectf.right = getWidth() - rightPading;
         rectf.bottom = getHeight() - bottomPading;
         int trueHeight = (int) (rectf.bottom - rectf.top);
-
-        if (mCornerRadius > trueHeight / 2) {
-            //画圆角矩形
-            canvas.drawRoundRect(rectf, trueHeight / 2, trueHeight / 2, paint);
-//            canvas.drawRoundRect(rectf, trueHeight / 2, trueHeight / 2, paintStroke);
+        //如果都为0说明，没有设置特定角，那么按正常绘制
+        if (mCornerRadius_leftTop == 0 && mCornerRadius_leftBottom == 0 && mCornerRadius_rightTop == 0 && mCornerRadius_rightBottom == 0) {
+            if (mCornerRadius > trueHeight / 2) {
+                //画圆角矩形
+                canvas.drawRoundRect(rectf, trueHeight / 2, trueHeight / 2, paint);
+            } else {
+                canvas.drawRoundRect(rectf, mCornerRadius, mCornerRadius, paint);
+            }
         } else {
-            canvas.drawRoundRect(rectf, mCornerRadius, mCornerRadius, paint);
-//            canvas.drawRoundRect(rectf, mCornerRadius, mCornerRadius, paintStroke);
+            setSpaceCorner(canvas, trueHeight);
         }
+
+    }
+
+
+    //这是自定义四个角的方法。
+    private void setSpaceCorner(Canvas canvas, int trueHeight) {
+        int leftTop;
+        int rightTop;
+        int rightBottom;
+        int leftBottom;
+        if (mCornerRadius_leftTop == -1) {
+            leftTop = (int) mCornerRadius;
+        } else {
+            leftTop = (int) mCornerRadius_leftTop;
+        }
+
+        if (leftTop > trueHeight / 2) {
+            leftTop = trueHeight / 2;
+        }
+
+        if (mCornerRadius_rightTop == -1) {
+            rightTop = (int) mCornerRadius;
+        } else {
+            rightTop = (int) mCornerRadius_rightTop;
+        }
+
+        if (rightTop > trueHeight / 2) {
+            rightTop = trueHeight / 2;
+        }
+
+        if (mCornerRadius_rightBottom == -1) {
+            rightBottom = (int) mCornerRadius;
+        } else {
+            rightBottom = (int) mCornerRadius_rightBottom;
+        }
+
+        if (rightBottom > trueHeight / 2) {
+            rightBottom = trueHeight / 2;
+        }
+
+
+        if (mCornerRadius_leftBottom == -1) {
+            leftBottom = (int) mCornerRadius;
+        } else {
+            leftBottom = (int) mCornerRadius_leftBottom;
+        }
+
+        if (leftBottom > trueHeight / 2) {
+            leftBottom = trueHeight / 2;
+        }
+
+        float[] outerR = new float[]{leftTop, leftTop, rightTop, rightTop, rightBottom, rightBottom, leftBottom, leftBottom};//左上，右上，右下，左下
+        ShapeDrawable mDrawables = new ShapeDrawable(new RoundRectShape(outerR, null, null));
+        mDrawables.getPaint().setColor(paint.getColor());
+        mDrawables.setBounds(leftPading, topPading, getWidth() - rightPading, getHeight() - bottomPading);
+        mDrawables.draw(canvas);
     }
 
 
