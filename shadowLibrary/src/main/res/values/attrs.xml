@@ -3,7 +3,12 @@
 
     <declare-styleable name="ShadowLayout">
         <!--阴影的圆角大小-->
+
         <attr name="hl_cornerRadius" format="dimension" />
+        <attr name="hl_cornerRadius_leftTop" format="dimension" />
+        <attr name="hl_cornerRadius_rigthTop" format="dimension" />
+        <attr name="hl_cornerRadius_leftBottom" format="dimension" />
+        <attr name="hl_cornerRadius_rightBottom" format="dimension" />
         <!--阴影的扩散范围(也可以理解为扩散程度)-->
         <attr name="hl_shadowLimit" format="dimension" />
         <attr name="hl_shadowColor" format="color" />
