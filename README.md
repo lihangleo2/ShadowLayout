@@ -10,7 +10,8 @@
 * 支持ShadowLayout背景填充颜色，背景圆角随阴影圆角改变
 * 控件支持动态设置shape和selector（项目里再也不用画shape了）
 
-#### 2.1.7更新功能及ShadowLayout成长历程
+#### 2.1.8更新功能及ShadowLayout成长历程
+* 新增更改四个圆角属性
  [Shadow成长历程](https://github.com/lihangleo2/ShadowLayout/wiki)  
  
 <br>
@@ -44,7 +45,7 @@
  - app build.gradle添加如下
     ```java
    dependencies {
-	        implementation 'com.github.lihangleo2:ShadowLayout:2.1.7'
+	        implementation 'com.github.lihangleo2:ShadowLayout:2.1.8'
 	}
    ```
    
@@ -116,8 +117,8 @@
  
  #### 11、 控件区域是否对称，默认是对称。不对称的话，那么控件区域随着阴影区域走:app:hl_isSym="false"
  - 如下图：右边是对称，不管你怎么偏移，控件所占的区域都是均等的，这也造成了有些同学ui上不好控制。那么你可以加上app:hl_isSym="false"属性。控件区域随着阴影改变，如下图左边样子。
+<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/isSym_half.jpg" style="width: 240px;height:425px"/>
 
- <img src="https://github.com/lihangleo2/ShadowLayout/blob/master/isSym.jpg" width="481" hegiht="849" align=center />
 
 <br>
 
