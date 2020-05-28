@@ -87,7 +87,7 @@ public class ShadowLayout extends FrameLayout {
                 paint.setColor(mBackGroundColor);
             }
             postInvalidate();
-            invalidate();
+    
         }
     }
 
