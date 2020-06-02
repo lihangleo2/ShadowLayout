@@ -586,7 +586,7 @@ public class ShadowLayout extends FrameLayout {
                         postInvalidate();
                     }
                     break;
-
+                case MotionEvent.ACTION_CANCEL:
                 case MotionEvent.ACTION_UP:
                     if (!ShadowLayout.this.isSelected() && selectorType != 2) {
                         paint.setColor(mBackGroundColor);
