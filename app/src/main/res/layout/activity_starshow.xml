@@ -16,8 +16,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 app:hl_cornerRadius="10dp"
-                app:hl_dx="0dp"
-                app:hl_dy="0dp"
+                app:hl_shadowOffsetX="0dp"
+                app:hl_shadowOffsetY="0dp"
                 app:hl_shadowColor="#2aff0000"
                 app:hl_shadowLimit="10dp">
 

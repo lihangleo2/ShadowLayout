@@ -2,42 +2,65 @@
 <resources>
 
     <declare-styleable name="ShadowLayout">
-        <!--阴影的圆角大小-->
-
-        <attr name="hl_cornerRadius" format="dimension" />
-        <attr name="hl_cornerRadius_leftTop" format="dimension" />
-        <attr name="hl_cornerRadius_rigthTop" format="dimension" />
-        <attr name="hl_cornerRadius_leftBottom" format="dimension" />
-        <attr name="hl_cornerRadius_rightBottom" format="dimension" />
-        <!--阴影的扩散范围(也可以理解为扩散程度)-->
-        <attr name="hl_shadowLimit" format="dimension" />
+        <!-- 1、关于阴影 -->
+        <!--阴影：是否要显示阴影，可能有只想用shape和selector功能，不想要阴影-->
+        <attr name="hl_shadowHidden" format="boolean" />
+        <!--阴影：阴影颜色-->
         <attr name="hl_shadowColor" format="color" />
-        <attr name="hl_shadowBackColor" format="color" />
-        <attr name="hl_shadowBackColorClicked" format="color" />
-        <!--x轴的偏移量-->
-        <attr name="hl_dx" format="dimension" />
-        <!--y轴的偏移量-->
-        <attr name="hl_dy" format="dimension" />
-        <!--左边是否显示阴影-->
-        <attr name="hl_leftShow" format="boolean" />
-        <!--右边是否显示阴影-->
-        <attr name="hl_rightShow" format="boolean" />
-        <!--上边是否显示阴影-->
-        <attr name="hl_topShow" format="boolean" />
-        <!--下面是否显示阴影-->
-        <attr name="hl_bottomShow" format="boolean" />
+        <!--阴影：阴影的扩散范围(也可以理解为扩散程度)-->
+        <attr name="hl_shadowLimit" format="dimension" />
+        <!--控件区域是否对称，默认是对称。不对称的话，那么控件区域随着阴影区域走-->
+        <attr name="hl_shadowSymmetry" format="boolean" />
+        <!--阴影：x轴的偏移量-->
+        <attr name="hl_shadowOffsetX" format="dimension" />
+        <!--阴影：y轴的偏移量-->
+        <attr name="hl_shadowOffsetY" format="dimension" />
+        <!--阴影：左边是否隐藏阴影-->
+        <attr name="hl_shadowHiddenLeft" format="boolean" />
+        <!--阴影：右边是否隐藏阴影-->
+        <attr name="hl_shadowHiddenRight" format="boolean" />
+        <!--阴影：上边是否隐藏阴影-->
+        <attr name="hl_shadowHiddenTop" format="boolean" />
+        <!--阴影：下面是否隐藏阴影-->
+        <attr name="hl_shadowHiddenBottom" format="boolean" />
 
-        <!-- 新增selector样式，是pressed叫是sectored还是2者都需要 -->
-        <attr name="hl_selectorMode">
-            <flag name="pressed" value="1" />
-            <flag name="selected" value="2" />
+
+        <!-- 2、关于圆角 -->
+        <!--圆角：统一大小，其中包括了阴影，shape、背景图、stroke边框圆角-->
+        <attr name="hl_cornerRadius" format="dimension" />
+        <!--圆角：左上圆角。设置后会忽略hl_cornerRadius的值-->
+        <attr name="hl_cornerRadius_leftTop" format="dimension" />
+        <!--圆角：右上圆角。同上-->
+        <attr name="hl_cornerRadius_rightTop" format="dimension" />
+        <!--圆角：左下圆角。同上-->
+        <attr name="hl_cornerRadius_leftBottom" format="dimension" />
+        <!--圆角：右下圆角。同上-->
+        <attr name="hl_cornerRadius_rightBottom" format="dimension" />
+
+
+        <!-- 3、关于shape及selector -->
+        <!-- shape及selector样式：pressed、sectored -->
+        <attr name="hl_shapeMode">
+            <enum name="pressed" value="1" />
+            <enum name="selected" value="2" />
         </attr>
 
-<!--        是否要显示应用，可能有只想用shape这块，不想要阴影-->
-        <attr name="hl_isShowShadow" format="boolean" />
+        <!-- 为false的默认背景，可单独使用-->
+        <attr name="hl_layoutBackground" format="reference|color" />
+        <!-- 为true的默认背景，必须搭配hl_layoutBackground属性使用。否则报错-->
+        <attr name="hl_layoutBackground_true" format="reference|color" />
 
-        <!--控件区域是否对称，默认是对称。不对称的话，那么控件区域随着阴影区域走-->
-        <attr name="hl_isSym" format="boolean" />
+        <!-- stroke样式，stroke的宽度-->
+        <attr name="hl_strokeWith" format="dimension" />
+        <!-- 为false时，默认的stoke颜色值，可单独使用-->
+        <attr name="hl_strokeColor" format="color" />
+        <!-- 为true时，默认的stoke颜色值，必须搭配hl_strokeColor属性使用。否则报错-->
+        <attr name="hl_strokeColor_true" format="color" />
+
+
+        <!-- Clickable为false时，要展示的图片或颜色-->
+        <attr name="hl_layoutBackgroundClickableFalse" format="reference|color" />
+
 
     </declare-styleable>
 

@@ -20,6 +20,14 @@
         </activity>
 
         <activity
+            android:name=".ShapeActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".WikiActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".StarShowActivity"
             android:screenOrientation="portrait" />
     </application>
