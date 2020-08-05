@@ -64,28 +64,118 @@
    
 <br>
 
-## 使用(这里只放了几个基本属性，全部属性请看下方介绍)
+## 基本使用
+### 一、阴影的简单使用
 ```xml
-      <com.lihang.ShadowLayout
+            <com.lihang.ShadowLayout
+                android:id="@+id/mShadowLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                app:hl_cornerRadius="10dp"
+                app:hl_shadowColor="#2a000000"
+                app:hl_shadowLimit="5dp"
+                >
+
+                <TextView
+                    android:id="@+id/txt_test"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="圆角"
+                    android:textColor="#000" />
+            </com.lihang.ShadowLayout>
+```
+<br>
+
+### 二、stroke边框的简单使用
+```xml
+            <com.lihang.ShadowLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                app:hl_cornerRadius="10dp"
+                app:hl_strokeColor="#000">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="圆角边框"
+                    android:textColor="#000" />
+            </com.lihang.ShadowLayout>
+```
+<br>
+
+### 三、shape selector的简单使用
+```xml
+            <com.lihang.ShadowLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                app:hl_cornerRadius="30dp"
+                app:hl_cornerRadius_leftTop="0dp"
+                app:hl_layoutBackground="#F76C6C"
+                app:hl_layoutBackground_true="#89F76C6C"
+                app:hl_shapeMode="pressed">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="selector的pressed用法，请点击"
+                    android:textColor="#fff" />
+            </com.lihang.ShadowLayout>
+```
+<br>
+
+### 三、图片 selector的简单使用
+```xml
+    <com.lihang.ShadowLayout
+        android:id="@+id/ShadowLayout_shape"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
         app:hl_cornerRadius="18dp"
-        app:hl_shadowColor="#2aff0000"
-	app:hl_shadowBackColor="#fff"
-        app:hl_shadowLimit="5dp">
+        app:hl_cornerRadius_rightTop="0dp"
+        app:hl_layoutBackground="@mipmap/test_background_false"
+        app:hl_layoutBackground_true="@mipmap/test_background_true">
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="36dp"
+            android:gravity="center"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-	    android:gravity="center"
-            android:text="定制化你的阴影"
-            android:textColor="#000" />
+            android:text="图片selector"
+            android:textColor="#fff" />
 
     </com.lihang.ShadowLayout>
 ```
+如果你觉得麻烦，你还可以这样
+```xml
+            <com.lihang.ShadowLayout
+                android:id="@+id/ShadowLayout_image"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                app:hl_layoutBackground="@mipmap/game_6_right"
+                app:hl_layoutBackground_true="@mipmap/game_6_wrong"
+                app:hl_shapeMode="pressed" />
+```
+
 <br>
+
 
  # 自定义属性
  #### 1、圆角属性 app:hl_cornerRadius="18dp"
