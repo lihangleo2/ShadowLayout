@@ -37,7 +37,7 @@
 ### 3.0.1版本来袭
 |stroke边框及点击|shape及图片selector|组合使用|
 |:---:|:---:|:---:|
-|![](https://github.com/lihangleo2/ShadowLayout/blob/master/stroke.gif)|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/shapeSelector.gif" alt="Sample"  width="481">|![](https://github.com/lihangleo2/ShadowLayout/blob/master/groupUse.gif)
+|![](https://github.com/lihangleo2/ShadowLayout/blob/master/stroke2.gif)|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/shapeSelector2.gif" alt="Sample"  width="481">|![](https://github.com/lihangleo2/ShadowLayout/blob/master/groupUse2.gif)
 <br>
 
 ## 扫描二维体验效果(下载密码是：123456)
