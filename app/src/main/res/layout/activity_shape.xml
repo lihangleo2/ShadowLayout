@@ -188,7 +188,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
                 app:hl_cornerRadius="10dp"
-                app:hl_layoutBackground="@mipmap/ic_launcher">
+                app:hl_layoutBackground="@mipmap/test_background_true">
 
                 <TextView
                     android:id="@+id/txt_back"
@@ -208,7 +208,7 @@
                 android:layout_marginTop="10dp"
                 app:hl_cornerRadius="18dp"
                 app:hl_cornerRadius_leftTop="0dp"
-                app:hl_layoutBackground="@mipmap/ic_launcher">
+                app:hl_layoutBackground="@mipmap/test_background_true">
 
                 <TextView
                     android:id="@+id/txt_back_diff"
