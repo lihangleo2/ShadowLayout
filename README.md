@@ -10,10 +10,16 @@
 * 支持ShadowLayout背景填充颜色，背景圆角随阴影圆角改变
 * 控件支持动态设置shape和selector（项目里再也不用画shape了）
 
-#### 2.1.8更新功能及ShadowLayout成长历程
-* 新增更改四个圆角属性
+#### 3.0.1更新功能及ShadowLayout成长历程
+* 完善shape功能，解放你的drawable文件。包括有：图片selector、shape selector、stroke selector
+* ShadowLayout提供了背景圆角方案
+* 修改了部分单词拼写错误，及大量属性命名。更规范
+* 其中也加上了设置Clickable ="false"的样式。
+* 修改了目前已知bug，及修改和完善了不规则圆角的阴影方案
  [Shadow成长历程](https://github.com/lihangleo2/ShadowLayout/wiki)  
  
+ #### 注意
+ 因为3.0修改了大量api及规范命名，如不方便转移还在使用2.0的。可查看2.0文档[ShadowLayout 2.1.8](https://github.com/lihangleo2/ShadowLayout/blob/master/README218.md)  
 <br>
 
 ### [最近有人反应内存情况，请看分析](https://juejin.im/post/5d4c1392f265da03bc126584#heading-12)
