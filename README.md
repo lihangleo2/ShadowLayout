@@ -178,13 +178,39 @@
 
 
  # 自定义属性
- #### 1、圆角属性 app:hl_cornerRadius="18dp"
- - 阴影圆角属性（同时如果设置了背景填充色也是背景圆角）
+ 
+ ## 一、关于阴影
+ #### 1、是否展示阴影 app:hl_shadowHidden="true"
+ - true为隐藏
  <br>
-  
- #### 2、阴影扩散程度 app:hl_shadowLimit="5dp"
+ 
+ #### 2、阴影的颜色 app:hl_shadowColor="#29000000"
+ - 需要带透明度的颜色，如果不带透明度。默认设置透明底16%
+ <br>
+
+ #### 3、阴影扩散程度 app:hl_shadowLimit="5dp"
  - 阴影的扩散区域
   <br>
+  
+ #### 4、 控件区域是否对称，默认是对称。不对称的话，那么控件区域随着阴影区域走:app:hl_shadowSymmetry="false"
+ - 如下图：右边是对称，不管你怎么偏移，控件所占的区域都是均等的，这也造成了有些同学ui上不好控制。那么你可以加上app:hl_isSym="false"属性。控件区域随着阴影改变，如下图左边样子。
+<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/isSym_half.jpg" alt="Sample"  width="350">
+  
+ #### 5、x轴的偏移量 app:hl_shadowOffsetX="0dp"
+ - 也可以理解为左右偏移量
+  <br>
+  
+ #### 6、y轴的偏移量 app:hl_shadowOffsetY="0dp"
+ - 也可以理解为上下的偏移量
+  <br>
+  
+ #### 7、阴影的4边，隐藏哪一边 app:hl_shadowHiddenLeft="true"
+ - 左边的阴影不可见，其他3边保持不变，其他3边同理
+  <br>
+
+
+  
+  
   
  #### 3、阴影布局背景颜色值 app:hl_shadowBackColor="#fff"
  - 阴影布局背景填充色，同时注意圆角属性即是阴影圆角
@@ -194,17 +220,11 @@
  - 阴影的颜色可以随便改变,透明度的改变可以改变阴影的清晰程度，如果未设置透明度，则默认透明度为16% 
   <br>
 
- #### 5、x轴的偏移量 app:hl_dx="0dp"
- - 也可以理解为左右偏移量
-  <br>
- 
- #### 6、y轴的偏移量 app:hl_dy="0dp"
- - 也可以理解为上下的偏移量
-  <br>
 
- #### 7、阴影的4边可见不可见 app:hl_leftShow="false"
- - 左边的阴影不可见，其他3边保持不变
-  <br>
+ 
+
+
+
 
  #### 8、动态设置shape,selector。pressed和selected背景颜色值 app:hl_shadowBackColorClicked="#ff0000"
  - 不点击状态下，显示hl_shadowBackColor颜色值。点击时切换成hl_shadowBackColorClicked。松开手指后恢复正常；如果是setSelect（true）则显示hl_shadowBackColorClicked，false显示hl_shadowBackColor
@@ -218,9 +238,7 @@
  - 这个属性是因为有些同学只想使用shape和selector功能，那么就不使用阴影就好了
  <br>
  
- #### 11、 控件区域是否对称，默认是对称。不对称的话，那么控件区域随着阴影区域走:app:hl_isSym="false"
- - 如下图：右边是对称，不管你怎么偏移，控件所占的区域都是均等的，这也造成了有些同学ui上不好控制。那么你可以加上app:hl_isSym="false"属性。控件区域随着阴影改变，如下图左边样子。
-<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/isSym_half.jpg" alt="Sample"  width="350">
+
 
 <br>
 
