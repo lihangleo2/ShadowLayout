@@ -179,7 +179,7 @@
 
  # 自定义属性
  
- ## 一、关于阴影
+ ### 一、关于阴影
  #### 1、是否展示阴影 app:hl_shadowHidden="true"
  - true为隐藏
  <br>
@@ -208,44 +208,45 @@
  - 左边的阴影不可见，其他3边保持不变，其他3边同理
   <br>
 
-
-  
-  
-  
- #### 3、阴影布局背景颜色值 app:hl_shadowBackColor="#fff"
- - 阴影布局背景填充色，同时注意圆角属性即是阴影圆角
-  <br>
- 
- #### 4、阴影的颜色 app:hl_shadowColor="#2a000000"
- - 阴影的颜色可以随便改变,透明度的改变可以改变阴影的清晰程度，如果未设置透明度，则默认透明度为16% 
-  <br>
-
-
- 
-
-
-
-
- #### 8、动态设置shape,selector。pressed和selected背景颜色值 app:hl_shadowBackColorClicked="#ff0000"
- - 不点击状态下，显示hl_shadowBackColor颜色值。点击时切换成hl_shadowBackColorClicked。松开手指后恢复正常；如果是setSelect（true）则显示hl_shadowBackColorClicked，false显示hl_shadowBackColor
+ ### 二、关于圆角
+ #### 8、圆角 app:hl_cornerRadius="30dp"
+ - 统一大小，其中包括了阴影，shape、背景图、stroke边框圆角
  <br>
  
- #### 9、设置selector的样式 app:hl_selectorMode="selected"
- - selected表示只支持selected样式；pressed表示只支持点击状态；selected|pressed则表示2者都支持
+ #### 9、某个角的圆角 app:hl_cornerRadius_leftTop="0dp"
+ - 左上角圆角大小，设置后。左上角会忽略hl_cornerRadius的熟悉，其他边保持不变
+ <br>
+  
+ ### 三、关于shape及selector
+ #### 10、控件按压方式 app:hl_shapeMode="pressed"
+ - 有2种模式：pressed和selected。和系统一样。不难理解
+ <br>
+  
+ #### 11、false时：控件默认背景 app:hl_layoutBackground="#fff"
+ - 这里可以传颜色值，也可以传图片。当为false时的默认背景
+ <br>
+  
+ #### 12、true时：控件默认背景 app:hl_layoutBackground_true="#ff0000"
+ - 这里可以传颜色值，也可以传图片。当为true时的默认背景
  <br>
  
- #### 10、是否使用阴影 app:hl_isShowShadow="false"
- - 这个属性是因为有些同学只想使用shape和selector功能，那么就不使用阴影就好了
+ ### 四、关于stroke边框
+ #### 13、stroke边框线宽度 app:hl_strokeWith="1dp"
+ - stroke边宽，stroke的宽度
  <br>
  
+ #### 14、false时：边框默认颜色 app:hl_strokeColor="#fff"
+ - 边框颜色值。当为false时的默认颜色
+ <br>
 
+ #### 15、true时：边框默认颜色 app:hl_strokeColor_true="#ff0000"
+ - 边框颜色值。当为true时的默认颜色
+ <br>
+ 
+  #### 16、类似于系统的Clickable app:hl_layoutBackgroundClickableFalse="false"
+ - Clickable为false时，要展示的图片或颜色。注意，此属性应当在app:hl_shapeMode="pressed"生效。其他模式下只是不能点击，并不会展示此图
+ <br>
 
-<br>
-
-#### 11、更改控件4个圆角的大小：app:hl_cornerRadius_leftTop="0dp"；app:hl_cornerRadius_leftBottom="0dp"；app:hl_cornerRadius_rigthTop="0dp"；app:hl_cornerRadius_rightBottom="0dp"
-- 这个属性是单独控制某一个圆角的圆角大小
-
-<br>
 
 ## 关于作者。
 Android工作多年了，一直向往大厂。在前进的道路上是孤独的。如果你在学习的路上也感觉孤独，请和我一起。让我们在学习道路上少些孤独
