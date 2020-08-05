@@ -10,10 +10,46 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    //签名 (需要签名文件)
+    signingConfigs {
+        key {
+            storeFile file("atman.jks")//签名文件
+            storePassword "5888062"
+            keyAlias "fastMedical"
+            keyPassword "5888062"//签名密码
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.key
+        }
+    }
+
+    //多渠道打包
+    flavorDimensions "mark" //相当于一个标记
+    productFlavors {
+        medical { dimension "mark" }
+    }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [ATMAN_CHANNEL_VALUE: name]
+    }
+
+    //自定义打包时apk名字
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            // abc_渠道名_版本名.apk  还可以拼接其他app内容：variant.versionCode  variant.buildType.name
+            outputFileName = "ShadowLayout_${variant.versionName}_${variant.buildType.name}_${new Date().format("yyyy-MM-dd_HH_mm")}.apk"
+
         }
     }
 
