@@ -214,7 +214,7 @@
  <br>
  
  #### 9、某个角的圆角 app:hl_cornerRadius_leftTop="0dp"
- - 左上角圆角大小，设置后。左上角会忽略hl_cornerRadius的熟悉，其他边保持不变
+ - 左上角圆角大小，设置后。左上角会忽略hl_cornerRadius的熟悉，其他边保持不变。其他3个角同理
  <br>
   
  ### 三、关于shape及selector
