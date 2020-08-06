@@ -1,6 +1,6 @@
 [![](https://jitpack.io/v/lihangleo2/ShadowLayout.svg)](https://jitpack.io/#lihangleo2/ShadowLayout)
 
-## 万能阴影布局，定制化你要的阴影。 ShadowLayout 2.0震撼上线（需要阴影地方，被它嵌套即可享受阴影，阴影可定制化，效果赶超CardView）
+## 万能阴影布局，定制化你要的阴影。 ShadowLayout 3.0来袭（需要阴影地方，被它嵌套即可享受阴影，阴影可定制化，效果赶超CardView）
 * 支持定制化阴影
 * 支持随意更改阴影颜色值
 * 支持x,y轴阴影偏移 
