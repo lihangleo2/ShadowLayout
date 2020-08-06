@@ -214,20 +214,20 @@
  <br>
  
  #### 9、某个角的圆角 app:hl_cornerRadius_leftTop="0dp"
- - 左上角圆角大小，设置后。左上角会忽略hl_cornerRadius的熟悉，其他边保持不变。其他3个角同理
+ - 左上角圆角大小，设置后。左上角会忽略hl_cornerRadius的属性，其他角还是保持hl_cornerRadius的属性。其他3个角同理
  <br>
   
  ### 三、关于shape及selector
  #### 10、控件按压方式 app:hl_shapeMode="pressed"
- - 有2种模式：pressed和selected。和系统一样。不难理解
+ - 有2种模式：pressed和selected。和系统shape一样。不难理解
  <br>
   
- #### 11、false时：控件默认背景 app:hl_layoutBackground="#fff"
- - 这里可以传颜色值，也可以传图片。当为false时的默认背景
+ #### 11、控件默认背景：false。 app:hl_layoutBackground="#fff"
+ - 这里可以传颜色值，也可以传图片。当为false时的默认背景，也就是手指不点击或者松开后的样式
  <br>
   
- #### 12、true时：控件默认背景 app:hl_layoutBackground_true="#ff0000"
- - 这里可以传颜色值，也可以传图片。当为true时的默认背景
+ #### 12、控件默认背景：true。 app:hl_layoutBackground_true="#ff0000"
+ - 这里可以传颜色值，也可以传图片。当为true时的默认背景，也就是手指点击，按压时的样式
  <br>
  
  ### 四、关于stroke边框
@@ -235,16 +235,16 @@
  - stroke边宽，stroke的宽度
  <br>
  
- #### 14、false时：边框默认颜色 app:hl_strokeColor="#fff"
- - 边框颜色值。当为false时的默认颜色
+ #### 14、边框默认颜色：false。 app:hl_strokeColor="#fff"
+ - 边框颜色值。当为false时的默认边框颜色，也就是手指不点击或者松开后的边框样式
  <br>
 
- #### 15、true时：边框默认颜色 app:hl_strokeColor_true="#ff0000"
- - 边框颜色值。当为true时的默认颜色
+ #### 15、边框默认颜色：true。 app:hl_strokeColor_true="#ff0000"
+ - 边框颜色值。当为true时的默认边框颜色，也就是手指点击，按压时的边框样式
  <br>
  
   #### 16、类似于系统的Clickable app:hl_layoutBackgroundClickableFalse="false"
- - Clickable为false时，要展示的图片或颜色。注意，此属性应当在app:hl_shapeMode="pressed"生效。其他模式下只是不能点击，并不会展示此图
+ - Clickable为false时，要展示的图片或颜色。注意，此属性应当在app:hl_shapeMode="pressed"时生效。其他模式下只是不能点击，并不会展示此图
  <br>
 
 
