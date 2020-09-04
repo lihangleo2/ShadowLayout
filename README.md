@@ -243,8 +243,12 @@
  - 边框颜色值。当为true时的默认边框颜色，也就是手指点击，按压时的边框样式
  <br>
  
-  #### 16、类似于系统的Clickable app:hl_layoutBackgroundClickableFalse="false"
- - Clickable为false时，要展示的图片或颜色。注意，此属性应当在app:hl_shapeMode="pressed"时生效。其他模式下只是不能点击，并不会展示此图
+ #### 16、类似于系统的Clickable app:clickable="false"
+ - 设置ShadowLayout是否可以被点击。（这里不是系统的。不用系统的，是因为系统设置setOnclickListener时，会把clickable设置为true）；代码设置：mShadowLayout.setClickable(false);
+ <br>
+ 
+ #### 17、不可点击状态下的样式app:hl_layoutBackground_clickFalse="#c8c8c8" 
+ - Clickable为false时，要展示的图片或颜色。注意，此属性应当在app:hl_shapeMode="pressed"时生效。其他模式下只是不能点击，并不会展示此图。
  <br>
 
 
