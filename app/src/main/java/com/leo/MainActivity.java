@@ -11,18 +11,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViewById(R.id.ShadowLayout_wiki).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, WikiActivity.class));
-            }
+        findViewById(R.id.ShadowLayout_wiki).setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, WikiActivity.class));
         });
 
-        findViewById(R.id.ShadowLayout_shape).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ShapeActivity.class));
-            }
+        findViewById(R.id.ShadowLayout_shape).setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, ShapeActivity.class));
         });
+
     }
 }

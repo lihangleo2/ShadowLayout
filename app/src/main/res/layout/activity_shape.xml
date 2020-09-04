@@ -250,7 +250,7 @@
                 app:hl_cornerRadius="30dp"
                 app:hl_cornerRadius_leftTop="0dp"
                 app:hl_layoutBackground="#325FE3"
-                app:hl_layoutBackgroundClickableFalse="#89898989"
+                app:hl_layoutBackground_clickFalse="#89898989"
                 app:hl_layoutBackground_true="#89325FE3"
                 app:hl_shapeMode="pressed">
 

@@ -14,12 +14,14 @@ import com.lihang.ShadowLayout;
  */
 public class WikiActivity extends AppCompatActivity {
     ShadowLayout ShadowLayoutIntent;
+    ShadowLayout ShadowLayoutSelect;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wiki);
         ShadowLayoutIntent = findViewById(R.id.ShadowLayoutIntent);
+        ShadowLayoutSelect = findViewById(R.id.ShadowLayoutSelect);
         ShadowLayoutIntent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -27,5 +29,8 @@ public class WikiActivity extends AppCompatActivity {
             }
         });
 
+        ShadowLayoutSelect.setOnClickListener(v -> {
+            ShadowLayoutSelect.setSelected(!ShadowLayoutSelect.isSelected());
+        });
     }
 }

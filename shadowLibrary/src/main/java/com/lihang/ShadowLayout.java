@@ -15,6 +15,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.os.Build;
+import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -57,7 +58,7 @@ public class ShadowLayout extends FrameLayout {
     //阴影布局子空间区域
     private RectF rectf = new RectF();
 
-    //ShadowLayout的样式，是只需要pressed还是selected,还是2者都需要，默认支持2者
+    //ShadowLayout的样式，是只需要pressed还是selected。默认是pressed.
     private int selectorType = 1;
     private boolean isShowShadow = true;
     private boolean isSym;
@@ -90,28 +91,44 @@ public class ShadowLayout extends FrameLayout {
         initView(context, attrs);
     }
 
-    @Override
+
     public void setClickable(boolean clickable) {
         super.setClickable(clickable);
         this.isClickable = clickable;
+        Log.e("我的天在的", "00000000000");
         changeSwitchClickable();
     }
 
 
+    @Override
+    public void setOnClickListener(@Nullable OnClickListener l) {
+        if (isClickable) {
+            super.setOnClickListener(l);
+        }
+    }
+
     public void changeSwitchClickable() {
         //不可点击的状态只在press mode的模式下生效
+        Log.e("我的天在的", "====" + (firstView != null));
         if (selectorType == 1 && firstView != null) {
+
+            Log.e("我的天在的", "11111111111");
             //press mode
             if (!isClickable) {
                 //不可点击的状态。
+                Log.e("我的天在的", "222");
                 if (clickAbleFalseColor != -1) {
                     //说明设置了颜色
                     if (layoutBackground != null) {
                         //说明此时是设置了图片的模式
                         firstView.getBackground().setAlpha(0);
                     }
+                    Log.e("我的天在的", "333333");
                     paint.setColor(clickAbleFalseColor);
                     postInvalidate();
+                    Log.e("我的天在的", "4444444444444");
+
+
                 } else if (clickAbleFalseDrawable != null) {
                     //说明设置了背景图
                     setmBackGround(clickAbleFalseDrawable);
@@ -137,7 +154,7 @@ public class ShadowLayout extends FrameLayout {
     @Override
     public void setSelected(boolean selected) {
         super.setSelected(selected);
-
+        Log.e("到底是什么鬼", selected + " == ");
         if (selectorType == 2) {
             if (selected) {
                 if (mBackGroundColor_true != -1) {
@@ -146,6 +163,7 @@ public class ShadowLayout extends FrameLayout {
                 if (stroke_color_true != -1) {
                     paint_stroke.setColor(stroke_color_true);
                 }
+                Log.e("到底是什么鬼", (layoutBackground_true != null) + " ==== ");
                 if (layoutBackground_true != null) {
                     setmBackGround(layoutBackground_true);
                 }
@@ -161,10 +179,16 @@ public class ShadowLayout extends FrameLayout {
 
             }
             postInvalidate();
-
         }
     }
 
+
+    public void setShowShadow(boolean isShowShadow) {
+        this.isShowShadow = isShowShadow;
+        if (getWidth() != 0 && getHeight() != 0) {
+            setBackgroundCompat(getWidth(), getHeight());
+        }
+    }
 
     //动态设置x轴偏移量
     public void setMDx(float mDx) {
@@ -247,10 +271,49 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        firstView = getChildAt(0);
+        if (firstView == null) {
+            firstView = ShadowLayout.this;
+            //当子View都没有的时候。默认不使用阴影
+            isShowShadow = false;
+        }
+
+        if (firstView != null) {
+
+            //selector样式不受clickable的影响
+
+            if (selectorType == 2) {
+                //如果是selector的模式下
+                if (this.isSelected()) {
+                    //这个方法内已经判断了是否为空
+                    setmBackGround(layoutBackground_true);
+                } else {
+                    setmBackGround(layoutBackground);
+                }
+            } else {
+                if (isClickable) {
+                    setmBackGround(layoutBackground);
+                } else {
+                    setmBackGround(clickAbleFalseDrawable);
+                    if (clickAbleFalseColor != -1) {
+                        paint.setColor(clickAbleFalseColor);
+                    }
+                }
+            }
+
+        }
+
+    }
+
+
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-
+        Log.e("哪个先呢", "onSizeChanged");
         if (w > 0 && h > 0) {
             setBackgroundCompat(w, h);
         }
@@ -367,6 +430,7 @@ public class ShadowLayout extends FrameLayout {
 
     @SuppressWarnings("deprecation")
     private void setBackgroundCompat(int w, int h) {
+        Log.e("是哪个先走的", "111111");
         if (isShowShadow) {
             //判断传入的颜色值是否有透明度
             isAddAlpha(mShadowColor);
@@ -408,6 +472,7 @@ public class ShadowLayout extends FrameLayout {
 
         try {
             //默认是显示
+            Log.e("是哪个先走的", "888888");
             isShowShadow = !attr.getBoolean(R.styleable.ShadowLayout_hl_shadowHidden, false);
             leftShow = !attr.getBoolean(R.styleable.ShadowLayout_hl_shadowHiddenLeft, false);
             rightShow = !attr.getBoolean(R.styleable.ShadowLayout_hl_shadowHiddenRight, false);
@@ -443,17 +508,22 @@ public class ShadowLayout extends FrameLayout {
                 if (background instanceof ColorDrawable) {
                     ColorDrawable colordDrawable = (ColorDrawable) background;
                     mBackGroundColor = colordDrawable.getColor();
+
                 } else {
                     layoutBackground = background;
                 }
             }
 
-
+            Log.e("这里的颜色值怎么不出来", mBackGroundColor_true + "  !!!!");
             Drawable trueBackground = attr.getDrawable(R.styleable.ShadowLayout_hl_layoutBackground_true);
             if (trueBackground != null) {
                 if (trueBackground instanceof ColorDrawable) {
                     ColorDrawable colordDrawableTrue = (ColorDrawable) trueBackground;
                     mBackGroundColor_true = colordDrawableTrue.getColor();
+                    //因为用了-1为未设置颜色的标志， 刚好白色就为-1！！！。所以给一个稍微一点的透明度
+                    if (mBackGroundColor_true == -1) {
+                        mBackGroundColor_true = getResources().getColor(R.color.default_white_bug);
+                    }
                 } else {
                     layoutBackground_true = trueBackground;
                 }
@@ -469,7 +539,13 @@ public class ShadowLayout extends FrameLayout {
 
             //边框颜色的点击
             stroke_color = attr.getColor(R.styleable.ShadowLayout_hl_strokeColor, -1);
+            if (stroke_color == -1) {
+                stroke_color = getResources().getColor(R.color.default_white_bug);
+            }
             stroke_color_true = attr.getColor(R.styleable.ShadowLayout_hl_strokeColor_true, -1);
+            if (stroke_color_true == -1) {
+                stroke_color_true = getResources().getColor(R.color.default_white_bug);
+            }
             if (stroke_color == -1 && stroke_color_true != -1) {
                 throw new UnsupportedOperationException("使用了ShadowLayout_hl_strokeColor_true属性，必须先设置ShadowLayout_hl_strokeColor属性");
             }
@@ -481,43 +557,27 @@ public class ShadowLayout extends FrameLayout {
             }
 
 
-            Drawable clickAbleFalseBackground = attr.getDrawable(R.styleable.ShadowLayout_hl_layoutBackgroundClickableFalse);
+            Drawable clickAbleFalseBackground = attr.getDrawable(R.styleable.ShadowLayout_hl_layoutBackground_clickFalse);
             if (clickAbleFalseBackground != null) {
                 if (clickAbleFalseBackground instanceof ColorDrawable) {
                     ColorDrawable colordDrawableClickableFalse = (ColorDrawable) clickAbleFalseBackground;
                     clickAbleFalseColor = colordDrawableClickableFalse.getColor();
+                    if (clickAbleFalseColor == -1) {
+                        clickAbleFalseColor = getResources().getColor(R.color.default_white_bug);
+                    }
                 } else {
                     clickAbleFalseDrawable = clickAbleFalseBackground;
                 }
             }
 
-
-            isClickable = true;
-            setClickable(true);
+            isClickable = attr.getBoolean(R.styleable.ShadowLayout_clickable, true);
+            Log.e("我的天在的", isClickable + "");
+            setClickable(isClickable);
 
 
         } finally {
             attr.recycle();
         }
-    }
-
-
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    @Override
-    protected void onFinishInflate() {
-        super.onFinishInflate();
-        firstView = getChildAt(0);
-        if (firstView != null) {
-            if (layoutBackground != null) {
-                if (isClickable) {
-                    setmBackGround(layoutBackground);
-                } else {
-                    changeSwitchClickable();
-                }
-
-            }
-        }
-
     }
 
 
@@ -712,7 +772,7 @@ public class ShadowLayout extends FrameLayout {
             ShapeDrawable mDrawables = new ShapeDrawable(new RoundRectShape(outerR, null, null));
             mDrawables.getPaint().setColor(paint.getColor());
 //            mDrawables.setBounds((int) (leftPadding + stroke_with), (int) (topPadding + stroke_with), (int) (getWidth() - rightPadding - stroke_with), (int) (getHeight() - bottomPadding - stroke_with));
-            mDrawables.setBounds(leftPadding, topPadding,getWidth() - rightPadding, getHeight() - bottomPadding);
+            mDrawables.setBounds(leftPadding, topPadding, getWidth() - rightPadding, getHeight() - bottomPadding);
             mDrawables.draw(canvas);
 
             ShapeDrawable mDrawablesStroke = new ShapeDrawable(new RoundRectShape(outerR, null, null));
@@ -720,7 +780,7 @@ public class ShadowLayout extends FrameLayout {
             mDrawablesStroke.getPaint().setStyle(Paint.Style.STROKE);
             mDrawablesStroke.getPaint().setStrokeWidth(stroke_with);
 //            mDrawablesStroke.setBounds(leftPadding, topPadding, getWidth() - rightPadding, getHeight() - bottomPadding);
-            mDrawablesStroke.setBounds((int) (leftPadding+stroke_with/2), (int) (topPadding+stroke_with/2), (int) (getWidth() - rightPadding-stroke_with/2), (int) (getHeight() - bottomPadding-stroke_with/2));
+            mDrawablesStroke.setBounds((int) (leftPadding + stroke_with / 2), (int) (topPadding + stroke_with / 2), (int) (getWidth() - rightPadding - stroke_with / 2), (int) (getHeight() - bottomPadding - stroke_with / 2));
             mDrawablesStroke.draw(canvas);
         } else {
             ShapeDrawable mDrawables = new ShapeDrawable(new RoundRectShape(outerR, null, null));
@@ -800,8 +860,6 @@ public class ShadowLayout extends FrameLayout {
                                 setmBackGround(layoutBackground);
                             }
                             postInvalidate();
-                        } else {
-                            ShadowLayout.this.setSelected(!ShadowLayout.this.isSelected());
                         }
                         break;
                 }
@@ -812,6 +870,10 @@ public class ShadowLayout extends FrameLayout {
 
 
     public void setmBackGround(Drawable drawable) {
+        Log.e("到底是什么鬼", (firstView != null) + " !!!! ==== ");
+        Log.e("到底是什么鬼", (drawable != null) + " !!!! ");
+
+
         if (firstView != null && drawable != null) {
             if (mCornerRadius_leftTop == -1 && mCornerRadius_leftBottom == -1 && mCornerRadius_rightTop == -1 && mCornerRadius_rightBottom == -1) {
                 GlideRoundUtils.setRoundCorner(firstView, drawable, mCornerRadius);

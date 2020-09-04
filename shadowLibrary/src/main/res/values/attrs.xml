@@ -58,8 +58,10 @@
         <attr name="hl_strokeColor_true" format="color" />
 
 
-        <!-- Clickable为false时，要展示的图片或颜色-->
-        <attr name="hl_layoutBackgroundClickableFalse" format="reference|color" />
+        <!-- 这里最终舍弃了系统clickable的方案，因为系统系统主动设置setOnClickListener后，会主动设置成true,所以这里采用自定义 -->
+        <attr name="clickable" format="boolean" />
+        <!-- hl_clickable为false时，要展示的图片或颜色-->
+        <attr name="hl_layoutBackground_clickFalse" format="reference|color" />
 
 
     </declare-styleable>
