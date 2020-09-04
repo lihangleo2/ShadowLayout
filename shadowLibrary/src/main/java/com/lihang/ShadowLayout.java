@@ -31,14 +31,14 @@ import android.widget.FrameLayout;
 public class ShadowLayout extends FrameLayout {
     //上传不了？
     private Drawable clickAbleFalseDrawable;
-    private int clickAbleFalseColor = -1;
+    private int clickAbleFalseColor = -101;
 
     private Drawable layoutBackground;
     private Drawable layoutBackground_true;
     private View firstView;
 
     private int mBackGroundColor;
-    private int mBackGroundColor_true = -1;
+    private int mBackGroundColor_true = -101;
     private int mShadowColor;
     private float mShadowLimit;
     private float mCornerRadius;
@@ -113,7 +113,7 @@ public class ShadowLayout extends FrameLayout {
             //press mode
             if (!isClickable) {
                 //不可点击的状态。
-                if (clickAbleFalseColor != -1) {
+                if (clickAbleFalseColor != -101) {
                     //说明设置了颜色
                     if (layoutBackground != null) {
                         //说明此时是设置了图片的模式
@@ -150,10 +150,10 @@ public class ShadowLayout extends FrameLayout {
         super.setSelected(selected);
         if (selectorType == 2) {
             if (selected) {
-                if (mBackGroundColor_true != -1) {
+                if (mBackGroundColor_true != -101) {
                     paint.setColor(mBackGroundColor_true);
                 }
-                if (stroke_color_true != -1) {
+                if (stroke_color_true != -101) {
                     paint_stroke.setColor(stroke_color_true);
                 }
                 if (layoutBackground_true != null) {
@@ -161,7 +161,8 @@ public class ShadowLayout extends FrameLayout {
                 }
             } else {
                 paint.setColor(mBackGroundColor);
-                if (stroke_color != -1) {
+
+                if (stroke_color != -101) {
                     paint_stroke.setColor(stroke_color);
                 }
 
@@ -291,7 +292,7 @@ public class ShadowLayout extends FrameLayout {
                     setmBackGround(layoutBackground);
                 } else {
                     setmBackGround(clickAbleFalseDrawable);
-                    if (clickAbleFalseColor != -1) {
+                    if (clickAbleFalseColor != -101) {
                         paint.setColor(clickAbleFalseColor);
                     }
                 }
@@ -321,7 +322,7 @@ public class ShadowLayout extends FrameLayout {
         paint_stroke.setAntiAlias(true);
         paint_stroke.setStyle(Paint.Style.STROKE);
         paint_stroke.setStrokeWidth(stroke_with);
-        if (stroke_color != -1) {
+        if (stroke_color != -101) {
             paint_stroke.setColor(stroke_color);
         }
 
@@ -508,16 +509,13 @@ public class ShadowLayout extends FrameLayout {
                 if (trueBackground instanceof ColorDrawable) {
                     ColorDrawable colordDrawableTrue = (ColorDrawable) trueBackground;
                     mBackGroundColor_true = colordDrawableTrue.getColor();
-                    //因为用了-1为未设置颜色的标志， 刚好白色就为-1！！！。所以给一个稍微一点的透明度
-                    if (mBackGroundColor_true == -1) {
-                        mBackGroundColor_true = getResources().getColor(R.color.default_white_bug);
-                    }
+
                 } else {
                     layoutBackground_true = trueBackground;
                 }
             }
 
-            if (mBackGroundColor_true != -1 && layoutBackground != null) {
+            if (mBackGroundColor_true != -101 && layoutBackground != null) {
                 throw new UnsupportedOperationException("使用了ShadowLayout_hl_layoutBackground_true属性，必须先设置ShadowLayout_hl_layoutBackground属性。且设置颜色时，必须保持都为颜色");
             }
 
@@ -526,15 +524,10 @@ public class ShadowLayout extends FrameLayout {
             }
 
             //边框颜色的点击
-            stroke_color = attr.getColor(R.styleable.ShadowLayout_hl_strokeColor, -1);
-            if (stroke_color == -1) {
-                stroke_color = getResources().getColor(R.color.default_white_bug);
-            }
-            stroke_color_true = attr.getColor(R.styleable.ShadowLayout_hl_strokeColor_true, -1);
-            if (stroke_color_true == -1) {
-                stroke_color_true = getResources().getColor(R.color.default_white_bug);
-            }
-            if (stroke_color == -1 && stroke_color_true != -1) {
+            stroke_color = attr.getColor(R.styleable.ShadowLayout_hl_strokeColor, -101);
+            stroke_color_true = attr.getColor(R.styleable.ShadowLayout_hl_strokeColor_true, -101);
+
+            if (stroke_color == -101 && stroke_color_true != -101) {
                 throw new UnsupportedOperationException("使用了ShadowLayout_hl_strokeColor_true属性，必须先设置ShadowLayout_hl_strokeColor属性");
             }
 
@@ -550,9 +543,6 @@ public class ShadowLayout extends FrameLayout {
                 if (clickAbleFalseBackground instanceof ColorDrawable) {
                     ColorDrawable colordDrawableClickableFalse = (ColorDrawable) clickAbleFalseBackground;
                     clickAbleFalseColor = colordDrawableClickableFalse.getColor();
-                    if (clickAbleFalseColor == -1) {
-                        clickAbleFalseColor = getResources().getColor(R.color.default_white_bug);
-                    }
                 } else {
                     clickAbleFalseDrawable = clickAbleFalseBackground;
                 }
@@ -683,7 +673,7 @@ public class ShadowLayout extends FrameLayout {
 
                     //画圆角矩形
                     canvas.drawRoundRect(rectf, trueHeight / 2, trueHeight / 2, paint);
-                    if (stroke_color != -1) {
+                    if (stroke_color != -101) {
                         RectF rectFStroke = new RectF(rectf.left + stroke_with / 2, rectf.top + stroke_with / 2, rectf.right - stroke_with / 2, rectf.bottom - stroke_with / 2);
                         canvas.drawRoundRect(rectFStroke, trueHeight / 2, trueHeight / 2, paint_stroke);
                     }
@@ -691,7 +681,7 @@ public class ShadowLayout extends FrameLayout {
                 } else {
 
                     canvas.drawRoundRect(rectf, mCornerRadius, mCornerRadius, paint);
-                    if (stroke_color != -1) {
+                    if (stroke_color != -101) {
                         RectF rectFStroke = new RectF(rectf.left + stroke_with / 2, rectf.top + stroke_with / 2, rectf.right - stroke_with / 2, rectf.bottom - stroke_with / 2);
                         canvas.drawRoundRect(rectFStroke, mCornerRadius, mCornerRadius, paint_stroke);
                     }
@@ -753,7 +743,7 @@ public class ShadowLayout extends FrameLayout {
 
         float[] outerR = new float[]{leftTop, leftTop, rightTop, rightTop, rightBottom, rightBottom, leftBottom, leftBottom};//左上，右上，右下，左下
 
-        if (stroke_color != -1) {
+        if (stroke_color != -101) {
 
 
             ShapeDrawable mDrawables = new ShapeDrawable(new RoundRectShape(outerR, null, null));
@@ -814,17 +804,18 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (mBackGroundColor_true != -1 || stroke_color_true != -1 || layoutBackground_true != null) {
+        if (mBackGroundColor_true != -101 || stroke_color_true != -101 || layoutBackground_true != null) {
             if (isClickable) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         if (selectorType == 1) {
-                            if (mBackGroundColor_true != -1) {
+                            if (mBackGroundColor_true != -101) {
                                 paint.setColor(mBackGroundColor_true);
                             }
-                            if (stroke_color_true != -1) {
+                            if (stroke_color_true != -101) {
                                 paint_stroke.setColor(stroke_color_true);
                             }
 
@@ -839,7 +830,7 @@ public class ShadowLayout extends FrameLayout {
                     case MotionEvent.ACTION_UP:
                         if (selectorType == 1) {
                             paint.setColor(mBackGroundColor);
-                            if (stroke_color != -1) {
+                            if (stroke_color != -101) {
                                 paint_stroke.setColor(stroke_color);
                             }
 

@@ -2,5 +2,4 @@
 <resources>
     <color name="default_shadow_color">#2a000000</color>
     <color name="default_shadowback_color">#fff</color>
-    <color name="default_white_bug">#FCFFFFFF</color>
 </resources>
