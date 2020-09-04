@@ -29,6 +29,7 @@ import android.widget.FrameLayout;
  */
 
 public class ShadowLayout extends FrameLayout {
+    //上传不了？
     private Drawable clickAbleFalseDrawable;
     private int clickAbleFalseColor = -1;
 
