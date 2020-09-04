@@ -18,7 +18,6 @@ import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -95,7 +94,6 @@ public class ShadowLayout extends FrameLayout {
     public void setClickable(boolean clickable) {
         super.setClickable(clickable);
         this.isClickable = clickable;
-        Log.e("我的天在的", "00000000000");
         changeSwitchClickable();
     }
 
@@ -109,24 +107,19 @@ public class ShadowLayout extends FrameLayout {
 
     public void changeSwitchClickable() {
         //不可点击的状态只在press mode的模式下生效
-        Log.e("我的天在的", "====" + (firstView != null));
         if (selectorType == 1 && firstView != null) {
 
-            Log.e("我的天在的", "11111111111");
             //press mode
             if (!isClickable) {
                 //不可点击的状态。
-                Log.e("我的天在的", "222");
                 if (clickAbleFalseColor != -1) {
                     //说明设置了颜色
                     if (layoutBackground != null) {
                         //说明此时是设置了图片的模式
                         firstView.getBackground().setAlpha(0);
                     }
-                    Log.e("我的天在的", "333333");
                     paint.setColor(clickAbleFalseColor);
                     postInvalidate();
-                    Log.e("我的天在的", "4444444444444");
 
 
                 } else if (clickAbleFalseDrawable != null) {
@@ -154,7 +147,6 @@ public class ShadowLayout extends FrameLayout {
     @Override
     public void setSelected(boolean selected) {
         super.setSelected(selected);
-        Log.e("到底是什么鬼", selected + " == ");
         if (selectorType == 2) {
             if (selected) {
                 if (mBackGroundColor_true != -1) {
@@ -163,7 +155,6 @@ public class ShadowLayout extends FrameLayout {
                 if (stroke_color_true != -1) {
                     paint_stroke.setColor(stroke_color_true);
                 }
-                Log.e("到底是什么鬼", (layoutBackground_true != null) + " ==== ");
                 if (layoutBackground_true != null) {
                     setmBackGround(layoutBackground_true);
                 }
@@ -313,7 +304,6 @@ public class ShadowLayout extends FrameLayout {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        Log.e("哪个先呢", "onSizeChanged");
         if (w > 0 && h > 0) {
             setBackgroundCompat(w, h);
         }
@@ -430,7 +420,6 @@ public class ShadowLayout extends FrameLayout {
 
     @SuppressWarnings("deprecation")
     private void setBackgroundCompat(int w, int h) {
-        Log.e("是哪个先走的", "111111");
         if (isShowShadow) {
             //判断传入的颜色值是否有透明度
             isAddAlpha(mShadowColor);
@@ -472,7 +461,6 @@ public class ShadowLayout extends FrameLayout {
 
         try {
             //默认是显示
-            Log.e("是哪个先走的", "888888");
             isShowShadow = !attr.getBoolean(R.styleable.ShadowLayout_hl_shadowHidden, false);
             leftShow = !attr.getBoolean(R.styleable.ShadowLayout_hl_shadowHiddenLeft, false);
             rightShow = !attr.getBoolean(R.styleable.ShadowLayout_hl_shadowHiddenRight, false);
@@ -514,7 +502,6 @@ public class ShadowLayout extends FrameLayout {
                 }
             }
 
-            Log.e("这里的颜色值怎么不出来", mBackGroundColor_true + "  !!!!");
             Drawable trueBackground = attr.getDrawable(R.styleable.ShadowLayout_hl_layoutBackground_true);
             if (trueBackground != null) {
                 if (trueBackground instanceof ColorDrawable) {
@@ -571,7 +558,6 @@ public class ShadowLayout extends FrameLayout {
             }
 
             isClickable = attr.getBoolean(R.styleable.ShadowLayout_clickable, true);
-            Log.e("我的天在的", isClickable + "");
             setClickable(isClickable);
 
 
@@ -870,9 +856,6 @@ public class ShadowLayout extends FrameLayout {
 
 
     public void setmBackGround(Drawable drawable) {
-        Log.e("到底是什么鬼", (firstView != null) + " !!!! ==== ");
-        Log.e("到底是什么鬼", (drawable != null) + " !!!! ");
-
 
         if (firstView != null && drawable != null) {
             if (mCornerRadius_leftTop == -1 && mCornerRadius_leftBottom == -1 && mCornerRadius_rightTop == -1 && mCornerRadius_rightBottom == -1) {
