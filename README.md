@@ -10,12 +10,11 @@
 * 支持ShadowLayout背景填充颜色，背景圆角随阴影圆角改变
 * 控件支持动态设置shape和selector（项目里再也不用画shape了）
 
-#### 3.0.1更新功能及ShadowLayout成长历程
-* 完善shape功能，解放你的drawable文件。包括有：图片selector、shape selector、stroke selector
-* ShadowLayout提供了背景圆角方案
-* 修改了部分单词拼写错误，及大量属性命名。更规范
-* 其中也加上了设置Clickable ="false"的样式。
-* 修改了目前已知bug，及修改和完善了不规则圆角的阴影方案
+#### 3.0.2更新功能及ShadowLayout成长历程
+* 修改了select时，内部设置点击，占据焦点的问题
+* 解决了在recyclerView中，adapter.notifyItemChange时，setSelect(true)第一次失效的问题
+* 解决clickable无效问题
+* 增加了代码设置阴影是否可见
  [Shadow成长历程](https://github.com/lihangleo2/ShadowLayout/wiki)  
  
  #### 注意
