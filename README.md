@@ -13,6 +13,7 @@
 #### 3.0.4更新功能及ShadowLayout成长历程
 * 修复在xml设置app:clickable="false"时，代码设置为true时，点击事件失效。
 * 修改issues#57下的代码规范，非常感谢lydlovezjr同学[issues57](https://github.com/lihangleo2/ShadowLayout/issues/57)
+
  [Shadow成长历程](https://github.com/lihangleo2/ShadowLayout/wiki)  
  
  #### 注意
