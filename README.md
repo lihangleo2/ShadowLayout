@@ -10,11 +10,9 @@
 * 支持ShadowLayout背景填充颜色，背景圆角随阴影圆角改变
 * 控件支持动态设置shape和selector（项目里再也不用画shape了）
 
-#### 3.0.3更新功能及ShadowLayout成长历程
-* 修改了select时，内部设置点击，占据焦点的问题
-* 解决了在recyclerView中，adapter.notifyItemChange时，setSelect(true)第一次失效的问题
-* 解决clickable无效问题
-* 增加了代码设置阴影是否可见
+#### 3.0.4更新功能及ShadowLayout成长历程
+* 修复在xml设置app:clickable="false"时，代码设置为true时，点击事件失效。
+* 修改issues#57下的代码规范，非常感谢lydlovezjr同学[issues57](https://github.com/lihangleo2/ShadowLayout/issues/57)
  [Shadow成长历程](https://github.com/lihangleo2/ShadowLayout/wiki)  
  
  #### 注意
@@ -57,7 +55,7 @@
  - app build.gradle添加如下
     ```java
    dependencies {
-	        implementation 'com.github.lihangleo2:ShadowLayout:3.0.3'
+	        implementation 'com.github.lihangleo2:ShadowLayout:3.0.4'
 	}
    ```
    
