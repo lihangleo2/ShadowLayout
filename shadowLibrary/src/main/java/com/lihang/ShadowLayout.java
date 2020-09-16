@@ -29,7 +29,6 @@ import android.widget.FrameLayout;
  */
 
 public class ShadowLayout extends FrameLayout {
-    //上传不了？
     private Drawable clickAbleFalseDrawable;
     private int clickAbleFalseColor = -101;
 
@@ -96,11 +95,17 @@ public class ShadowLayout extends FrameLayout {
         super.setClickable(clickable);
         this.isClickable = clickable;
         changeSwitchClickable();
+        if (isClickable) {
+            super.setOnClickListener(onClickListener);
+        }
     }
 
 
+    //解决xml设置clickable = false时。代码设置true时，点击事件无效的bug
+    private OnClickListener onClickListener;
     @Override
     public void setOnClickListener(@Nullable OnClickListener l) {
+        this.onClickListener = l;
         if (isClickable) {
             super.setOnClickListener(l);
         }
@@ -194,7 +199,7 @@ public class ShadowLayout extends FrameLayout {
         } else {
             this.mDx = mDx;
         }
-        setPading();
+        setPadding();
     }
 
     //动态设置y轴偏移量
@@ -208,7 +213,7 @@ public class ShadowLayout extends FrameLayout {
         } else {
             this.mDy = mDy;
         }
-        setPading();
+        setPadding();
     }
 
 
@@ -231,7 +236,7 @@ public class ShadowLayout extends FrameLayout {
     //动态设置阴影扩散区域
     public void setmShadowLimit(int mShadowLimit) {
         this.mShadowLimit = mShadowLimit;
-        setPading();
+        setPadding();
     }
 
     //动态设置阴影颜色值
@@ -245,22 +250,22 @@ public class ShadowLayout extends FrameLayout {
 
     public void setLeftShow(boolean leftShow) {
         this.leftShow = leftShow;
-        setPading();
+        setPadding();
     }
 
     public void setRightShow(boolean rightShow) {
         this.rightShow = rightShow;
-        setPading();
+        setPadding();
     }
 
     public void setTopShow(boolean topShow) {
         this.topShow = topShow;
-        setPading();
+        setPadding();
     }
 
     public void setBottomShow(boolean bottomShow) {
         this.bottomShow = bottomShow;
-        setPading();
+        setPadding();
     }
 
 
@@ -332,7 +337,7 @@ public class ShadowLayout extends FrameLayout {
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(mBackGroundColor);
 
-        setPading();
+        setPadding();
     }
 
 
@@ -341,7 +346,7 @@ public class ShadowLayout extends FrameLayout {
         return (int) (dipValue * scale + 0.5f);
     }
 
-    public void setPading() {
+    public void setPadding() {
         if (isShowShadow && mShadowLimit > 0) {
             //控件区域是否对称，默认是对称。不对称的话，那么控件区域随着阴影区域走
             if (isSym) {
@@ -496,8 +501,8 @@ public class ShadowLayout extends FrameLayout {
             Drawable background = attr.getDrawable(R.styleable.ShadowLayout_hl_layoutBackground);
             if (background != null) {
                 if (background instanceof ColorDrawable) {
-                    ColorDrawable colordDrawable = (ColorDrawable) background;
-                    mBackGroundColor = colordDrawable.getColor();
+                    ColorDrawable colorDrawable = (ColorDrawable) background;
+                    mBackGroundColor = colorDrawable.getColor();
 
                 } else {
                     layoutBackground = background;
@@ -507,8 +512,8 @@ public class ShadowLayout extends FrameLayout {
             Drawable trueBackground = attr.getDrawable(R.styleable.ShadowLayout_hl_layoutBackground_true);
             if (trueBackground != null) {
                 if (trueBackground instanceof ColorDrawable) {
-                    ColorDrawable colordDrawableTrue = (ColorDrawable) trueBackground;
-                    mBackGroundColor_true = colordDrawableTrue.getColor();
+                    ColorDrawable colorDrawableTrue = (ColorDrawable) trueBackground;
+                    mBackGroundColor_true = colorDrawableTrue.getColor();
 
                 } else {
                     layoutBackground_true = trueBackground;
@@ -541,8 +546,8 @@ public class ShadowLayout extends FrameLayout {
             Drawable clickAbleFalseBackground = attr.getDrawable(R.styleable.ShadowLayout_hl_layoutBackground_clickFalse);
             if (clickAbleFalseBackground != null) {
                 if (clickAbleFalseBackground instanceof ColorDrawable) {
-                    ColorDrawable colordDrawableClickableFalse = (ColorDrawable) clickAbleFalseBackground;
-                    clickAbleFalseColor = colordDrawableClickableFalse.getColor();
+                    ColorDrawable colorDrawableClickableFalse = (ColorDrawable) clickAbleFalseBackground;
+                    clickAbleFalseColor = colorDrawableClickableFalse.getColor();
                 } else {
                     clickAbleFalseDrawable = clickAbleFalseBackground;
                 }
@@ -802,7 +807,6 @@ public class ShadowLayout extends FrameLayout {
 
         return Color.parseColor(argb);
     }
-
 
 
     @Override

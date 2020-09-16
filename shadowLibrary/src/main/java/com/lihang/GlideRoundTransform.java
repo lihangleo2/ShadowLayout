@@ -23,7 +23,7 @@ import java.security.MessageDigest;
  * Created by leo
  * on 2019/12/2.
  * <p>
- * 这个是glid只加载2个圆角
+ * 这个是glide只加载2个圆角
  */
 public class GlideRoundTransform implements Transformation<Bitmap> {
     private BitmapPool mBitmapPool;
@@ -32,7 +32,7 @@ public class GlideRoundTransform implements Transformation<Bitmap> {
     private float leftBottom_radius;
     private float rightTop_radius;
     private float rightBottom_radius;
-    private boolean isLeftTop, isRightTop, isLeftBottom, isRightBotoom;
+    private boolean isLeftTop, isRightTop, isLeftBottom, isRightBottom;
 
 
     /**
@@ -54,7 +54,7 @@ public class GlideRoundTransform implements Transformation<Bitmap> {
         }
         this.rightBottom_radius = rightBottom_radius;
         if (rightBottom_radius != 0) {
-            isRightBotoom = true;
+            isRightBottom = true;
         }
     }
 
