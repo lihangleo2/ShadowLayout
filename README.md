@@ -1,6 +1,8 @@
+# 万能阴影布局-ShadowLayout
 [![](https://jitpack.io/v/lihangleo2/ShadowLayout.svg)](https://jitpack.io/#lihangleo2/ShadowLayout)
 
-# 万能阴影布局，定制化你要的阴影：ShadowLayout。 （嵌套后即可享受阴影，甩掉CardView几条街）
+## 特点功能
+嵌套后即可享受阴影，比CardView更好用、更方便也更强大
 
 ```
 支持定制化阴影：
