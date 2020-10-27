@@ -27,26 +27,26 @@
 <br>
 
 ## 效果展示
-为录制流程，截图分辨率模糊。可在下发扫描二维码下载，查看真机效果
-* #### 1.0功能展示
+为录制流畅，截图分辨率模糊。可在下方扫描二维码下载，查看真机效果
+* ### 1.0功能展示
 |基础功能展示|各属性展示|随意更改颜色|
 |:---:|:---:|:---:|
 |![](https://github.com/lihangleo2/ShadowLayout/blob/master/main.jpg)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/first_show.gif)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/other_show.gif)
 <br>
 
-* #### 2.0功能更新
+* ### 2.0功能更新
 |2.1.6新增shape,selector功能|2.1.7isSym属性对比|2.1.8单独更改某圆角大小|
 |:---:|:---:|:---:|
 |![](https://github.com/lihangleo2/ShadowLayout/blob/master/shape_gif.gif)|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/isSym_half.jpg" alt="Sample"  width="481">|![](https://github.com/lihangleo2/ShadowLayout/blob/master/corners.gif)
 <br>
 
-* #### 3.0.1版本来袭
+* ### 3.0.1版本来袭
 |stroke边框及点击|shape及图片selector|组合使用|
 |:---:|:---:|:---:|
 |![](https://github.com/lihangleo2/ShadowLayout/blob/master/stroke2.gif)|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/shapeSelector2.gif" alt="Sample"  width="481">|![](https://github.com/lihangleo2/ShadowLayout/blob/master/groupUse2.gif)
 <br>
 
-* #### 3.1.0新增ripple及渐变色
+* ### 3.1.0新增ripple及渐变色
 |stroke边框及点击|
 |:---:|
 |![](https://github.com/lihangleo2/ShadowLayout/blob/master/ripple.gif)|
@@ -54,7 +54,9 @@
 
 ## Demo
 扫描二维码下载demo，下载密码是：123456
+<br>
 ![](https://github.com/lihangleo2/ShadowLayout/blob/master/ShadowLayout_.png)
+
 <br>
 
 ## 添加依赖
@@ -239,8 +241,8 @@
 
 
 
-# 属性表格
-## 一、关于阴影
+## 属性表格
+### 一、关于阴影
 
 |name|format|description|
 |:---:|:---:|:---:|
@@ -254,7 +256,7 @@
 
 <br>
 
-## 二、关于圆角
+### 二、关于圆角
 |name|format|description|
 |:---:|:---:|:---:|
 |hl_cornerRadius|dimension|包括阴影圆角、shape圆角（dp）|
@@ -262,8 +264,8 @@
  
 <br>
 
-## 三、关于shape
-* ### 3.1、关于shape样式及背景色
+### 三、关于shape
+* #### 3.1、关于shape样式及背景色
 |name|format|description|
 |:---:|:---:|:---:|
 |hl_shapeMode|enum|有3种模式：pressed和selected。和系统shape一样，以及ripple点击水波纹|
@@ -272,7 +274,7 @@
  
 <br>
 
-* ### 3.2、关于stroke边框
+* #### 3.2、关于stroke边框
 |name|format|description|
 |:---:|:---:|:---:|
 |hl_strokeWith|dimension|stroke边框线宽度|
@@ -281,7 +283,7 @@
 
 <br>
 
-* ### 3.3、关于渐变色
+* #### 3.3、关于渐变色
 |name|format|description|
 |:---:|:---:|:---:|
 |hl_startColor|color|渐变起始颜色（设置渐变色后，hl_layoutBackground属性将无效）|
@@ -291,7 +293,7 @@
 
 <br>
 
-## 四、关于clickable
+### 四、关于clickable
 |name|format|description|
 |:---:|:---:|:---:|
 |clickable|boolean|设置ShadowLayout是否可以被点击；代码设置：mShadowLayout.setClickable(false);（默认true）|
