@@ -261,8 +261,8 @@
 |name|format|description|
 |:---:|:---:|:---:|
 |hl_shapeMode|enum|有3种模式：pressed和selected。和系统shape一样，以及ripple点击水波纹|
-|hl_layoutBackground|reference/color|背景色为false时展示：可以是颜色值，图片以及系统shape样式|
-|hl_layoutBackground_true|reference/color|背景色为true时展示：可以是颜色值，图片以及系统shape样式|
+|hl_layoutBackground|reference/color|背景色，为false时展示：可以是颜色值，图片以及系统shape样式|
+|hl_layoutBackground_true|reference/color|背景色，为true时展示：可以是颜色值，图片以及系统shape样式|
  
 <br>
 
@@ -270,8 +270,8 @@
 |name|format|description|
 |:---:|:---:|:---:|
 |hl_strokeWith|dimension|stroke边框线宽度|
-|hl_strokeColor|color|边框颜色值为false展示|
-|hl_strokeColor_true|color|边框颜色值为true展示|
+|hl_strokeColor|color|边框颜色值，为false展示|
+|hl_strokeColor_true|color|边框颜色值，为true展示|
 
 <br>
 
