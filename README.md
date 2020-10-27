@@ -46,7 +46,7 @@
 |![](https://github.com/lihangleo2/ShadowLayout/blob/master/ripple.gif)|
 <br>
 
-## 扫描二维体验效果(下载密码是：123456)
+## gif为了流畅清晰度模糊，扫描二维体验效果(下载密码是：123456)
 ![](https://github.com/lihangleo2/ShadowLayout/blob/master/ShadowLayout_.png)
 
 <br>
