@@ -301,6 +301,18 @@
  
 <br>
 
+## 赞赏
+
+如果你喜欢 ShadowLayout 的功能，感觉 ShadowLayout 帮助到了你，可以点右上角 "Star" 支持一下 谢谢！ ^_^
+你也还可以扫描下面的二维码~ 请作者喝一杯咖啡。
+
+![](https://github.com/lihangleo2/ShadowLayout/blob/master/pay_ali.png) ![](https://github.com/lihangleo2/ShadowLayout/blob/master/pay_wx.png)
+
+> 如果希望捐赠之后能获得相关的帮助，可以选择加入下面的付费群来取代普通捐赠，付费群可以直接获得作者的直接帮助，与问题反馈。
+
+如果在捐赠留言中备注名称，将会被记录到列表中~ 如果你也是github开源作者，捐赠时可以留下github项目地址或者个人主页地址，链接将会被添加到列表中起到互相推广的作用
+[捐赠列表](https://github.com/scwang90/SmartRefreshLayout/blob/master/art/md_donationlist.md)
+
 ## 其他作品
 [RichEditTextCopyToutiao](https://github.com/lihangleo2/RichEditTextCopyToutiao)  
 [mPro](https://github.com/lihangleo2/mPro)  
