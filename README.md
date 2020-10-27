@@ -1,14 +1,23 @@
 [![](https://jitpack.io/v/lihangleo2/ShadowLayout.svg)](https://jitpack.io/#lihangleo2/ShadowLayout)
 
-## 万能阴影布局，定制化你要的阴影。 ShadowLayout 3.0来袭（需要阴影地方，被它嵌套即可享受阴影，阴影可定制化，效果赶超CardView）
-* 支持定制化阴影
-* 支持随意更改阴影颜色值
-* 支持x,y轴阴影偏移 
-* 可随意更改阴影扩散区域 
-* 支持阴影圆角属性
-* 支持单边或多边不显示阴影
-* 支持ShadowLayout背景填充颜色，背景圆角随阴影圆角改变
-* 控件支持动态设置shape和selector（项目里再也不用画shape了）
+# 万能阴影布局，定制化你要的阴影：ShadowLayout。 （嵌套后即可享受阴影，甩掉CardView几条街）
+
+```
+支持定制化阴影：
+    1. 随意修改阴影颜色值
+    2. 阴影圆角：可统一设置圆角，也可对某几个角单独设置
+    3. x,y轴阴影偏移
+    4. 随意修改阴影扩散程度
+    5. 隐藏阴影：隐藏某边或多边阴影，或完全隐藏
+    
+不止于阴影；系统shape功能：项目中shape、selector、ripple统统拥有。解放你的双手，清空项目drawable文件夹
+    1. shape样式：pressed（按钮点击）、selected（按钮选择）、ripple（点击水波纹）
+    2. 背景色设置
+    3. stroke边框设置
+    4. 渐变色背景色值
+    5. 按钮是否可被点击
+```
+
 
 #### 3.1.0更新功能及ShadowLayout成长历程
 * shapeMode新增了ripple（点击水波纹样式），具体会在README中说明
