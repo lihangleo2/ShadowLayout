@@ -208,36 +208,23 @@
 
 
 
- # 自定义属性
- 
- ### 一、关于阴影
- #### 1、是否展示阴影 app:hl_shadowHidden="true"
- - true为隐藏
- <br>
- 
- #### 2、阴影的颜色 app:hl_shadowColor="#29000000"
- - 需要带透明度的颜色，如果不带透明度。默认设置透明底16%
- <br>
+# 属性表格
+## 一、关于阴影
 
- #### 3、阴影扩散程度 app:hl_shadowLimit="5dp"
- - 阴影的扩散区域
-  <br>
+|name|format|description|
+|:---:|:---:|:---:|
+|hl_shadowHidden|boolean|是否隐藏阴影（默认false）|
+|hl_shadowColor|color|阴影颜色值,如不带透明，默认透明16%|
+|hl_shadowLimit|dimension|阴影扩散程度（dp）|
+|hl_shadowOffsetX|dimension|x轴的偏移量（dp）|
+|hl_shadowOffsetY|dimension|y轴的偏移量（dp）|
+|hl_shadowHiddenLeft|boolean|左边的阴影不可见，其他3边同理|
+|hl_shadowSymmetry|boolean|控件区域是否对称（默认true）根据此图理解<br><img src="https://github.com/lihangleo2/ShadowLayout/blob/master/isSym_half.jpg" alt="Sample"  width="350">|
+
+ 
+
+ 
   
- #### 4、 控件区域是否对称，默认是对称。不对称的话，那么控件区域随着阴影区域走:app:hl_shadowSymmetry="false"
- - 如下图：右边是对称，不管你怎么偏移，控件所占的区域都是均等的，这也造成了有些同学ui上不好控制。那么你可以加上app:hl_isSym="false"属性。控件区域随着阴影改变，如下图左边样子。
-<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/isSym_half.jpg" alt="Sample"  width="350">
-  
- #### 5、x轴的偏移量 app:hl_shadowOffsetX="0dp"
- - 也可以理解为左右偏移量
-  <br>
-  
- #### 6、y轴的偏移量 app:hl_shadowOffsetY="0dp"
- - 也可以理解为上下的偏移量
-  <br>
-  
- #### 7、阴影的4边，隐藏哪一边 app:hl_shadowHiddenLeft="true"
- - 左边的阴影不可见，其他3边保持不变，其他3边同理
-  <br>
 
  ### 二、关于圆角
  #### 8、圆角 app:hl_cornerRadius="30dp"
