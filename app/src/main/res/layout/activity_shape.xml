@@ -271,7 +271,143 @@
                 android:layout_marginLeft="@dimen/dp_15"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="@dimen/dp_15"
-                android:text="3、组合用法"
+                android:text="3、渐变色的用法"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+
+            <com.lihang.ShadowLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                app:hl_cornerRadius="18dp"
+                app:hl_startColor="#ff0000"
+                app:hl_endColor="#0000ff"
+                >
+
+                <TextView
+                    android:layout_width="160dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="渐变色"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="#fff" />
+
+            </com.lihang.ShadowLayout>
+
+
+
+
+            <com.lihang.ShadowLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                app:hl_cornerRadius="18dp"
+                app:hl_layoutBackground_true="#ff0000"
+                app:hl_shadowColor="#4D0E5BE8"
+                app:hl_shadowLimit="7dp"
+                app:hl_shapeMode="pressed"
+                app:hl_startColor="#000"
+                app:hl_centerColor="#EE5F8F"
+                app:hl_endColor="#fff"
+                app:hl_angle="180"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="渐变色的selector，点我"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="#fff" />
+
+            </com.lihang.ShadowLayout>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="@dimen/dp_15"
+                android:text="4、ripple水波纹点击效果"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+
+            <com.lihang.ShadowLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                app:hl_cornerRadius="18dp"
+                app:hl_cornerRadius_leftTop="0dp"
+                app:hl_shadowColor="#2a000000"
+                app:hl_shadowLimit="7dp"
+                app:hl_layoutBackground="#fff"
+                app:hl_layoutBackground_true="#ff0000"
+                app:hl_shapeMode="ripple"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="点我，水波纹"
+                    android:textColor="#000" />
+
+            </com.lihang.ShadowLayout>
+
+
+
+
+            <com.lihang.ShadowLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                app:hl_cornerRadius="18dp"
+                app:hl_layoutBackground_true="#000000"
+                app:hl_shadowColor="#4D0E5BE8"
+                app:hl_shadowLimit="7dp"
+                app:hl_shapeMode="ripple"
+                app:hl_startColor="#EE5F8F"
+                app:hl_endColor="#fff"
+                app:hl_angle="180"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="渐变色的selector，点我"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="#fff" />
+
+            </com.lihang.ShadowLayout>
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="@dimen/dp_15"
+                android:text="5、组合用法"
                 android:textColor="#000"
                 android:textSize="15sp"
                 android:textStyle="bold" />

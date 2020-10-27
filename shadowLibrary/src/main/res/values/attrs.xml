@@ -43,6 +43,7 @@
         <attr name="hl_shapeMode">
             <enum name="pressed" value="1" />
             <enum name="selected" value="2" />
+            <enum name="ripple" value="3" />
         </attr>
 
         <!-- 为false的默认背景，可单独使用-->
@@ -62,6 +63,20 @@
         <attr name="clickable" format="boolean" />
         <!-- hl_clickable为false时，要展示的图片或颜色-->
         <attr name="hl_layoutBackground_clickFalse" format="reference|color" />
+
+
+
+
+        <!-- 4、关于填充的渐变色 -->
+        <!-- 要知道，如果设置了渐变色。那么将以渐变色为主。hl_layoutBackground属性将无效 -->
+        <!-- 渐变的起始颜色 -->
+        <attr name="hl_startColor" format="color" />
+        <!-- 渐变的中间颜色 -->
+        <attr name="hl_centerColor" format="color" />
+        <!-- 渐变的终止颜色 -->
+        <attr name="hl_endColor" format="color" />
+        <!-- 渐变角度，默认值为0-->
+        <attr name="hl_angle" format="integer" />
 
 
     </declare-styleable>
