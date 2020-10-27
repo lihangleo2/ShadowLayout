@@ -257,7 +257,7 @@
 <br>
 
 ## 三、关于shape
-### 3.1、关于shape样式及背景色
+* ### 3.1、关于shape样式及背景色
 |name|format|description|
 |:---:|:---:|:---:|
 |hl_shapeMode|enum|有3种模式：pressed和selected。和系统shape一样，以及ripple点击水波纹|
@@ -266,7 +266,7 @@
  
 <br>
 
-### 3.2、关于stroke边框
+* ### 3.2、关于stroke边框
 |name|format|description|
 |:---:|:---:|:---:|
 |hl_strokeWith|dimension|stroke边框线宽度|
@@ -275,7 +275,7 @@
 
 <br>
 
-### 3.3、关于渐变色
+* ### 3.3、关于渐变色
 |name|format|description|
 |:---:|:---:|:---:|
 |hl_startColor|color|渐变起始颜色（设置渐变色后，hl_layoutBackground属性将无效）|
