@@ -19,47 +19,42 @@
     4. 渐变色背景色值
     5. 按钮是否可被点击
 ```
-
-
-#### 3.1.0更新功能及ShadowLayout成长历程
-* shapeMode新增了ripple（点击水波纹样式），具体会在README中说明
-* ShadowLayout，新增了渐变色，这也是issues大量出现的需求，感谢大家的支持
-
- [Shadow成长历程](https://github.com/lihangleo2/ShadowLayout/wiki)  
- 
- #### 注意
- 因为3.0修改了大量api及规范命名，如不方便转移还在使用2.0的。可查看2.0文档[ShadowLayout 2.1.8](https://github.com/lihangleo2/ShadowLayout/blob/master/README218.md)  
 <br>
 
-### [最近有人反应内存情况，请看分析](https://juejin.im/post/5d4c1392f265da03bc126584#heading-12)
+## ShadowLayout动态
+* [ShadowLayout3.1.0更新内容，及以往成长](https://github.com/lihangleo2/ShadowLayout/wiki)  
+* 注意：3.0后修改大量api及规范命名，如果还在用2.0，不方便转移的可查看[ShadowLayout2.0文档](https://github.com/lihangleo2/ShadowLayout/blob/master/README218.md)  
+<br>
 
-## 效果展示（截图分辨率模糊，真机运行效果赶超CardView）
+## 效果展示
+为录制流程，截图分辨率模糊。可在下发扫描二维码下载，查看真机效果
+* #### 1.0功能展示
 |基础功能展示|各属性展示|随意更改颜色|
 |:---:|:---:|:---:|
 |![](https://github.com/lihangleo2/ShadowLayout/blob/master/main.jpg)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/first_show.gif)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/other_show.gif)
 <br>
 
-### 2.0功能更新
+* #### 2.0功能更新
 |2.1.6新增shape,selector功能|2.1.7isSym属性对比|2.1.8单独更改某圆角大小|
 |:---:|:---:|:---:|
 |![](https://github.com/lihangleo2/ShadowLayout/blob/master/shape_gif.gif)|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/isSym_half.jpg" alt="Sample"  width="481">|![](https://github.com/lihangleo2/ShadowLayout/blob/master/corners.gif)
 <br>
 
-### 3.0.1版本来袭
+* #### 3.0.1版本来袭
 |stroke边框及点击|shape及图片selector|组合使用|
 |:---:|:---:|:---:|
 |![](https://github.com/lihangleo2/ShadowLayout/blob/master/stroke2.gif)|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/shapeSelector2.gif" alt="Sample"  width="481">|![](https://github.com/lihangleo2/ShadowLayout/blob/master/groupUse2.gif)
 <br>
 
-### 3.1.0新增ripple及渐变色
+* #### 3.1.0新增ripple及渐变色
 |stroke边框及点击|
 |:---:|
 |![](https://github.com/lihangleo2/ShadowLayout/blob/master/ripple.gif)|
 <br>
 
-## gif为了流畅清晰度模糊，扫描二维体验效果(下载密码是：123456)
+## Demo
+扫描二维码下载demo，下载密码是：123456
 ![](https://github.com/lihangleo2/ShadowLayout/blob/master/ShadowLayout_.png)
-
 <br>
 
 ## 添加依赖
@@ -82,7 +77,7 @@
 <br>
 
 ## 基本使用
-### 一、阴影的简单使用
+* #### 一、阴影的简单使用
 ```xml
             <com.lihang.ShadowLayout
                 android:id="@+id/mShadowLayout"
@@ -107,7 +102,7 @@
 ```
 <br>
 
-### 二、stroke边框的简单使用
+* #### 二、stroke边框的简单使用
 ```xml
             <com.lihang.ShadowLayout
                 android:layout_width="wrap_content"
@@ -128,7 +123,7 @@
 ```
 <br>
 
-### 三、shape selector的简单使用
+* #### 三、shape selector的简单使用
 ```xml
             <com.lihang.ShadowLayout
                 android:layout_width="wrap_content"
@@ -153,7 +148,7 @@
 ```
 <br>
 
-### 三、图片 selector的简单使用
+* #### 三、图片 selector的简单使用
 ```xml
     <com.lihang.ShadowLayout
         android:id="@+id/ShadowLayout_shape"
@@ -193,7 +188,7 @@
 
 <br>
 
-### 四、渐变色的简单使用
+* #### 四、渐变色的简单使用
 ```xml
             <com.lihang.ShadowLayout
                 android:layout_width="wrap_content"
@@ -215,7 +210,7 @@
 
 <br>
 
-### 五、水波纹ripple的使用
+* #### 五、水波纹ripple的使用
 ```xml
             <com.lihang.ShadowLayout
                 android:layout_width="wrap_content"
