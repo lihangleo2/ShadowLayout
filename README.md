@@ -308,10 +308,11 @@
 
 ![](https://github.com/lihangleo2/ShadowLayout/blob/master/pay_ali.png) ![](https://github.com/lihangleo2/ShadowLayout/blob/master/pay_wx.png)
 
-> 如果希望捐赠之后能获得相关的帮助，可以选择加入下面的付费群来取代普通捐赠，付费群可以直接获得作者的直接帮助，与问题反馈。
 
-如果在捐赠留言中备注名称，将会被记录到列表中~ 如果你也是github开源作者，捐赠时可以留下github项目地址或者个人主页地址，链接将会被添加到列表中起到互相推广的作用
+如果在捐赠留言中备注名称，将会被记录到列表中~ 如果你也是github开源作者，捐赠时可以留下github项目地址或者个人主页地址，链接将会被添加到列表中
 [捐赠列表](https://github.com/scwang90/SmartRefreshLayout/blob/master/art/md_donationlist.md)
+
+<br>
 
 ## 其他作品
 [RichEditTextCopyToutiao](https://github.com/lihangleo2/RichEditTextCopyToutiao)  
