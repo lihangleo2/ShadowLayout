@@ -204,6 +204,31 @@
 
 <br>
 
+### 五、水波纹ripple的使用
+```xml
+            <com.lihang.ShadowLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:hl_cornerRadius="18dp"
+                app:hl_shadowColor="#2a000000"
+                app:hl_shadowLimit="7dp"
+                app:hl_layoutBackground="#fff"
+                app:hl_layoutBackground_true="#ff0000"
+                app:hl_shapeMode="ripple"
+                >
+
+                <TextView
+                    android:layout_width="160dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="水波纹"
+                    />
+
+            </com.lihang.ShadowLayout>
+```
+
+<br>
+
 
 
 
@@ -221,53 +246,52 @@
 |hl_shadowHiddenLeft|boolean|左边的阴影不可见，其他3边同理|
 |hl_shadowSymmetry|boolean|控件区域是否对称（默认true）根据此图理解<br><img src="https://github.com/lihangleo2/ShadowLayout/blob/master/isSym_half.jpg" alt="Sample"  width="350">|
 
- 
+<br>
 
+## 二、关于圆角
+|name|format|description|
+|:---:|:---:|:---:|
+|hl_cornerRadius|dimension|包括阴影圆角、shape圆角（dp）|
+|hl_cornerRadius_leftTop|dimension|左上圆角，其他角还是hl_cornerRadius值；同理其他3角（dp）|
  
-  
+<br>
 
- ### 二、关于圆角
- #### 8、圆角 app:hl_cornerRadius="30dp"
- - 统一大小，其中包括了阴影，shape、背景图、stroke边框圆角
- <br>
+## 三、关于shape
+### 3.1、关于shape样式及背景色
+|name|format|description|
+|:---:|:---:|:---:|
+|hl_shapeMode|enum|有3种模式：pressed和selected。和系统shape一样，以及ripple点击水波纹|
+|hl_layoutBackground|reference/color|背景色为false时展示：可以是颜色值，图片以及系统shape样式|
+|hl_layoutBackground_true|reference/color|背景色为true时展示：可以是颜色值，图片以及系统shape样式|
  
- #### 9、某个角的圆角 app:hl_cornerRadius_leftTop="0dp"
- - 左上角圆角大小，设置后。左上角会忽略hl_cornerRadius的属性，其他角还是保持hl_cornerRadius的属性。其他3个角同理
- <br>
-  
- ### 三、关于shape及selector
- #### 10、控件按压方式 app:hl_shapeMode="pressed"
- - 有2种模式：pressed和selected。和系统shape一样。不难理解
- <br>
-  
- #### 11、控件默认背景：false。 app:hl_layoutBackground="#fff"
- - 这里可以传颜色值，也可以传图片。当为false时的默认背景，也就是手指不点击或者松开后的样式
- <br>
-  
- #### 12、控件默认背景：true。 app:hl_layoutBackground_true="#ff0000"
- - 这里可以传颜色值，也可以传图片。当为true时的默认背景，也就是手指点击，按压时的样式
- <br>
- 
- ### 四、关于stroke边框
- #### 13、stroke边框线宽度 app:hl_strokeWith="1dp"
- - stroke边宽，stroke的宽度
- <br>
- 
- #### 14、边框默认颜色：false。 app:hl_strokeColor="#fff"
- - 边框颜色值。当为false时的默认边框颜色，也就是手指不点击或者松开后的边框样式
- <br>
+<br>
 
- #### 15、边框默认颜色：true。 app:hl_strokeColor_true="#ff0000"
- - 边框颜色值。当为true时的默认边框颜色，也就是手指点击，按压时的边框样式
- <br>
+### 3.2、关于stroke边框
+|name|format|description|
+|:---:|:---:|:---:|
+|hl_strokeWith|dimension|stroke边框线宽度|
+|hl_strokeColor|color|边框颜色值为false展示|
+|hl_strokeColor_true|color|边框颜色值为true展示|
+
+<br>
+
+### 3.3、关于渐变色
+|name|format|description|
+|:---:|:---:|:---:|
+|hl_startColor|color|渐变起始颜色（设置渐变色后，hl_layoutBackground属性将无效）|
+|hl_centerColor|color|渐变中间颜色（可不填）|
+|hl_endColor|color|渐变的终止颜色|
+|hl_angle|integer|渐变角度（默认0）|
+
+<br>
+
+## 四、关于clickable
+|name|format|description|
+|:---:|:---:|:---:|
+|clickable|boolean|设置ShadowLayout是否可以被点击；代码设置：mShadowLayout.setClickable(false);（默认true）|
+|hl_layoutBackground_clickFalse|reference/color|Clickable为false时，要展示的图片或颜色。（此属性应当在app:hl_shapeMode="pressed"时生效）|
  
- #### 16、类似于系统的Clickable app:clickable="false"
- - 设置ShadowLayout是否可以被点击。（这里不是系统的。不用系统的，是因为系统设置setOnclickListener时，会把clickable设置为true）；代码设置：mShadowLayout.setClickable(false);
- <br>
- 
- #### 17、不可点击状态下的样式app:hl_layoutBackground_clickFalse="#c8c8c8" 
- - Clickable为false时，要展示的图片或颜色。注意，此属性应当在app:hl_shapeMode="pressed"时生效。其他模式下只是不能点击，并不会展示此图。
- <br>
+<br>
 
 
 ## 关于作者。
