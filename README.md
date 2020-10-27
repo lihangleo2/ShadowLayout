@@ -41,7 +41,7 @@
 <br>
 
 ### 3.1.0新增ripple及渐变色
-|stroke边框及点击|shape及图片selector|组合使用|
+|stroke边框及点击|
 |:---:|
 |![](https://github.com/lihangleo2/ShadowLayout/blob/master/ripple.gif)|
 <br>
@@ -64,7 +64,7 @@
  - app build.gradle添加如下
     ```java
    dependencies {
-	        implementation 'com.github.lihangleo2:ShadowLayout:3.0.4'
+	        implementation 'com.github.lihangleo2:ShadowLayout:3.1.0'
 	}
    ```
    
@@ -181,6 +181,31 @@
 ```
 
 <br>
+
+### 四、渐变色的简单使用
+```xml
+            <com.lihang.ShadowLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:hl_cornerRadius="18dp"
+                app:hl_startColor="#ff0000"
+                app:hl_endColor="#0000ff"
+                >
+
+                <TextView
+                    android:layout_width="160dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="渐变色"
+                    android:textColor="#fff" />
+
+            </com.lihang.ShadowLayout>
+```
+
+<br>
+
+
+
 
 
  # 自定义属性
