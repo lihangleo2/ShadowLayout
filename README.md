@@ -10,9 +10,9 @@
 * 支持ShadowLayout背景填充颜色，背景圆角随阴影圆角改变
 * 控件支持动态设置shape和selector（项目里再也不用画shape了）
 
-#### 3.0.4更新功能及ShadowLayout成长历程
-* 修复在xml设置app:clickable="false"时，代码设置为true时，点击事件失效。
-* 修改issues#57下的代码规范，非常感谢lydlovezjr同学[issues57](https://github.com/lihangleo2/ShadowLayout/issues/57)
+#### 3.1.0更新功能及ShadowLayout成长历程
+* shapeMode新增了ripple（点击水波纹样式），具体会在README中说明
+* ShadowLayout，新增了渐变色，这也是issues大量出现的需求，感谢大家的支持
 
  [Shadow成长历程](https://github.com/lihangleo2/ShadowLayout/wiki)  
  
@@ -38,6 +38,12 @@
 |stroke边框及点击|shape及图片selector|组合使用|
 |:---:|:---:|:---:|
 |![](https://github.com/lihangleo2/ShadowLayout/blob/master/stroke2.gif)|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/shapeSelector2.gif" alt="Sample"  width="481">|![](https://github.com/lihangleo2/ShadowLayout/blob/master/groupUse2.gif)
+<br>
+
+### 3.1.0新增ripple及渐变色
+|stroke边框及点击|shape及图片selector|组合使用|
+|:---:|
+|![](https://github.com/lihangleo2/ShadowLayout/blob/master/ripple.gif)|
 <br>
 
 ## 扫描二维体验效果(下载密码是：123456)
