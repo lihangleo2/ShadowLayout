@@ -301,6 +301,12 @@
  
 <br>
 
+## 其他作品
+[RichEditTextCopyToutiao](https://github.com/lihangleo2/RichEditTextCopyToutiao)  
+[mPro](https://github.com/lihangleo2/mPro)  
+[SmartLoadingView](https://github.com/lihangleo2/SmartLoadingView)
+
+<br>
 
 ## 关于作者。
 Android工作多年了，一直向往大厂。在前进的道路上是孤独的。如果你在学习的路上也感觉孤独，请和我一起。让我们在学习道路上少些孤独
