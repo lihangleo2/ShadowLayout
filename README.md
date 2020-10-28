@@ -17,7 +17,9 @@
     2. 背景色设置
     3. stroke边框设置
     4. 渐变色背景色值
+    6. 可绑定textView后，可伴随文案变化，可伴随文案颜色变化
     5. 按钮是否可被点击
+    
 ```
 <br>
 
@@ -46,10 +48,10 @@
 |![](https://github.com/lihangleo2/ShadowLayout/blob/master/stroke2.gif)|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/shapeSelector2.gif" alt="Sample"  width="481">|![](https://github.com/lihangleo2/ShadowLayout/blob/master/groupUse2.gif)
 <br>
 
-* ### 3.1.0新增ripple及渐变色
-|stroke边框及点击|
-|:---:|
-|![](https://github.com/lihangleo2/ShadowLayout/blob/master/ripple.gif)|
+* ### 3.1.0新增ripple及渐变色及3.1.1绑定textView
+|3.1.0渐变色及ripple|3.1.1绑定textView|
+|:---:|:---:|
+|![](https://github.com/lihangleo2/ShadowLayout/blob/master/ripple.gif)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/bindTextView.gif)
 <br>
 
 ## Demo
@@ -72,7 +74,7 @@
  - app build.gradle添加如下
     ```java
    dependencies {
-	        implementation 'com.github.lihangleo2:ShadowLayout:3.1.0'
+	        implementation 'com.github.lihangleo2:ShadowLayout:3.1.1'
 	}
    ```
    
@@ -237,6 +239,35 @@
 
 <br>
 
+* #### 六、绑定textView，伴随文案及颜色变化
+```xml
+		<com.lihang.ShadowLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    app:hl_bindTextView="@+id/txt_press"
+                    app:hl_cornerRadius="18dp"
+                    app:hl_layoutBackground="#FF9800"
+                    app:hl_layoutBackground_true="#ff0000"
+                    app:hl_shapeMode="pressed"
+                    app:hl_textColor_true="#fff"
+                    app:hl_text="点我，press样式"
+                    app:hl_text_true="我改变了文案了"
+                    >
+
+                    <TextView
+                        android:id="@+id/txt_press"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:gravity="center"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="点我，press样式"
+                        android:textColor="#000" />
+
+                </com.lihang.ShadowLayout>
+```
 
 
 
@@ -292,6 +323,18 @@
 |hl_angle|integer|渐变角度（默认0）|
 
 <br>
+
+* #### 3.4、关于绑定textView
+|name|format|description|
+|:---:|:---:|:---:|
+|hl_bindTextView|reference|当前要绑定的textView的id|
+|hl_textColor|color|shape为false是展示的文案颜色|
+|hl_textColor_true|color|shape为true是展示的文案颜色|
+|hl_text|string|shape为false时展示的文案|
+|hl_text_true|string|shape为true时展示的文案|
+
+<br>
+
 
 ### 四、关于clickable
 |name|format|description|
