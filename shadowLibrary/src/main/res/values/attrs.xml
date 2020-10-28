@@ -65,8 +65,6 @@
         <attr name="hl_layoutBackground_clickFalse" format="reference|color" />
 
 
-
-
         <!-- 4、关于填充的渐变色 -->
         <!-- 要知道，如果设置了渐变色。那么将以渐变色为主。hl_layoutBackground属性将无效 -->
         <!-- 渐变的起始颜色 -->
@@ -77,6 +75,14 @@
         <attr name="hl_endColor" format="color" />
         <!-- 渐变角度，默认值为0-->
         <attr name="hl_angle" format="integer" />
+
+
+        <!-- 5、绑定一个TextView，在点击按钮时，有可能有颜色变化 -->
+        <attr name="hl_bindTextView" format="reference" />
+        <attr name="hl_textColor" format="color" />
+        <attr name="hl_textColor_true" format="color" />
+        <attr name="hl_text" format="string" />
+        <attr name="hl_text_true" format="string" />
 
 
     </declare-styleable>

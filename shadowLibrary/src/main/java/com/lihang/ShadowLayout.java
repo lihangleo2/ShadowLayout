@@ -21,10 +21,12 @@ import android.graphics.drawable.shapes.RoundRectShape;
 import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 /**
  * Created by leo
@@ -86,6 +88,15 @@ public class ShadowLayout extends FrameLayout {
     private int centerColor;
     private int endColor;
     private int angle;
+
+
+    //在普遍情况，在点击或选中按钮时，很可能伴随着textView的字体颜色变化
+    private int mTextViewResId = -1;
+    private TextView mTextView;
+    private int textColor;
+    private int textColor_true;
+    private String text;
+    private String text_true;
 
 
     public ShadowLayout(Context context) {
@@ -179,6 +190,14 @@ public class ShadowLayout extends FrameLayout {
                 if (layoutBackground_true != null) {
                     setmBackGround(layoutBackground_true);
                 }
+
+                if (mTextView != null) {
+                    mTextView.setTextColor(textColor_true);
+                    if (!TextUtils.isEmpty(text_true)) {
+                        mTextView.setText(text_true);
+                    }
+                }
+
             } else {
                 paint.setColor(mBackGroundColor);
                 if (startColor != -101) {
@@ -191,6 +210,13 @@ public class ShadowLayout extends FrameLayout {
 
                 if (layoutBackground != null) {
                     setmBackGround(layoutBackground);
+                }
+
+                if (mTextView != null) {
+                    mTextView.setTextColor(textColor);
+                    if (!TextUtils.isEmpty(text)) {
+                        mTextView.setText(text);
+                    }
                 }
 
             }
@@ -291,6 +317,27 @@ public class ShadowLayout extends FrameLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
+        if (mTextViewResId != -1) {
+            mTextView = findViewById(mTextViewResId);
+            if (mTextView == null) {
+                throw new NullPointerException("ShadowLayout找不到hl_bindTextView，请确保绑定的资源id在ShadowLayout内");
+            } else {
+                if (textColor == -101) {
+                    textColor = mTextView.getCurrentTextColor();
+                }
+
+
+                if (textColor_true == -101) {
+                    textColor_true = mTextView.getCurrentTextColor();
+                }
+
+                mTextView.setTextColor(textColor);
+                if (!TextUtils.isEmpty(text)) {
+                    mTextView.setText(text);
+                }
+            }
+        }
+
         firstView = getChildAt(0);
         if (firstView == null) {
             firstView = ShadowLayout.this;
@@ -676,6 +723,12 @@ public class ShadowLayout extends FrameLayout {
             }
 
 
+            mTextViewResId = attr.getResourceId(R.styleable.ShadowLayout_hl_bindTextView, -1);
+            textColor = attr.getColor(R.styleable.ShadowLayout_hl_textColor, -101);
+            textColor_true = attr.getColor(R.styleable.ShadowLayout_hl_textColor_true, -101);
+            text = attr.getString(R.styleable.ShadowLayout_hl_text);
+            text_true = attr.getString(R.styleable.ShadowLayout_hl_text_true);
+
             isClickable = attr.getBoolean(R.styleable.ShadowLayout_clickable, true);
             setClickable(isClickable);
 
@@ -969,10 +1022,10 @@ public class ShadowLayout extends FrameLayout {
         ShapeDrawable maskDrawable = new ShapeDrawable();
         maskDrawable.setShape(roundRectShape);
         maskDrawable.getPaint().setStyle(Paint.Style.FILL);
-        if (startColor!=-101){
+        if (startColor != -101) {
             //如果设置了渐变色的话
             gradient(maskDrawable.getPaint());
-        }else {
+        } else {
             maskDrawable.getPaint().setColor(normalColor);
         }
 
@@ -980,10 +1033,10 @@ public class ShadowLayout extends FrameLayout {
         contentDrawable.setShape(roundRectShape);
         contentDrawable.getPaint().setStyle(Paint.Style.FILL);
 
-        if (startColor!=-101){
+        if (startColor != -101) {
             //如果设置了渐变色的话
             gradient(contentDrawable.getPaint());
-        }else {
+        } else {
             contentDrawable.getPaint().setColor(normalColor);
         }
 
@@ -1032,6 +1085,34 @@ public class ShadowLayout extends FrameLayout {
     public boolean onTouchEvent(MotionEvent event) {
         if (selectorType == 3) {
             //如果是水波纹模式，那么不需要进行下面的渲染，采用系统ripper即可
+            if (isClickable) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        if (selectorType == 3) {
+                            if (mTextView != null) {
+                                mTextView.setTextColor(textColor_true);
+                                if (!TextUtils.isEmpty(text_true)) {
+                                    mTextView.setText(text_true);
+                                }
+                            }
+                        }
+                        break;
+
+                    case MotionEvent.ACTION_CANCEL:
+                    case MotionEvent.ACTION_UP:
+                        if (selectorType == 3) {
+                            if (mTextView != null) {
+                                mTextView.setTextColor(textColor);
+                                if (!TextUtils.isEmpty(text)) {
+                                    mTextView.setText(text);
+                                }
+                            }
+                        }
+                        break;
+
+
+                }
+            }
             return super.onTouchEvent(event);
         }
 
@@ -1053,6 +1134,13 @@ public class ShadowLayout extends FrameLayout {
                                 setmBackGround(layoutBackground_true);
                             }
                             postInvalidate();
+
+                            if (mTextView != null) {
+                                mTextView.setTextColor(textColor_true);
+                                if (!TextUtils.isEmpty(text_true)) {
+                                    mTextView.setText(text_true);
+                                }
+                            }
                         }
                         break;
 
@@ -1072,6 +1160,13 @@ public class ShadowLayout extends FrameLayout {
                                 setmBackGround(layoutBackground);
                             }
                             postInvalidate();
+
+                            if (mTextView != null) {
+                                mTextView.setTextColor(textColor);
+                                if (!TextUtils.isEmpty(text)) {
+                                    mTextView.setText(text);
+                                }
+                            }
                         }
                         break;
                 }

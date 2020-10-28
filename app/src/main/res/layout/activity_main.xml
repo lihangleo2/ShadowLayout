@@ -35,6 +35,7 @@
 
         </com.lihang.ShadowLayout>
 
+
         <com.lihang.ShadowLayout
             android:id="@+id/ShadowLayout_shadow"
             android:layout_width="wrap_content"
@@ -49,6 +50,7 @@
             app:hl_shadowLimit="7dp"
             app:hl_shapeMode="ripple">
 
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
@@ -57,6 +59,7 @@
                 android:paddingRight="10dp"
                 android:text="shadow阴影的各项使用"
                 android:textColor="#000" />
+
 
         </com.lihang.ShadowLayout>
 
@@ -89,26 +92,25 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
+            app:hl_angle="180"
             app:hl_cornerRadius="18dp"
+            app:hl_endColor="#fff"
             app:hl_layoutBackground_true="#ff0000"
             app:hl_shadowColor="#4D0E5BE8"
             app:hl_shadowLimit="7dp"
             app:hl_shapeMode="pressed"
-            app:hl_startColor="#EE5F8F"
-            app:hl_endColor="#fff"
-            app:hl_angle="180">
+            app:hl_startColor="#EE5F8F">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:gravity="center"
-                android:text="ShadowLayout成长历史"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
+                android:text="ShadowLayout成长历史"
                 android:textColor="#fff" />
 
         </com.lihang.ShadowLayout>
-
 
 
     </LinearLayout>

@@ -22,5 +22,13 @@ public class ShapeActivity extends AppCompatActivity {
         binding.shadowLayoutBarLeft.setOnClickListener(v -> {
             finish();
         });
+
+        binding.shadowLayoutSelect.setOnClickListener(v -> {
+            binding.shadowLayoutSelect.setSelected(!binding.shadowLayoutSelect.isSelected());
+        });
+
+        binding.shadowLayoutBindView.setOnClickListener(v -> {
+            binding.shadowLayoutBindView.setSelected(!binding.shadowLayoutBindView.isSelected());
+        });
     }
 }
