@@ -1,513 +1,349 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.lihang.ShadowLayout
-        android:id="@+id/ShadowLayoutHead"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        app:hl_shadowColor="#2a000000"
-        app:hl_shadowHiddenRight="true"
-        app:hl_shadowHiddenTop="true"
-        app:hl_shadowHiddenLeft="true"
-        app:hl_shadowLimit="5dp">
+    <data>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_gravity="center_horizontal"
-            android:background="@color/white"
-            android:gravity="center"
-            android:text="ShadowLayout万能阴影布局3.0震撼上线"
-            android:textColor="#ff0000"
-            android:textSize="15dp"
-            android:textStyle="bold" />
+    </data>
 
-    </com.lihang.ShadowLayout>
-
-
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/ShadowLayoutHead"
-        android:overScrollMode="never"
-        android:scrollbars="none">
+        android:orientation="vertical">
 
 
-        <LinearLayout
+        <com.lihang.ShadowLayout
+            android:id="@+id/ShadowLayoutHead"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-
-            <TextView
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15dp"
-                android:text="3.0.1增加stroke边框,背景圆角及完善shape和selector。及修复当前全部已知bug"
-                android:textColor="#000"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <com.lihang.ShadowLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                app:hl_cornerRadius="10dp"
-                app:hl_strokeColor="#000">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="36dp"
-                    android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="圆角边框"
-                    android:textColor="#000" />
-            </com.lihang.ShadowLayout>
-
-            <com.lihang.ShadowLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                app:hl_cornerRadius="18dp"
-                app:hl_cornerRadius_leftTop="0dp"
-                app:hl_layoutBackground="#ff0000"
-                app:hl_layoutBackground_true="#71E335"
-                app:hl_strokeColor="#71E335"
-                app:hl_strokeColor_true="#ff0000">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="36dp"
-                    android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="请点我，我有样式"
-                    android:textColor="#fff" />
-
-            </com.lihang.ShadowLayout>
-
-
-            <com.lihang.ShadowLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                app:hl_cornerRadius="10dp"
-                app:hl_layoutBackground="@mipmap/ic_launcher">
-
-                <TextView
-                    android:id="@+id/txt_back"
-                    android:layout_width="wrap_content"
-                    android:layout_height="36dp"
-                    android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="圆角背景"
-                    android:textColor="#ff0000" />
-            </com.lihang.ShadowLayout>
-
-
-            <com.lihang.ShadowLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                app:hl_cornerRadius="18dp"
-                app:hl_cornerRadius_leftTop="0dp"
-                app:hl_layoutBackground="@mipmap/ic_launcher">
-
-                <TextView
-                    android:id="@+id/txt_back_diff"
-                    android:layout_width="wrap_content"
-                    android:layout_height="36dp"
-                    android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="不规则背景"
-                    android:textColor="#ff0000" />
-            </com.lihang.ShadowLayout>
-
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            app:hl_shadowColor="#2a000000"
+            app:hl_shadowHiddenLeft="true"
+            app:hl_shadowHiddenRight="true"
+            app:hl_shadowHiddenTop="true"
+            app:hl_shadowLimit="5dp">
 
 
             <RelativeLayout
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
+                android:layout_height="45dp">
 
-                <TextView
-                    android:layout_centerVertical="true"
-                    android:layout_toLeftOf="@+id/ShadowLayout_image"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="请点击右边的图  :  "
-                    />
 
                 <com.lihang.ShadowLayout
-                    android:id="@+id/ShadowLayout_image"
+                    android:id="@+id/shadowLayout_bar_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    app:hl_cornerRadius="30dp"
+                    app:hl_layoutBackground="#fff"
+                    app:hl_layoutBackground_true="#eeeeee"
+                    app:hl_shapeMode="pressed">
+
+                    <ImageView
+                        android:id="@+id/bar_left_btn"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="@dimen/dp_5"
+                        android:src="@mipmap/back_icon_black" />
+
+                </com.lihang.ShadowLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    app:hl_layoutBackground="@mipmap/game_6_right"
-                    app:hl_layoutBackground_true="@mipmap/game_6_wrong" />
+                    android:text="ShadowLayout成长史"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
             </RelativeLayout>
 
 
+        </com.lihang.ShadowLayout>
 
-            <!--这里这里这里 -->
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="15dp"
-                android:background="#eeeeee" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15dp"
-                android:text="2.1.8新增功能，更改四个圆角大小"
-                android:textColor="#000"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <com.lihang.ShadowLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                app:hl_cornerRadius="18dp"
-                app:hl_cornerRadius_leftTop="0dp"
-                app:hl_shadowColor="#29000000"
-                app:hl_shadowLimit="5dp"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="36dp"
-                    android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="更改左上圆角大小"
-                    android:textColor="#000" />
-
-            </com.lihang.ShadowLayout>
-
-
-            <com.lihang.ShadowLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                app:hl_cornerRadius="18dp"
-                app:hl_cornerRadius_leftTop="0dp"
-                app:hl_cornerRadius_rightBottom="0dp"
-                app:hl_shadowColor="#5500bfff"
-                app:hl_shadowLimit="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="36dp"
-                    android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="更改左上，右下圆角大小"
-                    android:textColor="#000" />
-            </com.lihang.ShadowLayout>
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="15dp"
-                android:background="#eeeeee" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15dp"
-                android:text="2.1.6新增功能，再也不用写shape了"
-                android:textColor="#000"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-
-            <com.lihang.ShadowLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                app:hl_cornerRadius="18dp"
-                app:hl_layoutBackground="#fff"
-                app:hl_layoutBackground_true="#ff0000"
-                app:hl_shadowColor="#4D0E5BE8"
-                app:hl_shadowLimit="7dp"
-                app:hl_shapeMode="pressed"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="36dp"
-                    android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="点我，selector的pressed样式"
-                    android:textColor="#000" />
-
-            </com.lihang.ShadowLayout>
-
-
-            <com.lihang.ShadowLayout
-                android:id="@+id/ShadowLayoutSelect"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                app:hl_cornerRadius="18dp"
-                app:hl_layoutBackground="#00ff00"
-                app:hl_layoutBackground_true="#F60B0B"
-                app:hl_shapeMode="selected">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="36dp"
-                    android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="点我，selector的selected样式"
-                    android:textColor="#000" />
-
-            </com.lihang.ShadowLayout>
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="15dp"
-                android:background="#eeeeee" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15dp"
-                android:text="基本介绍"
-                android:textColor="#000"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-
-            <com.lihang.ShadowLayout
-                android:id="@+id/mShadowLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                app:hl_cornerRadius="10dp"
-                app:hl_shadowColor="#2a000000"
-                app:hl_shadowLimit="5dp"
-                >
-
-                <TextView
-                    android:id="@+id/txt_test"
-                    android:layout_width="wrap_content"
-                    android:layout_height="36dp"
-                    android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="圆角"
-                    android:textColor="#000" />
-            </com.lihang.ShadowLayout>
-
-            <com.lihang.ShadowLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                app:hl_cornerRadius="18dp"
-                app:hl_shadowColor="#29000000"
-                app:hl_shadowLimit="5dp"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="36dp"
-                    android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="完全圆形圆角"
-                    android:textColor="#000" />
-
-            </com.lihang.ShadowLayout>
-
-
-            <com.lihang.ShadowLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                app:hl_cornerRadius="5dp"
-                app:hl_shadowColor="#2aff0000"
-                app:hl_shadowLimit="5dp"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="36dp"
-                    android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="红色阴影"
-                    android:textColor="#000" />
-
-            </com.lihang.ShadowLayout>
-
-
-            <com.lihang.ShadowLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                app:hl_cornerRadius="18dp"
-                app:hl_shadowColor="#2a0d00ff"
-                app:hl_shadowLimit="5dp"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="36dp"
-                    android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="随便改变阴影颜色,颜色透明度更改阴影清晰度"
-                    android:textColor="#000" />
-            </com.lihang.ShadowLayout>
-
-
-            <com.lihang.ShadowLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                app:hl_cornerRadius="18dp"
-                app:hl_shadowColor="#5500ff11"
-                app:hl_shadowLimit="10dp"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="36dp"
-                    android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="阴影扩散区域改变"
-                    android:textColor="#000" />
-            </com.lihang.ShadowLayout>
-
-
-            <com.lihang.ShadowLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                app:hl_cornerRadius="18dp"
-                app:hl_shadowColor="#5500bfff"
-                app:hl_shadowLimit="10dp"
-                app:hl_shadowOffsetX="5dp"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="36dp"
-                    android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="阴影x轴偏移"
-                    android:textColor="#000" />
-            </com.lihang.ShadowLayout>
-
-
-            <com.lihang.ShadowLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                app:hl_cornerRadius="18dp"
-                app:hl_shadowColor="#55ff00d5"
-                app:hl_shadowLimit="10dp"
-                app:hl_shadowOffsetY="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="36dp"
-                    android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="阴影y轴偏移"
-                    android:textColor="#000" />
-            </com.lihang.ShadowLayout>
-
-
-            <com.lihang.ShadowLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                app:hl_cornerRadius="18dp"
-                app:hl_shadowColor="#55ff8c00"
-                app:hl_shadowHiddenLeft="true"
-                app:hl_shadowHiddenTop="true"
-                app:hl_shadowLimit="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="36dp"
-                    android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="不偏移xy,让上和左阴影不可见(如titleBar)"
-                    android:textColor="#000" />
-            </com.lihang.ShadowLayout>
-        </LinearLayout>
-
-    </ScrollView>
-
-
-    <com.lihang.ShadowLayout
-        android:id="@+id/ShadowLayoutIntent"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        app:hl_cornerRadius="60dp"
-        app:hl_layoutBackground="#59F01818"
-        app:hl_layoutBackground_true="#29F01818"
-        app:hl_shadowColor="#80F01818"
-        app:hl_shadowLimit="25dp">
-
-
-        <TextView
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:padding="6dp"
-            android:text="动态设置阴影"
-            android:textColor="#fff" />
-    </com.lihang.ShadowLayout>
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
 
-</RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="3.1.0 (2020-10-28)"
+                    android:textColor="@color/title_color"
+                    android:textSize="15sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="@string/des_3.1.0"
+                    android:textColor="#000"
+                    android:textSize="15sp"
+                    />
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="3.0.4 (2020-09-16)"
+                    android:textColor="@color/title_color"
+                    android:textSize="15sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="@string/des_3.0.4"
+                    android:textColor="#000"
+                    android:textSize="15sp"
+                    />
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="3.0.3 (2020-09-04)"
+                    android:textColor="@color/title_color"
+                    android:textSize="15sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="@string/des_3.0.3"
+                    android:textColor="#000"
+                    android:textSize="15sp"
+                    />
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="3.0.1 (2020-08-05)"
+                    android:textColor="@color/title_color"
+                    android:textSize="15sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="@string/des_3.0.1"
+                    android:textColor="#000"
+                    android:textSize="15sp"
+                    />
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="2.1.8 (2020-03-25)"
+                    android:textColor="@color/title_color"
+                    android:textSize="15sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="@string/des_2.1.8"
+                    android:textColor="#000"
+                    android:textSize="15sp"
+                    />
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="2.1.7 (2020-03-06)"
+                    android:textColor="@color/title_color"
+                    android:textSize="15sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="@string/des_2.1.7"
+                    android:textColor="#000"
+                    android:textSize="15sp"
+                    />
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="2.1.6 (2020-01-08)"
+                    android:textColor="@color/title_color"
+                    android:textSize="15sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="@string/des_2.1.6"
+                    android:textColor="#000"
+                    android:textSize="15sp"
+                    />
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="2.1.5 (2019-12-23)"
+                    android:textColor="@color/title_color"
+                    android:textSize="15sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="@string/des_2.1.5"
+                    android:textColor="#000"
+                    android:textSize="15sp"
+                    />
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="2.1.4 (2019-11-06)"
+                    android:textColor="@color/title_color"
+                    android:textSize="15sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="@string/des_2.1.4"
+                    android:textColor="#000"
+                    android:textSize="15sp"
+                    />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="2.0.1 (2019-08-08)"
+                    android:textColor="@color/title_color"
+                    android:textSize="15sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="@string/des_2.0.1"
+                    android:textColor="#000"
+                    android:textSize="15sp"
+                    />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="1.0 (2019-07-07)"
+                    android:textColor="@color/title_color"
+                    android:textSize="15sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="@string/des_1.0"
+                    android:textColor="#000"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="25dp"
+                    />
+
+
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
+    </LinearLayout>
+</layout>

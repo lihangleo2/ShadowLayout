@@ -24,6 +24,10 @@
             android:screenOrientation="portrait" />
 
         <activity
+            android:name=".ShadowActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".WikiActivity"
             android:screenOrientation="portrait" />
 

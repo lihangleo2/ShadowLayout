@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">ShowLayout</string>
+
+
+    <string name="des_1.0">☛ 阴影布局随意更改颜色值\n☛ 更改扩散区域\n☛ 更改阴影圆角\n☛ 阴影x,y轴偏移量\n☛ 控制阴影4边是否可见</string>
+    <string name="des_2.0.1">☛ 支持ShadowLayout背景填充颜色，圆角属性随阴影圆角改变\n☛ 支持动态修改ShadowLayout各种属性，及内部代码优化</string>
+    <string name="des_2.1.4">☛ 优化阴影bitmap大小\n☛ 采用Bitmap.Config.ARGB_4444，减小内存\n☛ 设置颜色值后，如果不带透明度，会使用默认透明度2a</string>
+    <string name="des_2.1.5">☛ 修复未渲染时，设置阴影颜色值bug\n☛ 增加点击状态时，切换阴影背景颜色状态hl_shadowBackColorClicked</string>
+    <string name="des_2.1.6">☛ 增加动态设置shape,selector功能。项目里再也不用画shape里\n☛ 增加了是否需要阴影属性hl_isShowShadow。如果只需要shape和selector功能，也可以省略掉阴影</string>
+    <string name="des_2.1.7">☛ 增加新属性：控件区域是否对称，默认是对称。不对称的话，那么控件区域随着阴影区域走：app:hl_isSym="false"</string>
+    <string name="des_2.1.8">☛ 增加新属性:单独控制某圆角的圆角大小\n☛ app:hl_cornerRadius_leftTop="0dp" 左上角圆角\n☛ app:hl_cornerRadius_leftBottom="0dp" 左下角圆角\n☛ app:hl_cornerRadius_rigthTop="0dp" 右上角圆角\n☛ app:hl_cornerRadius_rightBottom="0dp" 右下角圆角</string>
+    <string name="des_3.0.1">☛ 完善shape功能，解放你的drawable文件。包括有：图片selector、shape selector、stroke selector\n☛ ShadowLayout提供了背景圆角方案\n☛ 修改了部分单词拼写错误，及大量属性命名。更规范\n☛ 其中也加上了设置Clickable ="false"的样式。\n☛ 修改了目前已知bug，及修改和完善了不规则圆角的阴影方案</string>
+    <string name="des_3.0.3">☛ 修改了select时，内部设置点击，占据焦点的问题\n☛ 解决了在recyclerView中，adapter.notifyItemChange时，setSelect(true)第一次失效的问题\n☛ 解决clickable无效问题\n☛ 增加了代码设置阴影是否可见</string>
+    <string name="des_3.0.4">☛ 修复在xml设置app:clickable="false"时，代码设置为true时，点击事件失效。\n☛ 修改issues#57下的代码规范，非常感谢lydlovezjr同学issues57</string>
+    <string name="des_3.1.0">☛ shapeMode新增了ripple（点击水波纹样式），具体会在README中说明\n☛ ShadowLayout，新增了渐变色，这也是issues大量出现的需求，感谢大家的支持</string>
+
+
 </resources>
