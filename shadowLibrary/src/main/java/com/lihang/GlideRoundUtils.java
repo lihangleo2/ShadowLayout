@@ -25,6 +25,7 @@ public class GlideRoundUtils {
                 view.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
                     @Override
                     public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                        view.removeOnLayoutChangeListener(this);
                         Glide.with(view)
                                 .asDrawable()
                                 .load(resourceId)
@@ -78,6 +79,7 @@ public class GlideRoundUtils {
                 view.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
                     @Override
                     public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                        view.removeOnLayoutChangeListener(this);
                         Glide.with(view)
                                 .load(resourceId)
                                 .transform(new CenterCrop(), new RoundedCorners((int) cornerDipValue))
@@ -134,6 +136,7 @@ public class GlideRoundUtils {
                 view.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
                     @Override
                     public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                        view.removeOnLayoutChangeListener(this);
                         Glide.with(view)
                                 .load(resourceId)
                                 .override(view.getMeasuredWidth(), view.getMeasuredHeight())
@@ -182,6 +185,7 @@ public class GlideRoundUtils {
                 view.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
                     @Override
                     public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                        view.removeOnLayoutChangeListener(this);
                         GlideRoundTransform transform = new GlideRoundTransform(view.getContext(), leftTop_corner, leftBottom_corner, rightTop_corner, rightBottom_corner);
                         Glide.with(view)
                                 .load(resourceId)
