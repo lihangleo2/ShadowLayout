@@ -488,13 +488,13 @@
                     android:layout_marginTop="20dp"
                     app:hl_bindTextView="@+id/txt_press"
                     app:hl_cornerRadius="18dp"
-                    app:hl_cornerRadius_leftTop="0dp"
-                    app:hl_layoutBackground="#fff"
+                    app:hl_layoutBackground="#FF9800"
                     app:hl_layoutBackground_true="#ff0000"
-                    app:hl_shadowColor="#2a000000"
-                    app:hl_shadowLimit="7dp"
                     app:hl_shapeMode="pressed"
-                    app:hl_textColor_true="#fff">
+                    app:hl_textColor_true="#fff"
+                    app:hl_text="点我，press样式"
+                    app:hl_text_true="我改变了文案了"
+                    >
 
                     <TextView
                         android:id="@+id/txt_press"
@@ -503,7 +503,7 @@
                         android:gravity="center"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="点我，press样式且改变文字颜色"
+                        android:text="点我，press样式"
                         android:textColor="#000" />
 
                 </com.lihang.ShadowLayout>
