@@ -24,7 +24,7 @@
 <br>
 
 ## ShadowLayout动态
-* [ShadowLayout3.1.0更新内容，及以往成长](https://github.com/lihangleo2/ShadowLayout/wiki)  
+* [ShadowLayout3.1.1更新内容，及以往成长](https://github.com/lihangleo2/ShadowLayout/wiki)  
 * 注意：3.0后修改大量api及规范命名，如果还在用2.0，不方便转移的可查看[ShadowLayout2.0文档](https://github.com/lihangleo2/ShadowLayout/blob/master/README218.md)  
 <br>
 
@@ -152,7 +152,7 @@
 ```
 <br>
 
-* #### 三、图片 selector的简单使用
+* #### 四、图片 selector的简单使用
 ```xml
     <com.lihang.ShadowLayout
         android:id="@+id/ShadowLayout_shape"
@@ -192,7 +192,7 @@
 
 <br>
 
-* #### 四、渐变色的简单使用
+* #### 五、渐变色的简单使用
 ```xml
             <com.lihang.ShadowLayout
                 android:layout_width="wrap_content"
@@ -214,7 +214,7 @@
 
 <br>
 
-* #### 五、水波纹ripple的使用
+* #### 六、水波纹ripple的使用
 ```xml
             <com.lihang.ShadowLayout
                 android:layout_width="wrap_content"
@@ -239,7 +239,7 @@
 
 <br>
 
-* #### 六、绑定textView，伴随文案及颜色变化
+* #### 七、绑定textView，伴随文案及颜色变化
 ```xml
 		<com.lihang.ShadowLayout
                     android:layout_width="wrap_content"
@@ -347,7 +347,7 @@
 ## 赞赏
 
 如果你喜欢 ShadowLayout 的功能，感觉 ShadowLayout 帮助到了你，可以点右上角 "Star" 支持一下 谢谢！ ^_^
-你也还可以扫描下面的二维码~ 请作者喝一杯咖啡。
+你也还可以扫描下面的二维码~ 请作者喝一杯咖啡。或者遇到工作中比较难实现的需求请作者帮忙。
 
 ![](https://github.com/lihangleo2/ShadowLayout/blob/master/pay_ali.png) ![](https://github.com/lihangleo2/ShadowLayout/blob/master/pay_wx.png)
 
