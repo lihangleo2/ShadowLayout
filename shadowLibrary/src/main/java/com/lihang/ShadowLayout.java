@@ -350,7 +350,7 @@ public class ShadowLayout extends FrameLayout {
             //selector样式不受clickable的影响
 
             if (selectorType == 2) {
-                //如果是selector的模式下
+                //如果是selector的模式下//11.2优化bug
 //                if (this.isSelected()) {
 //                    //这个方法内已经判断了是否为空
 //                    setmBackGround(layoutBackground_true);
