@@ -24,7 +24,7 @@
 <br>
 
 ## ShadowLayout动态
-* [ShadowLayout3.1.2更新内容，及以往成长](https://github.com/lihangleo2/ShadowLayout/wiki)  
+* [ShadowLayout3.1.3更新内容，及以往成长](https://github.com/lihangleo2/ShadowLayout/wiki)  
 * 注意：3.0后修改大量api及规范命名，如果还在用2.0，不方便转移的可查看[ShadowLayout2.0文档](https://github.com/lihangleo2/ShadowLayout/blob/master/README218.md)  
 <br>
 
@@ -74,7 +74,7 @@
  - app build.gradle添加如下
     ```java
    dependencies {
-	        implementation 'com.github.lihangleo2:ShadowLayout:3.1.2'
+	        implementation 'com.github.lihangleo2:ShadowLayout:3.1.3'
 	}
    ```
    
@@ -342,6 +342,24 @@
 |clickable|boolean|设置ShadowLayout是否可以被点击；代码设置：mShadowLayout.setClickable(false);（默认true）|
 |hl_layoutBackground_clickFalse|reference/color|Clickable为false时，要展示的图片或颜色。（此属性应当在app:hl_shapeMode="pressed"时生效）|
  
+<br>
+
+## 方法表格
+|name|format|description|
+|:---:|:---:|:---:|
+|setShadowHidden()|boolean|是否隐藏阴影|
+|setShadowColor()|color|设置阴影颜色值|
+|setShadowLimit()|dimension|设置阴影扩散区域|
+|setOffsetX()|dimension|设置阴影的X轴偏移量|
+|setOffsetY()|dimension|设置阴影的Y轴偏移量|
+|setShadowHiddenTop()|boolean|隐藏上边阴影（同理其他三遍）|
+|setCornerRadius()|dimension|设置圆角|
+|setLayoutBackground()|color|设置false时的背景颜色值|
+|setLayoutBackgroundTrue()|color|设置true时的背景颜色值|
+|setStrokeColor()|color|设置false时的边框颜色|
+|setStrokeColorTrue()|color|设置true时的边框颜色|
+|setClickable()|boolean|设置ShadowLayout是否可以点击|
+
 <br>
 
 ## 赞赏
