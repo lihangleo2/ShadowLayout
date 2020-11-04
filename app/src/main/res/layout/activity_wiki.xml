@@ -75,6 +75,30 @@
                 android:orientation="vertical">
 
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="3.1.3 (2020-11-04)"
+                    android:textColor="@color/title_color"
+                    android:textSize="15sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="@string/des_3.1.3"
+                    android:textColor="#000"
+                    android:textSize="15sp"
+                    />
+
+
+
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -82,7 +106,57 @@
                     android:layout_marginLeft="@dimen/dp_15"
                     android:layout_marginTop="25dp"
                     android:layout_marginRight="@dimen/dp_15"
-                    android:text="3.1.0 (2020-10-28)"
+                    android:text="3.1.2 (2020-10-30)"
+                    android:textColor="@color/title_color"
+                    android:textSize="15sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="@string/des_3.1.2"
+                    android:textColor="#000"
+                    android:textSize="15sp"
+                    />
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="3.1.1 (2020-10-28)"
+                    android:textColor="@color/title_color"
+                    android:textSize="15sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="@string/des_3.1.1"
+                    android:textColor="#000"
+                    android:textSize="15sp"
+                    />
+
+
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="3.1.0 (2020-10-24)"
                     android:textColor="@color/title_color"
                     android:textSize="15sp"
                     />
