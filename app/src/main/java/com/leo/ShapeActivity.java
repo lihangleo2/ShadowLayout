@@ -1,6 +1,7 @@
 package com.leo;
 
 import android.databinding.DataBindingUtil;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -30,5 +31,6 @@ public class ShapeActivity extends AppCompatActivity {
         binding.shadowLayoutBindView.setOnClickListener(v -> {
             binding.shadowLayoutBindView.setSelected(!binding.shadowLayoutBindView.isSelected());
         });
+
     }
 }

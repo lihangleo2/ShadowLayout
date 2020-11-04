@@ -85,12 +85,16 @@
                     android:textSize="15sp" />
 
                 <com.lihang.ShadowLayout
+                    android:id="@+id/shadowLayout_corner"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     app:hl_cornerRadius="10dp"
-                    app:hl_strokeColor="#000">
+                    app:hl_strokeColor="#000"
+                    >
+
+
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -123,6 +127,7 @@
                 </com.lihang.ShadowLayout>
 
                 <com.lihang.ShadowLayout
+                    android:id="@+id/ShadowLayout_my_test"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -131,7 +136,8 @@
                     app:hl_cornerRadius_leftTop="0dp"
                     app:hl_cornerRadius_rightBottom="0dp"
                     app:hl_strokeColor="#000"
-                    app:hl_strokeColor_true="#ff0000">
+                    app:hl_strokeColor_true="#ff0000"
+                    >
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -193,6 +199,7 @@
 
 
                 <com.lihang.ShadowLayout
+                    android:id="@+id/ShadowLayout_press"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"

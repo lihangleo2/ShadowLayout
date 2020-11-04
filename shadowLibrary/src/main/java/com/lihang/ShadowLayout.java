@@ -225,91 +225,173 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
-    public void setShowShadow(boolean isShowShadow) {
-        this.isShowShadow = isShowShadow;
+    //是否隐藏阴影
+    public void setShadowHidden(boolean isShowShadow) {
+        this.isShowShadow = !isShowShadow;
         if (getWidth() != 0 && getHeight() != 0) {
             setBackgroundCompat(getWidth(), getHeight());
         }
     }
 
-    //动态设置x轴偏移量
-    public void setMDx(float mDx) {
-        if (Math.abs(mDx) > mShadowLimit) {
-            if (mDx > 0) {
-                this.mDx = mShadowLimit;
+    //设置x轴偏移量
+    public void setShadowOffsetX(float mDx) {
+        if (isShowShadow) {
+            if (Math.abs(mDx) > mShadowLimit) {
+                if (mDx > 0) {
+                    this.mDx = mShadowLimit;
+                } else {
+                    this.mDx = -mShadowLimit;
+                }
             } else {
-                this.mDx = -mShadowLimit;
+                this.mDx = mDx;
             }
-        } else {
-            this.mDx = mDx;
+            setPadding();
         }
-        setPadding();
     }
 
     //动态设置y轴偏移量
-    public void setMDy(float mDy) {
-        if (Math.abs(mDy) > mShadowLimit) {
-            if (mDy > 0) {
-                this.mDy = mShadowLimit;
+    public void setShadowOffsetY(float mDy) {
+        if (isShowShadow) {
+            if (Math.abs(mDy) > mShadowLimit) {
+                if (mDy > 0) {
+                    this.mDy = mShadowLimit;
+                } else {
+                    this.mDy = -mShadowLimit;
+                }
             } else {
-                this.mDy = -mShadowLimit;
+                this.mDy = mDy;
             }
-        } else {
-            this.mDy = mDy;
+            setPadding();
         }
-        setPadding();
     }
 
 
-    public float getmCornerRadius() {
+    public float getCornerRadius() {
         return mCornerRadius;
     }
 
     //动态设置 圆角属性
-    public void setmCornerRadius(int mCornerRadius) {
+    public void setCornerRadius(int mCornerRadius) {
         this.mCornerRadius = mCornerRadius;
         if (getWidth() != 0 && getHeight() != 0) {
             setBackgroundCompat(getWidth(), getHeight());
         }
     }
 
-    public float getmShadowLimit() {
+    public float getShadowLimit() {
         return mShadowLimit;
     }
 
     //动态设置阴影扩散区域
-    public void setmShadowLimit(int mShadowLimit) {
-        this.mShadowLimit = mShadowLimit;
-        setPadding();
+    public void setShadowLimit(int mShadowLimit) {
+        if (isShowShadow) {
+            int dip5 = (int) getContext().getResources().getDimension(R.dimen.dp_5);
+            if (mShadowLimit >= dip5) {
+                this.mShadowLimit = mShadowLimit;
+            } else {
+                this.mShadowLimit = dip5;
+            }
+            setPadding();
+        }
     }
 
     //动态设置阴影颜色值
-    public void setmShadowColor(int mShadowColor) {
+    public void setShadowColor(int mShadowColor) {
         this.mShadowColor = mShadowColor;
         if (getWidth() != 0 && getHeight() != 0) {
             setBackgroundCompat(getWidth(), getHeight());
         }
     }
 
-
-    public void setLeftShow(boolean leftShow) {
-        this.leftShow = leftShow;
+    //是否隐藏阴影的上边部分
+    public void setShadowHiddenTop(boolean topShow) {
+        this.topShow = !topShow;
         setPadding();
     }
 
-    public void setRightShow(boolean rightShow) {
-        this.rightShow = rightShow;
+    public void setShadowHiddenBottom(boolean bottomShow) {
+        this.bottomShow = !bottomShow;
         setPadding();
     }
 
-    public void setTopShow(boolean topShow) {
-        this.topShow = topShow;
+
+    public void setShadowHiddenRight(boolean rightShow) {
+        this.rightShow = !rightShow;
         setPadding();
     }
 
-    public void setBottomShow(boolean bottomShow) {
-        this.bottomShow = bottomShow;
+
+    public void setShadowHiddenLeft(boolean leftShow) {
+        this.leftShow = !leftShow;
         setPadding();
+    }
+
+
+    public void setLayoutBackground(int color) {
+        if (layoutBackground_true != null) {
+            throw new UnsupportedOperationException("使用了ShadowLayout_hl_layoutBackground_true属性，要与ShadowLayout_hl_layoutBackground属性统一为颜色");
+        }
+        mBackGroundColor = color;
+        if (selectorType == 2) {
+            //select模式
+            if (!this.isSelected()) {
+                paint.setColor(mBackGroundColor);
+            }
+        } else {
+            paint.setColor(mBackGroundColor);
+        }
+        postInvalidate();
+    }
+
+
+    public void setLayoutBackgroundTrue(int color) {
+        if (layoutBackground != null) {
+            throw new UnsupportedOperationException("使用了ShadowLayout_hl_layoutBackground属性，要与ShadowLayout_hl_layoutBackground_true属性统一为颜色");
+        }
+        mBackGroundColor_true = color;
+        if (selectorType == 2) {
+            //select模式
+            if (this.isSelected()) {
+                paint.setColor(mBackGroundColor_true);
+            }
+        }
+        postInvalidate();
+    }
+
+
+    public void setStrokeColor(int color) {
+        stroke_color = color;
+        if (selectorType == 2) {
+            //select模式
+            if (!this.isSelected()) {
+                paint_stroke.setColor(stroke_color);
+            }
+        } else {
+            paint_stroke.setColor(stroke_color);
+        }
+        postInvalidate();
+    }
+
+
+    public void setStrokeColorTrue(int color) {
+
+        stroke_color_true = color;
+        if (selectorType == 2) {
+            //select模式
+            if (this.isSelected()) {
+                paint_stroke.setColor(stroke_color_true);
+            }
+        }
+        postInvalidate();
+    }
+
+    public void setStrokeWidth(int stokeWidth) {
+        this.stroke_with = stokeWidth;
+        if (stroke_with > dip2px(7)) {
+            stroke_with = dip2px(5);
+        }
+        paint_stroke.setStrokeWidth(stroke_with);
+        postInvalidate();
     }
 
 
@@ -623,6 +705,11 @@ public class ShadowLayout extends FrameLayout {
             if (mShadowLimit == 0) {
                 //如果阴影没有设置阴影扩散区域，那么默认隐藏阴影
                 isShowShadow = false;
+            } else {
+                int dip5 = (int) getContext().getResources().getDimension(R.dimen.dp_5);
+                if (mShadowLimit < dip5) {
+                    mShadowLimit = dip5;
+                }
             }
 
             //x轴偏移量
@@ -854,9 +941,16 @@ public class ShadowLayout extends FrameLayout {
                         if (layoutBackground == null && layoutBackground_true == null) {
                             //画圆角矩形
                             canvas.drawRoundRect(rectf, trueHeight / 2, trueHeight / 2, paint);
+                            //解决边框线太洗时，四角的width偏大和其他边不同
                             if (stroke_color != -101) {
-                                RectF rectFStroke = new RectF(rectf.left + stroke_with / 2, rectf.top + stroke_with / 2, rectf.right - stroke_with / 2, rectf.bottom - stroke_with / 2);
-                                canvas.drawRoundRect(rectFStroke, trueHeight / 2, trueHeight / 2, paint_stroke);
+                                if (stroke_with>=dip2px(1)){
+                                    RectF rectFStroke = new RectF(rectf.left + stroke_with/2 , rectf.top + stroke_with/2 , rectf.right - stroke_with/2 , rectf.bottom - stroke_with/2 );
+                                    canvas.drawRoundRect(rectFStroke, trueHeight / 2, trueHeight / 2, paint_stroke);
+                                }else {
+                                    RectF rectFStroke = new RectF(rectf.left + stroke_with , rectf.top + stroke_with , rectf.right - stroke_with , rectf.bottom - stroke_with );
+                                    canvas.drawRoundRect(rectFStroke, trueHeight / 2, trueHeight / 2, paint_stroke);
+                                }
+
                             }
                         }
                     } else {
@@ -873,8 +967,13 @@ public class ShadowLayout extends FrameLayout {
 
                             canvas.drawRoundRect(rectf, mCornerRadius, mCornerRadius, paint);
                             if (stroke_color != -101) {
-                                RectF rectFStroke = new RectF(rectf.left + stroke_with / 2, rectf.top + stroke_with / 2, rectf.right - stroke_with / 2, rectf.bottom - stroke_with / 2);
-                                canvas.drawRoundRect(rectFStroke, mCornerRadius, mCornerRadius, paint_stroke);
+                                if (stroke_with>=dip2px(1)){
+                                    RectF rectFStroke = new RectF(rectf.left + stroke_with/2 , rectf.top + stroke_with/2 , rectf.right - stroke_with/2 , rectf.bottom - stroke_with/2 );
+                                    canvas.drawRoundRect(rectFStroke, mCornerRadius, mCornerRadius, paint_stroke);
+                                }else {
+                                    RectF rectFStroke = new RectF(rectf.left + stroke_with , rectf.top + stroke_with , rectf.right - stroke_with , rectf.bottom - stroke_with );
+                                    canvas.drawRoundRect(rectFStroke, mCornerRadius, mCornerRadius, paint_stroke);
+                                }
                             }
 
                         }
@@ -968,7 +1067,12 @@ public class ShadowLayout extends FrameLayout {
                 mDrawablesStroke.getPaint().setStyle(Paint.Style.STROKE);
                 mDrawablesStroke.getPaint().setStrokeWidth(stroke_with);
 //            mDrawablesStroke.setBounds(leftPadding, topPadding, getWidth() - rightPadding, getHeight() - bottomPadding);
-                mDrawablesStroke.setBounds((int) (leftPadding + stroke_with / 2), (int) (topPadding + stroke_with / 2), (int) (getWidth() - rightPadding - stroke_with / 2), (int) (getHeight() - bottomPadding - stroke_with / 2));
+                if (stroke_with>=dip2px(1)){
+                    mDrawablesStroke.setBounds((int) (leftPadding + stroke_with / 2), (int) (topPadding + stroke_with / 2), (int) (getWidth() - rightPadding - stroke_with / 2), (int) (getHeight() - bottomPadding - stroke_with / 2));
+                }else {
+                    mDrawablesStroke.setBounds((int) (leftPadding + stroke_with), (int) (topPadding + stroke_with), (int) (getWidth() - rightPadding - stroke_with), (int) (getHeight() - bottomPadding - stroke_with));
+                }
+
                 mDrawablesStroke.draw(canvas);
             } else {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

@@ -49,12 +49,12 @@ public class StarShowActivity extends AppCompatActivity implements View.OnClickL
         tab_leftShow.setOnClickListener(this);
 
 
-        skbar_corner.setMax((int) (ShadowLayout.getmCornerRadius() * 3));
-        skbar_corner.setProgress((int) ShadowLayout.getmCornerRadius());
+        skbar_corner.setMax((int) (ShadowLayout.getCornerRadius() * 3));
+        skbar_corner.setProgress((int) ShadowLayout.getCornerRadius());
         skbar_corner.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                ShadowLayout.setmCornerRadius(progress);
+                ShadowLayout.setCornerRadius(progress);
             }
 
             @Override
@@ -69,12 +69,12 @@ public class StarShowActivity extends AppCompatActivity implements View.OnClickL
         });
 
 
-        skbar_limit.setMax((int) (ShadowLayout.getmShadowLimit() * 3));
-        skbar_limit.setProgress((int) ShadowLayout.getmShadowLimit());
+        skbar_limit.setMax((int) (ShadowLayout.getShadowLimit() * 3));
+        skbar_limit.setProgress((int) ShadowLayout.getShadowLimit());
         skbar_limit.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                ShadowLayout.setmShadowLimit(progress);
+                ShadowLayout.setShadowLimit(progress);
             }
 
             @Override
@@ -92,7 +92,7 @@ public class StarShowActivity extends AppCompatActivity implements View.OnClickL
         skbar_x.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                ShadowLayout.setMDx(progress - 100);
+                ShadowLayout.setShadowOffsetX(progress - 100);
             }
 
             @Override
@@ -110,7 +110,7 @@ public class StarShowActivity extends AppCompatActivity implements View.OnClickL
         skbar_y.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                ShadowLayout.setMDy(progress - 100);
+                ShadowLayout.setShadowOffsetY(progress - 100);
             }
 
             @Override
@@ -129,7 +129,7 @@ public class StarShowActivity extends AppCompatActivity implements View.OnClickL
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 alpha = progress;
-                ShadowLayout.setmShadowColor(Color.argb(alpha, red, green, blue));
+                ShadowLayout.setShadowColor(Color.argb(alpha, red, green, blue));
             }
 
             @Override
@@ -148,7 +148,7 @@ public class StarShowActivity extends AppCompatActivity implements View.OnClickL
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 red = progress;
-                ShadowLayout.setmShadowColor(Color.argb(alpha, red, green, blue));
+                ShadowLayout.setShadowColor(Color.argb(alpha, red, green, blue));
             }
 
             @Override
@@ -167,7 +167,7 @@ public class StarShowActivity extends AppCompatActivity implements View.OnClickL
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 green = progress;
-                ShadowLayout.setmShadowColor(Color.argb(alpha, red, green, blue));
+                ShadowLayout.setShadowColor(Color.argb(alpha, red, green, blue));
             }
 
             @Override
@@ -186,7 +186,7 @@ public class StarShowActivity extends AppCompatActivity implements View.OnClickL
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 blue = progress;
-                ShadowLayout.setmShadowColor(Color.argb(alpha, red, green, blue));
+                ShadowLayout.setShadowColor(Color.argb(alpha, red, green, blue));
             }
 
             @Override
@@ -208,19 +208,19 @@ public class StarShowActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tab_topShow:
-                ShadowLayout.setTopShow(!select(tab_topShow));
+                ShadowLayout.setShadowHiddenTop(select(tab_topShow));
                 break;
 
             case R.id.tab_bottomShow:
-                ShadowLayout.setBottomShow(!select(tab_bottomShow));
+                ShadowLayout.setShadowHiddenBottom(select(tab_bottomShow));
                 break;
 
             case R.id.tab_leftShow:
-                ShadowLayout.setLeftShow(!select(tab_leftShow));
+                ShadowLayout.setShadowHiddenLeft(select(tab_leftShow));
                 break;
 
             case R.id.tab_rightShow:
-                ShadowLayout.setRightShow(!select(tab_rightShow));
+                ShadowLayout.setShadowHiddenRight(select(tab_rightShow));
                 break;
         }
     }
