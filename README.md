@@ -272,7 +272,7 @@
 
 
 
-## 属性表格
+## 属性表格（Attributes）
 ### 一、关于阴影
 
 |name|format|description|
@@ -344,7 +344,7 @@
  
 <br>
 
-## 方法表格
+## 方法表格（Method）
 |name|format|description|
 |:---:|:---:|:---:|
 |setShadowHidden()|boolean|是否隐藏阴影|
