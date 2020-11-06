@@ -25,7 +25,7 @@ import java.security.MessageDigest;
  * <p>
  * 这个是glide只加载2个圆角
  */
-public class GlideRoundTransform implements Transformation<Bitmap> {
+class GlideRoundTransform implements Transformation<Bitmap> {
     private BitmapPool mBitmapPool;
 
     private float leftTop_radius;

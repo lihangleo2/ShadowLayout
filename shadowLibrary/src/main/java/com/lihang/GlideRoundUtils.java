@@ -17,7 +17,7 @@ import com.bumptech.glide.request.transition.Transition;
  * Created by leo
  * on 2020/8/3.
  */
-public class GlideRoundUtils {
+class GlideRoundUtils {
     public static void setRoundCorner(final View view, final Drawable resourceId, final float cornerDipValue) {
 
         if (cornerDipValue == 0) {

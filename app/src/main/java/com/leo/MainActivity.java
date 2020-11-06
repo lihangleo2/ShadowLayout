@@ -1,13 +1,10 @@
 package com.leo;
 
 import android.content.Intent;
-import android.databinding.BindingBuildInfo;
 import android.databinding.DataBindingUtil;
-import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 
 import com.leo.databinding.ActivityMainBinding;
 
@@ -29,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         binding.ShadowLayoutWiki.setOnClickListener(v ->{
             startActivity(new Intent(MainActivity.this, WikiActivity.class));
         });
+
+
 
 
     }
