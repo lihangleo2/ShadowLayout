@@ -840,11 +840,48 @@ public class ShadowLayout extends FrameLayout {
         Canvas canvas = new Canvas(output);
 
         //这里缩小limit的是因为，setShadowLayer后会将bitmap扩散到shadowWidth，shadowHeight
+        //同时也要根据某边的隐藏情况去改变
+
+        float rect_left = 0;
+        float rect_right = 0;
+        float rect_top = 0;
+        float rect_bottom = 0;
+        if (leftShow) {
+            rect_left = shadowRadius;
+        } else {
+            rect_left = 0;
+        }
+
+        if (topShow) {
+            rect_top = shadowRadius;
+        } else {
+            rect_top = 0;
+        }
+
+        if (rightShow) {
+            rect_right = shadowWidth - shadowRadius;
+        } else {
+            rect_right = shadowWidth;
+        }
+
+        if (bottomShow) {
+            rect_bottom = shadowHeight - shadowRadius;
+        } else {
+            rect_bottom = shadowHeight;
+        }
+
+//        RectF shadowRect = new RectF(
+//                shadowRadius,
+//                shadowRadius,
+//                shadowWidth - shadowRadius,
+//                shadowHeight - shadowRadius);
+
+
         RectF shadowRect = new RectF(
-                shadowRadius,
-                shadowRadius,
-                shadowWidth - shadowRadius,
-                shadowHeight - shadowRadius);
+                rect_left,
+                rect_top,
+                rect_right,
+                rect_bottom);
 
         if (isSym) {
             if (dy > 0) {
@@ -943,11 +980,11 @@ public class ShadowLayout extends FrameLayout {
                             canvas.drawRoundRect(rectf, trueHeight / 2, trueHeight / 2, paint);
                             //解决边框线太洗时，四角的width偏大和其他边不同
                             if (stroke_color != -101) {
-                                if (stroke_with>=dip2px(1)){
-                                    RectF rectFStroke = new RectF(rectf.left + stroke_with/2 , rectf.top + stroke_with/2 , rectf.right - stroke_with/2 , rectf.bottom - stroke_with/2 );
+                                if (stroke_with >= dip2px(1)) {
+                                    RectF rectFStroke = new RectF(rectf.left + stroke_with / 2, rectf.top + stroke_with / 2, rectf.right - stroke_with / 2, rectf.bottom - stroke_with / 2);
                                     canvas.drawRoundRect(rectFStroke, trueHeight / 2, trueHeight / 2, paint_stroke);
-                                }else {
-                                    RectF rectFStroke = new RectF(rectf.left + stroke_with , rectf.top + stroke_with , rectf.right - stroke_with , rectf.bottom - stroke_with );
+                                } else {
+                                    RectF rectFStroke = new RectF(rectf.left + stroke_with, rectf.top + stroke_with, rectf.right - stroke_with, rectf.bottom - stroke_with);
                                     canvas.drawRoundRect(rectFStroke, trueHeight / 2, trueHeight / 2, paint_stroke);
                                 }
 
@@ -967,11 +1004,11 @@ public class ShadowLayout extends FrameLayout {
 
                             canvas.drawRoundRect(rectf, mCornerRadius, mCornerRadius, paint);
                             if (stroke_color != -101) {
-                                if (stroke_with>=dip2px(1)){
-                                    RectF rectFStroke = new RectF(rectf.left + stroke_with/2 , rectf.top + stroke_with/2 , rectf.right - stroke_with/2 , rectf.bottom - stroke_with/2 );
+                                if (stroke_with >= dip2px(1)) {
+                                    RectF rectFStroke = new RectF(rectf.left + stroke_with / 2, rectf.top + stroke_with / 2, rectf.right - stroke_with / 2, rectf.bottom - stroke_with / 2);
                                     canvas.drawRoundRect(rectFStroke, mCornerRadius, mCornerRadius, paint_stroke);
-                                }else {
-                                    RectF rectFStroke = new RectF(rectf.left + stroke_with , rectf.top + stroke_with , rectf.right - stroke_with , rectf.bottom - stroke_with );
+                                } else {
+                                    RectF rectFStroke = new RectF(rectf.left + stroke_with, rectf.top + stroke_with, rectf.right - stroke_with, rectf.bottom - stroke_with);
                                     canvas.drawRoundRect(rectFStroke, mCornerRadius, mCornerRadius, paint_stroke);
                                 }
                             }
@@ -1067,9 +1104,9 @@ public class ShadowLayout extends FrameLayout {
                 mDrawablesStroke.getPaint().setStyle(Paint.Style.STROKE);
                 mDrawablesStroke.getPaint().setStrokeWidth(stroke_with);
 //            mDrawablesStroke.setBounds(leftPadding, topPadding, getWidth() - rightPadding, getHeight() - bottomPadding);
-                if (stroke_with>=dip2px(1)){
+                if (stroke_with >= dip2px(1)) {
                     mDrawablesStroke.setBounds((int) (leftPadding + stroke_with / 2), (int) (topPadding + stroke_with / 2), (int) (getWidth() - rightPadding - stroke_with / 2), (int) (getHeight() - bottomPadding - stroke_with / 2));
-                }else {
+                } else {
                     mDrawablesStroke.setBounds((int) (leftPadding + stroke_with), (int) (topPadding + stroke_with), (int) (getWidth() - rightPadding - stroke_with), (int) (getHeight() - bottomPadding - stroke_with));
                 }
 
