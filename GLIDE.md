@@ -11,7 +11,7 @@
 
 
 ### 3、出现如下假面后，点击右边的文件夹，选中shadowLibrary，然后点击Finish
-![](https://github.com/lihangleo2/ShadowLayout/blob/master/glide3.jpg)
+![](https://github.com/lihangleo2/ShadowLayout/blob/master/glide3.png)
 
 
 finish后就会以module的方式出现在你的项目里。
@@ -22,7 +22,7 @@ implementation project(':shadowLibrary')
 
 
 ### 5、最后来到shadowLibrary的bulid.gradle里修改下glide版本即可
-![](https://github.com/lihangleo2/ShadowLayout/blob/master/glide4.jpg)
+![](https://github.com/lihangleo2/ShadowLayout/blob/master/glide4.png)
 
 
 
