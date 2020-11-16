@@ -1,7 +1,7 @@
 ## glide版本冲突终极解决方案
-如果你出现了版本冲突，不知道怎么解决的话。就用Library方式继承，同时修改shadowLibrary里build.gradle的glide版本号。（如果版本过低的话，可能需要修改GlideRoundUtils里glide的加载方法）
+如果你出现了版本冲突，不知道怎么解决的话。就用Library方式集成，同时修改shadowLibrary里build.gradle的glide版本号。（如果版本过低的话，可能需要修改GlideRoundUtils里glide的加载方法）
 
-## 如果你不知道怎么继承的话，按如下步骤
+## 如果你不知道怎么集成的话，按如下步骤
 ### 1、首先下载本demo，打开项目如下
 ![](https://github.com/lihangleo2/ShadowLayout/blob/master/glide1.png)
 
