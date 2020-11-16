@@ -831,8 +831,8 @@ public class ShadowLayout extends FrameLayout {
         //优化阴影bitmap大小,将尺寸缩小至原来的1/4。
         dx = dx / 4;
         dy = dy / 4;
-        shadowWidth = shadowWidth / 4;
-        shadowHeight = shadowHeight / 4;
+        shadowWidth = shadowWidth / 4 == 0 ? 1 : shadowWidth / 4;
+        shadowHeight = shadowHeight / 4 == 0 ? 1 : shadowHeight / 4;
         cornerRadius = cornerRadius / 4;
         shadowRadius = shadowRadius / 4;
 
@@ -852,7 +852,7 @@ public class ShadowLayout extends FrameLayout {
 //            rect_left = 0;
             float maxLeftTop = Math.max(cornerRadius, mCornerRadius_leftTop);
             float maxLeftBottom = Math.max(cornerRadius, mCornerRadius_leftBottom);
-            float maxLeft = Math.max(maxLeftTop,maxLeftBottom);
+            float maxLeft = Math.max(maxLeftTop, maxLeftBottom);
             rect_left = maxLeft;
         }
 
@@ -862,7 +862,7 @@ public class ShadowLayout extends FrameLayout {
 //            rect_top = 0;
             float maxLeftTop = Math.max(cornerRadius, mCornerRadius_leftTop);
             float maxRightTop = Math.max(cornerRadius, mCornerRadius_rightTop);
-            float maxTop = Math.max(maxLeftTop,maxRightTop);
+            float maxTop = Math.max(maxLeftTop, maxRightTop);
             rect_top = maxTop;
         }
 
@@ -872,8 +872,8 @@ public class ShadowLayout extends FrameLayout {
 //            rect_right = shadowWidth;
             float maxRightTop = Math.max(cornerRadius, mCornerRadius_rightTop);
             float maxRightBottom = Math.max(cornerRadius, mCornerRadius_rightBottom);
-            float maxRight = Math.max(maxRightTop,maxRightBottom);
-            rect_right = shadowWidth-maxRight;
+            float maxRight = Math.max(maxRightTop, maxRightBottom);
+            rect_right = shadowWidth - maxRight;
         }
 
         if (bottomShow) {
@@ -882,7 +882,7 @@ public class ShadowLayout extends FrameLayout {
 //            rect_bottom = shadowHeight;
             float maxLeftBottom = Math.max(cornerRadius, mCornerRadius_leftBottom);
             float maxRightBottom = Math.max(cornerRadius, mCornerRadius_rightBottom);
-            float maxBottom = Math.max(maxLeftBottom,maxRightBottom);
+            float maxBottom = Math.max(maxLeftBottom, maxRightBottom);
             rect_bottom = shadowHeight - maxBottom;
         }
 
