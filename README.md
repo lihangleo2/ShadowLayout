@@ -77,7 +77,8 @@
 	        implementation 'com.github.lihangleo2:ShadowLayout:3.1.4'
 	}
    ```
-   
+[glide版本冲突终极解决方案](https://github.com/lihangleo2/ShadowLayout/blob/master/GLIDE.md)     
+
 <br>
 
 ## 基本使用
