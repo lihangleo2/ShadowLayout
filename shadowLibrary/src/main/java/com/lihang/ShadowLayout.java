@@ -177,50 +177,60 @@ public class ShadowLayout extends FrameLayout {
     @Override
     public void setSelected(boolean selected) {
         super.setSelected(selected);
-        if (selectorType == 2) {
-            if (selected) {
-                if (mBackGroundColor_true != -101) {
-                    paint.setColor(mBackGroundColor_true);
-                }
-
-                paint.setShader(null);
-                if (stroke_color_true != -101) {
-                    paint_stroke.setColor(stroke_color_true);
-                }
-                if (layoutBackground_true != null) {
-                    setmBackGround(layoutBackground_true);
-                }
-
-                if (mTextView != null) {
-                    mTextView.setTextColor(textColor_true);
-                    if (!TextUtils.isEmpty(text_true)) {
-                        mTextView.setText(text_true);
+        if (getWidth()!=0){
+            if (selectorType == 2) {
+                if (selected) {
+                    if (mBackGroundColor_true != -101) {
+                        paint.setColor(mBackGroundColor_true);
                     }
-                }
 
-            } else {
-                paint.setColor(mBackGroundColor);
-                if (startColor != -101) {
-                    gradient(paint);
-                }
-
-                if (stroke_color != -101) {
-                    paint_stroke.setColor(stroke_color);
-                }
-
-                if (layoutBackground != null) {
-                    setmBackGround(layoutBackground);
-                }
-
-                if (mTextView != null) {
-                    mTextView.setTextColor(textColor);
-                    if (!TextUtils.isEmpty(text)) {
-                        mTextView.setText(text);
+                    paint.setShader(null);
+                    if (stroke_color_true != -101) {
+                        paint_stroke.setColor(stroke_color_true);
                     }
-                }
+                    if (layoutBackground_true != null) {
+                        setmBackGround(layoutBackground_true);
+                    }
 
+                    if (mTextView != null) {
+                        mTextView.setTextColor(textColor_true);
+                        if (!TextUtils.isEmpty(text_true)) {
+                            mTextView.setText(text_true);
+                        }
+                    }
+
+                } else {
+                    paint.setColor(mBackGroundColor);
+                    if (startColor != -101) {
+                        gradient(paint);
+                    }
+
+                    if (stroke_color != -101) {
+                        paint_stroke.setColor(stroke_color);
+                    }
+
+                    if (layoutBackground != null) {
+                        setmBackGround(layoutBackground);
+                    }
+
+                    if (mTextView != null) {
+                        mTextView.setTextColor(textColor);
+                        if (!TextUtils.isEmpty(text)) {
+                            mTextView.setText(text);
+                        }
+                    }
+
+                }
+                postInvalidate();
             }
-            postInvalidate();
+        }else {
+            addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+                @Override
+                public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                    removeOnLayoutChangeListener(this);
+                    setSelected(isSelected());
+                }
+            });
         }
     }
 
@@ -432,13 +442,12 @@ public class ShadowLayout extends FrameLayout {
             //selector样式不受clickable的影响
 
             if (selectorType == 2) {
-                //如果是selector的模式下//11.2优化bug
-//                if (this.isSelected()) {
-//                    //这个方法内已经判断了是否为空
-//                    setmBackGround(layoutBackground_true);
-//                } else {
-//                    setmBackGround(layoutBackground);
-//                }
+                if (this.isSelected()) {
+                    //这个方法内已经判断了是否为空
+                    setmBackGround(layoutBackground_true);
+                } else {
+                    setmBackGround(layoutBackground);
+                }
             } else {
                 if (isClickable) {
                     setmBackGround(layoutBackground);
