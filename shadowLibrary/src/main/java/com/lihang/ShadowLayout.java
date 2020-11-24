@@ -121,6 +121,10 @@ public class ShadowLayout extends FrameLayout {
         if (isClickable) {
             super.setOnClickListener(onClickListener);
         }
+		
+		if (paint != null) {
+            gradient(paint);
+        }
     }
 
 
@@ -504,6 +508,11 @@ public class ShadowLayout extends FrameLayout {
 
     //将画笔附上 渐变色
     public void gradient(Paint paint) {
+		if (!isClickable) {
+            paint.setShader(null);
+            return;
+        }
+		
         //左上 x,y   leftPadding, topPadding,
         //右下 x,y   getWidth() - rightPadding, getHeight() - bottomPadding
         int[] colors;
