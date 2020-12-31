@@ -361,7 +361,7 @@
 |setStrokeColor()|color|设置false时的边框颜色|
 |setStrokeColorTrue()|color|设置true时的边框颜色|
 |setClickable()|boolean|设置ShadowLayout是否可以点击|
-
+|setSpecialCorner()|integer|设置ShadowLayout四个角的大小|
 <br>
 
 ## 赞赏
