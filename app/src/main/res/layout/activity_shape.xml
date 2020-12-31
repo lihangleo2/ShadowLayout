@@ -303,6 +303,7 @@
 
 
                 <com.lihang.ShadowLayout
+                    app:clickable="false"
                     android:id="@+id/ShadowLayout_Clickable"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -323,6 +324,7 @@
                         android:paddingRight="10dp"
                         android:text="设置ClickableFalse"
                         android:textColor="#fff" />
+
                 </com.lihang.ShadowLayout>
 
 
@@ -551,6 +553,7 @@
 
 
                 <TextView
+                    android:id="@+id/txt_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp_15"
@@ -562,6 +565,7 @@
 
 
                 <com.lihang.ShadowLayout
+                    android:id="@+id/ShadowLayout_Test"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"

@@ -121,9 +121,11 @@ public class ShadowLayout extends FrameLayout {
         if (isClickable) {
             super.setOnClickListener(onClickListener);
         }
-		
-		if (paint != null) {
-            gradient(paint);
+
+        if (paint != null) {
+            if (startColor != -101 && endColor != -101) {
+                gradient(paint);
+            }
         }
     }
 
@@ -181,7 +183,7 @@ public class ShadowLayout extends FrameLayout {
     @Override
     public void setSelected(boolean selected) {
         super.setSelected(selected);
-        if (getWidth()!=0){
+        if (getWidth() != 0) {
             if (selectorType == 2) {
                 if (selected) {
                     if (mBackGroundColor_true != -101) {
@@ -227,7 +229,7 @@ public class ShadowLayout extends FrameLayout {
                 }
                 postInvalidate();
             }
-        }else {
+        } else {
             addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
                 @Override
                 public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
@@ -316,6 +318,18 @@ public class ShadowLayout extends FrameLayout {
             setBackgroundCompat(getWidth(), getHeight());
         }
     }
+
+
+    public void setSpecialCorner(int leftTop, int rightTop, int leftBottom, int rightBottom) {
+        mCornerRadius_leftTop = leftTop;
+        mCornerRadius_rightTop = rightTop;
+        mCornerRadius_leftBottom = leftBottom;
+        mCornerRadius_rightBottom = rightBottom;
+        if (getWidth() != 0 && getHeight() != 0) {
+            setBackgroundCompat(getWidth(), getHeight());
+        }
+    }
+
 
     //是否隐藏阴影的上边部分
     public void setShadowHiddenTop(boolean topShow) {
@@ -447,11 +461,11 @@ public class ShadowLayout extends FrameLayout {
 
             if (selectorType == 2) {
                 //if (this.isSelected()) {
-                    //这个方法内已经判断了是否为空
-                  //  setmBackGround(layoutBackground_true);
+                //这个方法内已经判断了是否为空
+                //  setmBackGround(layoutBackground_true);
                 //} else {
-                  //  setmBackGround(layoutBackground);
-              //  }
+                //  setmBackGround(layoutBackground);
+                //  }
             } else {
                 if (isClickable) {
                     setmBackGround(layoutBackground);
@@ -508,11 +522,11 @@ public class ShadowLayout extends FrameLayout {
 
     //将画笔附上 渐变色
     public void gradient(Paint paint) {
-		if (!isClickable) {
+        if (!isClickable) {
             paint.setShader(null);
             return;
         }
-		
+
         //左上 x,y   leftPadding, topPadding,
         //右下 x,y   getWidth() - rightPadding, getHeight() - bottomPadding
         int[] colors;
