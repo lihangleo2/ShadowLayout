@@ -21,7 +21,7 @@
             app:hl_shadowHiddenLeft="true"
             app:hl_shadowHiddenRight="true"
             app:hl_shadowHiddenTop="true"
-            app:hl_shadowLimit="5dp">
+            app:hl_shadowLimit="10dp">
 
 
             <RelativeLayout
@@ -258,7 +258,7 @@
                         android:gravity="center"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="圆角背景"
+                        android:text="圆角图片背景"
                         android:textColor="#ff0000" />
                 </com.lihang.ShadowLayout>
 
@@ -278,7 +278,7 @@
                         android:gravity="center"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="不规则背景"
+                        android:text="不规则圆角图片背景"
                         android:textColor="#ff0000" />
                 </com.lihang.ShadowLayout>
 
@@ -408,7 +408,7 @@
                     app:hl_layoutBackground="#fff"
                     app:hl_layoutBackground_true="#ff0000"
                     app:hl_shadowColor="#2a000000"
-                    app:hl_shadowLimit="7dp"
+                    app:hl_shadowLimit="14dp"
                     app:hl_shapeMode="ripple">
 
                     <TextView
@@ -433,7 +433,7 @@
                     app:hl_endColor="#fff"
                     app:hl_layoutBackground_true="#000000"
                     app:hl_shadowColor="#4D0E5BE8"
-                    app:hl_shadowLimit="7dp"
+                    app:hl_shadowLimit="14dp"
                     app:hl_shapeMode="ripple"
                     app:hl_startColor="#EE5F8F">
 
@@ -529,7 +529,7 @@
                     app:hl_endColor="#fff"
                     app:hl_layoutBackground_true="#000000"
                     app:hl_shadowColor="#4D0E5BE8"
-                    app:hl_shadowLimit="7dp"
+                    app:hl_shadowLimit="14dp"
                     app:hl_shapeMode="ripple"
                     app:hl_startColor="#EE5F8F"
                     app:hl_bindTextView="@+id/txt_rippled"
@@ -575,7 +575,7 @@
                     app:hl_layoutBackground="#fff"
                     app:hl_layoutBackground_true="#71E335"
                     app:hl_shadowColor="#4D0E5BE8"
-                    app:hl_shadowLimit="15dp"
+                    app:hl_shadowLimit="30dp"
                     app:hl_shapeMode="pressed"
                     app:hl_strokeColor="#4D0E5BE8"
                     app:hl_strokeColor_true="#ff0000"
@@ -629,7 +629,7 @@
                     app:hl_layoutBackground="#fff"
                     app:hl_layoutBackground_true="#71E335"
                     app:hl_shadowColor="#4D0E5BE8"
-                    app:hl_shadowLimit="15dp"
+                    app:hl_shadowLimit="30dp"
                     app:hl_shapeMode="pressed"
                     app:hl_strokeColor="#4D0E5BE8"
                     app:hl_strokeColor_true="#ff0000">

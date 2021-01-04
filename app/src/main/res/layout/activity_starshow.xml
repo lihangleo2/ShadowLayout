@@ -19,7 +19,7 @@
                 app:hl_shadowOffsetX="0dp"
                 app:hl_shadowOffsetY="0dp"
                 app:hl_shadowColor="#2aff0000"
-                app:hl_shadowLimit="10dp">
+                app:hl_shadowLimit="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"

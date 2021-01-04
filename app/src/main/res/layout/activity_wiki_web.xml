@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <WebView
+            android:layout_marginTop="-10dp"
+            android:layout_below="@+id/ShadowLayoutHead"
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ProgressBar
+            android:layout_marginTop="-10dp"
+            android:layout_below="@+id/ShadowLayoutHead"
+            android:id="@+id/progressBar"
+            style="@style/PBarStyle_Web"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="5" />
+
+        <com.lihang.ShadowLayout
+            android:id="@+id/ShadowLayoutHead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            app:hl_shadowColor="#2a000000"
+            app:hl_shadowHiddenLeft="true"
+            app:hl_shadowHiddenRight="true"
+            app:hl_shadowHiddenTop="true"
+            app:hl_shadowLimit="10dp">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp">
+
+
+                <com.lihang.ShadowLayout
+                    android:id="@+id/shadowLayout_bar_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    app:hl_cornerRadius="30dp"
+                    app:hl_layoutBackground="#fff"
+                    app:hl_layoutBackground_true="#eeeeee"
+                    app:hl_shapeMode="pressed">
+
+                    <ImageView
+                        android:id="@+id/bar_left_btn"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="@dimen/dp_5"
+                        android:src="@mipmap/back_icon_black" />
+
+                </com.lihang.ShadowLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="ShadowLayout成长历史"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+
+        </com.lihang.ShadowLayout>
+
+
+
+
+
+    </RelativeLayout>
+</layout>

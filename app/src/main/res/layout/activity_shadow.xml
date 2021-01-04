@@ -21,7 +21,7 @@
             app:hl_shadowHiddenLeft="true"
             app:hl_shadowHiddenRight="true"
             app:hl_shadowHiddenTop="true"
-            app:hl_shadowLimit="5dp">
+            app:hl_shadowLimit="10dp">
 
 
             <RelativeLayout
@@ -83,7 +83,7 @@
                     android:layout_marginTop="10dp"
                     app:hl_cornerRadius="10dp"
                     app:hl_shadowColor="#2a000000"
-                    app:hl_shadowLimit="5dp"
+                    app:hl_shadowLimit="10dp"
                     >
 
                     <TextView
@@ -104,7 +104,7 @@
                     android:layout_marginTop="10dp"
                     app:hl_cornerRadius="18dp"
                     app:hl_shadowColor="#29000000"
-                    app:hl_shadowLimit="5dp"
+                    app:hl_shadowLimit="10dp"
                     >
 
                     <TextView
@@ -127,7 +127,7 @@
                     app:hl_cornerRadius="18dp"
                     app:hl_cornerRadius_leftTop="0dp"
                     app:hl_shadowColor="#29000000"
-                    app:hl_shadowLimit="5dp"
+                    app:hl_shadowLimit="10dp"
                     >
 
                     <TextView
@@ -150,7 +150,7 @@
                     android:layout_marginTop="10dp"
                     app:hl_cornerRadius="5dp"
                     app:hl_shadowColor="#2aff0000"
-                    app:hl_shadowLimit="5dp"
+                    app:hl_shadowLimit="10dp"
                     >
 
                     <TextView
@@ -172,7 +172,7 @@
                     android:layout_marginTop="10dp"
                     app:hl_cornerRadius="18dp"
                     app:hl_shadowColor="#2a0d00ff"
-                    app:hl_shadowLimit="5dp"
+                    app:hl_shadowLimit="10dp"
                     >
 
                     <TextView
@@ -193,7 +193,7 @@
                     android:layout_marginTop="10dp"
                     app:hl_cornerRadius="18dp"
                     app:hl_shadowColor="#5500ff11"
-                    app:hl_shadowLimit="10dp"
+                    app:hl_shadowLimit="20dp"
                     >
 
                     <TextView
@@ -214,7 +214,7 @@
                     android:layout_marginTop="10dp"
                     app:hl_cornerRadius="18dp"
                     app:hl_shadowColor="#5500bfff"
-                    app:hl_shadowLimit="10dp"
+                    app:hl_shadowLimit="20dp"
                     app:hl_shadowOffsetX="5dp"
                     >
 
@@ -236,7 +236,7 @@
                     android:layout_marginTop="10dp"
                     app:hl_cornerRadius="18dp"
                     app:hl_shadowColor="#55ff00d5"
-                    app:hl_shadowLimit="10dp"
+                    app:hl_shadowLimit="20dp"
                     app:hl_shadowOffsetY="5dp"
                     >
 
@@ -259,7 +259,7 @@
                     app:hl_cornerRadius="18dp"
                     app:hl_shadowColor="#55ff8c00"
                     app:hl_shadowHiddenTop="true"
-                    app:hl_shadowLimit="10dp">
+                    app:hl_shadowLimit="20dp">
 
                     <TextView
                         android:layout_width="wrap_content"

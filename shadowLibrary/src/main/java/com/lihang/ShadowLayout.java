@@ -952,7 +952,7 @@ public class ShadowLayout extends FrameLayout {
 
         shadowPaint.setColor(fillColor);
         if (!isInEditMode()) {//dx  dy
-            shadowPaint.setShadowLayer(shadowRadius, dx, dy, shadowColor);
+            shadowPaint.setShadowLayer(shadowRadius/2, dx, dy, shadowColor);
         }
 
         if (mCornerRadius_leftBottom == -1 && mCornerRadius_leftTop == -1 && mCornerRadius_rightTop == -1 && mCornerRadius_rightBottom == -1) {

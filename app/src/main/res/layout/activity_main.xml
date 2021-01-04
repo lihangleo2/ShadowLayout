@@ -23,7 +23,7 @@
             app:hl_shadowHiddenLeft="true"
             app:hl_shadowHiddenRight="true"
             app:hl_shadowHiddenTop="true"
-            app:hl_shadowLimit="5dp"
+            app:hl_shadowLimit="10dp"
             >
 
             <TextView
@@ -50,7 +50,7 @@
             app:hl_layoutBackground="#fff"
             app:hl_layoutBackground_true="#ff0000"
             app:hl_shadowColor="#2a000000"
-            app:hl_shadowLimit="7dp"
+            app:hl_shadowLimit="14dp"
             app:hl_shapeMode="ripple">
 
 
@@ -100,7 +100,7 @@
             app:hl_endColor="#fff"
             app:hl_layoutBackground_true="#ff0000"
             app:hl_shadowColor="#4D0E5BE8"
-            app:hl_shadowLimit="7dp"
+            app:hl_shadowLimit="14dp"
             app:hl_shapeMode="pressed"
             app:hl_startColor="#EE5F8F">
 
