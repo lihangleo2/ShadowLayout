@@ -25,7 +25,7 @@
 <br>
 
 ## ShadowLayout动态
-* [ShadowLayout3.1.6更新内容，及以往成长](https://github.com/lihangleo2/ShadowLayout/wiki)  
+* [ShadowLayout3.1.7更新内容，及以往成长](https://github.com/lihangleo2/ShadowLayout/wiki)  
 * 注意：3.0后修改大量api及规范命名，如果还在用2.0，不方便转移的可查看[ShadowLayout2.0文档](https://github.com/lihangleo2/ShadowLayout/blob/master/README218.md)  
 <br>
 
@@ -75,7 +75,7 @@
  - app build.gradle添加如下
     ```java
    dependencies {
-	        implementation 'com.github.lihangleo2:ShadowLayout:3.1.6'
+	        implementation 'com.github.lihangleo2:ShadowLayout:3.1.7'
 	}
    ```
 [glide版本冲突终极解决方案](https://github.com/lihangleo2/ShadowLayout/blob/master/GLIDE.md)     
@@ -361,7 +361,7 @@
 |setStrokeColor()|color|设置false时的边框颜色|
 |setStrokeColorTrue()|color|设置true时的边框颜色|
 |setClickable()|boolean|设置ShadowLayout是否可以点击|
-
+|setSpecialCorner()|integer|设置ShadowLayout四个角的大小|
 <br>
 
 ## 赞赏
