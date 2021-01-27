@@ -25,7 +25,7 @@
 <br>
 
 ## ShadowLayout动态
-* [ShadowLayout3.1.8更新内容，及以往成长](https://github.com/lihangleo2/ShadowLayout/wiki)  
+* [ShadowLayout3.1.9更新内容，及以往成长](https://github.com/lihangleo2/ShadowLayout/wiki)  
 * 注意：3.1.8修复issues79，阴影过渡不平滑。老项目升级为3.1.8时，需将limit*2。（如果你没有改变阴影透明度则不存在这个问题，放心使用3.1.7）
 * 注意：3.0后修改大量api及规范命名，如果还在用2.0，不方便转移的可查看[ShadowLayout2.0文档](https://github.com/lihangleo2/ShadowLayout/blob/master/README218.md)  
 <br>
@@ -76,7 +76,7 @@
  - app build.gradle添加如下
     ```java
    dependencies {
-	        implementation 'com.github.lihangleo2:ShadowLayout:3.1.8'
+	        implementation 'com.github.lihangleo2:ShadowLayout:3.1.9'
 	}
    ```
 [glide版本冲突终极解决方案](https://github.com/lihangleo2/ShadowLayout/blob/master/GLIDE.md)     
