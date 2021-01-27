@@ -12,8 +12,6 @@
         android:orientation="vertical">
 
 
-
-
         <com.lihang.ShadowLayout
             android:id="@+id/ShadowLayoutHead"
             android:layout_width="match_parent"
@@ -23,8 +21,7 @@
             app:hl_shadowHiddenLeft="true"
             app:hl_shadowHiddenRight="true"
             app:hl_shadowHiddenTop="true"
-            app:hl_shadowLimit="10dp"
-            >
+            app:hl_shadowLimit="10dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -114,6 +111,31 @@
                 android:textColor="#fff" />
 
         </com.lihang.ShadowLayout>
+
+            <!-- 测试issues #86 -->
+<!--        <com.lihang.ShadowLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:layout_marginTop="100dp"-->
+<!--            app:hl_cornerRadius="30dp"-->
+<!--            app:hl_layoutBackground="#ffffff"-->
+<!--            app:hl_layoutBackground_true="#898989"-->
+<!--            app:hl_strokeColor="#ff0000"-->
+<!--            app:hl_strokeColor_true="#097306"-->
+<!--            app:hl_strokeWith="5dp"-->
+<!--            app:hl_cornerRadius_leftTop="0dp"-->
+<!--            app:hl_cornerRadius_rightBottom="80dp"-->
+<!--            >-->
+
+<!--            <TextView-->
+<!--                android:layout_width="250dp"-->
+<!--                android:layout_height="80dp"-->
+<!--                android:gravity="center"-->
+<!--                android:text="测试"-->
+<!--                android:textSize="16sp" />-->
+
+<!--        </com.lihang.ShadowLayout>-->
 
 
     </LinearLayout>

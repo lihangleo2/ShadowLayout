@@ -952,7 +952,7 @@ public class ShadowLayout extends FrameLayout {
 
         shadowPaint.setColor(fillColor);
         if (!isInEditMode()) {//dx  dy
-            shadowPaint.setShadowLayer(shadowRadius/2, dx, dy, shadowColor);
+            shadowPaint.setShadowLayer(shadowRadius / 2, dx, dy, shadowColor);
         }
 
         if (mCornerRadius_leftBottom == -1 && mCornerRadius_leftTop == -1 && mCornerRadius_rightTop == -1 && mCornerRadius_rightBottom == -1) {
@@ -1022,13 +1022,12 @@ public class ShadowLayout extends FrameLayout {
                             canvas.drawRoundRect(rectf, trueHeight / 2, trueHeight / 2, paint);
                             //解决边框线太洗时，四角的width偏大和其他边不同
                             if (stroke_color != -101) {
-                                if (stroke_with >= dip2px(1)) {
-                                    RectF rectFStroke = new RectF(rectf.left + stroke_with / 2, rectf.top + stroke_with / 2, rectf.right - stroke_with / 2, rectf.bottom - stroke_with / 2);
-                                    canvas.drawRoundRect(rectFStroke, trueHeight / 2, trueHeight / 2, paint_stroke);
-                                } else {
-                                    RectF rectFStroke = new RectF(rectf.left + stroke_with, rectf.top + stroke_with, rectf.right - stroke_with, rectf.bottom - stroke_with);
-                                    canvas.drawRoundRect(rectFStroke, trueHeight / 2, trueHeight / 2, paint_stroke);
-                                }
+                                int the_height = (int) (rectf.bottom - rectf.top);
+                                int the_height_stoke = (int) (rectf.bottom - stroke_with / 2 - rectf.top - stroke_with / 2);
+                                int trueCorner = (int) (trueHeight * the_height_stoke / 2 / the_height);
+
+                                RectF rectFStroke = new RectF(rectf.left + stroke_with / 2, rectf.top + stroke_with / 2, rectf.right - stroke_with / 2, rectf.bottom - stroke_with / 2);
+                                canvas.drawRoundRect(rectFStroke, trueCorner, trueCorner, paint_stroke);
 
                             }
                         }
@@ -1046,13 +1045,14 @@ public class ShadowLayout extends FrameLayout {
 
                             canvas.drawRoundRect(rectf, mCornerRadius, mCornerRadius, paint);
                             if (stroke_color != -101) {
-                                if (stroke_with >= dip2px(1)) {
-                                    RectF rectFStroke = new RectF(rectf.left + stroke_with / 2, rectf.top + stroke_with / 2, rectf.right - stroke_with / 2, rectf.bottom - stroke_with / 2);
-                                    canvas.drawRoundRect(rectFStroke, mCornerRadius, mCornerRadius, paint_stroke);
-                                } else {
-                                    RectF rectFStroke = new RectF(rectf.left + stroke_with, rectf.top + stroke_with, rectf.right - stroke_with, rectf.bottom - stroke_with);
-                                    canvas.drawRoundRect(rectFStroke, mCornerRadius, mCornerRadius, paint_stroke);
-                                }
+                                int the_height = (int) (rectf.bottom - rectf.top);
+                                int the_height_stoke = (int) (rectf.bottom - stroke_with / 2 - rectf.top - stroke_with / 2);
+                                int trueCorner = (int) (mCornerRadius * the_height_stoke / the_height);
+
+
+                                RectF rectFStroke = new RectF(rectf.left + stroke_with / 2, rectf.top + stroke_with / 2, rectf.right - stroke_with / 2, rectf.bottom - stroke_with / 2);
+                                canvas.drawRoundRect(rectFStroke, trueCorner, trueCorner, paint_stroke);
+
                             }
 
                         }
@@ -1126,6 +1126,63 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
+    //这里是为了解决stokeWith很大时，圆角盖不住底部四个角的bug(issues #86)
+    public float[] getCornerValueOther(int trueHeight, int stokeWith) {
+        trueHeight = trueHeight - stokeWith * 2;
+        int leftTop;
+        int rightTop;
+        int rightBottom;
+        int leftBottom;
+        if (mCornerRadius_leftTop == -1) {
+            leftTop = (int) mCornerRadius;
+        } else {
+            leftTop = (int) mCornerRadius_leftTop;
+        }
+
+        if (leftTop > trueHeight / 2) {
+            leftTop = trueHeight / 2;
+        }
+
+        if (mCornerRadius_rightTop == -1) {
+            rightTop = (int) mCornerRadius;
+        } else {
+            rightTop = (int) mCornerRadius_rightTop;
+        }
+
+        if (rightTop > trueHeight / 2) {
+            rightTop = trueHeight / 2;
+        }
+
+        if (mCornerRadius_rightBottom == -1) {
+            rightBottom = (int) mCornerRadius;
+        } else {
+            rightBottom = (int) mCornerRadius_rightBottom;
+        }
+
+        if (rightBottom > trueHeight / 2) {
+            rightBottom = trueHeight / 2;
+        }
+
+
+        if (mCornerRadius_leftBottom == -1) {
+            leftBottom = (int) mCornerRadius;
+        } else {
+            leftBottom = (int) mCornerRadius_leftBottom;
+        }
+
+        if (leftBottom > trueHeight / 2) {
+            leftBottom = trueHeight / 2;
+        }
+        leftTop = leftTop - stokeWith;
+        rightTop = rightTop - stokeWith;
+        leftBottom = leftBottom - stokeWith;
+        rightBottom = rightBottom - stokeWith;
+
+        float[] outerR = new float[]{leftTop, leftTop, rightTop, rightTop, rightBottom, rightBottom, leftBottom, leftBottom};//左上，右上，右下，左下
+        return outerR;
+    }
+
+
     //这是自定义四个角的方法。
     private void setSpaceCorner(Canvas canvas, int trueHeight) {
 
@@ -1141,16 +1198,14 @@ public class ShadowLayout extends FrameLayout {
                 }
                 mDrawables.setBounds(leftPadding, topPadding, getWidth() - rightPadding, getHeight() - bottomPadding);
                 mDrawables.draw(canvas);
-                ShapeDrawable mDrawablesStroke = new ShapeDrawable(new RoundRectShape(outerR, null, null));
+
+                float[] outerR_stroke = getCornerValueOther(trueHeight, (int) stroke_with);
+                ShapeDrawable mDrawablesStroke = new ShapeDrawable(new RoundRectShape(outerR_stroke, null, null));
                 mDrawablesStroke.getPaint().setColor(paint_stroke.getColor());
                 mDrawablesStroke.getPaint().setStyle(Paint.Style.STROKE);
                 mDrawablesStroke.getPaint().setStrokeWidth(stroke_with);
-//            mDrawablesStroke.setBounds(leftPadding, topPadding, getWidth() - rightPadding, getHeight() - bottomPadding);
-                if (stroke_with >= dip2px(1)) {
-                    mDrawablesStroke.setBounds((int) (leftPadding + stroke_with / 2), (int) (topPadding + stroke_with / 2), (int) (getWidth() - rightPadding - stroke_with / 2), (int) (getHeight() - bottomPadding - stroke_with / 2));
-                } else {
-                    mDrawablesStroke.setBounds((int) (leftPadding + stroke_with), (int) (topPadding + stroke_with), (int) (getWidth() - rightPadding - stroke_with), (int) (getHeight() - bottomPadding - stroke_with));
-                }
+                mDrawablesStroke.setBounds((int) (leftPadding + stroke_with / 2), (int) (topPadding + stroke_with / 2), (int) (getWidth() - rightPadding - stroke_with / 2), (int) (getHeight() - bottomPadding - stroke_with / 2));
+
 
                 mDrawablesStroke.draw(canvas);
             } else {
