@@ -1004,6 +1004,39 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    protected void dispatchDraw(Canvas canvas) {
+
+        int trueHeight = (int) (rectf.bottom - rectf.top);
+        if (getChildAt(0) != null) {
+            if (mCornerRadius_leftTop == -1 && mCornerRadius_leftBottom == -1 && mCornerRadius_rightTop == -1 && mCornerRadius_rightBottom == -1) {
+                //说明没有设置过任何特殊角、且是半圆。
+                if (mCornerRadius > trueHeight / 2) {
+                    Path path = new Path();
+                    path.addRoundRect(rectf, trueHeight / 2, trueHeight / 2, Path.Direction.CW);
+                    canvas.clipPath(path);
+                } else {
+                    Path path = new Path();
+                    path.addRoundRect(rectf, mCornerRadius, mCornerRadius, Path.Direction.CW);
+                    canvas.clipPath(path);
+                }
+            } else {
+                float[] outerR = getCornerValue(trueHeight);
+                Path path = new Path();
+                path.addRoundRect(leftPadding, topPadding, getWidth() - rightPadding, getHeight() - bottomPadding,outerR,Path.Direction.CW);
+                canvas.clipPath(path);
+            }
+
+        }
+        super.dispatchDraw(canvas);
+
+    }
+
+
+
+
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
