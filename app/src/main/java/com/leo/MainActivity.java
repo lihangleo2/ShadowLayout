@@ -9,8 +9,8 @@ import android.os.Bundle;
 import com.leo.databinding.ActivityMainBinding;
 
 /**
- * 首页
- */
+ * 首页展示
+ * */
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
 
