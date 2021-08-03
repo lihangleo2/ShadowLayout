@@ -76,7 +76,7 @@
  - app build.gradle添加如下
     ```java
    dependencies {
-	        implementation 'com.github.lihangleo2:ShadowLayout:3.2.0'
+	        implementation 'com.github.lihangleo2:ShadowLayout:3.2.1'
 	}
    ```
 [glide版本冲突终极解决方案](https://github.com/lihangleo2/ShadowLayout/blob/master/GLIDE.md)     
