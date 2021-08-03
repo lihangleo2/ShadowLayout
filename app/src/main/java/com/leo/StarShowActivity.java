@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 
+/**
+ * 动态设置阴影页
+ */
 public class StarShowActivity extends AppCompatActivity implements View.OnClickListener {
     private com.lihang.ShadowLayout ShadowLayout;
     private SeekBar skbar_x;

@@ -881,41 +881,41 @@ public class ShadowLayout extends FrameLayout {
         if (leftShow) {
             rect_left = shadowRadius;
         } else {
-//            rect_left = 0;
-            float maxLeftTop = Math.max(cornerRadius, mCornerRadius_leftTop);
-            float maxLeftBottom = Math.max(cornerRadius, mCornerRadius_leftBottom);
-            float maxLeft = Math.max(maxLeftTop, maxLeftBottom);
-            rect_left = maxLeft;
+            rect_left = 0;
+//            float maxLeftTop = Math.max(cornerRadius, mCornerRadius_leftTop);
+//            float maxLeftBottom = Math.max(cornerRadius, mCornerRadius_leftBottom);
+//            float maxLeft = Math.max(maxLeftTop, maxLeftBottom);
+//            rect_left = maxLeft;
         }
 
         if (topShow) {
             rect_top = shadowRadius;
         } else {
-//            rect_top = 0;
-            float maxLeftTop = Math.max(cornerRadius, mCornerRadius_leftTop);
-            float maxRightTop = Math.max(cornerRadius, mCornerRadius_rightTop);
-            float maxTop = Math.max(maxLeftTop, maxRightTop);
-            rect_top = maxTop;
+            rect_top = 0;
+//            float maxLeftTop = Math.max(cornerRadius, mCornerRadius_leftTop);
+//            float maxRightTop = Math.max(cornerRadius, mCornerRadius_rightTop);
+//            float maxTop = Math.max(maxLeftTop, maxRightTop);
+//            rect_top = maxTop;
         }
 
         if (rightShow) {
             rect_right = shadowWidth - shadowRadius;
         } else {
-//            rect_right = shadowWidth;
-            float maxRightTop = Math.max(cornerRadius, mCornerRadius_rightTop);
-            float maxRightBottom = Math.max(cornerRadius, mCornerRadius_rightBottom);
-            float maxRight = Math.max(maxRightTop, maxRightBottom);
-            rect_right = shadowWidth - maxRight;
+            rect_right = shadowWidth;
+//            float maxRightTop = Math.max(cornerRadius, mCornerRadius_rightTop);
+//            float maxRightBottom = Math.max(cornerRadius, mCornerRadius_rightBottom);
+//            float maxRight = Math.max(maxRightTop, maxRightBottom);
+//            rect_right = shadowWidth - maxRight;
         }
 
         if (bottomShow) {
             rect_bottom = shadowHeight - shadowRadius;
         } else {
-//            rect_bottom = shadowHeight;
-            float maxLeftBottom = Math.max(cornerRadius, mCornerRadius_leftBottom);
-            float maxRightBottom = Math.max(cornerRadius, mCornerRadius_rightBottom);
-            float maxBottom = Math.max(maxLeftBottom, maxRightBottom);
-            rect_bottom = shadowHeight - maxBottom;
+            rect_bottom = shadowHeight;
+//            float maxLeftBottom = Math.max(cornerRadius, mCornerRadius_leftBottom);
+//            float maxRightBottom = Math.max(cornerRadius, mCornerRadius_rightBottom);
+//            float maxBottom = Math.max(maxLeftBottom, maxRightBottom);
+//            rect_bottom = shadowHeight - maxBottom;
         }
 
 

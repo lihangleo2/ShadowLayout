@@ -12,6 +12,7 @@ import com.leo.databinding.ActivityShapeBinding;
 /**
  * Created by leo
  * on 2020/10/27.
+ * shadow阴影的各项使用
  */
 public class ShadowActivity extends AppCompatActivity {
     ActivityShadowBinding binding;

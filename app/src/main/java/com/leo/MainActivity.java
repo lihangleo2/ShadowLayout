@@ -8,6 +8,9 @@ import android.os.Bundle;
 
 import com.leo.databinding.ActivityMainBinding;
 
+/**
+ * 首页
+ */
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
 
@@ -26,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         binding.ShadowLayoutWiki.setOnClickListener(v ->{
             startActivity(new Intent(MainActivity.this, WikiActivity.class));
         });
+
+
 
 
 

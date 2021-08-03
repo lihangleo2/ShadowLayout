@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.leo.databinding.ActivityShapeBinding;
 
+/**
+ * shape功能的各项使用
+ */
 public class ShapeActivity extends AppCompatActivity {
     ActivityShapeBinding binding;
 

@@ -25,6 +25,7 @@ import com.lihang.ShadowLayout;
 /**
  * Created by leo
  * on 2020/8/5.
+ * ShadowLayout成长历史
  */
 public class WikiActivity extends AppCompatActivity {
     ActivityWikiWebBinding binding;
