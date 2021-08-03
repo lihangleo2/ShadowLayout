@@ -361,6 +361,7 @@
 |setLayoutBackgroundTrue()|color|设置true时的背景颜色值|
 |setStrokeColor()|color|设置false时的边框颜色|
 |setStrokeColorTrue()|color|设置true时的边框颜色|
+|setStrokeWidth()|dimension|设置边框的粗细|
 |setClickable()|boolean|设置ShadowLayout是否可以点击|
 |setSpecialCorner()|integer|设置ShadowLayout四个角的大小|
 <br>
