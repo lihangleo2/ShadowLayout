@@ -1053,7 +1053,7 @@ public class ShadowLayout extends FrameLayout {
                         if (layoutBackground == null && layoutBackground_true == null) {
                             //画圆角矩形
                             canvas.drawRoundRect(rectf, trueHeight / 2, trueHeight / 2, paint);
-                            //解决边框线太洗时，四角的width偏大和其他边不同为什
+                            //解决边框线太洗时，四角的width偏大和其他边不同为什大姨夫啊
                             if (stroke_color != -101) {
                                 int the_height = (int) (rectf.bottom - rectf.top);
                                 int the_height_stoke = (int) (rectf.bottom - stroke_with / 2 - rectf.top - stroke_with / 2);
