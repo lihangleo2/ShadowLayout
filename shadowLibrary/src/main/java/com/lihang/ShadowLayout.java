@@ -1055,13 +1055,8 @@ public class ShadowLayout extends FrameLayout {
                             canvas.drawRoundRect(rectf, trueHeight / 2, trueHeight / 2, paint);
                             //解决边框线太洗时，四角的width偏大和其他边不同为什大姨夫啊被烦死了
                             if (stroke_color != -101) {
-                                int the_height = (int) (rectf.bottom - rectf.top);
-                                int the_height_stoke = (int) (rectf.bottom - stroke_with / 2 - rectf.top - stroke_with / 2);
-                                int trueCorner = (int) (trueHeight * the_height_stoke / 2 / the_height);
-
                                 RectF rectFStroke = new RectF(rectf.left + stroke_with / 2, rectf.top + stroke_with / 2, rectf.right - stroke_with / 2, rectf.bottom - stroke_with / 2);
-                                canvas.drawRoundRect(rectFStroke, trueCorner, trueCorner, paint_stroke);
-
+                                canvas.drawRoundRect(rectFStroke, trueHeight / 2-stroke_with / 2, trueHeight / 2-stroke_with / 2, paint_stroke);
                             }
                         }
                     } else {
@@ -1078,14 +1073,8 @@ public class ShadowLayout extends FrameLayout {
 
                             canvas.drawRoundRect(rectf, mCornerRadius, mCornerRadius, paint);
                             if (stroke_color != -101) {
-                                int the_height = (int) (rectf.bottom - rectf.top);
-                                int the_height_stoke = (int) (rectf.bottom - stroke_with / 2 - rectf.top - stroke_with / 2);
-                                int trueCorner = (int) (mCornerRadius * the_height_stoke / the_height);
-
-
                                 RectF rectFStroke = new RectF(rectf.left + stroke_with / 2, rectf.top + stroke_with / 2, rectf.right - stroke_with / 2, rectf.bottom - stroke_with / 2);
-                                canvas.drawRoundRect(rectFStroke, trueCorner, trueCorner, paint_stroke);
-
+                                canvas.drawRoundRect(rectFStroke, mCornerRadius-stroke_with / 2, mCornerRadius-stroke_with / 2, paint_stroke);
                             }
 
                         }
