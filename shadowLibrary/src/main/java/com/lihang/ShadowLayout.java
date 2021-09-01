@@ -1147,10 +1147,9 @@ public class ShadowLayout extends FrameLayout {
         return outerR;
     }
 
-
-    //这里是为了解决stokeWith很大时，圆角盖不住底部四个角的bug(issues #86)
     public float[] getCornerValueOther(int trueHeight, int stokeWith) {
-        trueHeight = trueHeight - stokeWith * 2;
+        //优化
+        trueHeight = trueHeight - stokeWith;
         int leftTop;
         int rightTop;
         int rightBottom;
@@ -1195,10 +1194,10 @@ public class ShadowLayout extends FrameLayout {
         if (leftBottom > trueHeight / 2) {
             leftBottom = trueHeight / 2;
         }
-        leftTop = leftTop - stokeWith;
-        rightTop = rightTop - stokeWith;
-        leftBottom = leftBottom - stokeWith;
-        rightBottom = rightBottom - stokeWith;
+        leftTop = leftTop - stokeWith/2;
+        rightTop = rightTop - stokeWith/2;
+        leftBottom = leftBottom - stokeWith/2;
+        rightBottom = rightBottom - stokeWith/2;
 
         float[] outerR = new float[]{leftTop, leftTop, rightTop, rightTop, rightBottom, rightBottom, leftBottom, leftBottom};//左上，右上，右下，左下
         return outerR;
