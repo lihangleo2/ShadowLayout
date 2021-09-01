@@ -2,22 +2,22 @@
 [![](https://jitpack.io/v/lihangleo2/ShadowLayout.svg)](https://jitpack.io/#lihangleo2/ShadowLayout)
 
 ## 特点功能
-嵌套后即可享受阴影，比CardView更好用、更方便也更强大
-
+任何view被包裹后即可享受阴影，以及系统shape,selector功能（清空项目drawable文件夹）。具体介绍如下：
 ```
 支持定制化阴影：
     1. 随意修改阴影颜色值
     2. 阴影圆角：可统一设置圆角，也可对某几个角单独设置
-    3. x,y轴阴影偏移
-    4. 随意修改阴影扩散程度
+    3. 阴影x,y偏移量
+    4. 随意修改阴影扩散程度,即阴影大小
     5. 隐藏阴影：隐藏某边或多边阴影，或完全隐藏
+    6. 可随意代码动态修改阴影
     
 不止于阴影；系统shape功能：项目中shape、selector、ripple统统拥有。解放你的双手，清空项目drawable文件夹
     1. shape样式：pressed（按钮点击）、selected（按钮选择）、ripple（点击水波纹）
     2. 背景色设置
     3. stroke边框设置
-    4. 渐变色背景色值
-    5. 按钮是否可被点击
+    4. 渐变色背景色设置
+    5. 按钮是否可被点击及不可点击背景
     6. 可绑定textView后，可伴随文案变化，可伴随文案颜色变化
     7. 支持设置图片背景，支持图片selector
     
