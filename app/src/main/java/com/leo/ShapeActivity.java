@@ -17,6 +17,7 @@ public class ShapeActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_shape);
+        binding.ShadowLayoutImage.setSelected(true);
         binding.ShadowLayoutImage.setOnClickListener(v -> {
             binding.ShadowLayoutImage.setSelected(!binding.ShadowLayoutImage.isSelected());
         });

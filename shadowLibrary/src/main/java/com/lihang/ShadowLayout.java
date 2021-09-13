@@ -160,14 +160,14 @@ public class ShadowLayout extends FrameLayout {
 
                 } else if (clickAbleFalseDrawable != null) {
                     //说明设置了背景图
-                    setmBackGround(clickAbleFalseDrawable);
+                    setmBackGround(clickAbleFalseDrawable,"changeSwitchClickable");
                     paint.setColor(Color.parseColor("#00000000"));
                     postInvalidate();
                 }
             } else {
                 //可点击的状态
                 if (layoutBackground != null) {
-                    setmBackGround(layoutBackground);
+                    setmBackGround(layoutBackground,"changeSwitchClickable");
                 } else {
                     if (firstView.getBackground() != null) {
                         firstView.getBackground().setAlpha(0);
@@ -195,7 +195,7 @@ public class ShadowLayout extends FrameLayout {
                         paint_stroke.setColor(stroke_color_true);
                     }
                     if (layoutBackground_true != null) {
-                        setmBackGround(layoutBackground_true);
+                        setmBackGround(layoutBackground_true,"setSelected");
                     }
 
                     if (mTextView != null) {
@@ -216,7 +216,7 @@ public class ShadowLayout extends FrameLayout {
                     }
 
                     if (layoutBackground != null) {
-                        setmBackGround(layoutBackground);
+                        setmBackGround(layoutBackground,"setSelected");
                     }
 
                     if (mTextView != null) {
@@ -460,17 +460,13 @@ public class ShadowLayout extends FrameLayout {
             //selector样式不受clickable的影响
 
             if (selectorType == 2) {
-                //if (this.isSelected()) {
-                //这个方法内已经判断了是否为空
-                //  setmBackGround(layoutBackground_true);
-                //} else {
-                //  setmBackGround(layoutBackground);
-                //  }
+                setmBackGround(layoutBackground, "onFinishInflate");
+
             } else {
                 if (isClickable) {
-                    setmBackGround(layoutBackground);
+                    setmBackGround(layoutBackground,"onFinishInflate");
                 } else {
-                    setmBackGround(clickAbleFalseDrawable);
+                    setmBackGround(clickAbleFalseDrawable,"onFinishInflate");
                     if (clickAbleFalseColor != -101) {
                         paint.setColor(clickAbleFalseColor);
                     }
@@ -695,7 +691,7 @@ public class ShadowLayout extends FrameLayout {
                 if (layoutBackground != null) {
                     firstView = ShadowLayout.this;
                     if (isClickable) {
-                        setmBackGround(layoutBackground);
+                        setmBackGround(layoutBackground,"setBackgroundCompat");
                     } else {
                         changeSwitchClickable();
                     }
@@ -1390,7 +1386,7 @@ public class ShadowLayout extends FrameLayout {
                             }
 
                             if (layoutBackground_true != null) {
-                                setmBackGround(layoutBackground_true);
+                                setmBackGround(layoutBackground_true,"onTouchEvent");
                             }
                             postInvalidate();
 
@@ -1416,7 +1412,7 @@ public class ShadowLayout extends FrameLayout {
                             }
 
                             if (layoutBackground != null) {
-                                setmBackGround(layoutBackground);
+                                setmBackGround(layoutBackground,"onTouchEvent");
                             }
                             postInvalidate();
 
@@ -1435,10 +1431,11 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
-    public void setmBackGround(Drawable drawable) {
+    public void setmBackGround(Drawable drawable,String currentTag) {
+        firstView.setTag(R.id.action_container,currentTag);
         if (firstView != null && drawable != null) {
             if (mCornerRadius_leftTop == -1 && mCornerRadius_leftBottom == -1 && mCornerRadius_rightTop == -1 && mCornerRadius_rightBottom == -1) {
-                GlideRoundUtils.setRoundCorner(firstView, drawable, mCornerRadius);
+                GlideRoundUtils.setRoundCorner(firstView, drawable, mCornerRadius,currentTag);
             } else {
                 int leftTop;
                 if (mCornerRadius_leftTop == -1) {
@@ -1467,7 +1464,7 @@ public class ShadowLayout extends FrameLayout {
                     rightBottom = (int) mCornerRadius_rightBottom;
                 }
 
-                GlideRoundUtils.setCorners(firstView, drawable, leftTop, leftBottom, rightTop, rightBottom);
+                GlideRoundUtils.setCorners(firstView, drawable, leftTop, leftBottom, rightTop, rightBottom,currentTag);
             }
         }
     }
