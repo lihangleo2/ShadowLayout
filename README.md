@@ -30,8 +30,15 @@
 * 注意：3.0后修改大量api及规范命名，如果还在用2.0，不方便转移的可查看[ShadowLayout2.0文档](https://github.com/lihangleo2/ShadowLayout/blob/master/README218.md)  
 <br>
 
+## Demo
+为录制流畅，截图分辨率比较模糊。可在下方扫描二维码下载apk，查看真机效果。下载密码是：123456
+<br>
+![](https://github.com/lihangleo2/ShadowLayout/blob/master/ShadowLayout_.png)
+
+<br>
+
 ## 效果展示
-为录制流畅，截图分辨率模糊。可在下方扫描二维码下载，查看真机效果
+为录制流畅，截图分辨率模糊。可下载apk查看真机效果
 * ### 1.0功能展示
 |基础功能展示|各属性展示|随意更改颜色|
 |:---:|:---:|:---:|
@@ -56,12 +63,7 @@
 |![](https://github.com/lihangleo2/ShadowLayout/blob/master/ripple.gif)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/bindTextView.gif)
 <br>
 
-## Demo
-扫描二维码下载demo，下载密码是：123456
-<br>
-![](https://github.com/lihangleo2/ShadowLayout/blob/master/ShadowLayout_.png)
 
-<br>
 
 ## 添加依赖
 
