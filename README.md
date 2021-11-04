@@ -48,7 +48,7 @@
 * ### 2.0功能更新
 |2.1.6新增shape,selector功能|2.1.7isSym属性对比|2.1.8单独更改某圆角大小|
 |:---:|:---:|:---:|
-|![](https://github.com/lihangleo2/ShadowLayout/blob/master/shape_gif.gif)|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/isSym_half.jpg" alt="Sample"  width="481">|![](https://github.com/lihangleo2/ShadowLayout/blob/master/corners.gif)
+|![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/shape_gif.gif)|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/isSym_half.jpg" alt="Sample"  width="481">|![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/corners.gif)
 <br>
 
 * ### 3.0.1版本来袭
