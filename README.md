@@ -42,7 +42,7 @@
 * ### 1.0功能展示
 |基础功能展示|各属性展示|随意更改颜色|
 |:---:|:---:|:---:|
-|![](https://github.com/lihangleo2/ShadowLayout/blob/master/main.jpg)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/first_show.gif)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/other_show.gif)
+|![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/main.jpg)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/first_show.gif)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/other_show.gif)
 <br>
 
 * ### 2.0功能更新
