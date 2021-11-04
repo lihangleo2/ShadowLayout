@@ -160,14 +160,14 @@ public class ShadowLayout extends FrameLayout {
 
                 } else if (clickAbleFalseDrawable != null) {
                     //说明设置了背景图
-                    setmBackGround(clickAbleFalseDrawable,"changeSwitchClickable");
+                    setmBackGround(clickAbleFalseDrawable, "changeSwitchClickable");
                     paint.setColor(Color.parseColor("#00000000"));
                     postInvalidate();
                 }
             } else {
                 //可点击的状态
                 if (layoutBackground != null) {
-                    setmBackGround(layoutBackground,"changeSwitchClickable");
+                    setmBackGround(layoutBackground, "changeSwitchClickable");
                 } else {
                     if (firstView.getBackground() != null) {
                         firstView.getBackground().setAlpha(0);
@@ -195,7 +195,7 @@ public class ShadowLayout extends FrameLayout {
                         paint_stroke.setColor(stroke_color_true);
                     }
                     if (layoutBackground_true != null) {
-                        setmBackGround(layoutBackground_true,"setSelected");
+                        setmBackGround(layoutBackground_true, "setSelected");
                     }
 
                     if (mTextView != null) {
@@ -216,7 +216,7 @@ public class ShadowLayout extends FrameLayout {
                     }
 
                     if (layoutBackground != null) {
-                        setmBackGround(layoutBackground,"setSelected");
+                        setmBackGround(layoutBackground, "setSelected");
                     }
 
                     if (mTextView != null) {
@@ -301,12 +301,7 @@ public class ShadowLayout extends FrameLayout {
     //动态设置阴影扩散区域
     public void setShadowLimit(int mShadowLimit) {
         if (isShowShadow) {
-            int dip5 = (int) getContext().getResources().getDimension(R.dimen.dp_5);
-            if (mShadowLimit >= dip5) {
-                this.mShadowLimit = mShadowLimit;
-            } else {
-                this.mShadowLimit = dip5;
-            }
+            this.mShadowLimit = mShadowLimit;
             setPadding();
         }
     }
@@ -464,9 +459,9 @@ public class ShadowLayout extends FrameLayout {
 
             } else {
                 if (isClickable) {
-                    setmBackGround(layoutBackground,"onFinishInflate");
+                    setmBackGround(layoutBackground, "onFinishInflate");
                 } else {
-                    setmBackGround(clickAbleFalseDrawable,"onFinishInflate");
+                    setmBackGround(clickAbleFalseDrawable, "onFinishInflate");
                     if (clickAbleFalseColor != -101) {
                         paint.setColor(clickAbleFalseColor);
                     }
@@ -626,6 +621,8 @@ public class ShadowLayout extends FrameLayout {
                 } else {
                     bottomPadding = 0;
                 }
+
+
             } else {
                 if (Math.abs(mDy) > mShadowLimit) {
                     if (mDy > 0) {
@@ -691,7 +688,7 @@ public class ShadowLayout extends FrameLayout {
                 if (layoutBackground != null) {
                     firstView = ShadowLayout.this;
                     if (isClickable) {
-                        setmBackGround(layoutBackground,"setBackgroundCompat");
+                        setmBackGround(layoutBackground, "setBackgroundCompat");
                     } else {
                         changeSwitchClickable();
                     }
@@ -733,11 +730,6 @@ public class ShadowLayout extends FrameLayout {
             if (mShadowLimit == 0) {
                 //如果阴影没有设置阴影扩散区域，那么默认隐藏阴影
                 isShowShadow = false;
-            } else {
-                int dip5 = (int) getContext().getResources().getDimension(R.dimen.dp_5);
-                if (mShadowLimit < dip5) {
-                    mShadowLimit = dip5;
-                }
             }
 
             //x轴偏移量
@@ -888,6 +880,7 @@ public class ShadowLayout extends FrameLayout {
             rect_top = shadowRadius;
         } else {
             rect_top = 0;
+//            rect_top = mShadowLimit;
 //            float maxLeftTop = Math.max(cornerRadius, mCornerRadius_leftTop);
 //            float maxRightTop = Math.max(cornerRadius, mCornerRadius_rightTop);
 //            float maxTop = Math.max(maxLeftTop, maxRightTop);
@@ -913,6 +906,21 @@ public class ShadowLayout extends FrameLayout {
 //            float maxBottom = Math.max(maxLeftBottom, maxRightBottom);
 //            rect_bottom = shadowHeight - maxBottom;
         }
+
+
+
+        //能暂时解决左右不显示阴影时
+//        if (leftShow == false && rightShow == false) {
+//            float maxLeftTop = Math.max(cornerRadius, mCornerRadius_leftTop);
+//            float maxLeftBottom = Math.max(cornerRadius, mCornerRadius_leftBottom);
+//            float maxLeft = Math.max(maxLeftTop, maxLeftBottom);
+//            rect_left = maxLeft/4;
+//            //
+//            float maxRightTop = Math.max(cornerRadius, mCornerRadius_rightTop);
+//            float maxRightBottom = Math.max(cornerRadius, mCornerRadius_rightBottom);
+//            float maxRight = Math.max(maxRightTop, maxRightBottom);
+//            rect_right = shadowWidth - maxRight/4;
+//        }
 
 
         RectF shadowRect = new RectF(
@@ -1020,7 +1028,7 @@ public class ShadowLayout extends FrameLayout {
             } else {
                 float[] outerR = getCornerValue(trueHeight);
                 Path path = new Path();
-                path.addRoundRect(leftPadding, topPadding, getWidth() - rightPadding, getHeight() - bottomPadding,outerR,Path.Direction.CW);
+                path.addRoundRect(leftPadding, topPadding, getWidth() - rightPadding, getHeight() - bottomPadding, outerR, Path.Direction.CW);
                 canvas.clipPath(path);
             }
 
@@ -1028,9 +1036,6 @@ public class ShadowLayout extends FrameLayout {
         super.dispatchDraw(canvas);
 
     }
-
-
-
 
 
     @Override
@@ -1052,7 +1057,7 @@ public class ShadowLayout extends FrameLayout {
                             //解决边框线太洗时，四角的width偏大和其他边不同为什大姨夫啊被烦死了
                             if (stroke_color != -101) {
                                 RectF rectFStroke = new RectF(rectf.left + stroke_with / 2, rectf.top + stroke_with / 2, rectf.right - stroke_with / 2, rectf.bottom - stroke_with / 2);
-                                canvas.drawRoundRect(rectFStroke, trueHeight / 2-stroke_with / 2, trueHeight / 2-stroke_with / 2, paint_stroke);
+                                canvas.drawRoundRect(rectFStroke, trueHeight / 2 - stroke_with / 2, trueHeight / 2 - stroke_with / 2, paint_stroke);
                             }
                         }
                     } else {
@@ -1070,7 +1075,7 @@ public class ShadowLayout extends FrameLayout {
                             canvas.drawRoundRect(rectf, mCornerRadius, mCornerRadius, paint);
                             if (stroke_color != -101) {
                                 RectF rectFStroke = new RectF(rectf.left + stroke_with / 2, rectf.top + stroke_with / 2, rectf.right - stroke_with / 2, rectf.bottom - stroke_with / 2);
-                                canvas.drawRoundRect(rectFStroke, mCornerRadius-stroke_with / 2, mCornerRadius-stroke_with / 2, paint_stroke);
+                                canvas.drawRoundRect(rectFStroke, mCornerRadius - stroke_with / 2, mCornerRadius - stroke_with / 2, paint_stroke);
                             }
 
                         }
@@ -1190,10 +1195,10 @@ public class ShadowLayout extends FrameLayout {
         if (leftBottom > trueHeight / 2) {
             leftBottom = trueHeight / 2;
         }
-        leftTop = leftTop - stokeWith/2;
-        rightTop = rightTop - stokeWith/2;
-        leftBottom = leftBottom - stokeWith/2;
-        rightBottom = rightBottom - stokeWith/2;
+        leftTop = leftTop - stokeWith / 2;
+        rightTop = rightTop - stokeWith / 2;
+        leftBottom = leftBottom - stokeWith / 2;
+        rightBottom = rightBottom - stokeWith / 2;
 
         float[] outerR = new float[]{leftTop, leftTop, rightTop, rightTop, rightBottom, rightBottom, leftBottom, leftBottom};//左上，右上，右下，左下
         return outerR;
@@ -1386,7 +1391,7 @@ public class ShadowLayout extends FrameLayout {
                             }
 
                             if (layoutBackground_true != null) {
-                                setmBackGround(layoutBackground_true,"onTouchEvent");
+                                setmBackGround(layoutBackground_true, "onTouchEvent");
                             }
                             postInvalidate();
 
@@ -1412,7 +1417,7 @@ public class ShadowLayout extends FrameLayout {
                             }
 
                             if (layoutBackground != null) {
-                                setmBackGround(layoutBackground,"onTouchEvent");
+                                setmBackGround(layoutBackground, "onTouchEvent");
                             }
                             postInvalidate();
 
@@ -1431,11 +1436,11 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
-    public void setmBackGround(Drawable drawable,String currentTag) {
-        firstView.setTag(R.id.action_container,currentTag);
+    public void setmBackGround(Drawable drawable, String currentTag) {
+        firstView.setTag(R.id.action_container, currentTag);
         if (firstView != null && drawable != null) {
             if (mCornerRadius_leftTop == -1 && mCornerRadius_leftBottom == -1 && mCornerRadius_rightTop == -1 && mCornerRadius_rightBottom == -1) {
-                GlideRoundUtils.setRoundCorner(firstView, drawable, mCornerRadius,currentTag);
+                GlideRoundUtils.setRoundCorner(firstView, drawable, mCornerRadius, currentTag);
             } else {
                 int leftTop;
                 if (mCornerRadius_leftTop == -1) {
@@ -1464,7 +1469,7 @@ public class ShadowLayout extends FrameLayout {
                     rightBottom = (int) mCornerRadius_rightBottom;
                 }
 
-                GlideRoundUtils.setCorners(firstView, drawable, leftTop, leftBottom, rightTop, rightBottom,currentTag);
+                GlideRoundUtils.setCorners(firstView, drawable, leftTop, leftBottom, rightTop, rightBottom, currentTag);
             }
         }
     }

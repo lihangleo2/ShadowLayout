@@ -113,27 +113,65 @@
         </com.lihang.ShadowLayout>
 
 
-<!--        <com.lihang.ShadowLayout-->
-<!--            android:layout_marginTop="50dp"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="center_horizontal"-->
-<!--            app:hl_shapeMode="pressed"-->
-<!--            app:hl_strokeColor="#000"-->
-<!--            app:hl_strokeWith="10dp"-->
-<!--            app:hl_layoutBackground="#ff0000"-->
-<!--            app:hl_cornerRadius="60dp"-->
-<!--            app:hl_cornerRadius_leftTop="0dp"-->
-<!--            app:hl_cornerRadius_rightBottom="0dp"-->
-<!--            >-->
+        <com.lihang.ShadowLayout
+            android:id="@+id/shadowlayout_my_about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            app:hl_cornerRadius="18dp"
+            app:hl_layoutBackground="#CBE8F5"
+            app:hl_layoutBackground_true="#ffffff"
+            app:hl_shadowColor="#80000000"
+            app:hl_shadowLimit="20dp"
+            app:hl_shapeMode="pressed"
+            app:hl_shadowHiddenTop="true"
 
-<!--            <TextView-->
-<!--                android:layout_width="300dp"-->
-<!--                android:layout_height="300dp"-->
-<!--                />-->
+            >
 
 
-<!--        </com.lihang.ShadowLayout>-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="为什么不显示出来呢"
+                android:textColor="#000" />
+
+
+        </com.lihang.ShadowLayout>
+
+
+
+        <com.lihang.ShadowLayout
+            android:id="@+id/shadowlayout_my_about_second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            app:hl_layoutBackground="#CBE8F5"
+            app:hl_layoutBackground_true="#ffffff"
+            app:hl_shadowColor="#80000000"
+            app:hl_shadowLimit="10dp"
+            app:hl_shapeMode="pressed"
+            app:hl_cornerRadius="18dp"
+            app:hl_shadowHiddenLeft="true"
+            app:hl_shadowHiddenRight="true"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="shadow阴影的各项使用"
+                android:textColor="#000" />
+
+        </com.lihang.ShadowLayout>
+
+
 
 
     </LinearLayout>

@@ -10,7 +10,7 @@ import com.leo.databinding.ActivityMainBinding;
 
 /**
  * 首页展示
- * */
+ */
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
 
@@ -26,11 +26,9 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, ShapeActivity.class));
         });
 
-        binding.ShadowLayoutWiki.setOnClickListener(v ->{
+        binding.ShadowLayoutWiki.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, WikiActivity.class));
         });
-
-
 
 
 
