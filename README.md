@@ -33,7 +33,7 @@
 ## Demo
 为录制流畅，截图分辨率比较模糊。可在下方扫描二维码下载apk，查看真机效果。下载密码是：123456
 <br>
-![](https://github.com/lihangleo2/ShadowLayout/blob/master/ShadowLayout_.png)
+![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/ShadowLayout_.png)
 
 <br>
 
