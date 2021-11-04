@@ -54,7 +54,7 @@
 * ### 3.0.1版本来袭
 |stroke边框及点击|shape及图片selector|组合使用|
 |:---:|:---:|:---:|
-|![](https://github.com/lihangleo2/ShadowLayout/blob/master/stroke2.gif)|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/shapeSelector2.gif" alt="Sample"  width="481">|![](https://github.com/lihangleo2/ShadowLayout/blob/master/groupUse2.gif)
+|![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/stroke2.gif)|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/shapeSelector2.gif" alt="Sample"  width="481">|![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/groupUse2.gif)
 <br>
 
 * ### 3.1.0新增ripple及渐变色及3.1.1绑定textView
