@@ -2,10 +2,11 @@ package com.leo;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * 动态设置阴影页

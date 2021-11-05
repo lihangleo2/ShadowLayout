@@ -1,12 +1,13 @@
 package com.leo;
 
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.leo.databinding.ActivityMainBinding;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 /**
  * 首页展示
