@@ -869,58 +869,54 @@ public class ShadowLayout extends FrameLayout {
         if (leftShow) {
             rect_left = shadowRadius;
         } else {
-            rect_left = 0;
-//            float maxLeftTop = Math.max(cornerRadius, mCornerRadius_leftTop);
-//            float maxLeftBottom = Math.max(cornerRadius, mCornerRadius_leftBottom);
-//            float maxLeft = Math.max(maxLeftTop, maxLeftBottom);
+//            rect_left = 0;
+            float maxLeftTop = Math.max(cornerRadius, mCornerRadius_leftTop);
+            float maxLeftBottom = Math.max(cornerRadius, mCornerRadius_leftBottom);
+            float maxLeft = Math.max(maxLeftTop, maxLeftBottom);
 //            rect_left = maxLeft;
+            float trueMaxLeft = Math.max(maxLeft, shadowRadius);
+            rect_left = trueMaxLeft / 2;
+
         }
 
         if (topShow) {
             rect_top = shadowRadius;
         } else {
-            rect_top = 0;
-//            rect_top = mShadowLimit;
-//            float maxLeftTop = Math.max(cornerRadius, mCornerRadius_leftTop);
-//            float maxRightTop = Math.max(cornerRadius, mCornerRadius_rightTop);
-//            float maxTop = Math.max(maxLeftTop, maxRightTop);
+//            rect_top = 0;
+            float maxLeftTop = Math.max(cornerRadius, mCornerRadius_leftTop);
+            float maxRightTop = Math.max(cornerRadius, mCornerRadius_rightTop);
+            float maxTop = Math.max(maxLeftTop, maxRightTop);
 //            rect_top = maxTop;
+            float trueMaxTop = Math.max(maxTop, shadowRadius);
+            rect_top = trueMaxTop / 2;
+
         }
 
         if (rightShow) {
             rect_right = shadowWidth - shadowRadius;
         } else {
-            rect_right = shadowWidth;
-//            float maxRightTop = Math.max(cornerRadius, mCornerRadius_rightTop);
-//            float maxRightBottom = Math.max(cornerRadius, mCornerRadius_rightBottom);
-//            float maxRight = Math.max(maxRightTop, maxRightBottom);
+//            rect_right = shadowWidth;
+            float maxRightTop = Math.max(cornerRadius, mCornerRadius_rightTop);
+            float maxRightBottom = Math.max(cornerRadius, mCornerRadius_rightBottom);
+            float maxRight = Math.max(maxRightTop, maxRightBottom);
 //            rect_right = shadowWidth - maxRight;
+            float trueMaxRight = Math.max(maxRight, shadowRadius);
+            rect_right = shadowWidth - trueMaxRight / 2;
         }
+
 
         if (bottomShow) {
             rect_bottom = shadowHeight - shadowRadius;
         } else {
-            rect_bottom = shadowHeight;
-//            float maxLeftBottom = Math.max(cornerRadius, mCornerRadius_leftBottom);
-//            float maxRightBottom = Math.max(cornerRadius, mCornerRadius_rightBottom);
-//            float maxBottom = Math.max(maxLeftBottom, maxRightBottom);
+//            rect_bottom = shadowHeight;
+            float maxLeftBottom = Math.max(cornerRadius, mCornerRadius_leftBottom);
+            float maxRightBottom = Math.max(cornerRadius, mCornerRadius_rightBottom);
+            float maxBottom = Math.max(maxLeftBottom, maxRightBottom);
 //            rect_bottom = shadowHeight - maxBottom;
+            float trueMaxBottom = Math.max(maxBottom, shadowRadius);
+            rect_bottom = shadowHeight - trueMaxBottom / 2;
         }
 
-
-
-        //能暂时解决左右不显示阴影时
-//        if (leftShow == false && rightShow == false) {
-//            float maxLeftTop = Math.max(cornerRadius, mCornerRadius_leftTop);
-//            float maxLeftBottom = Math.max(cornerRadius, mCornerRadius_leftBottom);
-//            float maxLeft = Math.max(maxLeftTop, maxLeftBottom);
-//            rect_left = maxLeft/4;
-//            //
-//            float maxRightTop = Math.max(cornerRadius, mCornerRadius_rightTop);
-//            float maxRightBottom = Math.max(cornerRadius, mCornerRadius_rightBottom);
-//            float maxRight = Math.max(maxRightTop, maxRightBottom);
-//            rect_right = shadowWidth - maxRight/4;
-//        }
 
 
         RectF shadowRect = new RectF(
