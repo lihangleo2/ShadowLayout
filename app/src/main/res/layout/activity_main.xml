@@ -115,36 +115,33 @@
 
 
 
-
         <!-- 隐藏某边阴影的测试代码 -->
-<!--        <com.lihang.ShadowLayout-->
-<!--            android:id="@+id/shadowlayout_my_about_second"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="center_horizontal"-->
-<!--            android:layout_marginTop="50dp"-->
-<!--            app:hl_layoutBackground="#CBE8F5"-->
-<!--            app:hl_layoutBackground_true="#ffffff"-->
-<!--            app:hl_shadowColor="#80000000"-->
-<!--            app:hl_shapeMode="pressed"-->
-<!--            app:hl_shadowLimit="10dp"-->
-<!--            app:hl_cornerRadius="10dp"-->
-<!--            app:hl_shadowHiddenRight="true"-->
-<!--            app:hl_shadowHiddenTop="true"-->
-<!--            >-->
+        <!--        <com.lihang.ShadowLayout-->
+        <!--            android:id="@+id/shadowlayout_my_about_second"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_gravity="center_horizontal"-->
+        <!--            android:layout_marginTop="50dp"-->
+        <!--            app:hl_layoutBackground="#CBE8F5"-->
+        <!--            app:hl_layoutBackground_true="#ffffff"-->
+        <!--            app:hl_shadowColor="#80000000"-->
+        <!--            app:hl_shapeMode="pressed"-->
+        <!--            app:hl_shadowLimit="10dp"-->
+        <!--            app:hl_cornerRadius="10dp"-->
+        <!--            app:hl_shadowHiddenRight="true"-->
+        <!--            app:hl_shadowHiddenTop="true"-->
+        <!--            >-->
 
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="36dp"-->
-<!--                android:gravity="center"-->
-<!--                android:paddingLeft="10dp"-->
-<!--                android:paddingRight="10dp"-->
-<!--                android:text="shadow阴影的各项使用"-->
-<!--                android:textColor="#000" />-->
+        <!--            <TextView-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="36dp"-->
+        <!--                android:gravity="center"-->
+        <!--                android:paddingLeft="10dp"-->
+        <!--                android:paddingRight="10dp"-->
+        <!--                android:text="shadow阴影的各项使用"-->
+        <!--                android:textColor="#000" />-->
 
-<!--        </com.lihang.ShadowLayout>-->
-
-
+        <!--        </com.lihang.ShadowLayout>-->
 
 
     </LinearLayout>

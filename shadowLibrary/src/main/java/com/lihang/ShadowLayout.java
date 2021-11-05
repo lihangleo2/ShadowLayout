@@ -10,6 +10,8 @@ import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
@@ -23,6 +25,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -444,6 +447,13 @@ public class ShadowLayout extends FrameLayout {
         }
 
         firstView = getChildAt(0);
+
+        if (layoutBackground != null) {
+            if (isShowShadow == true && mShadowLimit > 0 && getChildAt(0) == null) {
+                throw new UnsupportedOperationException("使用了图片又加上阴影的情况下，必须加上子view才会生效!~");
+            }
+        }
+
         if (firstView == null) {
             firstView = ShadowLayout.this;
             //当子View都没有的时候。默认不使用阴影
@@ -456,7 +466,6 @@ public class ShadowLayout extends FrameLayout {
 
             if (selectorType == 2) {
                 setmBackGround(layoutBackground, "onFinishInflate");
-
             } else {
                 if (isClickable) {
                     setmBackGround(layoutBackground, "onFinishInflate");
@@ -507,9 +516,9 @@ public class ShadowLayout extends FrameLayout {
         paint.setColor(mBackGroundColor);
 
         setPadding();
-
-
     }
+
+
 
     //将画笔附上 渐变色
     public void gradient(Paint paint) {
@@ -774,6 +783,8 @@ public class ShadowLayout extends FrameLayout {
                 throw new UnsupportedOperationException("使用了ShadowLayout_hl_layoutBackground_true属性，必须先设置ShadowLayout_hl_layoutBackground属性。且设置图片时，必须保持都为图片");
             }
 
+
+
             //边框颜色的点击
             stroke_color = attr.getColor(R.styleable.ShadowLayout_hl_strokeColor, -101);
             stroke_color_true = attr.getColor(R.styleable.ShadowLayout_hl_strokeColor_true, -101);
@@ -918,7 +929,6 @@ public class ShadowLayout extends FrameLayout {
         }
 
 
-
         RectF shadowRect = new RectF(
                 rect_left,
                 rect_top,
@@ -1030,8 +1040,13 @@ public class ShadowLayout extends FrameLayout {
 
         }
         super.dispatchDraw(canvas);
-
     }
+
+
+
+
+
+
 
 
     @Override
@@ -1043,53 +1058,51 @@ public class ShadowLayout extends FrameLayout {
         rectf.bottom = getHeight() - bottomPadding;
         int trueHeight = (int) (rectf.bottom - rectf.top);
         //如果都为0说明，没有设置特定角，那么按正常绘制
-        if (getChildAt(0) != null) {
-            if (mCornerRadius_leftTop == -1 && mCornerRadius_leftBottom == -1 && mCornerRadius_rightTop == -1 && mCornerRadius_rightBottom == -1) {
-                if (mCornerRadius > trueHeight / 2) {
-                    if (selectorType != 3) {
-                        if (layoutBackground == null && layoutBackground_true == null) {
-                            //画圆角矩形
-                            canvas.drawRoundRect(rectf, trueHeight / 2, trueHeight / 2, paint);
-                            //解决边框线太洗时，四角的width偏大和其他边不同为什大姨夫啊被烦死了
-                            if (stroke_color != -101) {
-                                RectF rectFStroke = new RectF(rectf.left + stroke_with / 2, rectf.top + stroke_with / 2, rectf.right - stroke_with / 2, rectf.bottom - stroke_with / 2);
-                                canvas.drawRoundRect(rectFStroke, trueHeight / 2 - stroke_with / 2, trueHeight / 2 - stroke_with / 2, paint_stroke);
-                            }
-                        }
-                    } else {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                            float[] outerR = getCornerValue(trueHeight);
-                            ripple(outerR);
+//        if (getChildAt(0) != null) {
+        if (mCornerRadius_leftTop == -1 && mCornerRadius_leftBottom == -1 && mCornerRadius_rightTop == -1 && mCornerRadius_rightBottom == -1) {
+            if (mCornerRadius > trueHeight / 2) {
+                if (selectorType != 3) {
+                    if (layoutBackground == null && layoutBackground_true == null) {
+                        //画圆角矩形
+                        canvas.drawRoundRect(rectf, trueHeight / 2, trueHeight / 2, paint);
+                        //解决边框线太洗时，四角的width偏大和其他边不同为什大姨夫啊被烦死了
+                        if (stroke_color != -101) {
+                            RectF rectFStroke = new RectF(rectf.left + stroke_with / 2, rectf.top + stroke_with / 2, rectf.right - stroke_with / 2, rectf.bottom - stroke_with / 2);
+                            canvas.drawRoundRect(rectFStroke, trueHeight / 2 - stroke_with / 2, trueHeight / 2 - stroke_with / 2, paint_stroke);
                         }
                     }
-
                 } else {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        float[] outerR = getCornerValue(trueHeight);
+                        ripple(outerR);
+                    }
+                }
 
-                    if (selectorType != 3) {
-                        if (layoutBackground == null && layoutBackground_true == null) {
+            } else {
 
-                            canvas.drawRoundRect(rectf, mCornerRadius, mCornerRadius, paint);
-                            if (stroke_color != -101) {
-                                RectF rectFStroke = new RectF(rectf.left + stroke_with / 2, rectf.top + stroke_with / 2, rectf.right - stroke_with / 2, rectf.bottom - stroke_with / 2);
-                                canvas.drawRoundRect(rectFStroke, mCornerRadius - stroke_with / 2, mCornerRadius - stroke_with / 2, paint_stroke);
-                            }
-
-                        }
-                    } else {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                            float[] outerR = getCornerValue(trueHeight);
-                            ripple(outerR);
+                if (selectorType != 3) {
+                    if (layoutBackground == null && layoutBackground_true == null) {
+                        canvas.drawRoundRect(rectf, mCornerRadius, mCornerRadius, paint);
+                        if (stroke_color != -101) {
+                            RectF rectFStroke = new RectF(rectf.left + stroke_with / 2, rectf.top + stroke_with / 2, rectf.right - stroke_with / 2, rectf.bottom - stroke_with / 2);
+                            canvas.drawRoundRect(rectFStroke, mCornerRadius - stroke_with / 2, mCornerRadius - stroke_with / 2, paint_stroke);
                         }
                     }
+                } else {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        float[] outerR = getCornerValue(trueHeight);
+                        ripple(outerR);
+                    }
+                }
 
 
-                }
-            } else {
-                if (layoutBackground == null && layoutBackground_true == null) {
-                    setSpaceCorner(canvas, trueHeight);
-                }
+            }
+        } else {
+            if (layoutBackground == null && layoutBackground_true == null) {
+                setSpaceCorner(canvas, trueHeight);
             }
         }
+//        }
 
     }
 

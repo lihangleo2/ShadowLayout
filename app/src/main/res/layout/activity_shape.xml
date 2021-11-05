@@ -286,6 +286,30 @@
                 </com.lihang.ShadowLayout>
 
 
+                <com.lihang.ShadowLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    app:hl_cornerRadius="18dp"
+                    app:hl_cornerRadius_leftTop="0dp"
+                    app:hl_layoutBackground="@mipmap/test_background_true"
+                    app:hl_shadowColor="#F2FF0000"
+                    app:hl_shadowLimit="20dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:gravity="center"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="图片加阴影"
+                        android:textColor="#ff0000" />
+                </com.lihang.ShadowLayout>
+
+
+
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
