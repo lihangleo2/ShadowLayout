@@ -3,15 +3,15 @@
 
 ## 如果你不知道怎么集成的话，按如下步骤
 ### 1、首先下载本demo，打开项目如下
-![](https://github.com/lihangleo2/ShadowLayout/blob/master/glide1.png)
+![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/glide1.png)
 
 
 ### 2、然后点击 File --> New --> Import Module
-![](https://github.com/lihangleo2/ShadowLayout/blob/master/glide2.jpg)
+![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/glide2.jpg)
 
 
 ### 3、出现如下假面后，点击右边的文件夹，选中shadowLibrary，然后点击Finish
-![](https://github.com/lihangleo2/ShadowLayout/blob/master/glide3.png)
+![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/glide3.png)
 
 
 finish后就会以module的方式出现在你的项目里。
@@ -22,7 +22,7 @@ implementation project(':shadowLibrary')
 
 
 ### 5、最后来到shadowLibrary的bulid.gradle里修改下glide版本即可
-![](https://github.com/lihangleo2/ShadowLayout/blob/master/glide4.png)
+![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/glide4.png)
 
 
 
