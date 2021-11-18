@@ -344,7 +344,7 @@
 ### 四、关于clickable
 |name|format|description|
 |:---:|:---:|:---:|
-|clickable|boolean|设置ShadowLayout是否可以被点击；代码设置：mShadowLayout.setClickable(false);（默认true）|
+|clickable|boolean|设置ShadowLayout是否可以被点击；代码设置：mShadowLayout.setClickable(false);（默认true）如果在列表中设置阴影且需要使用adaper的点击事件时务必设置为false，并且需要设置`android:focusable="false"`，否则会导致adaper点击事件监听无效。|
 |hl_layoutBackground_clickFalse|reference/color|Clickable为false时，要展示的图片或颜色。（此属性应当在app:hl_shapeMode="pressed"时生效）|
  
 <br>
