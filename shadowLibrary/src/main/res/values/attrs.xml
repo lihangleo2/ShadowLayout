@@ -26,6 +26,8 @@
 
 
         <!-- 2、关于圆角 -->
+        <!--圆角：完全圆角-->
+        <attr name="hl_isAdjustBounds" format="boolean" />
         <!--圆角：统一大小，其中包括了阴影，shape、背景图、stroke边框圆角-->
         <attr name="hl_cornerRadius" format="dimension" />
         <!--圆角：左上圆角。设置后会忽略hl_cornerRadius的值-->

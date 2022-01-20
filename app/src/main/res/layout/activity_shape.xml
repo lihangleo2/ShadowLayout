@@ -167,7 +167,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
-                    app:hl_cornerRadius="30dp"
+                    app:hl_isAdjustBounds="true"
                     app:hl_layoutBackground="#F76C6C">
 
                     <TextView

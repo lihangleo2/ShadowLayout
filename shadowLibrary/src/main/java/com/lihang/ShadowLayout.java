@@ -57,6 +57,7 @@ public class ShadowLayout extends FrameLayout {
     private boolean rightShow;
     private boolean topShow;
     private boolean bottomShow;
+    private boolean isAdjustBounds;
     private Paint shadowPaint;
     private Paint paint;
 
@@ -520,7 +521,6 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
-
     //将画笔附上 渐变色
     public void gradient(Paint paint) {
         if (!isClickable) {
@@ -686,6 +686,9 @@ public class ShadowLayout extends FrameLayout {
         if (isShowShadow) {
             //判断传入的颜色值是否有透明度
             isAddAlpha(mShadowColor);
+            if (isAdjustBounds) {
+                mCornerRadius = h / 2f;
+            }
             Bitmap bitmap = createShadowBitmap(w, h, mCornerRadius, mShadowLimit, mDx, mDy, mShadowColor, Color.TRANSPARENT);
             BitmapDrawable drawable = new BitmapDrawable(bitmap);
             if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.JELLY_BEAN) {
@@ -729,6 +732,7 @@ public class ShadowLayout extends FrameLayout {
             rightShow = !attr.getBoolean(R.styleable.ShadowLayout_hl_shadowHiddenRight, false);
             bottomShow = !attr.getBoolean(R.styleable.ShadowLayout_hl_shadowHiddenBottom, false);
             topShow = !attr.getBoolean(R.styleable.ShadowLayout_hl_shadowHiddenTop, false);
+            isAdjustBounds = attr.getBoolean(R.styleable.ShadowLayout_hl_isAdjustBounds, false);
             mCornerRadius = attr.getDimension(R.styleable.ShadowLayout_hl_cornerRadius, getResources().getDimension(R.dimen.dp_0));
             mCornerRadius_leftTop = attr.getDimension(R.styleable.ShadowLayout_hl_cornerRadius_leftTop, -1);
             mCornerRadius_leftBottom = attr.getDimension(R.styleable.ShadowLayout_hl_cornerRadius_leftBottom, -1);
@@ -783,7 +787,6 @@ public class ShadowLayout extends FrameLayout {
             if (layoutBackground == null && layoutBackground_true != null) {
                 throw new UnsupportedOperationException("使用了ShadowLayout_hl_layoutBackground_true属性，必须先设置ShadowLayout_hl_layoutBackground属性。且设置图片时，必须保持都为图片");
             }
-
 
 
             //边框颜色的点击
@@ -1023,7 +1026,7 @@ public class ShadowLayout extends FrameLayout {
         if (getChildAt(0) != null) {
             if (mCornerRadius_leftTop == -1 && mCornerRadius_leftBottom == -1 && mCornerRadius_rightTop == -1 && mCornerRadius_rightBottom == -1) {
                 //说明没有设置过任何特殊角、且是半圆。
-                if (mCornerRadius > trueHeight / 2) {
+                if (isAdjustBounds || mCornerRadius > trueHeight / 2) {
                     Path path = new Path();
                     path.addRoundRect(rectf, trueHeight / 2, trueHeight / 2, Path.Direction.CW);
                     canvas.clipPath(path);
@@ -1044,12 +1047,6 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
-
-
-
-
-
-
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -1061,7 +1058,7 @@ public class ShadowLayout extends FrameLayout {
         //如果都为0说明，没有设置特定角，那么按正常绘制
 //        if (getChildAt(0) != null) {
         if (mCornerRadius_leftTop == -1 && mCornerRadius_leftBottom == -1 && mCornerRadius_rightTop == -1 && mCornerRadius_rightBottom == -1) {
-            if (mCornerRadius > trueHeight / 2) {
+            if (isAdjustBounds || mCornerRadius > trueHeight / 2) {
                 if (selectorType != 3) {
                     if (layoutBackground == null && layoutBackground_true == null) {
                         //画圆角矩形
