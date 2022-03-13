@@ -10,7 +10,7 @@
 ![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/glide2.jpg)
 
 
-### 3、出现如下假面后，点击右边的文件夹，选中shadowLibrary，然后点击Finish
+### 3、出现如下界面后，点击右边的文件夹，选中shadowLibrary，然后点击Finish
 ![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/glide3.png)
 
 
