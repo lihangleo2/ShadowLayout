@@ -22,20 +22,20 @@
     7. 支持设置图片背景，支持图片selector
     
 ```
-<br>
+
 
 ## ShadowLayout动态
 * [ShadowLayout3.2.4更新内容，及以往成长](https://github.com/lihangleo2/ShadowLayout/wiki)  
 * 注意：3.1.8修复issues79，阴影过渡不平滑。老项目升级为3.1.8时，需将limit*2。（如果你没有改变阴影透明度则不存在这个问题，放心使用3.1.7）
 * 注意：3.0后修改大量api及规范命名，如果还在用2.0，不方便转移的可查看[ShadowLayout2.0文档](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/README218.md)  
-<br>
+
 
 ## Demo
 为录制流畅，截图分辨率比较模糊。可在下方扫描二维码下载apk，查看真机效果。下载密码是：123456
-<br>
+
 ![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/ShadowLayout_.png)
 
-<br>
+
 
 ## 效果展示
 为录制流畅，截图分辨率模糊。可下载apk查看真机效果
@@ -43,25 +43,25 @@
 |基础功能展示|各属性展示|随意更改颜色|
 |:---:|:---:|:---:|
 |![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/main.jpg)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/first_show.gif)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/other_show.gif)
-<br>
+
 
 * ### 2.0功能更新
 |2.1.6新增shape,selector功能|2.1.7isSym属性对比|2.1.8单独更改某圆角大小|
 |:---:|:---:|:---:|
 |![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/shape_gif.gif)|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/isSym_half.jpg" alt="Sample"  width="481">|![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/corners.gif)
-<br>
+
 
 * ### 3.0.1版本来袭
 |stroke边框及点击|shape及图片selector|组合使用|
 |:---:|:---:|:---:|
 |![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/stroke2.gif)|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/shapeSelector2.gif" alt="Sample"  width="481">|![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/groupUse2.gif)
-<br>
+
 
 * ### 3.1.0新增ripple及渐变色及3.1.1绑定textView
 |3.1.0渐变色及ripple|3.1.1绑定textView|
 |:---:|:---:|
 |![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/ripple.gif)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/bindTextView.gif)
-<br>
+
 
 
 
@@ -83,7 +83,6 @@
    ```
 [glide版本冲突终极解决方案](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/GLIDE.md)     
 
-<br>
 
 ## 基本使用
 * #### 一、阴影的简单使用
@@ -109,7 +108,7 @@
                     android:textColor="#000" />
             </com.lihang.ShadowLayout>
 ```
-<br>
+
 
 * #### 二、stroke边框的简单使用
 ```xml
@@ -130,7 +129,7 @@
                     android:textColor="#000" />
             </com.lihang.ShadowLayout>
 ```
-<br>
+
 
 * #### 三、shape selector的简单使用
 ```xml
@@ -155,7 +154,7 @@
                     android:textColor="#fff" />
             </com.lihang.ShadowLayout>
 ```
-<br>
+
 
 * #### 四、图片 selector的简单使用
 ```xml
@@ -217,7 +216,7 @@
             </com.lihang.ShadowLayout>
 ```
 
-<br>
+
 
 * #### 六、水波纹ripple的使用
 ```xml
@@ -242,7 +241,7 @@
             </com.lihang.ShadowLayout>
 ```
 
-<br>
+
 
 * #### 七、绑定textView，伴随文案及颜色变化
 ```xml
@@ -290,7 +289,7 @@
 |hl_shadowHiddenLeft|boolean|左边的阴影不可见，其他3边同理|
 |hl_shadowSymmetry|boolean|控件区域是否对称（默认true）根据此图理解<br><img src="https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/isSym_half.jpg" alt="Sample"  width="350">|
 
-<br>
+
 
 ### 二、关于圆角
 |name|format|description|
@@ -298,7 +297,7 @@
 |hl_cornerRadius|dimension|包括阴影圆角、shape圆角（dp）|
 |hl_cornerRadius_leftTop|dimension|左上圆角，其他角还是hl_cornerRadius值；同理其他3角（dp）|
  
-<br>
+
 
 ### 三、关于shape
 * #### 3.1、关于shape样式及背景色
@@ -308,7 +307,7 @@
 |hl_layoutBackground|reference/color|背景色，为false时展示：可以是颜色值，图片以及系统shape样式|
 |hl_layoutBackground_true|reference/color|背景色，为true时展示：可以是颜色值，图片以及系统shape样式|
  
-<br>
+
 
 * #### 3.2、关于stroke边框
 |name|format|description|
@@ -317,7 +316,7 @@
 |hl_strokeColor|color|边框颜色值，为false展示|
 |hl_strokeColor_true|color|边框颜色值，为true展示|
 
-<br>
+
 
 * #### 3.3、关于渐变色
 |name|format|description|
@@ -327,7 +326,7 @@
 |hl_endColor|color|渐变的终止颜色|
 |hl_angle|integer|渐变角度（默认0）|
 
-<br>
+
 
 * #### 3.4、关于绑定textView
 |name|format|description|
@@ -338,7 +337,7 @@
 |hl_text|string|shape为false时展示的文案|
 |hl_text_true|string|shape为true时展示的文案|
 
-<br>
+
 
 
 ### 四、关于clickable
@@ -347,7 +346,7 @@
 |clickable|boolean|设置ShadowLayout是否可以被点击；代码设置：mShadowLayout.setClickable(false);（默认true）|
 |hl_layoutBackground_clickFalse|reference/color|Clickable为false时，要展示的图片或颜色。（此属性应当在app:hl_shapeMode="pressed"时生效）|
  
-<br>
+
 
 ## 方法表格（Method）
 |name|format|description|
@@ -366,7 +365,7 @@
 |setStrokeWidth()|dimension|设置边框的粗细|
 |setClickable()|boolean|设置ShadowLayout是否可以点击|
 |setSpecialCorner()|integer|设置ShadowLayout四个角的大小|
-<br>
+
 
 ## 赞赏
 
@@ -379,21 +378,21 @@
 如果在捐赠留言中备注名称，将会被记录到列表中~ 如果你也是github开源作者，捐赠时可以留下github项目地址或者个人主页地址，链接将会被添加到列表中
 [捐赠列表](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/friend.md)
 
-<br>
+
 
 ## 其他作品
 [RichEditTextCopyToutiao](https://github.com/lihangleo2/RichEditTextCopyToutiao)  
 [mPro](https://github.com/lihangleo2/mPro)  
 [SmartLoadingView](https://github.com/lihangleo2/SmartLoadingView)
 
-<br>
+
 
 ## 关于作者。
 Android工作多年了，一直向往大厂。在前进的道路上是孤独的。如果你在学习的路上也感觉孤独，请和我一起。让我们在学习道路上少些孤独
 * [关于我的经历](https://mp.weixin.qq.com/s?__biz=MzAwMDA3MzU2Mg==&mid=2247483667&idx=1&sn=1a575ea2c636980e5f4c579d3a73d8ab&chksm=9aefcb26ad98423041c61ad7cbad77f0534495d11fc0a302b9fdd3a3e6b84605cad61d192959&mpshare=1&scene=23&srcid=&sharer_sharetime=1572505105563&sharer_shareid=97effcbe7f9d69e6067a40da3e48344a#rd)
  * QQ群： 209010674 <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=5e29576e7d2ebf08fa37d8953a0fea3b5eafdff2c488c1f5c152223c228f1d11"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="android交流群" title="android交流群"></a>（点击图标，可以直接加入）
 
-<br>
+
 
 ## Licenses
 
