@@ -59,7 +59,7 @@
 * ### 3.1.0新增ripple及渐变色及3.1.1绑定textView
 |3.1.0渐变色及ripple|3.1.1绑定textView|
 |:---:|:---:|
-|![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/ripple.gif)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/bindTextView.gif)
+|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/ripple.gif" alt="Sample"  width="320">|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/bindTextView.gif" alt="Sample"  width="320">
 <br/>
 
 
