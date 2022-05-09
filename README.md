@@ -80,6 +80,13 @@
 	        implementation 'com.github.lihangleo2:ShadowLayout:3.2.4'
 	}
    ```
+   
+ - 在AndroidX里如何使用？根目录下找到gradle的配置文件gradle.properties里加上以下2句代码：
+    ```java
+   android.useAndroidX=true
+   android.enableJetifier=true
+   ```
+   
 [glide版本冲突终极解决方案](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/GLIDE.md)     
 
 
