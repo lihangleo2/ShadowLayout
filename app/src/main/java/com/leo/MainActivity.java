@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
          * *********************************************************************
          */
 //        binding.shadowLayoutStroke.setStrokeWidth(50);
-//        binding.shadowLayoutStroke.setOnClickListener(v->{
-//            binding.shadowLayoutStroke.setStrokeWidth(50);
-//        });
+        binding.ShadowLayoutShadow.setOnClickListener(v->{
+            startActivity(new Intent(MainActivity.this, ShapeActivity.class));
+        });
     }
 }

@@ -1163,7 +1163,7 @@ public class ShadowLayout extends FrameLayout {
                 } else {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         float[] outerR = getCornerValue(trueHeight);
-                        ripple(outerR);
+                        ripple(outerR,canvas);
                     }
                 }
 
@@ -1181,7 +1181,7 @@ public class ShadowLayout extends FrameLayout {
                 } else {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         float[] outerR = getCornerValue(trueHeight);
-                        ripple(outerR);
+                        ripple(outerR,canvas);
                     }
                 }
 
@@ -1322,7 +1322,8 @@ public class ShadowLayout extends FrameLayout {
 
             } else {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    ripple(outerR);
+                    //issues
+                    ripple(outerR,canvas);
                 }
             }
 
@@ -1338,7 +1339,7 @@ public class ShadowLayout extends FrameLayout {
                 mDrawables.draw(canvas);
             } else {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    ripple(outerR);
+                    ripple(outerR,canvas);
                 }
             }
         }
@@ -1357,7 +1358,7 @@ public class ShadowLayout extends FrameLayout {
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    private void ripple(float[] outRadius) {
+    private void ripple(float[] outRadius,Canvas canvas) {
 
         int[][] stateList = new int[][]{
                 new int[]{android.R.attr.state_pressed},
