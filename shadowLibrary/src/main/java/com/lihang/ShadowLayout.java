@@ -10,8 +10,7 @@ import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
@@ -118,6 +117,11 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
+    /**
+     * 改变按钮是否为可点击状态
+     *
+     * @param clickable
+     */
     public void setClickable(boolean clickable) {
         super.setClickable(clickable);
         this.isClickable = clickable;
@@ -137,6 +141,11 @@ public class ShadowLayout extends FrameLayout {
     //解决xml设置clickable = false时。代码设置true时，点击事件无效的bug
     private OnClickListener onClickListener;
 
+    /**
+     * 重写系统setOnClickListener,以配合自定义属性isClickable实现是否可点击事件
+     *
+     * @param l
+     */
     @Override
     public void setOnClickListener(@Nullable OnClickListener l) {
         this.onClickListener = l;
@@ -145,7 +154,11 @@ public class ShadowLayout extends FrameLayout {
         }
     }
 
-    public void changeSwitchClickable() {
+    /**
+     * clickable发生变化时，shadowLayout样式切换的方法。
+     * 由public改为private不向用户提供，只能在内部使用
+     */
+    private void changeSwitchClickable() {
         //不可点击的状态只在press mode的模式下生效
         if (selectorType == 1 && firstView != null) {
 
@@ -183,7 +196,12 @@ public class ShadowLayout extends FrameLayout {
         }
     }
 
-    //增加selector样式
+
+    /**
+     * 切换select样式
+     *
+     * @param selected
+     */
     @Override
     public void setSelected(boolean selected) {
         super.setSelected(selected);
@@ -245,7 +263,11 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
-    //是否隐藏阴影
+    /**
+     * 是否隐藏阴影
+     *
+     * @param isShowShadow
+     */
     public void setShadowHidden(boolean isShowShadow) {
         this.isShowShadow = !isShowShadow;
         if (getWidth() != 0 && getHeight() != 0) {
@@ -253,7 +275,11 @@ public class ShadowLayout extends FrameLayout {
         }
     }
 
-    //设置x轴偏移量
+    /**
+     * 设置x轴阴影的偏移量
+     *
+     * @param mDx
+     */
     public void setShadowOffsetX(float mDx) {
         if (isShowShadow) {
             if (Math.abs(mDx) > mShadowLimit) {
@@ -269,7 +295,11 @@ public class ShadowLayout extends FrameLayout {
         }
     }
 
-    //动态设置y轴偏移量
+    /**
+     * 设置y轴阴影的偏移量
+     *
+     * @param mDy
+     */
     public void setShadowOffsetY(float mDy) {
         if (isShowShadow) {
             if (Math.abs(mDy) > mShadowLimit) {
@@ -285,12 +315,20 @@ public class ShadowLayout extends FrameLayout {
         }
     }
 
-
+    /**
+     * 获取当前的圆角值
+     *
+     * @return
+     */
     public float getCornerRadius() {
         return mCornerRadius;
     }
 
-    //动态设置 圆角属性
+    /**
+     * 设置shadowLayout圆角
+     *
+     * @param mCornerRadius
+     */
     public void setCornerRadius(int mCornerRadius) {
         this.mCornerRadius = mCornerRadius;
         if (getWidth() != 0 && getHeight() != 0) {
@@ -298,11 +336,20 @@ public class ShadowLayout extends FrameLayout {
         }
     }
 
+    /**
+     * 获取阴影扩散区域值
+     *
+     * @return
+     */
     public float getShadowLimit() {
         return mShadowLimit;
     }
 
-    //动态设置阴影扩散区域
+    /**
+     * 设置阴影扩散区域
+     *
+     * @param mShadowLimit
+     */
     public void setShadowLimit(int mShadowLimit) {
         if (isShowShadow) {
             this.mShadowLimit = mShadowLimit;
@@ -310,7 +357,11 @@ public class ShadowLayout extends FrameLayout {
         }
     }
 
-    //动态设置阴影颜色值
+    /**
+     * 设置阴影颜色值
+     *
+     * @param mShadowColor
+     */
     public void setShadowColor(int mShadowColor) {
         this.mShadowColor = mShadowColor;
         if (getWidth() != 0 && getHeight() != 0) {
@@ -319,6 +370,14 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
+    /**
+     * 单独设置4个圆角属性
+     *
+     * @param leftTop
+     * @param rightTop
+     * @param leftBottom
+     * @param rightBottom
+     */
     public void setSpecialCorner(int leftTop, int rightTop, int leftBottom, int rightBottom) {
         mCornerRadius_leftTop = leftTop;
         mCornerRadius_rightTop = rightTop;
@@ -330,7 +389,12 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
-    //是否隐藏阴影的上边部分
+    /**
+     * 单独隐藏某边
+     * setShadowHiddenTop：是否隐藏阴影的上边部分
+     *
+     * @param topShow
+     */
     public void setShadowHiddenTop(boolean topShow) {
         this.topShow = !topShow;
         setPadding();
@@ -354,6 +418,11 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
+    /**
+     * 设置背景颜色值
+     *
+     * @param color
+     */
     public void setLayoutBackground(int color) {
         if (layoutBackground_true != null) {
             throw new UnsupportedOperationException("使用了ShadowLayout_hl_layoutBackground_true属性，要与ShadowLayout_hl_layoutBackground属性统一为颜色");
@@ -370,7 +439,11 @@ public class ShadowLayout extends FrameLayout {
         postInvalidate();
     }
 
-
+    /**
+     * 设置选中背景颜色值
+     *
+     * @param color
+     */
     public void setLayoutBackgroundTrue(int color) {
         if (layoutBackground != null) {
             throw new UnsupportedOperationException("使用了ShadowLayout_hl_layoutBackground属性，要与ShadowLayout_hl_layoutBackground_true属性统一为颜色");
@@ -386,6 +459,11 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
+    /**
+     * 设置边框颜色值
+     *
+     * @param color
+     */
     public void setStrokeColor(int color) {
         stroke_color = color;
         if (selectorType == 2) {
@@ -400,6 +478,11 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
+    /**
+     * 设置选中边框颜色值
+     *
+     * @param color
+     */
     public void setStrokeColorTrue(int color) {
 
         stroke_color_true = color;
@@ -412,16 +495,21 @@ public class ShadowLayout extends FrameLayout {
         postInvalidate();
     }
 
+    /**
+     * 设置边框宽度
+     *
+     * @param stokeWidth
+     */
     public void setStrokeWidth(int stokeWidth) {
         this.stroke_with = stokeWidth;
-        if (stroke_with > dip2px(7)) {
-            stroke_with = dip2px(5);
-        }
-        paint_stroke.setStrokeWidth(stroke_with);
+        //stroke_with只在ondraw里使用，可以再ondraw里进行判断是否大于高度的一半。
         postInvalidate();
     }
 
 
+    /**
+     * 被加载到页面后触发。也就是执行Inflater.inflate()方法后
+     */
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onFinishInflate() {
@@ -504,7 +592,6 @@ public class ShadowLayout extends FrameLayout {
         paint_stroke = new Paint();
         paint_stroke.setAntiAlias(true);
         paint_stroke.setStyle(Paint.Style.STROKE);
-        paint_stroke.setStrokeWidth(stroke_with);
         if (stroke_color != -101) {
             paint_stroke.setColor(stroke_color);
         }
@@ -520,9 +607,8 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
-
     //将画笔附上 渐变色
-    public void gradient(Paint paint) {
+    private void gradient(Paint paint) {
         if (!isClickable) {
             paint.setShader(null);
             return;
@@ -595,12 +681,12 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
-    public int dip2px(float dipValue) {
+    private int dip2px(float dipValue) {
         float scale = getContext().getResources().getDisplayMetrics().density;
         return (int) (dipValue * scale + 0.5f);
     }
 
-    public void setPadding() {
+    private void setPadding() {
         if (isShowShadow && mShadowLimit > 0) {
             //控件区域是否对称，默认是对称。不对称的话，那么控件区域随着阴影区域走
             if (isSym) {
@@ -785,7 +871,6 @@ public class ShadowLayout extends FrameLayout {
             }
 
 
-
             //边框颜色的点击
             stroke_color = attr.getColor(R.styleable.ShadowLayout_hl_strokeColor, -101);
             stroke_color_true = attr.getColor(R.styleable.ShadowLayout_hl_strokeColor_true, -101);
@@ -795,11 +880,6 @@ public class ShadowLayout extends FrameLayout {
             }
 
             stroke_with = attr.getDimension(R.styleable.ShadowLayout_hl_strokeWith, dip2px(1));
-            //规定边框长度最大不错过7dp
-            if (stroke_with > dip2px(7)) {
-                stroke_with = dip2px(5);
-            }
-
 
             Drawable clickAbleFalseBackground = attr.getDrawable(R.styleable.ShadowLayout_hl_layoutBackground_clickFalse);
             if (clickAbleFalseBackground != null) {
@@ -1015,6 +1095,11 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
+    /**
+     * 对子View进行绘制，也是剪裁子view的关键
+     *
+     * @param canvas
+     */
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void dispatchDraw(Canvas canvas) {
@@ -1044,12 +1129,6 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
-
-
-
-
-
-
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -1058,15 +1137,24 @@ public class ShadowLayout extends FrameLayout {
         rectf.right = getWidth() - rightPadding;
         rectf.bottom = getHeight() - bottomPadding;
         int trueHeight = (int) (rectf.bottom - rectf.top);
+
+        //是否设置了stroke
+        if (stroke_color!=-101){
+            //判断当前stroke高度是否大于控件高度的一半
+            if (stroke_with>trueHeight/2){
+                stroke_with=trueHeight/2;
+            }
+            paint_stroke.setStrokeWidth(stroke_with);
+        }
+
         //如果都为0说明，没有设置特定角，那么按正常绘制
-//        if (getChildAt(0) != null) {
         if (mCornerRadius_leftTop == -1 && mCornerRadius_leftBottom == -1 && mCornerRadius_rightTop == -1 && mCornerRadius_rightBottom == -1) {
             if (mCornerRadius > trueHeight / 2) {
                 if (selectorType != 3) {
                     if (layoutBackground == null && layoutBackground_true == null) {
                         //画圆角矩形
                         canvas.drawRoundRect(rectf, trueHeight / 2, trueHeight / 2, paint);
-                        //解决边框线太洗时，四角的width偏大和其他边不同为什大姨夫啊被烦死了
+                        //解决边框线太细时，四角的width偏大
                         if (stroke_color != -101) {
                             RectF rectFStroke = new RectF(rectf.left + stroke_with / 2, rectf.top + stroke_with / 2, rectf.right - stroke_with / 2, rectf.bottom - stroke_with / 2);
                             canvas.drawRoundRect(rectFStroke, trueHeight / 2 - stroke_with / 2, trueHeight / 2 - stroke_with / 2, paint_stroke);
@@ -1087,6 +1175,7 @@ public class ShadowLayout extends FrameLayout {
                         if (stroke_color != -101) {
                             RectF rectFStroke = new RectF(rectf.left + stroke_with / 2, rectf.top + stroke_with / 2, rectf.right - stroke_with / 2, rectf.bottom - stroke_with / 2);
                             canvas.drawRoundRect(rectFStroke, mCornerRadius - stroke_with / 2, mCornerRadius - stroke_with / 2, paint_stroke);
+
                         }
                     }
                 } else {
@@ -1103,12 +1192,11 @@ public class ShadowLayout extends FrameLayout {
                 setSpaceCorner(canvas, trueHeight);
             }
         }
-//        }
 
     }
 
 
-    public float[] getCornerValue(int trueHeight) {
+    private float[] getCornerValue(int trueHeight) {
         int leftTop;
         int rightTop;
         int rightBottom;
@@ -1158,7 +1246,7 @@ public class ShadowLayout extends FrameLayout {
         return outerR;
     }
 
-    public float[] getCornerValueOther(int trueHeight, int stokeWith) {
+    private float[] getCornerValueOther(int trueHeight, int stokeWith) {
         //优化
         trueHeight = trueHeight - stokeWith;
         int leftTop;
@@ -1230,16 +1318,8 @@ public class ShadowLayout extends FrameLayout {
                 }
                 mDrawables.setBounds(leftPadding, topPadding, getWidth() - rightPadding, getHeight() - bottomPadding);
                 mDrawables.draw(canvas);
+                drawStroke(canvas,trueHeight);
 
-                float[] outerR_stroke = getCornerValueOther(trueHeight, (int) stroke_with);
-                ShapeDrawable mDrawablesStroke = new ShapeDrawable(new RoundRectShape(outerR_stroke, null, null));
-                mDrawablesStroke.getPaint().setColor(paint_stroke.getColor());
-                mDrawablesStroke.getPaint().setStyle(Paint.Style.STROKE);
-                mDrawablesStroke.getPaint().setStrokeWidth(stroke_with);
-                mDrawablesStroke.setBounds((int) (leftPadding + stroke_with / 2), (int) (topPadding + stroke_with / 2), (int) (getWidth() - rightPadding - stroke_with / 2), (int) (getHeight() - bottomPadding - stroke_with / 2));
-
-
-                mDrawablesStroke.draw(canvas);
             } else {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     ripple(outerR);
@@ -1262,7 +1342,17 @@ public class ShadowLayout extends FrameLayout {
                 }
             }
         }
+    }
 
+    private void drawStroke(Canvas canvas,int trueHeight){
+        float[] outerR_stroke = getCornerValueOther(trueHeight, (int) stroke_with);
+        ShapeDrawable mDrawablesStroke = new ShapeDrawable(new RoundRectShape(outerR_stroke, null, null));
+        mDrawablesStroke.getPaint().setColor(paint_stroke.getColor());
+        mDrawablesStroke.getPaint().setStyle(Paint.Style.STROKE);
+        mDrawablesStroke.getPaint().setStrokeWidth(stroke_with);
+        mDrawablesStroke.setBounds((int) (leftPadding + stroke_with / 2), (int) (topPadding + stroke_with / 2), (int) (getWidth() - rightPadding - stroke_with / 2), (int) (getHeight() - bottomPadding - stroke_with / 2));
+
+        mDrawablesStroke.draw(canvas);
     }
 
 
@@ -1316,7 +1406,7 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
-    public void isAddAlpha(int color) {
+    private void isAddAlpha(int color) {
         //获取单签颜色值的透明度，如果没有设置透明度，默认加上#2a
         if (Color.alpha(color) == 255) {
             String red = Integer.toHexString(Color.red(color));
@@ -1340,7 +1430,7 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
-    public static int convertToColorInt(String argb)
+    private static int convertToColorInt(String argb)
             throws IllegalArgumentException {
 
         if (!argb.startsWith("#")) {
@@ -1446,7 +1536,7 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
-    public void setmBackGround(Drawable drawable, String currentTag) {
+    private void setmBackGround(Drawable drawable, String currentTag) {
         firstView.setTag(R.id.action_container, currentTag);
         if (firstView != null && drawable != null) {
             if (mCornerRadius_leftTop == -1 && mCornerRadius_leftBottom == -1 && mCornerRadius_rightTop == -1 && mCornerRadius_rightBottom == -1) {
