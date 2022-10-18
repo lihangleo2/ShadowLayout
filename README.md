@@ -41,19 +41,19 @@
 * ### 1.0功能展示
 |基础功能展示|各属性展示|随意更改颜色|
 |:---:|:---:|:---:|
-|![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/main.jpg)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/first_show.gif)|![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/other_show.gif)
+|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/main.jpg" alt="Sample"  width="100%">|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/first_show.gif" alt="Sample"  width="100%">|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/other_show.gif" alt="Sample"  width="100%">
 <br/>
 
 * ### 2.0功能更新
 |2.1.6新增shape,selector功能|2.1.7isSym属性对比|2.1.8单独更改某圆角大小|
 |:---:|:---:|:---:|
-|![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/shape_gif.gif)|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/isSym_half.jpg" alt="Sample"  width="481">|![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/corners.gif)
+|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/shape_gif.gif" alt="Sample"  width="100%">|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/isSym_half.jpg" alt="Sample"  width="481">|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/corners.gif" alt="Sample"  width="100%">
 <br/>
 
 * ### 3.0.1版本来袭
 |stroke边框及点击|shape及图片selector|组合使用|
 |:---:|:---:|:---:|
-|![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/stroke2.gif)|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/shapeSelector2.gif" alt="Sample"  width="481">|![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/groupUse2.gif)
+|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/stroke2.gif" alt="Sample"  width="100%">|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/shapeSelector2.gif" alt="Sample"  width="100%">|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/groupUse2.gif" alt="Sample"  width="100%">
 <br/>
 
 * ### 3.1.0新增ripple及渐变色及3.1.1绑定textView
