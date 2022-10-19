@@ -23,6 +23,7 @@ import android.graphics.drawable.shapes.RoundRectShape;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -83,6 +84,8 @@ public class ShadowLayout extends FrameLayout {
     private float stroke_with;
     private int stroke_color;
     private int stroke_color_true;
+    private float stroke_dashWidth = -1;
+    private float stroke_dashGap = -1;
 
     private boolean isClickable;
 
@@ -269,16 +272,16 @@ public class ShadowLayout extends FrameLayout {
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void setGradientColor(int startColor, int endColor) {
-        setGradientColor(angle,startColor,endColor);
+        setGradientColor(angle, startColor, endColor);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    public void setGradientColor(int angle,int startColor, int endColor) {
-        setGradientColor(angle,startColor,-101,endColor);
+    public void setGradientColor(int angle, int startColor, int endColor) {
+        setGradientColor(angle, startColor, -101, endColor);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    public void setGradientColor(int angle,int startColor, int centerColor, int endColor) {
+    public void setGradientColor(int angle, int startColor, int centerColor, int endColor) {
         if (angle % 45 != 0) {
             throw new IllegalArgumentException("Linear gradient requires 'angle' attribute to be a multiple of 45");
         }
@@ -542,9 +545,8 @@ public class ShadowLayout extends FrameLayout {
      *
      * @param stokeWidth
      */
-    public void setStrokeWidth(int stokeWidth) {
+    public void setStrokeWidth(float stokeWidth) {
         this.stroke_with = stokeWidth;
-        //stroke_with只在ondraw里使用，可以再ondraw里进行判断是否大于高度的一半。
         postInvalidate();
     }
 
@@ -904,6 +906,12 @@ public class ShadowLayout extends FrameLayout {
 
             stroke_with = attr.getDimension(R.styleable.ShadowLayout_hl_strokeWith, dip2px(1));
 
+            stroke_dashWidth = attr.getDimension(R.styleable.ShadowLayout_hl_stroke_dashWidth, -1);
+            stroke_dashGap = attr.getDimension(R.styleable.ShadowLayout_hl_stroke_dashGap, -1);
+            if ((stroke_dashWidth == -1 && stroke_dashGap != -1)||(stroke_dashWidth != -1 && stroke_dashGap == -1)) {
+                throw new UnsupportedOperationException("使用了虚线边框,必须设置以下2个属性：ShadowLayout_hl_stroke_dashWidth，ShadowLayout_hl_stroke_dashGap");
+            }
+
             Drawable clickAbleFalseBackground = attr.getDrawable(R.styleable.ShadowLayout_hl_layoutBackground_clickFalse);
             if (clickAbleFalseBackground != null) {
                 if (clickAbleFalseBackground instanceof ColorDrawable) {
@@ -1187,19 +1195,23 @@ public class ShadowLayout extends FrameLayout {
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void drawGradientDrawable(Canvas canvas, RectF rectf, float[] cornerRadiusArr) {
-
         //solidcolor
 //        gradientDrawable.setColor(paint.getColor());
         //区域
         gradientDrawable.setBounds((int) rectf.left, (int) rectf.top, (int) rectf.right, (int) rectf.bottom);
         //stroke
         if (stroke_color != -101) {
-            gradientDrawable.setStroke((int) stroke_with, current_stroke_color);
+            //根据系统shape,对stroke_with,进行四舍五入
+            if (stroke_dashWidth!=-1){
+                gradientDrawable.setStroke(Math.round(stroke_with), current_stroke_color, stroke_dashWidth, stroke_dashGap);
+            }else {
+                gradientDrawable.setStroke(Math.round(stroke_with), current_stroke_color);
+            }
         }
-
         //cornerRadiusArr 已经判断，如果没有特殊角也是返回一数组
         gradientDrawable.setCornerRadii(cornerRadiusArr);
         gradientDrawable.draw(canvas);
+
 
     }
 
@@ -1283,7 +1295,11 @@ public class ShadowLayout extends FrameLayout {
         maskDrawable.getPaint().setStyle(Paint.Style.FILL);
 
         if (stroke_color != -101) {
-            gradientDrawable.setStroke((int) stroke_with, current_stroke_color);
+            if (stroke_dashWidth!=-1){
+                gradientDrawable.setStroke(Math.round(stroke_with), current_stroke_color,stroke_dashWidth,stroke_dashGap);
+            }else {
+                gradientDrawable.setStroke(Math.round(stroke_with), current_stroke_color);
+            }
         }
         //outRadius 无论是否有特殊角都返回的数组
         gradientDrawable.setCornerRadii(outRadius);

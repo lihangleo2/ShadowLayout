@@ -57,6 +57,11 @@
         <attr name="hl_strokeColor" format="color" />
         <!-- 为true时，默认的stoke颜色值，必须搭配hl_strokeColor属性使用。否则报错-->
         <attr name="hl_strokeColor_true" format="color" />
+        <!-- 虚线边框的实线部分长度 -->
+        <attr name="hl_stroke_dashWidth" format="dimension" />
+        <!-- 虚线边框的间隔宽度-->
+        <attr name="hl_stroke_dashGap" format="dimension" />
+
 
 
         <!-- 这里最终舍弃了系统clickable的方案，因为系统系统主动设置setOnClickListener后，会主动设置成true,所以这里采用自定义 -->

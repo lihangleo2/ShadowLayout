@@ -134,8 +134,8 @@
                     app:hl_cornerRadius="30dp"
                     app:hl_cornerRadius_leftTop="0dp"
                     app:hl_cornerRadius_rightBottom="0dp"
-                    app:hl_strokeColor="#2196F3"
-                    app:hl_strokeColor_true="#ff0000">
+                    app:hl_strokeColor="#55A9EB"
+                    app:hl_strokeColor_true="#ED4D4D">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -144,6 +144,28 @@
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:text="边框press样式，点击"
+                        android:textColor="#000" />
+                </com.lihang.ShadowLayout>
+
+                <com.lihang.ShadowLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    app:hl_cornerRadius="30dp"
+                    app:hl_cornerRadius_leftTop="0dp"
+                    app:hl_strokeColor="#ff0000"
+                    app:hl_stroke_dashWidth="5dp"
+                    app:hl_stroke_dashGap="5dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:gravity="center"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="虚线边框的使用"
                         android:textColor="#000" />
                 </com.lihang.ShadowLayout>
 
@@ -431,7 +453,7 @@
                     app:hl_shadowLimit="14dp"
                     app:hl_shapeMode="ripple"
                     app:hl_strokeWith="2px"
-                    app:hl_strokeColor="#ff0000"
+                    app:hl_strokeColor="#F46969"
                     >
 
                     <TextView

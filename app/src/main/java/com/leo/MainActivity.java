@@ -32,12 +32,6 @@ public class MainActivity extends AppCompatActivity {
 //        binding.ShadowLayoutWiki.setOnClickListener(v -> {
 //            startActivity(new Intent(MainActivity.this, WikiActivity.class));
 //        });
-        binding.buttonPanel.setOnClickListener(v->{
-            binding.ShadowLayoutClickable.setGradientColor(Color.parseColor("#ff0000"),Color.parseColor("#000000"));
-        });
 
-        binding.buttonPanel2.setOnClickListener(v->{
-            binding.ShadowLayoutClickable.setLayoutBackground(Color.parseColor("#0000ff"));
-        });
     }
 }

@@ -114,6 +114,8 @@
 
 
         <!-- 隐藏某边阴影的测试代码  -->
+
+
         <com.lihang.ShadowLayout
             android:id="@+id/ShadowLayout_Clickable"
             android:layout_width="wrap_content"
@@ -122,9 +124,13 @@
             android:layout_marginTop="10dp"
             app:hl_cornerRadius="30dp"
             app:hl_cornerRadius_leftTop="0dp"
-            app:hl_layoutBackground="#325FE3"
+            app:hl_layoutBackground="#ffffff"
             app:hl_layoutBackground_clickFalse="#89898989"
-            app:hl_layoutBackground_true="#89325FE3"
+            app:hl_layoutBackground_true="#999999"
+            app:hl_strokeColor="#ff0000"
+            app:hl_strokeWith="2px"
+            app:hl_stroke_dashWidth="5dp"
+            app:hl_stroke_dashGap="5dp"
             app:hl_shapeMode="pressed">
 
             <TextView
@@ -134,24 +140,9 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:text="设置ClickableFalse"
-                android:textColor="#fff" />
+                android:textColor="#000" />
 
         </com.lihang.ShadowLayout>
-
-        <Button
-            android:id="@+id/buttonPanel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="点击"
-            />
-
-        <Button
-            android:id="@+id/buttonPanel2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="点击"
-            />
-
 
     </LinearLayout>
 </layout>
