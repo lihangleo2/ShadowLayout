@@ -429,7 +429,10 @@
                     app:hl_layoutBackground_true="#ff0000"
                     app:hl_shadowColor="#2a000000"
                     app:hl_shadowLimit="14dp"
-                    app:hl_shapeMode="ripple">
+                    app:hl_shapeMode="ripple"
+                    app:hl_strokeWith="2px"
+                    app:hl_strokeColor="#ff0000"
+                    >
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -437,7 +440,7 @@
                         android:gravity="center"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="点我，水波纹"
+                        android:text="点我，水波纹+边框"
                         android:textColor="#000" />
 
                 </com.lihang.ShadowLayout>
