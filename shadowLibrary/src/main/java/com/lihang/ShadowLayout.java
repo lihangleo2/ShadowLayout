@@ -176,14 +176,14 @@ public class ShadowLayout extends FrameLayout {
                         //说明此时是设置了图片的模式
                         firstView.getBackground().setAlpha(0);
                     }
-                    gradientDrawable.setColors(new int[]{clickAbleFalseColor,clickAbleFalseColor});
+                    gradientDrawable.setColors(new int[]{clickAbleFalseColor, clickAbleFalseColor});
                     postInvalidate();
 
 
                 } else if (clickAbleFalseDrawable != null) {
                     //说明设置了背景图
                     setmBackGround(clickAbleFalseDrawable, "changeSwitchClickable");
-                    gradientDrawable.setColors(new int[]{Color.parseColor("#00000000"),Color.parseColor("#00000000")});
+                    gradientDrawable.setColors(new int[]{Color.parseColor("#00000000"), Color.parseColor("#00000000")});
                     postInvalidate();
                 }
             } else {
@@ -195,7 +195,7 @@ public class ShadowLayout extends FrameLayout {
                         firstView.getBackground().setAlpha(0);
                     }
                 }
-                gradientDrawable.setColors(new int[]{mBackGroundColor,mBackGroundColor});
+                gradientDrawable.setColors(new int[]{mBackGroundColor, mBackGroundColor});
                 postInvalidate();
             }
         }
@@ -215,7 +215,7 @@ public class ShadowLayout extends FrameLayout {
             if (selectorType == 2) {
                 if (selected) {
                     if (mBackGroundColor_true != -101) {
-                        gradientDrawable.setColors(new int[]{mBackGroundColor_true,mBackGroundColor_true});
+                        gradientDrawable.setColors(new int[]{mBackGroundColor_true, mBackGroundColor_true});
                     }
 
                     if (stroke_color_true != -101) {
@@ -233,7 +233,7 @@ public class ShadowLayout extends FrameLayout {
                     }
 
                 } else {
-                    gradientDrawable.setColors(new int[]{mBackGroundColor,mBackGroundColor});
+                    gradientDrawable.setColors(new int[]{mBackGroundColor, mBackGroundColor});
                     if (startColor != -101) {
                         gradient(gradientDrawable);
                     }
@@ -267,6 +267,28 @@ public class ShadowLayout extends FrameLayout {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public void setGradientColor(int startColor, int endColor) {
+        setGradientColor(angle,startColor,endColor);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public void setGradientColor(int angle,int startColor, int endColor) {
+        setGradientColor(angle,startColor,-101,endColor);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public void setGradientColor(int angle,int startColor, int centerColor, int endColor) {
+        if (angle % 45 != 0) {
+            throw new IllegalArgumentException("Linear gradient requires 'angle' attribute to be a multiple of 45");
+        }
+        this.angle = angle;
+        this.startColor = startColor;
+        this.centerColor = centerColor;
+        this.endColor = endColor;
+        gradient(gradientDrawable);
+        postInvalidate();
+    }
 
     /**
      * 是否隐藏阴影
@@ -434,17 +456,26 @@ public class ShadowLayout extends FrameLayout {
      */
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void setLayoutBackground(int color) {
+        //如果设置了clickable为false，那么不允许动态更换背景
+        if (!isClickable) {
+            return;
+        }
+
         if (layoutBackground_true != null) {
             throw new UnsupportedOperationException("使用了ShadowLayout_hl_layoutBackground_true属性，要与ShadowLayout_hl_layoutBackground属性统一为颜色");
         }
         mBackGroundColor = color;
+        //代码设置背景色后，将渐变色重置
+        this.startColor = -101;
+        this.centerColor = -101;
+        this.endColor = -101;
         if (selectorType == 2) {
             //select模式
             if (!this.isSelected()) {
-                gradientDrawable.setColors(new int[]{mBackGroundColor,mBackGroundColor});
+                gradientDrawable.setColors(new int[]{mBackGroundColor, mBackGroundColor});
             }
         } else {
-            gradientDrawable.setColors(new int[]{mBackGroundColor,mBackGroundColor});
+            gradientDrawable.setColors(new int[]{mBackGroundColor, mBackGroundColor});
         }
         postInvalidate();
     }
@@ -572,7 +603,7 @@ public class ShadowLayout extends FrameLayout {
                 } else {
                     setmBackGround(clickAbleFalseDrawable, "onFinishInflate");
                     if (clickAbleFalseColor != -101) {
-                        gradientDrawable.setColors(new int[]{clickAbleFalseColor,clickAbleFalseColor});
+                        gradientDrawable.setColors(new int[]{clickAbleFalseColor, clickAbleFalseColor});
                     }
                 }
             }
@@ -601,7 +632,7 @@ public class ShadowLayout extends FrameLayout {
         shadowPaint.setAntiAlias(true);
         shadowPaint.setStyle(Paint.Style.FILL);
         gradientDrawable = new GradientDrawable();
-        gradientDrawable.setColors(new int[]{mBackGroundColor,mBackGroundColor});
+        gradientDrawable.setColors(new int[]{mBackGroundColor, mBackGroundColor});
         if (stroke_color != -101) {
             current_stroke_color = stroke_color;
         }
@@ -1345,7 +1376,7 @@ public class ShadowLayout extends FrameLayout {
                         if (selectorType == 1) {
                             if (mBackGroundColor_true != -101) {
                                 //切换的颜色
-                                gradientDrawable.setColors(new int[]{mBackGroundColor_true,mBackGroundColor_true});
+                                gradientDrawable.setColors(new int[]{mBackGroundColor_true, mBackGroundColor_true});
                             }
                             if (stroke_color_true != -101) {
                                 current_stroke_color = stroke_color_true;
@@ -1369,7 +1400,7 @@ public class ShadowLayout extends FrameLayout {
                     case MotionEvent.ACTION_UP:
                         if (selectorType == 1) {
                             //打个标记
-                            gradientDrawable.setColors(new int[]{mBackGroundColor,mBackGroundColor});
+                            gradientDrawable.setColors(new int[]{mBackGroundColor, mBackGroundColor});
                             if (startColor != -101) {
                                 gradient(gradientDrawable);
                             }

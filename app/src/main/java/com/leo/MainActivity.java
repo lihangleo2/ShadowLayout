@@ -1,7 +1,9 @@
 package com.leo;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,16 +21,23 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        binding.ShadowLayoutShadow.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, ShadowActivity.class));
+//        binding.ShadowLayoutShadow.setOnClickListener(v -> {
+//            startActivity(new Intent(MainActivity.this, ShadowActivity.class));
+//        });
+//
+//        binding.ShadowLayoutShape.setOnClickListener(v -> {
+//            startActivity(new Intent(MainActivity.this, ShapeActivity.class));
+//        });
+//
+//        binding.ShadowLayoutWiki.setOnClickListener(v -> {
+//            startActivity(new Intent(MainActivity.this, WikiActivity.class));
+//        });
+        binding.buttonPanel.setOnClickListener(v->{
+            binding.ShadowLayoutClickable.setGradientColor(Color.parseColor("#ff0000"),Color.parseColor("#000000"));
         });
 
-        binding.ShadowLayoutShape.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, ShapeActivity.class));
-        });
-
-        binding.ShadowLayoutWiki.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, WikiActivity.class));
+        binding.buttonPanel2.setOnClickListener(v->{
+            binding.ShadowLayoutClickable.setLayoutBackground(Color.parseColor("#0000ff"));
         });
     }
 }
