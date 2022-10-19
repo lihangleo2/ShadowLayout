@@ -92,8 +92,7 @@
                     android:layout_marginTop="10dp"
                     app:hl_cornerRadius="10dp"
                     app:hl_strokeColor="#E1E1E1"
-                    app:hl_strokeWith="1px"
-                    >
+                    app:hl_strokeWith="1px">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -111,11 +110,10 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     app:hl_cornerRadius="30dp"
-                    app:hl_strokeColor="#E1E1E1"
-                    app:hl_strokeWith="2px"
                     app:hl_cornerRadius_leftTop="0dp"
                     app:hl_cornerRadius_rightBottom="0dp"
-                    >
+                    app:hl_strokeColor="#E1E1E1"
+                    app:hl_strokeWith="2px">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -137,8 +135,7 @@
                     app:hl_cornerRadius_leftTop="0dp"
                     app:hl_cornerRadius_rightBottom="0dp"
                     app:hl_strokeColor="#2196F3"
-                    app:hl_strokeColor_true="#ff0000"
-                    >
+                    app:hl_strokeColor_true="#ff0000">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -293,8 +290,8 @@
                     app:hl_cornerRadius_leftTop="0dp"
                     app:hl_layoutBackground="@mipmap/test_background_true"
                     app:hl_shadowColor="#F2FF0000"
-                    app:hl_shadowLimit="20dp"
-                    >
+                    app:hl_shadowLimit="20dp">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="36dp"
@@ -304,8 +301,6 @@
                         android:text="图片加阴影"
                         android:textColor="#ff0000" />
                 </com.lihang.ShadowLayout>
-
-
 
 
                 <TextView
@@ -328,12 +323,12 @@
 
 
                 <com.lihang.ShadowLayout
-                    app:clickable="false"
                     android:id="@+id/ShadowLayout_Clickable"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
+                    app:clickable="false"
                     app:hl_cornerRadius="30dp"
                     app:hl_cornerRadius_leftTop="0dp"
                     app:hl_layoutBackground="#325FE3"
@@ -525,10 +520,9 @@
                     app:hl_layoutBackground="#FF9800"
                     app:hl_layoutBackground_true="#ff0000"
                     app:hl_shapeMode="pressed"
-                    app:hl_textColor_true="#fff"
                     app:hl_text="点我，press样式"
-                    app:hl_text_true="我改变了文案了"
-                    >
+                    app:hl_textColor_true="#fff"
+                    app:hl_text_true="我改变了文案了">
 
                     <TextView
                         android:id="@+id/txt_press"
@@ -543,13 +537,13 @@
                 </com.lihang.ShadowLayout>
 
 
-
                 <com.lihang.ShadowLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="20dp"
                     app:hl_angle="180"
+                    app:hl_bindTextView="@+id/txt_rippled"
                     app:hl_cornerRadius="18dp"
                     app:hl_endColor="#fff"
                     app:hl_layoutBackground_true="#000000"
@@ -557,12 +551,10 @@
                     app:hl_shadowLimit="14dp"
                     app:hl_shapeMode="ripple"
                     app:hl_startColor="#EE5F8F"
-                    app:hl_bindTextView="@+id/txt_rippled"
                     app:hl_text="点我，改变文字颜色及文案"
-                    app:hl_text_true="我变短"
                     app:hl_textColor="#000"
                     app:hl_textColor_true="#fff"
-                    >
+                    app:hl_text_true="我变短">
 
                     <TextView
                         android:id="@+id/txt_rippled"
@@ -571,8 +563,7 @@
                         android:gravity="center"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="点我，改变文字颜色及文案"
-                        />
+                        android:text="点我，改变文字颜色及文案" />
 
                 </com.lihang.ShadowLayout>
 

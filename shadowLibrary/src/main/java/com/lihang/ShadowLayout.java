@@ -16,13 +16,13 @@ import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.RippleDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -57,8 +57,8 @@ public class ShadowLayout extends FrameLayout {
     private boolean topShow;
     private boolean bottomShow;
     private Paint shadowPaint;
-    private Paint paint;
-
+    //    private Paint paint;
+    GradientDrawable gradientDrawable;
     private int leftPadding;
     private int topPadding;
     private int rightPadding;
@@ -78,7 +78,8 @@ public class ShadowLayout extends FrameLayout {
     private float mCornerRadius_rightBottom;
 
     //边框画笔
-    private Paint paint_stroke;
+//    private Paint paint_stroke;
+    private int current_stroke_color;
     private float stroke_with;
     private int stroke_color;
     private int stroke_color_true;
@@ -101,16 +102,18 @@ public class ShadowLayout extends FrameLayout {
     private String text;
     private String text_true;
 
-
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public ShadowLayout(Context context) {
         this(context, null);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public ShadowLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public ShadowLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initView(context, attrs);
@@ -122,6 +125,7 @@ public class ShadowLayout extends FrameLayout {
      *
      * @param clickable
      */
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void setClickable(boolean clickable) {
         super.setClickable(clickable);
         this.isClickable = clickable;
@@ -130,9 +134,9 @@ public class ShadowLayout extends FrameLayout {
             super.setOnClickListener(onClickListener);
         }
 
-        if (paint != null) {
+        if (gradientDrawable != null) {
             if (startColor != -101 && endColor != -101) {
-                gradient(paint);
+                gradient(gradientDrawable);
             }
         }
     }
@@ -158,6 +162,7 @@ public class ShadowLayout extends FrameLayout {
      * clickable发生变化时，shadowLayout样式切换的方法。
      * 由public改为private不向用户提供，只能在内部使用
      */
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     private void changeSwitchClickable() {
         //不可点击的状态只在press mode的模式下生效
         if (selectorType == 1 && firstView != null) {
@@ -171,14 +176,14 @@ public class ShadowLayout extends FrameLayout {
                         //说明此时是设置了图片的模式
                         firstView.getBackground().setAlpha(0);
                     }
-                    paint.setColor(clickAbleFalseColor);
+                    gradientDrawable.setColors(new int[]{clickAbleFalseColor,clickAbleFalseColor});
                     postInvalidate();
 
 
                 } else if (clickAbleFalseDrawable != null) {
                     //说明设置了背景图
                     setmBackGround(clickAbleFalseDrawable, "changeSwitchClickable");
-                    paint.setColor(Color.parseColor("#00000000"));
+                    gradientDrawable.setColors(new int[]{Color.parseColor("#00000000"),Color.parseColor("#00000000")});
                     postInvalidate();
                 }
             } else {
@@ -190,7 +195,7 @@ public class ShadowLayout extends FrameLayout {
                         firstView.getBackground().setAlpha(0);
                     }
                 }
-                paint.setColor(mBackGroundColor);
+                gradientDrawable.setColors(new int[]{mBackGroundColor,mBackGroundColor});
                 postInvalidate();
             }
         }
@@ -202,6 +207,7 @@ public class ShadowLayout extends FrameLayout {
      *
      * @param selected
      */
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void setSelected(boolean selected) {
         super.setSelected(selected);
@@ -209,12 +215,11 @@ public class ShadowLayout extends FrameLayout {
             if (selectorType == 2) {
                 if (selected) {
                     if (mBackGroundColor_true != -101) {
-                        paint.setColor(mBackGroundColor_true);
+                        gradientDrawable.setColors(new int[]{mBackGroundColor_true,mBackGroundColor_true});
                     }
 
-                    paint.setShader(null);
                     if (stroke_color_true != -101) {
-                        paint_stroke.setColor(stroke_color_true);
+                        current_stroke_color = stroke_color_true;
                     }
                     if (layoutBackground_true != null) {
                         setmBackGround(layoutBackground_true, "setSelected");
@@ -228,13 +233,13 @@ public class ShadowLayout extends FrameLayout {
                     }
 
                 } else {
-                    paint.setColor(mBackGroundColor);
+                    gradientDrawable.setColors(new int[]{mBackGroundColor,mBackGroundColor});
                     if (startColor != -101) {
-                        gradient(paint);
+                        gradient(gradientDrawable);
                     }
 
                     if (stroke_color != -101) {
-                        paint_stroke.setColor(stroke_color);
+                        current_stroke_color = stroke_color;
                     }
 
                     if (layoutBackground != null) {
@@ -268,6 +273,7 @@ public class ShadowLayout extends FrameLayout {
      *
      * @param isShowShadow
      */
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void setShadowHidden(boolean isShowShadow) {
         this.isShowShadow = !isShowShadow;
         if (getWidth() != 0 && getHeight() != 0) {
@@ -329,6 +335,7 @@ public class ShadowLayout extends FrameLayout {
      *
      * @param mCornerRadius
      */
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void setCornerRadius(int mCornerRadius) {
         this.mCornerRadius = mCornerRadius;
         if (getWidth() != 0 && getHeight() != 0) {
@@ -362,6 +369,7 @@ public class ShadowLayout extends FrameLayout {
      *
      * @param mShadowColor
      */
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void setShadowColor(int mShadowColor) {
         this.mShadowColor = mShadowColor;
         if (getWidth() != 0 && getHeight() != 0) {
@@ -378,6 +386,7 @@ public class ShadowLayout extends FrameLayout {
      * @param leftBottom
      * @param rightBottom
      */
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void setSpecialCorner(int leftTop, int rightTop, int leftBottom, int rightBottom) {
         mCornerRadius_leftTop = leftTop;
         mCornerRadius_rightTop = rightTop;
@@ -423,6 +432,7 @@ public class ShadowLayout extends FrameLayout {
      *
      * @param color
      */
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void setLayoutBackground(int color) {
         if (layoutBackground_true != null) {
             throw new UnsupportedOperationException("使用了ShadowLayout_hl_layoutBackground_true属性，要与ShadowLayout_hl_layoutBackground属性统一为颜色");
@@ -431,10 +441,10 @@ public class ShadowLayout extends FrameLayout {
         if (selectorType == 2) {
             //select模式
             if (!this.isSelected()) {
-                paint.setColor(mBackGroundColor);
+                gradientDrawable.setColors(new int[]{mBackGroundColor,mBackGroundColor});
             }
         } else {
-            paint.setColor(mBackGroundColor);
+            gradientDrawable.setColors(new int[]{mBackGroundColor,mBackGroundColor});
         }
         postInvalidate();
     }
@@ -444,6 +454,7 @@ public class ShadowLayout extends FrameLayout {
      *
      * @param color
      */
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void setLayoutBackgroundTrue(int color) {
         if (layoutBackground != null) {
             throw new UnsupportedOperationException("使用了ShadowLayout_hl_layoutBackground属性，要与ShadowLayout_hl_layoutBackground_true属性统一为颜色");
@@ -452,7 +463,7 @@ public class ShadowLayout extends FrameLayout {
         if (selectorType == 2) {
             //select模式
             if (this.isSelected()) {
-                paint.setColor(mBackGroundColor_true);
+                gradientDrawable.setColors(new int[]{mBackGroundColor_true});
             }
         }
         postInvalidate();
@@ -469,10 +480,10 @@ public class ShadowLayout extends FrameLayout {
         if (selectorType == 2) {
             //select模式
             if (!this.isSelected()) {
-                paint_stroke.setColor(stroke_color);
+                current_stroke_color = stroke_color;
             }
         } else {
-            paint_stroke.setColor(stroke_color);
+            current_stroke_color = stroke_color;
         }
         postInvalidate();
     }
@@ -489,7 +500,7 @@ public class ShadowLayout extends FrameLayout {
         if (selectorType == 2) {
             //select模式
             if (this.isSelected()) {
-                paint_stroke.setColor(stroke_color_true);
+                current_stroke_color = stroke_color_true;
             }
         }
         postInvalidate();
@@ -561,7 +572,7 @@ public class ShadowLayout extends FrameLayout {
                 } else {
                     setmBackGround(clickAbleFalseDrawable, "onFinishInflate");
                     if (clickAbleFalseColor != -101) {
-                        paint.setColor(clickAbleFalseColor);
+                        gradientDrawable.setColors(new int[]{clickAbleFalseColor,clickAbleFalseColor});
                     }
                 }
             }
@@ -571,46 +582,36 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
         if (w > 0 && h > 0) {
             setBackgroundCompat(w, h);
             if (startColor != -101) {
-                gradient(paint);
+                gradient(gradientDrawable);
             }
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     private void initView(Context context, AttributeSet attrs) {
         initAttributes(attrs);
         shadowPaint = new Paint();
         shadowPaint.setAntiAlias(true);
         shadowPaint.setStyle(Paint.Style.FILL);
-
-
-        paint_stroke = new Paint();
-        paint_stroke.setAntiAlias(true);
-        paint_stroke.setStyle(Paint.Style.STROKE);
+        gradientDrawable = new GradientDrawable();
+        gradientDrawable.setColors(new int[]{mBackGroundColor,mBackGroundColor});
         if (stroke_color != -101) {
-            paint_stroke.setColor(stroke_color);
+            current_stroke_color = stroke_color;
         }
-
-
-        //矩形画笔
-        paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint.setStyle(Paint.Style.FILL);
-        //打个标记
-        paint.setColor(mBackGroundColor);
-
         setPadding();
     }
 
 
-    //将画笔附上 渐变色
-    private void gradient(Paint paint) {
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    private void gradient(GradientDrawable gradientDrawable) {
         if (!isClickable) {
-            paint.setShader(null);
             return;
         }
 
@@ -622,6 +623,7 @@ public class ShadowLayout extends FrameLayout {
         } else {
             colors = new int[]{startColor, centerColor, endColor};
         }
+        gradientDrawable.setColors(colors);
 
         if (angle < 0) {
             int trueAngle = angle % 360;
@@ -632,51 +634,41 @@ public class ShadowLayout extends FrameLayout {
         //这个要算出每隔45度
         int trueAngle = angle % 360;
         int angleFlag = trueAngle / 45;
-        LinearGradient linearGradient;
         switch (angleFlag) {
             case 0://0°
-                linearGradient = new LinearGradient(leftPadding, topPadding, getWidth() - rightPadding, topPadding, colors, null, Shader.TileMode.CLAMP);
-                paint.setShader(linearGradient);
+                gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
+//                linearGradient = new LinearGradient(leftPadding, topPadding, getWidth() - rightPadding, topPadding, colors, null, Shader.TileMode.CLAMP);
+//                paint.setShader(linearGradient);
                 break;
 
             case 1://45°
-                linearGradient = new LinearGradient(leftPadding, getHeight() - bottomPadding, getWidth() - rightPadding, topPadding, colors, null, Shader.TileMode.CLAMP);
-                paint.setShader(linearGradient);
+                gradientDrawable.setOrientation(GradientDrawable.Orientation.BL_TR);
                 break;
 
             case 2://90°
-                int x_ = (getWidth() - rightPadding - leftPadding) / 2 + leftPadding;
-                linearGradient = new LinearGradient(x_, getHeight() - bottomPadding, x_, topPadding, colors, null, Shader.TileMode.CLAMP);
-                paint.setShader(linearGradient);
+                gradientDrawable.setOrientation(GradientDrawable.Orientation.BOTTOM_TOP);
                 break;
 
             case 3://135°
-                linearGradient = new LinearGradient(getWidth() - rightPadding, getHeight() - bottomPadding, leftPadding, topPadding, colors, null, Shader.TileMode.CLAMP);
-                paint.setShader(linearGradient);
+                gradientDrawable.setOrientation(GradientDrawable.Orientation.BR_TL);
                 break;
             case 4://180°
-                linearGradient = new LinearGradient(getWidth() - rightPadding, topPadding, leftPadding, topPadding, colors, null, Shader.TileMode.CLAMP);
-                paint.setShader(linearGradient);
+                gradientDrawable.setOrientation(GradientDrawable.Orientation.RIGHT_LEFT);
                 break;
 
             case 5://225°
-                linearGradient = new LinearGradient(getWidth() - rightPadding, topPadding, leftPadding, getHeight() - bottomPadding, colors, null, Shader.TileMode.CLAMP);
-                paint.setShader(linearGradient);
+                gradientDrawable.setOrientation(GradientDrawable.Orientation.TR_BL);
                 break;
 
             case 6://270°
-                int x = (getWidth() - rightPadding - leftPadding) / 2 + leftPadding;
-                linearGradient = new LinearGradient(x, topPadding, x, getHeight() - bottomPadding, colors, null, Shader.TileMode.CLAMP);
-                paint.setShader(linearGradient);
+                gradientDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
                 break;
 
             case 7://315°
-                linearGradient = new LinearGradient(leftPadding, topPadding, getWidth() - rightPadding, getHeight() - bottomPadding, colors, null, Shader.TileMode.CLAMP);
-                paint.setShader(linearGradient);
+                gradientDrawable.setOrientation(GradientDrawable.Orientation.TL_BR);
                 break;
 
         }
-
 
     }
 
@@ -767,6 +759,7 @@ public class ShadowLayout extends FrameLayout {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @SuppressWarnings("deprecation")
     private void setBackgroundCompat(int w, int h) {
         if (isShowShadow) {
@@ -795,13 +788,12 @@ public class ShadowLayout extends FrameLayout {
             } else {
                 this.setBackgroundColor(Color.parseColor("#00000000"));
             }
-
-
         }
 
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     private void initAttributes(AttributeSet attrs) {
         TypedArray attr = getContext().obtainStyledAttributes(attrs, R.styleable.ShadowLayout);
         if (attr == null) {
@@ -1129,6 +1121,7 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -1139,59 +1132,43 @@ public class ShadowLayout extends FrameLayout {
         int trueHeight = (int) (rectf.bottom - rectf.top);
 
         //是否设置了stroke
-        if (stroke_color!=-101){
+        if (stroke_color != -101) {
             //判断当前stroke高度是否大于控件高度的一半
-            if (stroke_with>trueHeight/2){
-                stroke_with=trueHeight/2;
+            if (stroke_with > trueHeight / 2) {
+                stroke_with = trueHeight / 2;
             }
-            paint_stroke.setStrokeWidth(stroke_with);
         }
 
-        //如果都为0说明，没有设置特定角，那么按正常绘制
-        if (mCornerRadius_leftTop == -1 && mCornerRadius_leftBottom == -1 && mCornerRadius_rightTop == -1 && mCornerRadius_rightBottom == -1) {
-            if (mCornerRadius > trueHeight / 2) {
-                if (selectorType != 3) {
-                    if (layoutBackground == null && layoutBackground_true == null) {
-                        //画圆角矩形
-                        canvas.drawRoundRect(rectf, trueHeight / 2, trueHeight / 2, paint);
-                        //解决边框线太细时，四角的width偏大
-                        if (stroke_color != -101) {
-                            RectF rectFStroke = new RectF(rectf.left + stroke_with / 2, rectf.top + stroke_with / 2, rectf.right - stroke_with / 2, rectf.bottom - stroke_with / 2);
-                            canvas.drawRoundRect(rectFStroke, trueHeight / 2 - stroke_with / 2, trueHeight / 2 - stroke_with / 2, paint_stroke);
-                        }
-                    }
-                } else {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        float[] outerR = getCornerValue(trueHeight);
-                        ripple(outerR,canvas);
-                    }
-                }
-
+        //设置了背景图片的话就不做处理
+        if (layoutBackground == null && layoutBackground_true == null) {
+            //outerR 已经做了对特殊角的判断。无论是特殊角还是统一的都返回一组数组角度 outerR
+            float[] outerR = getCornerValue(trueHeight);
+            //如果不是ripple模式
+            if (selectorType != 3) {
+                drawGradientDrawable(canvas, rectf, outerR);
             } else {
-
-                if (selectorType != 3) {
-                    if (layoutBackground == null && layoutBackground_true == null) {
-                        canvas.drawRoundRect(rectf, mCornerRadius, mCornerRadius, paint);
-                        if (stroke_color != -101) {
-                            RectF rectFStroke = new RectF(rectf.left + stroke_with / 2, rectf.top + stroke_with / 2, rectf.right - stroke_with / 2, rectf.bottom - stroke_with / 2);
-                            canvas.drawRoundRect(rectFStroke, mCornerRadius - stroke_with / 2, mCornerRadius - stroke_with / 2, paint_stroke);
-
-                        }
-                    }
-                } else {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        float[] outerR = getCornerValue(trueHeight);
-                        ripple(outerR,canvas);
-                    }
-                }
-
-
-            }
-        } else {
-            if (layoutBackground == null && layoutBackground_true == null) {
-                setSpaceCorner(canvas, trueHeight);
+                ripple(outerR);
             }
         }
+
+    }
+
+
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public void drawGradientDrawable(Canvas canvas, RectF rectf, float[] cornerRadiusArr) {
+
+        //solidcolor
+//        gradientDrawable.setColor(paint.getColor());
+        //区域
+        gradientDrawable.setBounds((int) rectf.left, (int) rectf.top, (int) rectf.right, (int) rectf.bottom);
+        //stroke
+        if (stroke_color != -101) {
+            gradientDrawable.setStroke((int) stroke_with, current_stroke_color);
+        }
+
+        //cornerRadiusArr 已经判断，如果没有特殊角也是返回一数组
+        gradientDrawable.setCornerRadii(cornerRadiusArr);
+        gradientDrawable.draw(canvas);
 
     }
 
@@ -1246,119 +1223,9 @@ public class ShadowLayout extends FrameLayout {
         return outerR;
     }
 
-    private float[] getCornerValueOther(int trueHeight, int stokeWith) {
-        //优化
-        trueHeight = trueHeight - stokeWith;
-        int leftTop;
-        int rightTop;
-        int rightBottom;
-        int leftBottom;
-        if (mCornerRadius_leftTop == -1) {
-            leftTop = (int) mCornerRadius;
-        } else {
-            leftTop = (int) mCornerRadius_leftTop;
-        }
-
-        if (leftTop > trueHeight / 2) {
-            leftTop = trueHeight / 2;
-        }
-
-        if (mCornerRadius_rightTop == -1) {
-            rightTop = (int) mCornerRadius;
-        } else {
-            rightTop = (int) mCornerRadius_rightTop;
-        }
-
-        if (rightTop > trueHeight / 2) {
-            rightTop = trueHeight / 2;
-        }
-
-        if (mCornerRadius_rightBottom == -1) {
-            rightBottom = (int) mCornerRadius;
-        } else {
-            rightBottom = (int) mCornerRadius_rightBottom;
-        }
-
-        if (rightBottom > trueHeight / 2) {
-            rightBottom = trueHeight / 2;
-        }
-
-
-        if (mCornerRadius_leftBottom == -1) {
-            leftBottom = (int) mCornerRadius;
-        } else {
-            leftBottom = (int) mCornerRadius_leftBottom;
-        }
-
-        if (leftBottom > trueHeight / 2) {
-            leftBottom = trueHeight / 2;
-        }
-        leftTop = leftTop - stokeWith / 2;
-        rightTop = rightTop - stokeWith / 2;
-        leftBottom = leftBottom - stokeWith / 2;
-        rightBottom = rightBottom - stokeWith / 2;
-
-        float[] outerR = new float[]{leftTop, leftTop, rightTop, rightTop, rightBottom, rightBottom, leftBottom, leftBottom};//左上，右上，右下，左下
-        return outerR;
-    }
-
-
-    //这是自定义四个角的方法。
-    private void setSpaceCorner(Canvas canvas, int trueHeight) {
-
-        float[] outerR = getCornerValue(trueHeight);
-
-        if (stroke_color != -101) {
-            if (selectorType != 3) {
-                ShapeDrawable mDrawables = new ShapeDrawable(new RoundRectShape(outerR, null, null));
-                if (paint.getShader() != null) {
-                    mDrawables.getPaint().setShader(paint.getShader());
-                } else {
-                    mDrawables.getPaint().setColor(paint.getColor());
-                }
-                mDrawables.setBounds(leftPadding, topPadding, getWidth() - rightPadding, getHeight() - bottomPadding);
-                mDrawables.draw(canvas);
-                drawStroke(canvas,trueHeight);
-
-            } else {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    //issues
-                    ripple(outerR,canvas);
-                }
-            }
-
-        } else {
-            if (selectorType != 3) {
-                ShapeDrawable mDrawables = new ShapeDrawable(new RoundRectShape(outerR, null, null));
-                if (paint.getShader() != null) {
-                    mDrawables.getPaint().setShader(paint.getShader());
-                } else {
-                    mDrawables.getPaint().setColor(paint.getColor());
-                }
-                mDrawables.setBounds(leftPadding, topPadding, getWidth() - rightPadding, getHeight() - bottomPadding);
-                mDrawables.draw(canvas);
-            } else {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    ripple(outerR,canvas);
-                }
-            }
-        }
-    }
-
-    private void drawStroke(Canvas canvas,int trueHeight){
-        float[] outerR_stroke = getCornerValueOther(trueHeight, (int) stroke_with);
-        ShapeDrawable mDrawablesStroke = new ShapeDrawable(new RoundRectShape(outerR_stroke, null, null));
-        mDrawablesStroke.getPaint().setColor(paint_stroke.getColor());
-        mDrawablesStroke.getPaint().setStyle(Paint.Style.STROKE);
-        mDrawablesStroke.getPaint().setStrokeWidth(stroke_with);
-        mDrawablesStroke.setBounds((int) (leftPadding + stroke_with / 2), (int) (topPadding + stroke_with / 2), (int) (getWidth() - rightPadding - stroke_with / 2), (int) (getHeight() - bottomPadding - stroke_with / 2));
-
-        mDrawablesStroke.draw(canvas);
-    }
-
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    private void ripple(float[] outRadius,Canvas canvas) {
+    private void ripple(float[] outRadius) {
 
         int[][] stateList = new int[][]{
                 new int[]{android.R.attr.state_pressed},
@@ -1367,9 +1234,9 @@ public class ShadowLayout extends FrameLayout {
                 new int[]{}
         };
 
-        //深蓝
+        //正常色
         int normalColor = mBackGroundColor;
-        //玫瑰红
+        //按压后的颜色
         int pressedColor = mBackGroundColor_true;
         int[] stateColorList = new int[]{
                 pressedColor,
@@ -1383,27 +1250,20 @@ public class ShadowLayout extends FrameLayout {
         ShapeDrawable maskDrawable = new ShapeDrawable();
         maskDrawable.setShape(roundRectShape);
         maskDrawable.getPaint().setStyle(Paint.Style.FILL);
-        if (startColor != -101) {
-            //如果设置了渐变色的话
-            gradient(maskDrawable.getPaint());
-        } else {
-            maskDrawable.getPaint().setColor(normalColor);
+
+        if (stroke_color != -101) {
+            gradientDrawable.setStroke((int) stroke_with, current_stroke_color);
         }
-
-        ShapeDrawable contentDrawable = new ShapeDrawable();
-        contentDrawable.setShape(roundRectShape);
-        contentDrawable.getPaint().setStyle(Paint.Style.FILL);
-
+        //outRadius 无论是否有特殊角都返回的数组
+        gradientDrawable.setCornerRadii(outRadius);
         if (startColor != -101) {
-            //如果设置了渐变色的话
-            gradient(contentDrawable.getPaint());
-        } else {
-            contentDrawable.getPaint().setColor(normalColor);
+            gradient(gradientDrawable);
         }
 
         //contentDrawable实际是默认初始化时展示的；maskDrawable 控制了rippleDrawable的范围
-        RippleDrawable rippleDrawable = new RippleDrawable(colorStateList, contentDrawable, maskDrawable);
+        RippleDrawable rippleDrawable = new RippleDrawable(colorStateList, gradientDrawable, maskDrawable);
         firstView.setBackground(rippleDrawable);
+
     }
 
 
@@ -1442,6 +1302,7 @@ public class ShadowLayout extends FrameLayout {
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (selectorType == 3) {
@@ -1483,12 +1344,11 @@ public class ShadowLayout extends FrameLayout {
                     case MotionEvent.ACTION_DOWN:
                         if (selectorType == 1) {
                             if (mBackGroundColor_true != -101) {
-                                paint.setColor(mBackGroundColor_true);
-                                //打个标记
-                                paint.setShader(null);
+                                //切换的颜色
+                                gradientDrawable.setColors(new int[]{mBackGroundColor_true,mBackGroundColor_true});
                             }
                             if (stroke_color_true != -101) {
-                                paint_stroke.setColor(stroke_color_true);
+                                current_stroke_color = stroke_color_true;
                             }
 
                             if (layoutBackground_true != null) {
@@ -1509,12 +1369,12 @@ public class ShadowLayout extends FrameLayout {
                     case MotionEvent.ACTION_UP:
                         if (selectorType == 1) {
                             //打个标记
-                            paint.setColor(mBackGroundColor);
+                            gradientDrawable.setColors(new int[]{mBackGroundColor,mBackGroundColor});
                             if (startColor != -101) {
-                                gradient(paint);
+                                gradient(gradientDrawable);
                             }
                             if (stroke_color != -101) {
-                                paint_stroke.setColor(stroke_color);
+                                current_stroke_color = stroke_color;
                             }
 
                             if (layoutBackground != null) {

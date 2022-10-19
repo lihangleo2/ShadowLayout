@@ -12,180 +12,141 @@
         android:orientation="vertical">
 
 
-        <!--        <com.lihang.ShadowLayout-->
-        <!--            android:id="@+id/ShadowLayoutHead"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_gravity="center_horizontal"-->
-        <!--            app:hl_shadowColor="#29000000"-->
-        <!--            app:hl_shadowHiddenLeft="true"-->
-        <!--            app:hl_shadowHiddenRight="true"-->
-        <!--            app:hl_shadowHiddenTop="true"-->
-        <!--            app:hl_shadowLimit="10dp">-->
+                <com.lihang.ShadowLayout
+                    android:id="@+id/ShadowLayoutHead"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    app:hl_shadowColor="#29000000"
+                    app:hl_shadowHiddenLeft="true"
+                    app:hl_shadowHiddenRight="true"
+                    app:hl_shadowHiddenTop="true"
+                    app:hl_shadowLimit="10dp">
 
-        <!--            <TextView-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="45dp"-->
-        <!--                android:layout_gravity="center_horizontal"-->
-        <!--                android:gravity="center"-->
-        <!--                android:text="ShadowLayout3.0，不止于阴影"-->
-        <!--                android:textColor="#ff0000"-->
-        <!--                android:textSize="18dp"-->
-        <!--                android:textStyle="bold" />-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center"
+                        android:text="ShadowLayout3.0，不止于阴影"
+                        android:textColor="#ff0000"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
 
-        <!--        </com.lihang.ShadowLayout>-->
-
-
-        <!--        <com.lihang.ShadowLayout-->
-        <!--            android:id="@+id/ShadowLayout_shadow"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_gravity="center_horizontal"-->
-        <!--            android:layout_marginTop="30dp"-->
-        <!--            app:hl_cornerRadius="18dp"-->
-        <!--            app:hl_cornerRadius_leftTop="0dp"-->
-        <!--            app:hl_layoutBackground="#fff"-->
-        <!--            app:hl_layoutBackground_true="#ff0000"-->
-        <!--            app:hl_shadowColor="#2a000000"-->
-        <!--            app:hl_shadowLimit="14dp"-->
-        <!--            app:hl_shapeMode="ripple">-->
+                </com.lihang.ShadowLayout>
 
 
-        <!--            <TextView-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="36dp"-->
-        <!--                android:gravity="center"-->
-        <!--                android:paddingLeft="10dp"-->
-        <!--                android:paddingRight="10dp"-->
-        <!--                android:text="shadow阴影的各项使用"-->
-        <!--                android:textColor="#000" />-->
+                <com.lihang.ShadowLayout
+                    android:id="@+id/ShadowLayout_shadow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="30dp"
+                    app:hl_cornerRadius="18dp"
+                    app:hl_cornerRadius_leftTop="0dp"
+                    app:hl_layoutBackground="#fff"
+                    app:hl_layoutBackground_true="#ff0000"
+                    app:hl_shadowColor="#2a000000"
+                    app:hl_shadowLimit="14dp"
+                    app:hl_shapeMode="ripple">
 
 
-        <!--        </com.lihang.ShadowLayout>-->
-
-        <!--        <com.lihang.ShadowLayout-->
-        <!--            android:id="@+id/ShadowLayout_shape"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_gravity="center_horizontal"-->
-        <!--            android:layout_marginTop="20dp"-->
-        <!--            app:hl_cornerRadius="18dp"-->
-        <!--            app:hl_cornerRadius_rightTop="0dp"-->
-        <!--            app:hl_layoutBackground="@mipmap/test_background_false"-->
-        <!--            app:hl_layoutBackground_true="@mipmap/test_background_true">-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:gravity="center"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="shadow阴影的各项使用"
+                        android:textColor="#000" />
 
 
-        <!--            <TextView-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="36dp"-->
-        <!--                android:gravity="center"-->
-        <!--                android:paddingLeft="10dp"-->
-        <!--                android:paddingRight="10dp"-->
-        <!--                android:text="shape功能的各项使用"-->
-        <!--                android:textColor="#fff" />-->
+                </com.lihang.ShadowLayout>
 
-        <!--        </com.lihang.ShadowLayout>-->
-
-        <!--        <com.lihang.ShadowLayout-->
-        <!--            android:id="@+id/ShadowLayout_wiki"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_gravity="center_horizontal"-->
-        <!--            android:layout_marginTop="20dp"-->
-        <!--            app:hl_angle="180"-->
-        <!--            app:hl_cornerRadius="18dp"-->
-        <!--            app:hl_endColor="#fff"-->
-        <!--            app:hl_layoutBackground_true="#ff0000"-->
-        <!--            app:hl_shadowColor="#4D0E5BE8"-->
-        <!--            app:hl_shadowLimit="14dp"-->
-        <!--            app:hl_shapeMode="pressed"-->
-        <!--            app:hl_startColor="#EE5F8F">-->
-
-        <!--            <TextView-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="40dp"-->
-        <!--                android:gravity="center"-->
-        <!--                android:paddingLeft="10dp"-->
-        <!--                android:paddingRight="10dp"-->
-        <!--                android:text="ShadowLayout成长历史"-->
-        <!--                android:textColor="#fff" />-->
-
-        <!--        </com.lihang.ShadowLayout>-->
+                <com.lihang.ShadowLayout
+                    android:id="@+id/ShadowLayout_shape"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    app:hl_cornerRadius="18dp"
+                    app:hl_cornerRadius_rightTop="0dp"
+                    app:hl_layoutBackground="@mipmap/test_background_false"
+                    app:hl_layoutBackground_true="@mipmap/test_background_true">
 
 
-        <!-- 隐藏某边阴影的测试代码 -->
-        <com.lihang.ShadowLayout
-            android:id="@+id/shadowLayout_stroke"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            app:hl_cornerRadius="10dp"
-            app:hl_strokeColor="#ff0000"
-            app:hl_strokeWith="1px">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:gravity="center"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="shape功能的各项使用"
+                        android:textColor="#fff" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="36dp"
-                android:gravity="center"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="圆角边框"
-                android:textColor="#000" />
-        </com.lihang.ShadowLayout>
+                </com.lihang.ShadowLayout>
 
-        <com.lihang.ShadowLayout
-            android:id="@+id/ShadowLayout_shadow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            app:hl_cornerRadius="18dp"
-            app:hl_cornerRadius_leftTop="0dp"
-            app:hl_layoutBackground="#fff"
-            app:hl_layoutBackground_true="#ff0000"
-            app:hl_shadowColor="#2a000000"
-            app:hl_shadowLimit="14dp"
-            app:hl_strokeColor="#0026F7"
-            app:hl_strokeWith="1dp"
-            app:hl_shapeMode="ripple"
-            >
-<!--            app:hl_shapeMode="ripple"-->
+                <com.lihang.ShadowLayout
+                    android:id="@+id/ShadowLayout_wiki"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    app:hl_angle="180"
+                    app:hl_cornerRadius="18dp"
+                    app:hl_endColor="#fff"
+                    app:hl_layoutBackground_true="#ff0000"
+                    app:hl_shadowColor="#4D0E5BE8"
+                    app:hl_shadowLimit="14dp"
+                    app:hl_shapeMode="pressed"
+                    app:hl_startColor="#EE5F8F">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="36dp"
-                android:gravity="center"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="shadow阴影的各项使用"
-                android:textColor="#000" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="ShadowLayout成长历史"
+                        android:textColor="#fff" />
+
+                </com.lihang.ShadowLayout>
 
 
-        </com.lihang.ShadowLayout>
+        <!-- 隐藏某边阴影的测试代码  -->
+<!--        <com.lihang.ShadowLayout-->
+<!--            android:id="@+id/shadowLayout_test"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            app:hl_angle="180"-->
+<!--            app:hl_cornerRadius="18dp"-->
+<!--            app:hl_shadowColor="#4D0E5BE8"-->
+<!--            app:hl_shadowLimit="7dp"-->
+<!--            app:hl_shapeMode="pressed"-->
+<!--            app:hl_layoutBackground_true="#ff0000"-->
+<!--            app:hl_startColor="#000"-->
+<!--            app:hl_centerColor="#EE5F8F"-->
+<!--            app:hl_endColor="#fff"-->
+<!--            app:hl_layoutBackground_clickFalse="#999999"-->
+<!--            >-->
+<!--&lt;!&ndash;            app:hl_layoutBackground="#00ff00"&ndash;&gt;-->
 
 
-        <!--        <com.lihang.ShadowLayout-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_gravity="center_horizontal"-->
-        <!--            android:layout_marginTop="10dp"-->
-        <!--            app:hl_cornerRadius="30dp"-->
-        <!--            app:hl_strokeColor="#E1E1E1"-->
-        <!--            app:hl_strokeWith="2px"-->
-        <!--            app:hl_cornerRadius_leftTop="0dp"-->
-        <!--            app:hl_cornerRadius_rightBottom="0dp"-->
-        <!--            >-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:gravity="center"-->
+<!--                android:paddingLeft="10dp"-->
+<!--                android:paddingRight="10dp"-->
+<!--                android:text="渐变色的selector，点我"-->
+<!--                android:textColor="#fff" />-->
 
-        <!--            <TextView-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="36dp"-->
-        <!--                android:gravity="center"-->
-        <!--                android:paddingLeft="10dp"-->
-        <!--                android:paddingRight="10dp"-->
-        <!--                android:text="不规则边框"-->
-        <!--                android:textColor="#000" />-->
-        <!--        </com.lihang.ShadowLayout>-->
+<!--        </com.lihang.ShadowLayout>-->
+
+
+
 
     </LinearLayout>
 </layout>
