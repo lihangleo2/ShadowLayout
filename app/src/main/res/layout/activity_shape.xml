@@ -80,7 +80,7 @@
                     android:layout_marginLeft="@dimen/dp_15"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="@dimen/dp_15"
-                    android:text="1、边框的使用"
+                    android:text="1.1、边框的使用"
                     android:textColor="@color/title_color"
                     android:textSize="15sp" />
 
@@ -168,6 +168,56 @@
                         android:text="虚线边框的使用"
                         android:textColor="#000" />
                 </com.lihang.ShadowLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:text="1.2、虚线的使用"
+                    android:layout_marginBottom="@dimen/dp_15"
+                    android:textColor="@color/title_color"
+                    android:textSize="15sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:text="横线虚线"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    />
+
+                <com.lihang.ShadowLayout
+                    android:id="@+id/ShadowLayout_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:hl_strokeColor="#ff0000"
+                    app:hl_shapeMode="dashLine"
+                    app:hl_stroke_dashWidth="5dp"
+                    app:hl_stroke_dashGap="5dp"
+                    />
+
+                <TextView
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:text="纵向虚线的使用"
+                    />
+
+                <com.lihang.ShadowLayout
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/ShadowLayout_lineLinear"
+                    android:layout_width="1dp"
+                    android:layout_height="150dp"
+                    app:hl_strokeColor="#ff0000"
+                    app:hl_shapeMode="dashLine"
+                    app:hl_stroke_dashWidth="5dp"
+                    app:hl_stroke_dashGap="5dp"
+                    />
+
 
                 <TextView
                     android:layout_width="wrap_content"

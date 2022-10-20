@@ -40,10 +40,12 @@
 
         <!-- 3、关于shape及selector -->
         <!-- shape及selector样式：pressed、sectored -->
+        <!-- <<新增line模式>>，也就是线模式。可搭配hl_strokeColor，hl_stroke_dashWidth，hl_stroke_dashGap实现虚线 -->
         <attr name="hl_shapeMode">
             <enum name="pressed" value="1" />
             <enum name="selected" value="2" />
             <enum name="ripple" value="3" />
+            <enum name="dashLine" value="4" />
         </attr>
 
         <!-- 为false的默认背景，可单独使用-->

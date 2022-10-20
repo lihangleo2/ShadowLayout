@@ -3,6 +3,7 @@ package com.leo;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -21,17 +22,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-//        binding.ShadowLayoutShadow.setOnClickListener(v -> {
-//            startActivity(new Intent(MainActivity.this, ShadowActivity.class));
-//        });
-//
-//        binding.ShadowLayoutShape.setOnClickListener(v -> {
-//            startActivity(new Intent(MainActivity.this, ShapeActivity.class));
-//        });
-//
-//        binding.ShadowLayoutWiki.setOnClickListener(v -> {
-//            startActivity(new Intent(MainActivity.this, WikiActivity.class));
-//        });
+        binding.ShadowLayoutShadow.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, ShadowActivity.class));
+        });
+
+        binding.ShadowLayoutShape.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, ShapeActivity.class));
+        });
+
+        binding.ShadowLayoutWiki.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, WikiActivity.class));
+        });
 
     }
 }
