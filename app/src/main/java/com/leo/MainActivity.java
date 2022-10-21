@@ -33,6 +33,5 @@ public class MainActivity extends AppCompatActivity {
         binding.ShadowLayoutWiki.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, WikiActivity.class));
         });
-
     }
 }

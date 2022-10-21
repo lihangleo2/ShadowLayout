@@ -21,7 +21,6 @@ import android.graphics.drawable.shapes.RoundRectShape;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -701,9 +700,6 @@ public class ShadowLayout extends FrameLayout {
     public void drawLine(Canvas canvas) {
         int currentWidth = getWidth();
         int currentHeight = getHeight();
-        Log.e("已经执行到这里了", currentWidth + "====");
-        Log.e("已经执行到这里了", currentHeight + "====");
-
 
         if (currentWidth > currentHeight) {
             //说明是横向的
@@ -719,19 +715,6 @@ public class ShadowLayout extends FrameLayout {
             dashPath.lineTo(currentWidth/2,currentHeight);
 
         }
-
-
-//        mPaintDash.setStrokeWidth(dash_width);
-//        dashPath.reset();
-//        if (dash_width==currentWidth){
-//            Log.e("已经执行到这里了","===横向的===");
-//            dashPath.moveTo(dash_width / 2, 0);
-//            dashPath.lineTo(dash_width / 2, dash_length);
-//        }else {
-//            Log.e("已经执行到这里了","===纵向的===");
-//            dashPath.moveTo(0, dash_width / 2);
-//            dashPath.lineTo(dash_length, dash_width / 2);
-//        }
 
         canvas.drawPath(dashPath, mPaintDash);
     }
