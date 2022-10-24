@@ -1,10 +1,8 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
 
 android {
     compileSdkVersion 28
-
-
-
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 28
@@ -34,4 +32,18 @@ dependencies {
 
     implementation 'com.github.bumptech.glide:glide:4.9.0'
 //    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+}
+
+//解决发布版本bug:参考连接 https://blog.csdn.net/qq_41885673/article/details/121588094
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+//                from components.release
+                groupId = 'com.lihang.shadowLayout' //groupId 随便取
+                artifactId = 'shadowLayout'  //artifactId 随便取
+                version = '3.2.6'
+            }
+        }
+    }
 }
