@@ -42,7 +42,7 @@ afterEvaluate {
 //                from components.release
                 groupId = 'com.lihang.ShadowLayout' //groupId 随便取
                 artifactId = 'ShadowLayout'  //artifactId 随便取
-                version = '3.2.9'
+                version = '3.2.11'
             }
         }
     }
