@@ -309,7 +309,7 @@
 * #### 3.1、关于shape样式及背景色
 |name|format|description|
 |:---:|:---:|:---:|
-|hl_shapeMode|enum|有3种模式：pressed和selected。和系统shape一样，以及ripple点击水波纹|
+|hl_shapeMode|enum|有4种模式：pressed和selected。和系统shape一样，以及ripple点击水波纹。新增dashLine|
 |hl_layoutBackground|reference/color|背景色，为false时展示：可以是颜色值，图片以及系统shape样式|
 |hl_layoutBackground_true|reference/color|背景色，为true时展示：可以是颜色值，图片以及系统shape样式|
  <br/>
@@ -321,6 +321,8 @@
 |hl_strokeWith|dimension|stroke边框线宽度|
 |hl_strokeColor|color|边框颜色值，为false展示|
 |hl_strokeColor_true|color|边框颜色值，为true展示|
+|hl_stroke_dashWidth|dimension|虚线边框的实线部分长度|
+|hl_stroke_dashGap|dimension|虚线边框的间隔宽度|
 <br/>
 
 
@@ -371,6 +373,7 @@
 |setStrokeWidth()|dimension|设置边框的粗细|
 |setClickable()|boolean|设置ShadowLayout是否可以点击|
 |setSpecialCorner()|integer|设置ShadowLayout四个角的大小|
+|setGradientColor()|integer|设置渐变颜色|
 <br/>
 
 ## 赞赏
