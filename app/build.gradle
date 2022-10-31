@@ -7,8 +7,8 @@ android {
         applicationId "com.leo"
         minSdkVersion 22
         targetSdkVersion 29
-        versionCode 13
-        versionName "3.2.11"
+        versionCode 14
+        versionName "3.2.12"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
