@@ -35,15 +35,15 @@ dependencies {
 }
 
 //解决发布版本bug:参考连接 https://blog.csdn.net/qq_41885673/article/details/121588094
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-//                from components.release
-                groupId = 'com.lihang.ShadowLayout' //groupId 随便取
-                artifactId = 'ShadowLayout'  //artifactId 随便取
-                version = '3.2.11'
-            }
-        }
-    }
-}
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            release(MavenPublication) {
+////                from components.release
+//                groupId = 'com.lihang.ShadowLayout' //groupId 随便取
+//                artifactId = 'ShadowLayout'  //artifactId 随便取
+//                version = '3.2.11'
+//            }
+//        }
+//    }
+//}
