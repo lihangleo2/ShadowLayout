@@ -62,6 +62,11 @@
 |<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/ripple.gif" alt="Sample">|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/bindTextView.gif" alt="Sample">
 <br/>
 
+* ### 3.3.1功能更新
+|增加虚线边框|单边虚线|边框和ripple共存|
+|:---:|:---:|:---:|
+|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/show_3.3.1_1.jpg" alt="Sample" width="100%">|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/show_3.3.1_2.jpg" alt="Sample" width="100%">|<img src="https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/show_3.3.1_3.jpg" alt="Sample" width="100%">
+<br/>
 
 
 ## 添加依赖
