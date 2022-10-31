@@ -281,6 +281,20 @@
 <br/>
 
 
+* #### 八、单条虚线、hl_shapeMode:dashLine的使用（以长边为宽度，短边为虚线width。由此可知，如下例子：为横向虚线）
+```xml
+                <com.lihang.ShadowLayout
+                    android:id="@+id/ShadowLayout_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:hl_strokeColor="#ff0000"
+                    app:hl_shapeMode="dashLine"
+                    app:hl_stroke_dashWidth="5dp"
+                    app:hl_stroke_dashGap="5dp"
+                    />
+```
+<br/>
+
 
 ## 属性表格（Attributes）
 ### 一、关于阴影
