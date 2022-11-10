@@ -5,10 +5,10 @@ android {
     compileSdkVersion 30
     defaultConfig {
         applicationId "com.leo"
-        minSdkVersion 22
+        minSdkVersion 21
         targetSdkVersion 30
-        versionCode 19
-        versionName "3.3.1"
+        versionCode 20
+        versionName "3.3.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
