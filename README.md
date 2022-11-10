@@ -81,7 +81,7 @@
  - app build.gradle添加如下
     ```java
    dependencies {
-	        implementation 'com.github.lihangleo2:ShadowLayout:3.3.1'
+	        implementation 'com.github.lihangleo2:ShadowLayout:3.3.2'
 	}
    ```
    
