@@ -1,28 +1,11 @@
-## glide版本冲突终极解决方案
-如果你出现了版本冲突，不知道怎么解决的话。就用Library方式集成，同时修改shadowLibrary里build.gradle的glide版本号。（如果版本过低的话，可能需要修改GlideRoundUtils里glide的加载方法）
+## 因jitpack gradle7.0问题，导致原有版本3.2.4无法依赖问题。（实属jitpack大姨夫问题，请大家放心使用）
+3.3.2已经解决以上问题，以及demo里的gradle也升级到最新，本以为已发布的不会有问题，给大家带来的不便深感抱歉。
 
-## 如果你不知道怎么集成的话，按如下步骤
-### 1、首先下载本demo，打开项目如下
-![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/glide1.png)
-
-
-### 2、然后点击 File --> New --> Import Module
-![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/glide2.jpg)
-
-
-### 3、出现如下假面后，点击右边的文件夹，选中shadowLibrary，然后点击Finish
-![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/glide3.png)
-
-
-finish后就会以module的方式出现在你的项目里。
-
-
-### 4、来到你项目的build.gradle里引入下
-implementation project(':shadowLibrary')
-
-
-### 5、最后来到shadowLibrary的bulid.gradle里修改下glide版本即可
-![](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/glide4.png)
+## 解决方法
+原有3.2.4 release版本超过7天不能被更新。如果还在使用3.2.4且无法依赖的话，依赖以下
+```java
+implementation 'com.github.lihangleo2:ShadowLayout:3.2.4rz'
+```
 
 
 
