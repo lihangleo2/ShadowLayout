@@ -84,15 +84,21 @@
 	        implementation 'com.github.lihangleo2:ShadowLayout:3.3.2'
 	}
    ```
-   
- - 在AndroidX里如何使用？根目录下找到gradle的配置文件gradle.properties里加上以下2句代码：
+<br/>
+
+## 热门问题  
+
+- 在AndroidX里如何使用？根目录下找到gradle的配置文件gradle.properties里加上以下2句代码：
     ```java
    android.useAndroidX=true
    android.enableJetifier=true
    ```
    
-[glide版本冲突终极解决方案](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/GLIDE.md)     
+- [glide版本冲突终极解决方案](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/GLIDE.md)     
 
+- [3.2.4依赖问题解决](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/problem.md)    
+
+<br/>
 
 ## 基本使用
 * #### 一、阴影的简单使用
