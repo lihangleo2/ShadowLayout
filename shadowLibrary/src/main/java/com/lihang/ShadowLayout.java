@@ -1284,18 +1284,20 @@ public class ShadowLayout extends FrameLayout {
      * @param endColor
      */
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    public void setGradientColor(int startColor, int endColor) {
+    public ShadowLayout setGradientColor(int startColor, int endColor) {
         setGradientColor(angle, startColor, endColor);
+        return this;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    public void setGradientColor(int angle, int startColor, int endColor) {
+    public ShadowLayout setGradientColor(int angle, int startColor, int endColor) {
 
         setGradientColor(angle, startColor, -101, endColor);
+        return this;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    public void setGradientColor(int angle, int startColor, int centerColor, int endColor) {
+    public ShadowLayout setGradientColor(int angle, int startColor, int centerColor, int endColor) {
         isExceptionByDashLine();
         if (angle % 45 != 0) {
             throw new IllegalArgumentException("Linear gradient requires 'angle' attribute to be a multiple of 45");
@@ -1306,6 +1308,7 @@ public class ShadowLayout extends FrameLayout {
         this.endColor = endColor;
         gradient(gradientDrawable);
         postInvalidate();
+        return this;
     }
 
 
@@ -1321,12 +1324,14 @@ public class ShadowLayout extends FrameLayout {
      * @param isShowShadow
      */
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    public void setShadowHidden(boolean isShowShadow) {
+    public ShadowLayout setShadowHidden(boolean isShowShadow) {
         isExceptionByDashLine();
         this.isShowShadow = !isShowShadow;
+        setPadding();
         if (getWidth() != 0 && getHeight() != 0) {
             setBackgroundCompat(getWidth(), getHeight());
         }
+        return this;
     }
 
     /**
@@ -1334,7 +1339,7 @@ public class ShadowLayout extends FrameLayout {
      *
      * @param mDx
      */
-    public void setShadowOffsetX(float mDx) {
+    public ShadowLayout setShadowOffsetX(float mDx) {
         isExceptionByDashLine();
         if (isShowShadow) {
             if (Math.abs(mDx) > mShadowLimit) {
@@ -1348,6 +1353,7 @@ public class ShadowLayout extends FrameLayout {
             }
             setPadding();
         }
+        return this;
     }
 
     /**
@@ -1355,7 +1361,7 @@ public class ShadowLayout extends FrameLayout {
      *
      * @param mDy
      */
-    public void setShadowOffsetY(float mDy) {
+    public ShadowLayout setShadowOffsetY(float mDy) {
         isExceptionByDashLine();
         if (isShowShadow) {
             if (Math.abs(mDy) > mShadowLimit) {
@@ -1369,6 +1375,8 @@ public class ShadowLayout extends FrameLayout {
             }
             setPadding();
         }
+
+        return this;
     }
 
     /**
@@ -1386,12 +1394,13 @@ public class ShadowLayout extends FrameLayout {
      * @param mCornerRadius
      */
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    public void setCornerRadius(int mCornerRadius) {
+    public ShadowLayout setCornerRadius(int mCornerRadius) {
         isExceptionByDashLine();
         this.mCornerRadius = mCornerRadius;
         if (getWidth() != 0 && getHeight() != 0) {
             setBackgroundCompat(getWidth(), getHeight());
         }
+        return this;
     }
 
     /**
@@ -1408,12 +1417,13 @@ public class ShadowLayout extends FrameLayout {
      *
      * @param mShadowLimit
      */
-    public void setShadowLimit(int mShadowLimit) {
+    public ShadowLayout setShadowLimit(int mShadowLimit) {
         isExceptionByDashLine();
+        this.mShadowLimit = mShadowLimit;
         if (isShowShadow) {
-            this.mShadowLimit = mShadowLimit;
             setPadding();
         }
+        return this;
     }
 
     /**
@@ -1422,12 +1432,13 @@ public class ShadowLayout extends FrameLayout {
      * @param mShadowColor
      */
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    public void setShadowColor(int mShadowColor) {
+    public ShadowLayout setShadowColor(int mShadowColor) {
         isExceptionByDashLine();
         this.mShadowColor = mShadowColor;
         if (getWidth() != 0 && getHeight() != 0) {
             setBackgroundCompat(getWidth(), getHeight());
         }
+        return this;
     }
 
 
@@ -1440,7 +1451,7 @@ public class ShadowLayout extends FrameLayout {
      * @param rightBottom
      */
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    public void setSpecialCorner(int leftTop, int rightTop, int leftBottom, int rightBottom) {
+    public ShadowLayout setSpecialCorner(int leftTop, int rightTop, int leftBottom, int rightBottom) {
         isExceptionByDashLine();
         mCornerRadius_leftTop = leftTop;
         mCornerRadius_rightTop = rightTop;
@@ -1449,6 +1460,7 @@ public class ShadowLayout extends FrameLayout {
         if (getWidth() != 0 && getHeight() != 0) {
             setBackgroundCompat(getWidth(), getHeight());
         }
+        return this;
     }
 
 
@@ -1458,30 +1470,34 @@ public class ShadowLayout extends FrameLayout {
      *
      * @param topShow
      */
-    public void setShadowHiddenTop(boolean topShow) {
+    public ShadowLayout setShadowHiddenTop(boolean topShow) {
         isExceptionByDashLine();
         this.topShow = !topShow;
         setPadding();
+        return this;
     }
 
-    public void setShadowHiddenBottom(boolean bottomShow) {
+    public ShadowLayout setShadowHiddenBottom(boolean bottomShow) {
         isExceptionByDashLine();
         this.bottomShow = !bottomShow;
         setPadding();
+        return this;
     }
 
 
-    public void setShadowHiddenRight(boolean rightShow) {
+    public ShadowLayout setShadowHiddenRight(boolean rightShow) {
         isExceptionByDashLine();
         this.rightShow = !rightShow;
         setPadding();
+        return this;
     }
 
 
-    public void setShadowHiddenLeft(boolean leftShow) {
+    public ShadowLayout setShadowHiddenLeft(boolean leftShow) {
         isExceptionByDashLine();
         this.leftShow = !leftShow;
         setPadding();
+        return this;
     }
 
 
@@ -1491,11 +1507,11 @@ public class ShadowLayout extends FrameLayout {
      * @param color
      */
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    public void setLayoutBackground(int color) {
+    public ShadowLayout setLayoutBackground(int color) {
         isExceptionByDashLine();
         //如果设置了clickable为false，那么不允许动态更换背景
         if (!isClickable) {
-            return;
+            return this;
         }
 
         if (layoutBackground_true != null) {
@@ -1515,6 +1531,8 @@ public class ShadowLayout extends FrameLayout {
             gradientDrawable.setColors(new int[]{mBackGroundColor, mBackGroundColor});
         }
         postInvalidate();
+
+        return this;
     }
 
     /**
@@ -1523,7 +1541,7 @@ public class ShadowLayout extends FrameLayout {
      * @param color
      */
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    public void setLayoutBackgroundTrue(int color) {
+    public ShadowLayout setLayoutBackgroundTrue(int color) {
         isExceptionByDashLine();
         if (layoutBackground != null) {
             throw new UnsupportedOperationException("使用了ShadowLayout_hl_layoutBackground属性，要与ShadowLayout_hl_layoutBackground_true属性统一为颜色");
@@ -1536,6 +1554,7 @@ public class ShadowLayout extends FrameLayout {
             }
         }
         postInvalidate();
+        return this;
     }
 
 
@@ -1544,7 +1563,7 @@ public class ShadowLayout extends FrameLayout {
      *
      * @param color
      */
-    public void setStrokeColor(int color) {
+    public ShadowLayout setStrokeColor(int color) {
         isExceptionByDashLine();
         stroke_color = color;
         if (shapeModeType == ShadowLayout.MODE_SELECTED) {
@@ -1556,6 +1575,7 @@ public class ShadowLayout extends FrameLayout {
             current_stroke_color = stroke_color;
         }
         postInvalidate();
+        return this;
     }
 
 
@@ -1564,7 +1584,7 @@ public class ShadowLayout extends FrameLayout {
      *
      * @param color
      */
-    public void setStrokeColorTrue(int color) {
+    public ShadowLayout setStrokeColorTrue(int color) {
         isExceptionByDashLine();
         stroke_color_true = color;
         if (shapeModeType == ShadowLayout.MODE_SELECTED) {
@@ -1574,6 +1594,7 @@ public class ShadowLayout extends FrameLayout {
             }
         }
         postInvalidate();
+        return this;
     }
 
     /**
@@ -1581,9 +1602,10 @@ public class ShadowLayout extends FrameLayout {
      *
      * @param stokeWidth
      */
-    public void setStrokeWidth(float stokeWidth) {
+    public ShadowLayout setStrokeWidth(float stokeWidth) {
         isExceptionByDashLine();
         this.stroke_with = stokeWidth;
         postInvalidate();
+        return this;
     }
 }
