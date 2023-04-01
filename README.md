@@ -409,7 +409,7 @@
 
 
 如果在捐赠留言中备注名称，将会被记录到列表中~ 如果你也是github开源作者，捐赠时可以留下github项目地址或者个人主页地址，链接将会被添加到列表中
-[捐赠列表](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/friend.md)
+### [捐赠列表](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/friend.md)
 <br/>
 
 
