@@ -309,9 +309,12 @@
 
 
 * #### 九、剪裁各种难以搞定的圆角（如特殊视频圆角剪裁，注意任何view被ShadowLayout包裹都能剪裁）
-如下代码，剪裁视频播放器
+```
+如下代码，剪裁视频播放器(注明2点)
 - app:hl_layoutBackground="@color/transparent" 取消shadowLayout默认背景白色改透明
 - app:clickable="false" 取消shadowLayout的点击焦点（用于解决recyclerView里的点击冲突）
+```
+
 ```xml
     <com.lihang.ShadowLayout
         android:id="@+id/shadowlayout_Container"
