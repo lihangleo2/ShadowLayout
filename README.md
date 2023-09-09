@@ -443,10 +443,11 @@
 
 
 ## 其他作品
-[万能ViewPager2Adapter](https://github.com/lihangleo2/ViewPager2Demo)
-[RichEditTextCopyToutiao](https://github.com/lihangleo2/RichEditTextCopyToutiao)  https://github.com/lihangleo2/ViewPager2Demo
+[万能ViewPager2适配器SmartViewPager2Adapter](https://github.com/lihangleo2/ViewPager2Demo)  
+[RichEditTextCopyToutiao](https://github.com/lihangleo2/RichEditTextCopyToutiao)  
 [mPro](https://github.com/lihangleo2/mPro)  
-[SmartLoadingView](https://github.com/lihangleo2/SmartLoadingView)
+[SmartLoadingView](https://github.com/lihangleo2/SmartLoadingView)  
+
 <br/>
 
 
