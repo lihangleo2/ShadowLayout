@@ -1,6 +1,6 @@
 # 万能阴影布局-ShadowLayout
 [![](https://jitpack.io/v/lihangleo2/ShadowLayout.svg)](https://jitpack.io/#lihangleo2/ShadowLayout)
-[![](https://img.shields.io/badge/license-MIT-green)]([https://jitpack.io/#lihangleo2/ShadowLayout](https://github.com/lihangleo2/ShadowLayout/blob/master/LICENSE))
+[![](https://img.shields.io/badge/license-MIT-green)](https://github.com/lihangleo2/ShadowLayout/blob/master/LICENSE)
 
 
 ## 特点功能
