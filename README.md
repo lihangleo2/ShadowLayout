@@ -1,5 +1,7 @@
 # 万能阴影布局-ShadowLayout
 [![](https://jitpack.io/v/lihangleo2/ShadowLayout.svg)](https://jitpack.io/#lihangleo2/ShadowLayout)
+[![](https://img.shields.io/badge/license-MIT-green)]([https://jitpack.io/#lihangleo2/ShadowLayout](https://github.com/lihangleo2/ShadowLayout/blob/master/LICENSE))
+
 
 ## 特点功能
 任何view被包裹后即可享受阴影，以及系统shape,selector功能（清空项目drawable文件夹）。具体介绍如下：
