@@ -15,6 +15,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ShadowLayout"
+rootProject.name = "ShadowLayoutX"
 include(":app")
 include(":shadowLibrary")
