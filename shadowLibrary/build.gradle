@@ -1,32 +1,78 @@
-apply plugin: 'com.android.library'
-apply plugin: 'maven-publish'
+//apply plugin: 'com.android.library'
+//apply plugin: 'maven-publish'
+//
+//android {
+//    compileSdkVersion 30
+//    defaultConfig {
+//        minSdkVersion 21
+//        targetSdkVersion 30
+//        versionCode 20
+//        versionName "3.3.2"
+//
+//        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+//
+//    }
+//
+//    buildTypes {
+//        release {
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//        }
+//    }
+//
+//}
+//
+//dependencies {
+//    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    implementation 'androidx.appcompat:appcompat:1.2.0'
+//    implementation 'com.github.bumptech.glide:glide:4.9.0'
+////    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+//}
+//
+////解决发布版本bug:参考连接 https://blog.csdn.net/qq_41885673/article/details/121588094
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            release(MavenPublication) {
+//                from components.release
+//                groupId = 'com.lihangleo2' //groupId 随便取
+//                artifactId = 'ShadowLayout'  //artifactId 随便取
+//                version = '3.3.2'
+//            }
+//        }
+//    }
+//}
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
+}
 
 android {
-    compileSdkVersion 30
+    namespace 'com.lihang'
+    compileSdk 31
+
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 30
-        versionCode 20
-        versionName "3.3.2"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        minSdk 21
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 
-}
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.github.bumptech.glide:glide:4.9.0'
-//    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
 }
 
 //解决发布版本bug:参考连接 https://blog.csdn.net/qq_41885673/article/details/121588094
@@ -37,8 +83,17 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.lihangleo2' //groupId 随便取
                 artifactId = 'ShadowLayout'  //artifactId 随便取
-                version = '3.3.2'
+                version = '3.3.4'
             }
         }
     }
 }
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+//    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+}
+
+
+

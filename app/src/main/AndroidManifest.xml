@@ -9,9 +9,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:largeHeap="true"
+        android:requestLegacyExternalStorage="true"
         android:theme="@style/AppTheme_base">
         <activity
             android:name=".MainActivity"
+            android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,24 +25,32 @@
 
         <activity
             android:name=".ShapeActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"
+            />
 
         <activity
             android:name=".ShadowActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"
+            />
 
         <activity
             android:name=".WikiActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"
+            />
 
         <activity
             android:name=".StarShowActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"
+            />
 
         <!--多渠道打包需要配置-->
         <meta-data
-            android:name="ATMAN_CHANNEL"
-            android:value="${ATMAN_CHANNEL_VALUE}" />
+            android:name="APP_CHANNEL"
+            android:value="${APP_CHANNEL_VALUE}" />
     </application>
 
 </manifest>
