@@ -85,11 +85,12 @@
  - app build.gradle添加如下
     ```java
    dependencies {
-    		//使用AndroidX版本
-	        implementation 'com.github.lihangleo2:ShadowLayout:3.4.0'
+    
+    	//使用AndroidX版本
+		implementation 'com.github.lihangleo2:ShadowLayout:3.4.0'
 
-    		//不适用AndroidX
-    		//implementation 'com.github.lihangleo2:ShadowLayout:3.4.0'
+    	//不适用AndroidX
+		//implementation 'com.github.lihangleo2:ShadowLayout:3.3.3'
 	}
    ```
 <br/>
