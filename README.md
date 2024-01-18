@@ -28,8 +28,9 @@
 
 
 ## ShadowLayout动态
-* [ShadowLayout3.3.3更新内容，及以往成长](https://github.com/lihangleo2/ShadowLayout/wiki)  
-* 注意：3.0后修改大量api及规范命名，如果还在用2.0，不方便转移的可查看[ShadowLayout2.0文档](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/README218.md)  
+* [ShadowLayout成长史](https://github.com/lihangleo2/ShadowLayout/wiki)  
+* 注意：3.0后修改大量api及规范命名，如果还在用2.0，不方便转移的可查看[ShadowLayout2.0文档](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/README218.md)
+* 注意：3.4.0后适配了AndroidX  
 
 
 ## Demo
@@ -84,19 +85,17 @@
  - app build.gradle添加如下
     ```java
    dependencies {
-	        implementation 'com.github.lihangleo2:ShadowLayout:3.3.3'
+    		//使用AndroidX版本
+	        implementation 'com.github.lihangleo2:ShadowLayout:3.4.0'
+
+    		//不适用AndroidX
+    		//implementation 'com.github.lihangleo2:ShadowLayout:3.4.0'
 	}
    ```
 <br/>
 
 ## 热门问题  
 
-- 在AndroidX里如何使用？根目录下找到gradle的配置文件gradle.properties里加上以下2句代码：
-    ```java
-   android.useAndroidX=true
-   android.enableJetifier=true
-   ```
-   
 - [glide版本冲突终极解决方案](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/GLIDE.md)     
 
 - [3.2.4依赖问题解决](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/problem.md)    
