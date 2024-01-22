@@ -89,7 +89,7 @@
     	//使用AndroidX版本
 		implementation 'com.github.lihangleo2:ShadowLayout:3.4.0'
 
-    	//不适用AndroidX
+    	//不使用AndroidX
 		//implementation 'com.github.lihangleo2:ShadowLayout:3.3.3'
 	}
    ```
