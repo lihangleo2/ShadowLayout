@@ -94,4 +94,63 @@
 
     </declare-styleable>
 
+
+    <!-- ***************************************** SmartLoadingView ******************************************* -->
+    <declare-styleable name="SmartLoadingView">
+
+        <!-- 文案内容 -->
+        <!-- android:text="文案"-->
+
+        <!--  动画结束文案，注意！不设置则为android:text=""文案 -->
+        <attr name="hl_animaled_text" format="string" />
+
+        <!-- 文案颜色-->
+        <!-- android:textColor="#ff0000"-->
+
+        <!-- 动画结束文字颜色，注意！不设置则为 textColor的颜色值 -->
+        <attr name="hl_animaled_textColor" format="color" />
+
+        <!-- 文案字体大小 -->
+        <!-- android:textSize="18sp"-->
+
+        <!-- 背景色（只支持颜色,不设置或者设置错误会走蓝色底） -->
+        <!-- android:background="#ff00ff" -->
+
+        <!-- 动画结束背景色，注意！不设置则为 background的颜色值 -->
+        <attr name="hl_animaled_background" format="color" />
+
+        <!-- 圆角属性 -->
+        <attr name="hl_corners_radius" format="dimension" />
+
+        <!-- 是否可被点击 -->
+        <!-- android:enabled="true"-->
+
+        <!-- 不可点击状态下背景色 -->
+        <attr name="hl_unEnabled_background" format="color" />
+
+        <!-- 文字滚动模式 -->
+        <attr name="hl_ellipsize">
+            <enum name="reverse" value="1" />
+            <enum name="marquee" value="2" />
+        </attr>
+
+        <!-- 文字滚动速度，只有文字滚动时生效。这里是每个文字滚动出屏幕外所需的时间 -->
+        <attr name="hl_ellipsize_speed" format="integer" />
+
+        <attr name="hl_button_type">
+            <!-- 关注模式之一：打勾样式 -->
+            <enum name="smart_tick" value="1" />
+            <!-- 关注模式之一：打勾样式 -> 隐藏 -->
+            <enum name="smart_tick_hide" value="2" />
+            <!-- 关注模式之一：打勾样式 -> 移动到中间 -> 隐藏 -->
+            <enum name="smart_tick_center_hide" value="3" />
+            <!-- 关注模式之一：按钮样式 -->
+            <enum name="smart_button" value="4" />
+            <!-- 不支持关注：全屏扩散特效 -->
+            <enum name="smart_full_screen" value="5" />
+
+        </attr>
+
+    </declare-styleable>
+
 </resources>
