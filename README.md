@@ -87,7 +87,7 @@
    dependencies {
     
     	//使用AndroidX版本
-		implementation 'com.github.lihangleo2:ShadowLayout:3.4.0'
+		implementation 'com.github.lihangleo2:ShadowLayout:3.4.1'
 
     	//不使用AndroidX
 		//implementation 'com.github.lihangleo2:ShadowLayout:3.3.3'
