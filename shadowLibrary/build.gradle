@@ -83,7 +83,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.lihangleo2' //groupId 随便取
                 artifactId = 'ShadowLayout'  //artifactId 随便取
-                version = '3.3.4'
+                version = '3.4.1'
             }
         }
     }

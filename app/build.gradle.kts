@@ -15,8 +15,8 @@ android {
         applicationId = "com.leo"
         minSdk = 21
         targetSdk = 31
-        versionCode = 334
-        versionName = "3.3.4"
+        versionCode = 341
+        versionName = "3.4.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         //设置apk和aab的文件名

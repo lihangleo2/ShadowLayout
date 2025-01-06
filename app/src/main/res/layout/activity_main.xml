@@ -169,5 +169,19 @@
         <!--        </com.lihang.ShadowLayout>-->
 
 
+        <com.lihang.SmartLoadingView
+            android:id="@+id/smart_fullscreen_auto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="#37B3C3"
+            android:text="SmartLoadingView的使用"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            app:hl_button_type="smart_full_screen"
+            app:hl_corners_radius="30dp"
+            android:layout_gravity="center_horizontal"
+            />
+
     </LinearLayout>
 </layout>

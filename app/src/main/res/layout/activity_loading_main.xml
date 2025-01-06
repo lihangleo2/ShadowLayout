@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txt_fullScreen_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="25dp"
+                android:text="1.smart_full_screen 模式"
+                android:textColor="#0353F4"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.lihang.SmartLoadingView
+                android:id="@+id/smart_fullscreen_auto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#37B3C3"
+                android:text="点击加载，2s后加载成功并跳转"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                app:hl_button_type="smart_full_screen"
+                app:hl_corners_radius="30dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_fullScreen_title" />
+
+            <com.lihang.SmartLoadingView
+                android:id="@+id/smart_fullscreen_fail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#3776C3"
+                android:text="点击加载，模拟加载失败"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                app:hl_button_type="smart_full_screen"
+                app:hl_corners_radius="30dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/smart_fullscreen_auto" />
+
+            <com.lihang.SmartLoadingView
+                android:id="@+id/smart_fullscreen_failtxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#3776C3"
+                android:text="点击加载，展示失败文案"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                app:hl_animaled_background="#f54949"
+                app:hl_animaled_text="网络异常，请稍后再试噢"
+                app:hl_animaled_textColor="#ffffff"
+                app:hl_button_type="smart_full_screen"
+                app:hl_corners_radius="30dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/smart_fullscreen_fail" />
+
+
+            <TextView
+                android:id="@+id/txt_smartbutton_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="25dp"
+                android:text="2.smart_button 正常模式"
+                android:textColor="#0353F4"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/smart_fullscreen_failtxt"
+                />
+
+            <com.lihang.SmartLoadingView
+                android:id="@+id/smart_button_success"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#37B3C3"
+                android:text="点击关注"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                app:hl_animaled_background="#A6A6A6"
+                app:hl_animaled_text="关注成功"
+                app:hl_animaled_textColor="#ffffff"
+                app:hl_button_type="smart_button"
+                app:hl_corners_radius="30dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_smartbutton_title" />
+
+
+            <com.lihang.SmartLoadingView
+                android:id="@+id/smart_button_fail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#37B3C3"
+                android:text="点击关注，模拟失败"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                app:hl_animaled_background="#A6A6A6"
+                app:hl_animaled_text="关注成功"
+                app:hl_animaled_textColor="#ffffff"
+                app:hl_button_type="smart_button"
+                app:hl_corners_radius="30dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/smart_button_success" />
+
+            <com.lihang.SmartLoadingView
+                android:id="@+id/smart_button_noanimal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#F44336"
+                android:text="点击关注，不带动画"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                app:hl_animaled_background="#A6A6A6"
+                app:hl_animaled_text="关注成功"
+                app:hl_animaled_textColor="#ffffff"
+                app:hl_button_type="smart_button"
+                app:hl_corners_radius="30dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/smart_button_fail" />
+
+
+            <TextView
+                android:id="@+id/txt_smarttick_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="25dp"
+                android:text="3.smart_tick 仿抖音，打勾模式"
+                android:textColor="#0353F4"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/smart_button_noanimal"
+                />
+
+
+            <com.lihang.SmartLoadingView
+                android:id="@+id/smart_tick_demo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#FF9800"
+                android:text="点击关注"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                app:hl_button_type="smart_tick"
+                app:hl_corners_radius="30dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_smarttick_title" />
+
+            <TextView
+                android:id="@+id/txt_smarttickhide_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="25dp"
+                android:text="4.smart_tick_hide 打勾隐藏模式"
+                android:textColor="#0353F4"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/smart_tick_demo"
+                />
+
+            <com.lihang.SmartLoadingView
+                android:id="@+id/smart_tick_hide_demo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#E91E63"
+                android:text="点击关注"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                app:hl_button_type="smart_tick_hide"
+                app:hl_corners_radius="30dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_smarttickhide_title" />
+
+            <TextView
+                android:id="@+id/txt_smarttick_centerhide_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="25dp"
+                android:text="5.smart_tick_center_hide 打勾隐藏-移至屏幕中间"
+                android:textColor="#0353F4"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/smart_tick_hide_demo"
+                />
+
+            <com.lihang.SmartLoadingView
+                android:id="@+id/smart_tick_center_hide_demo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#009688"
+                android:text="点击关注"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                app:hl_button_type="smart_tick_center_hide"
+                app:hl_corners_radius="30dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_smarttick_centerhide_title" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

@@ -32,4 +32,16 @@
         <item name="android:progressDrawable">@drawable/shap_progressbar_web</item>
     </style>
 
+
+    <style name="ActionBarTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="actionBarStyle">@style/CustomActionBar</item>
+    </style>
+
+    <style name="CustomActionBar" parent="@style/Widget.AppCompat.ActionBar">
+        <item name="background">@color/colorPrimaryDark</item>
+    </style>
+
 </resources>
