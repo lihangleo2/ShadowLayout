@@ -31,7 +31,7 @@
 * [ShadowLayout成长史](https://github.com/lihangleo2/ShadowLayout/wiki)  
 * 注意：3.0后修改大量api及规范命名，如果还在用2.0，不方便转移的可查看[ShadowLayout2.0文档](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/README218.md)
 * 注意：3.4.0后适配了AndroidX  
-
+* 注意：3.4.1加入了SmartLoadingView的使用。[点击查看SmartLoadingView的使用](https://github.com/lihangleo2/ShadowLayout/blob/master/showImages/SmartLoadingViewGuide.md)
 
 ## Demo
 为录制流畅，截图分辨率比较模糊。可在下方扫描二维码下载apk，查看真机效果。
