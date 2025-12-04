@@ -34,6 +34,9 @@ public class ScrollViewIndicator extends View {
     private float mProgress = 0;//当前进度
     private float mStartTop = 0;
     private ScrollView mBindScrollView;
+    //
+    private long mDuration = 500;
+    private long mDelayDuration = 1500;
 
 
     public ScrollViewIndicator(Context context) {
@@ -67,6 +70,9 @@ public class ScrollViewIndicator extends View {
             precent = 0.2f;
         }
         mProgress = precent * mMaxProgress;
+        //
+        mDuration = (long) typedArray.getFloat(R.styleable.ScrollViewIndicator_hl_animalDuration, 500);
+        mDelayDuration = (long) typedArray.getFloat(R.styleable.ScrollViewIndicator_hl_showDuration, 1500);
 
         //
         this.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
@@ -81,7 +87,7 @@ public class ScrollViewIndicator extends View {
                     if (mBindScrollView.getMeasuredHeight() < mBindScrollView.getChildAt(0).getMeasuredHeight()) {
                         ScrollViewIndicator.this.setVisibility(View.VISIBLE);
                         AnimalUtil.cancleAnimate(ScrollViewIndicator.this);
-                        AnimalUtil.alphaHide(ScrollViewIndicator.this, 500, 1.0f, 0.0f, 1500);
+                        AnimalUtil.alphaHide(ScrollViewIndicator.this, mDuration, 1.0f, 0.0f, mDelayDuration);
                     } else {
                         ScrollViewIndicator.this.setVisibility(View.GONE);
                     }
@@ -131,7 +137,7 @@ public class ScrollViewIndicator extends View {
 
 
     private void setProgress(float progress) {
-        mStartTop = progress * (100 - mProgress) * mViewHeight / 100;
+        mStartTop = progress * (mMaxProgress - mProgress) * mViewHeight / mMaxProgress;
         postInvalidate();
     }
 
@@ -173,7 +179,7 @@ public class ScrollViewIndicator extends View {
             ScrollViewIndicator.this.setProgress((((float) mScrollView.getScrollY()) / (firstView.getMeasuredHeight() - mScrollView.getHeight())));
 
             AnimalUtil.cancleAnimate(ScrollViewIndicator.this);
-            AnimalUtil.alphaHide(ScrollViewIndicator.this, 500, 1.0f, 0.0f, 1500);
+            AnimalUtil.alphaHide(ScrollViewIndicator.this, mDuration, 1.0f, 0.0f, mDelayDuration);
         }
     }
 }

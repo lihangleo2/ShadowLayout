@@ -162,6 +162,10 @@
         <attr name="hl_indicatorColor" format="color" />
         <!-- 指示器长度（占整个轨道长度的百分比） -->
         <attr name="hl_indicatorLength" format="float" />
+        <!-- 渐隐动画时长 -->
+        <attr name="hl_animalDuration" format="float" />
+        <!-- 指示器展示时长 -->
+        <attr name="hl_showDuration" format="float" />
 
     </declare-styleable>
 </resources>
