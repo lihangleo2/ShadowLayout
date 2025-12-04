@@ -11,10 +11,9 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
-import android.widget.ScrollView;
+import android.widget.HorizontalScrollView;
 
 import androidx.annotation.ColorInt;
-import androidx.annotation.RequiresApi;
 
 import com.lihang.utils.AnimalUtil;
 
@@ -25,7 +24,7 @@ import com.lihang.utils.AnimalUtil;
  * @Date 2025/12/04
  * 自定义系统ScrollView指示器。
  */
-public class ScrollViewIndicator extends View {
+public class HorizontalScrollViewIndicator extends View {
     private Paint mBackgroundPaint; //背景画笔
     private Paint mProgressPaint; //指示器画笔
 
@@ -34,21 +33,21 @@ public class ScrollViewIndicator extends View {
     private int mMaxProgress = 100;//最大进度
     private float mProgress = 0;//当前进度
     private float mStartTop = 0;
-    private ScrollView mBindScrollView;
+    private HorizontalScrollView mBindScrollView;
     //
     private long mDuration = 500;
     private long mDelayDuration = 1500;
 
 
-    public ScrollViewIndicator(Context context) {
+    public HorizontalScrollViewIndicator(Context context) {
         this(context, null);
     }
 
-    public ScrollViewIndicator(Context context, AttributeSet attrs) {
+    public HorizontalScrollViewIndicator(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public ScrollViewIndicator(Context context, AttributeSet attrs, int defStyleAttr) {
+    public HorizontalScrollViewIndicator(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(attrs);
 
@@ -85,15 +84,15 @@ public class ScrollViewIndicator extends View {
                     mBindScrollView.setHorizontalScrollBarEnabled(false);
                     mBindScrollView.setVerticalScrollBarEnabled(false);
 
-                    if (mBindScrollView.getMeasuredHeight() < mBindScrollView.getChildAt(0).getMeasuredHeight()) {
-                        ScrollViewIndicator.this.setVisibility(View.VISIBLE);
-                        AnimalUtil.cancleAnimate(ScrollViewIndicator.this);
-                        AnimalUtil.alphaHide(ScrollViewIndicator.this, mDuration, 1.0f, 0.0f, mDelayDuration);
+                    if (mBindScrollView.getMeasuredWidth() < mBindScrollView.getChildAt(0).getMeasuredWidth()) {
+                        HorizontalScrollViewIndicator.this.setVisibility(View.VISIBLE);
+                        AnimalUtil.cancleAnimate(HorizontalScrollViewIndicator.this);
+                        AnimalUtil.alphaHide(HorizontalScrollViewIndicator.this, mDuration, 1.0f, 0.0f, mDelayDuration);
                     } else {
-                        ScrollViewIndicator.this.setVisibility(View.GONE);
+                        HorizontalScrollViewIndicator.this.setVisibility(View.GONE);
                     }
                 }
-                ScrollViewIndicator.this.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                HorizontalScrollViewIndicator.this.getViewTreeObserver().removeOnGlobalLayoutListener(this);
             }
         });
     }
@@ -111,17 +110,30 @@ public class ScrollViewIndicator extends View {
         super.onDraw(canvas);
         //画背景
 //        RectF bgRectF = new RectF(0, 0, mViewWidth, mViewHeight);
-        Rect bgRectF = new Rect(0, 0, mViewWidth, mViewHeight);
+//        Rect bgRectF = new Rect(0, 0, mViewWidth, mViewHeight);
 //        canvas.drawRoundRect(bgRectF, mViewHeight / 2, mViewHeight / 2, mBackgroundPaint);
+//        canvas.drawRect(bgRectF, mBackgroundPaint);
+
+
+//        //画指示器
+//        float height = (float) (mViewHeight * (mProgress * 1.0f / mMaxProgress) + 0.5);
+//        if (height <= mViewWidth) {//圆形
+//            canvas.drawCircle(mViewWidth / 2, height / 2, height / 2, mProgressPaint);
+//        } else {
+//            RectF progressRectF = new RectF(0, mStartTop, mViewWidth, height + mStartTop);
+//            canvas.drawRoundRect(progressRectF, mViewHeight / 2, mViewHeight / 2, mProgressPaint);
+//        }
+
+        //画背景
+        Rect bgRectF = new Rect(0, 0, mViewWidth, mViewHeight);
         canvas.drawRect(bgRectF, mBackgroundPaint);
-
-
-        //画指示器
-        float height = (float) (mViewHeight * (mProgress * 1.0f / mMaxProgress) + 0.5);
-        if (height <= mViewWidth) {//圆形
-            canvas.drawCircle(mViewWidth / 2, height / 2, height / 2, mProgressPaint);
+//        canvas.drawRoundRect(bgRectF, mViewHeight / 2, mViewHeight / 2, mBackgroundPaint);
+        //画进度条
+        float width = (float) (mViewWidth * (mProgress * 1.0f / mMaxProgress) + 0.5);
+        if (width <= mViewHeight) {//圆形
+            canvas.drawCircle(width / 2, mViewHeight / 2, width / 2, mProgressPaint);
         } else {
-            RectF progressRectF = new RectF(0, mStartTop, mViewWidth, height + mStartTop);
+            RectF progressRectF = new RectF(mStartTop, 0, width + mStartTop, mViewHeight);
             canvas.drawRoundRect(progressRectF, mViewHeight / 2, mViewHeight / 2, mProgressPaint);
         }
 
@@ -138,7 +150,7 @@ public class ScrollViewIndicator extends View {
 
 
     private void setProgress(float progress) {
-        mStartTop = progress * (mMaxProgress - mProgress) * mViewHeight / mMaxProgress;
+        mStartTop = progress * (mMaxProgress - mProgress) * mViewWidth / mMaxProgress;
         postInvalidate();
     }
 
@@ -160,7 +172,7 @@ public class ScrollViewIndicator extends View {
     }
 
 
-    public void bindScrollView(ScrollView mScrollView) {
+    public void bindScrollView(HorizontalScrollView mScrollView) {
         mBindScrollView = mScrollView;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             mScrollView.setOnScrollChangeListener((v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
@@ -172,15 +184,16 @@ public class ScrollViewIndicator extends View {
 
     //如果项目中用了setOnScrollChangeListener，事件被覆盖，建议使用以下方式触发在setOnScrollChangeListener绑定
     public void bindScrollViewFromScrollListener(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-        ScrollView mScrollView = (ScrollView) v;
+        HorizontalScrollView mScrollView = (HorizontalScrollView) v;
         mBindScrollView = mScrollView;
-        if (mScrollView.getMeasuredHeight() < mScrollView.getChildAt(0).getMeasuredHeight()) {
-            ScrollViewIndicator.this.setVisibility(View.VISIBLE);
+        if (mScrollView.getMeasuredWidth() < mScrollView.getChildAt(0).getMeasuredWidth()) {
+            HorizontalScrollViewIndicator.this.setVisibility(View.VISIBLE);
             View firstView = mScrollView.getChildAt(0);
-            ScrollViewIndicator.this.setProgress((((float) mScrollView.getScrollY()) / (firstView.getMeasuredHeight() - mScrollView.getHeight())));
+            HorizontalScrollViewIndicator.this.setProgress((((float) mScrollView.getScrollX()) / (firstView.getMeasuredWidth() - mScrollView.getWidth())));
 
-            AnimalUtil.cancleAnimate(ScrollViewIndicator.this);
-            AnimalUtil.alphaHide(ScrollViewIndicator.this, mDuration, 1.0f, 0.0f, mDelayDuration);
+            AnimalUtil.cancleAnimate(HorizontalScrollViewIndicator.this);
+            AnimalUtil.alphaHide(HorizontalScrollViewIndicator.this, mDuration, 1.0f, 0.0f, mDelayDuration);
+
         }
     }
 }

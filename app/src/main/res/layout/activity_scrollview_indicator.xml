@@ -53,34 +53,37 @@
 
 
         <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             app:layout_constraintBottom_toBottomOf="parent">
 
             <TextView
-                android:layout_width="600dp"
+                android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:background="#ff0000"
+                android:background="#1B1C21"
                 android:lineSpacingExtra="6dp"
                 android:overScrollMode="never"
                 android:paddingVertical="15dp"
                 android:scrollbars="none"
                 android:text="12月4日上午，国家主席习近平在北京人民大会堂同来华进行国事访问的法国总统马克龙举行会谈。新华社记者 殷博古 摄
 
-　　习近平指出，中法都是有远见、有担当的独立自主大国，是推动世界多极化、促进人类团结合作的建设性力量。当前，百年变局加速演进，人类又一次站在何去何从的十字路口。中法两国应当展现责任担当，高举多边主义旗帜，坚定站在历史正确一边。中方愿同法方一道，始终从两国人民根本利益和国际社会长远利益出发，坚持平等对话、开放合作，让中法全面战略伙伴关系在“新甲子”走得更稳更好，充分彰显其战略价值，为推动平等有序的世界多极化、普惠包容的经济全球化作出新的贡献。
-
-　　习近平强调，无论外部环境如何变化，中法两国都应当始终展现大国的战略眼光和独立自主，在彼此核心利益和重大关切问题上相互理解和支持，维护好中法关系的政治基础。中共二十届四中全会审议通过“十五五”规划建议，为未来5年中国发展擘画蓝图，也向世界提供了一份“机遇清单”。中法两国要抓住机遇，拓展合作空间，巩固航空、航天、核能等传统领域合作，挖掘绿色经济、数字经济、生物医药、人工智能、新能源等领域合作潜力。中方愿进口更多法国优质产品，欢迎更多法国企业来华发展，也希望法方为中国企业提供公平环境和稳定预期。中法两国人民有着天然亲近感，要深化文化、教育、科技、地方等领域交流合作，续写人文交流精彩篇章。
-
-　　习近平强调，当今世界很不太平，热点问题多点爆发、复杂难解。中法同为联合国创始成员国和安理会常任理事国，应当践行真正的多边主义，维护以联合国为核心的国际体系和以国际法为基础的国际秩序，就政治解决争端、促进世界和平稳定加强沟通和协作，推动改革完善全球治理。当前，世界存在南北发展不平衡、发展中国家在国际金融机构中代表性不足等很多不平衡问题，各国应当共担责任、协调行动，携手推动全球经济治理更加公平、公正、合理。中欧50年来的交往合作互利共赢、成就彼此。各国产供链深度互嵌，开放合作带来机遇发展，“脱钩断链”意味着自我封闭。保护主义不能解决世界产业结构调整的问题，反而将恶化国际贸易环境。中欧双方应该坚持伙伴关系定位，秉持开放态度推进合作，确保中欧关系沿着独立自主、合作共赢的正确轨道发展。
-
-　　马克龙表示，法中保持密切高层交往，始终相互信任、相互尊重。法方重视对华关系，坚定奉行一个中国政策，愿持续深化法中全面战略伙伴关系。法方乐见中国经济蓬勃发展，坚持开放合作，为世界带来更多机遇，愿同中方促进相互投资，加强经贸、可再生能源等领域合作，促进友好文化交流。法方欢迎中国企业更多赴法投资，愿提供公平、非歧视营商环境。法方致力于推动欧中关系健康稳定发展，认为欧中应坚持对话合作，欧洲应实现战略自主。面对世界地缘形势不稳、多边秩序受到冲击，法中合作更显重要，不可或缺。法方完全赞同习近平主席有关改革完善全球治理、推动全球经济更加平衡的意见，愿同中方加强协调，共担大国责任、坚持多边主义，加强在应对气候变化、保护生物多样性、人工智能治理等领域合作，为促进世界和平与繁荣作出贡献。
-
-　　两国元首就乌克兰危机交换意见。习近平指出，中方支持一切有利于和平的努力，将继续以自己的方式为危机政治解决发挥建设性作用。中方支持欧洲国家发挥应有作用，推动构建均衡、有效、可持续的欧洲安全架构。"
-                android:textColor="#333333"
+　　习近平指出，中法都是有远见"
+                android:textColor="#ffffff"
                 android:textSize="14sp" />
 
 
         </HorizontalScrollView>
+
+        <!-- 横向指示器的使用 -->
+        <com.lihang.HorizontalScrollViewIndicator
+            android:id="@+id/horizontalScrollViewIndicator"
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            app:hl_indicatorBackground="#00000000"
+            app:hl_indicatorColor="#00BCD4"
+            app:hl_indicatorLength="0.3"
+            app:layout_constraintTop_toTopOf="@+id/horizontalScrollView" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

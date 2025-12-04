@@ -24,6 +24,7 @@ class ScrollViewIndicatorActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         mBinding.run {
             scrollViewIndicator.bindScrollView(scrollView)
+            horizontalScrollViewIndicator.bindScrollView(horizontalScrollView)
         }
     }
 
