@@ -6,4 +6,6 @@
 
     <color name="guide_anim">#3e80fc</color>
     <color name="blackbb">#bbbbbb</color>
+    <color name="default_background_color">#1B1C21</color>
+    <color name="default_indicator_color">#4Decf7ff</color>
 </resources>

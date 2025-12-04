@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.leo.databinding.ActivityMainBinding
 import com.leo.loadingview.MainLoadingActivity
+import com.leo.scrollViewIndicator.ScrollViewIndicatorActivity
 
 /**
  * 首页展示
@@ -34,6 +35,10 @@ class MainActivity : AppCompatActivity() {
             smartFullscreenAuto.setOnClickListener {
                 smartFullscreenAuto.startLoading()
                 smartFullscreenAuto.finishLoadingWithFullScreen(this@MainActivity, MainLoadingActivity::class.java)
+            }
+
+            ShadowLayoutScrollView.setOnClickListener {
+                startActivity(Intent(this@MainActivity, ScrollViewIndicatorActivity::class.java))
             }
         }
     }

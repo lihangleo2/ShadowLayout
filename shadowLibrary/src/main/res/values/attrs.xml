@@ -153,4 +153,15 @@
 
     </declare-styleable>
 
+    <!-- ***************************************** ScrollViewIndicator ******************************************* -->
+    <declare-styleable name="ScrollViewIndicator">
+
+        <!-- 指示器背景 -->
+        <attr name="hl_indicatorBackground" format="color" />
+        <!-- 指示器颜色 -->
+        <attr name="hl_indicatorColor" format="color" />
+        <!-- 指示器长度（占整个轨道长度的百分比） -->
+        <attr name="hl_indicatorLength" format="float" />
+
+    </declare-styleable>
 </resources>

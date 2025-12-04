@@ -15,6 +15,7 @@ class MainLoadingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_loading_main)
         supportActionBar?.title = "SmartLoadingView的使用"
+        //supportActionBar?.setDisplayHomeAsUpEnabled(true)
         //
         mBinding.run {
             /**
