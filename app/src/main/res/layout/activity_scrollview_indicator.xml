@@ -10,8 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+<!--        android:scrollbars="none"-->
+<!--        android:overScrollMode="never"-->
         <ScrollView
             android:id="@+id/scrollView"
+
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

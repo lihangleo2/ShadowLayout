@@ -73,6 +73,11 @@ public class ScrollViewIndicator extends View {
             @Override
             public void onGlobalLayout() {
                 if (mBindScrollView != null) {
+                    //取消系统默认滚动条
+                    mBindScrollView.setOverScrollMode(OVER_SCROLL_NEVER);
+                    mBindScrollView.setHorizontalScrollBarEnabled(false);
+                    mBindScrollView.setVerticalScrollBarEnabled(false);
+
                     if (mBindScrollView.getMeasuredHeight() < mBindScrollView.getChildAt(0).getMeasuredHeight()) {
                         ScrollViewIndicator.this.setVisibility(View.VISIBLE);
                         AnimalUtil.cancleAnimate(ScrollViewIndicator.this);
