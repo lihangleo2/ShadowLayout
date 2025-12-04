@@ -9,6 +9,7 @@ import android.graphics.RectF;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.ScrollView;
 
 import androidx.annotation.ColorInt;
@@ -32,6 +33,7 @@ public class ScrollViewIndicator extends View {
     private int mMaxProgress = 100;//最大进度
     private float mProgress = 0;//当前进度
     private float mStartTop = 0;
+    private ScrollView mBindScrollView;
 
 
     public ScrollViewIndicator(Context context) {
@@ -65,6 +67,23 @@ public class ScrollViewIndicator extends View {
             precent = 0.2f;
         }
         mProgress = precent * mMaxProgress;
+
+        //
+        this.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                if (mBindScrollView != null) {
+                    if (mBindScrollView.getMeasuredHeight() < mBindScrollView.getChildAt(0).getMeasuredHeight()) {
+                        ScrollViewIndicator.this.setVisibility(View.VISIBLE);
+                        AnimalUtil.cancleAnimate(ScrollViewIndicator.this);
+                        AnimalUtil.alphaHide(ScrollViewIndicator.this, 500, 1.0f, 0.0f, 1500);
+                    } else {
+                        ScrollViewIndicator.this.setVisibility(View.GONE);
+                    }
+                }
+                ScrollViewIndicator.this.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+            }
+        });
     }
 
 
@@ -130,16 +149,19 @@ public class ScrollViewIndicator extends View {
 
 
     public void bindScrollView(ScrollView mScrollView) {
+        mBindScrollView = mScrollView;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             mScrollView.setOnScrollChangeListener((v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
-                bindScrollViewData(mScrollView, scrollX, scrollY, oldScrollX, oldScrollY);
+                bindScrollViewFromScrollListener(v, scrollX, scrollY, oldScrollX, oldScrollY);
             });
         }
     }
 
 
     //如果项目中用了setOnScrollChangeListener，事件被覆盖，建议使用以下方式触发在setOnScrollChangeListener绑定
-    public void bindScrollViewData(ScrollView mScrollView, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+    public void bindScrollViewFromScrollListener(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+        ScrollView mScrollView = (ScrollView) v;
+        mBindScrollView = mScrollView;
         if (mScrollView.getMeasuredHeight() < mScrollView.getChildAt(0).getMeasuredHeight()) {
             ScrollViewIndicator.this.setVisibility(View.VISIBLE);
             View firstView = mScrollView.getChildAt(0);
@@ -149,6 +171,4 @@ public class ScrollViewIndicator extends View {
             AnimalUtil.alphaHide(ScrollViewIndicator.this, 500, 1.0f, 0.0f, 1500);
         }
     }
-
-
 }
