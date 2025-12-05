@@ -85,39 +85,43 @@ public class SwitchButton extends View implements Checkable {
 
 
         uncheckColor = optColor(typedArray,
-                R.styleable.SwitchButton_sb_uncheck_color,
+                R.styleable.SwitchButton_hl_uncheck_color,
                 0XffDDDDDD);//0XffDDDDDD;
 
+        background = optColor(typedArray,
+                R.styleable.SwitchButton_hl_background,
+                -101);//Color.WHITE;
+        if (background == -101) {
+            background = uncheckColor;
+        }
+
+
         checkedColor = optColor(typedArray,
-                R.styleable.SwitchButton_sb_checked_color,
-                0Xff51d367);//0Xff51d367;
+                R.styleable.SwitchButton_hl_checked_color,
+                0Xff40b5ff);//0Xff51d367;
 
         borderWidth = optPixelSize(typedArray,
-                R.styleable.SwitchButton_sb_border_width,
-                dp2pxInt(1));//dp2pxInt(1);
+                R.styleable.SwitchButton_hl_border_width,
+                dp2pxInt(2));//dp2pxInt(1);
 
 
         buttonColor = optColor(typedArray,
-                R.styleable.SwitchButton_sb_button_color,
+                R.styleable.SwitchButton_hl_thumb_color,
                 Color.WHITE);//Color.WHITE;
         buttonCheckColor = optColor(typedArray,
-                R.styleable.SwitchButton_sb_button_check_color,
+                R.styleable.SwitchButton_hl_thumb_checked_color,
                 -101);
         int effectDuration = optInt(typedArray,
-                R.styleable.SwitchButton_sb_effect_duration,
+                R.styleable.SwitchButton_hl_duration,
                 300);//300;
 
         isChecked = optBoolean(typedArray,
-                R.styleable.SwitchButton_sb_checked,
+                R.styleable.SwitchButton_hl_checked,
                 false);
 
 
-        background = optColor(typedArray,
-                R.styleable.SwitchButton_sb_background,
-                Color.WHITE);//Color.WHITE;
-
         enableEffect = optBoolean(typedArray,
-                R.styleable.SwitchButton_sb_enable_effect,
+                R.styleable.SwitchButton_hl_enable_animal,
                 true);
 
         if (typedArray != null) {

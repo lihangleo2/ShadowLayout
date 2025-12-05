@@ -172,24 +172,26 @@
     <!-- ***************************************** SwitchButton ******************************************* -->
     <declare-styleable name="SwitchButton">
         <!-- 未选中颜色 -->
-        <attr format="reference|color" name="sb_uncheck_color"/>
+        <attr format="reference|color" name="hl_uncheck_color"/>
         <!-- 选中颜色 -->
-        <attr format="reference|color" name="sb_checked_color"/>
+        <attr format="reference|color" name="hl_checked_color"/>
         <!-- 背景色颜色，如设置，未选中状态带有边框 -->
-        <attr format="reference|color" name="sb_background"/>
+        <attr format="reference|color" name="hl_background"/>
         <!-- 边框编剧，小球与组件边距 -->
-        <attr format="reference|dimension" name="sb_border_width"/>
-        <!-- 小球颜色 -->
-        <attr format="reference|color" name="sb_button_color"/>
-        <!-- 选中小球颜色 -->
-        <attr format="reference|color" name="sb_button_check_color"/>
-        <!-- 小球动画时长 -->
-        <attr format="reference|integer" name="sb_effect_duration"/>
-        <!-- 关闭小球选中动画 -->
-        <attr format="reference|boolean" name="sb_enable_effect"/>
-
+        <attr format="reference|dimension" name="hl_border_width"/>
         <!-- 选中状态 -->
-        <attr format="reference|boolean" name="sb_checked"/>
+        <attr format="reference|boolean" name="hl_checked"/>
+
+        <!-- 小球颜色 -->
+        <attr format="reference|color" name="hl_thumb_color"/>
+        <!-- 选中小球颜色 -->
+        <attr format="reference|color" name="hl_thumb_checked_color"/>
+
+        <!-- 小球动画时长 -->
+        <attr format="reference|integer" name="hl_duration"/>
+        <!-- 关闭小球选中动画 -->
+        <attr format="reference|boolean" name="hl_enable_animal"/>
+
 
 
     </declare-styleable>

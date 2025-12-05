@@ -10,6 +10,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="示例: "
+            android:textColor="#333333"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/switch_button"
+            app:layout_constraintRight_toLeftOf="@+id/switch_button"
+            app:layout_constraintTop_toTopOf="@+id/switch_button" />
+
+
         <com.lihang.SwitchButton
             android:id="@+id/switch_button"
             android:layout_width="50dp"
@@ -17,32 +28,59 @@
             android:layout_marginTop="30dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:sb_background="#FFAFAF"
-            app:sb_button_color="#ffffff"
-            app:sb_checked_color="#8587FF"
-            app:sb_uncheck_color="#FFAFAF"
-            app:sb_border_width="2dp"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
+        <!-- 简单自定义 -->
         <com.lihang.SwitchButton
-            android:id="@+id/switch_button2"
+            android:id="@+id/switch_button_simple"
             android:layout_width="50dp"
             android:layout_height="30dp"
             android:layout_marginTop="30dp"
+            app:hl_checked_color="#8587FF"
+            app:hl_uncheck_color="#FFAFAF"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/switch_button"
-            app:sb_background="#FF5722"
-            app:sb_border_width="2dp"
-            app:sb_button_check_color="#ffffff"
-            app:sb_button_color="#03A9F4"
-            app:sb_checked_color="#8587FF"
-            app:sb_effect_duration="300"
-            app:sb_enable_effect="true"
-            app:sb_uncheck_color="#FFAFAF"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/switch_button" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="简单示例: "
+            android:textColor="#333333"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/switch_button_simple"
+            app:layout_constraintRight_toLeftOf="@+id/switch_button_simple"
+            app:layout_constraintTop_toTopOf="@+id/switch_button_simple" />
+
+
+        <com.lihang.SwitchButton
+            android:id="@+id/switch_all_custom"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="30dp"
+            app:hl_background="#000000"
+            app:hl_border_width="2dp"
+            app:hl_checked_color="#03A9F4"
+            app:hl_duration="500"
+            app:hl_enable_animal="true"
+            app:hl_thumb_checked_color="#FF5722"
+            app:hl_thumb_color="#ffffff"
+            app:hl_uncheck_color="#DDDDDD"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/switch_button_simple" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="复杂示例: "
+            android:textColor="#333333"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/switch_all_custom"
+            app:layout_constraintRight_toLeftOf="@+id/switch_all_custom"
+            app:layout_constraintTop_toTopOf="@+id/switch_all_custom" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
