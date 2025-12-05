@@ -83,22 +83,6 @@ public class SwitchButton extends View implements Checkable {
             typedArray = context.obtainStyledAttributes(attrs, R.styleable.SwitchButton);
         }
 
-        shadowEffect = optBoolean(typedArray,
-                R.styleable.SwitchButton_sb_shadow_effect,
-                true);
-
-
-        shadowRadius = optPixelSize(typedArray,
-                R.styleable.SwitchButton_sb_shadow_radius,
-                dp2pxInt(2.5f));//dp2pxInt(2.5f);
-
-        shadowOffset = optPixelSize(typedArray,
-                R.styleable.SwitchButton_sb_shadow_offset,
-                dp2pxInt(1.5f));//dp2pxInt(1.5f);
-
-        shadowColor = optColor(typedArray,
-                R.styleable.SwitchButton_sb_shadow_color,
-                0X33000000);//0X33000000;
 
         uncheckColor = optColor(typedArray,
                 R.styleable.SwitchButton_sb_uncheck_color,
@@ -145,13 +129,6 @@ public class SwitchButton extends View implements Checkable {
         buttonPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         buttonPaint.setColor(buttonColor);
 
-        if (shadowEffect) {
-            buttonPaint.setShadowLayer(
-                    shadowRadius,
-                    0, shadowOffset,
-                    shadowColor);
-        }
-
 
         viewState = new ViewState();
         beforeState = new ViewState();
@@ -192,7 +169,7 @@ public class SwitchButton extends View implements Checkable {
         super.onSizeChanged(w, h, oldw, oldh);
 
 
-        float viewPadding = Math.max(shadowRadius + shadowOffset, borderWidth);
+        float viewPadding = borderWidth;
 
         height = h - viewPadding - viewPadding;
         width = w - viewPadding - viewPadding;
@@ -287,8 +264,6 @@ public class SwitchButton extends View implements Checkable {
     }
 
 
-
-
     /**
      * @param canvas
      * @param left
@@ -359,7 +334,7 @@ public class SwitchButton extends View implements Checkable {
             postInvalidate();
             return;
         }
-        toggleWithNoListener(false,true);
+        toggleWithNoListener(false, true);
 //        toggle(enableEffect, false);
     }
 
@@ -428,7 +403,6 @@ public class SwitchButton extends View implements Checkable {
         }
         valueAnimator.start();
     }
-
 
 
     private void toggleWithNoListener(boolean animate, boolean broadcast) {
@@ -601,29 +575,6 @@ public class SwitchButton extends View implements Checkable {
         return animateState == ANIMATE_STATE_DRAGING;
     }
 
-    /**
-     * 设置是否启用阴影效果
-     *
-     * @param shadowEffect true.启用
-     */
-    public void setShadowEffect(boolean shadowEffect) {
-        if (this.shadowEffect == shadowEffect) {
-            return;
-        }
-        this.shadowEffect = shadowEffect;
-
-        if (this.shadowEffect) {
-            buttonPaint.setShadowLayer(
-                    shadowRadius,
-                    0, shadowOffset,
-                    shadowColor);
-        } else {
-            buttonPaint.setShadowLayer(
-                    0,
-                    0, 0,
-                    0);
-        }
-    }
 
     public void setEnableEffect(boolean enable) {
         this.enableEffect = enable;
@@ -777,20 +728,6 @@ public class SwitchButton extends View implements Checkable {
     }
     /*******************************************************/
 
-
-    /**
-     * 阴影半径
-     */
-    private int shadowRadius;
-    /**
-     * 阴影Y偏移px
-     */
-    private int shadowOffset;
-    /**
-     * 阴影颜色
-     */
-    private int shadowColor;
-
     /**
      * 背景半径
      */
@@ -883,10 +820,6 @@ public class SwitchButton extends View implements Checkable {
      * 是否启用动画
      */
     private boolean enableEffect;
-    /**
-     * 是否启用阴影效果
-     */
-    private boolean shadowEffect;
 
     /**
      * 收拾是否按下

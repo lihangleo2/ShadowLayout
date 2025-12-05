@@ -191,16 +191,6 @@
         <!-- 选中状态 -->
         <attr format="reference|boolean" name="sb_checked"/>
 
-        <!-- -->
-        <attr format="reference|dimension" name="sb_shadow_radius"/>
-        <attr format="reference|dimension" name="sb_shadow_offset"/>
-        <attr format="reference|color" name="sb_shadow_color"/>
-        <attr format="reference|boolean" name="sb_shadow_effect"/>
-
-
-
-
-
 
     </declare-styleable>
 
