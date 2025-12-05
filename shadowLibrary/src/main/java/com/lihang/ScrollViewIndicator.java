@@ -39,6 +39,8 @@ public class ScrollViewIndicator extends View {
     private long mDuration = 500;
     private long mDelayDuration = 1500;
 
+    private boolean mBackgroundRound = false;
+
 
     public ScrollViewIndicator(Context context) {
         this(context, null);
@@ -61,6 +63,8 @@ public class ScrollViewIndicator extends View {
         mBackgroundPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mBackgroundPaint.setColor(backgroundColor);//背景颜色
         setBackgroundResource(0);//移除设置的背景资源
+        //
+        mBackgroundRound = typedArray.getBoolean(R.styleable.ScrollViewIndicator_hl_background_round, false);
         //
         int indicatorColor = typedArray.getColor(R.styleable.ScrollViewIndicator_hl_indicatorColor, getResources().getColor(R.color.default_indicator_color));
         mProgressPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -110,10 +114,13 @@ public class ScrollViewIndicator extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         //画背景
-//        RectF bgRectF = new RectF(0, 0, mViewWidth, mViewHeight);
-        Rect bgRectF = new Rect(0, 0, mViewWidth, mViewHeight);
-//        canvas.drawRoundRect(bgRectF, mViewHeight / 2, mViewHeight / 2, mBackgroundPaint);
-        canvas.drawRect(bgRectF, mBackgroundPaint);
+        if (mBackgroundRound) {
+            RectF bgRectF = new RectF(0, 0, mViewWidth, mViewHeight);
+            canvas.drawRoundRect(bgRectF, mViewHeight / 2, mViewHeight / 2, mBackgroundPaint);
+        } else {
+            Rect bgRectF = new Rect(0, 0, mViewWidth, mViewHeight);
+            canvas.drawRect(bgRectF, mBackgroundPaint);
+        }
 
 
         //画指示器

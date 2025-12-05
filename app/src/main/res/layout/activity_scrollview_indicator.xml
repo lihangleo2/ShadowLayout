@@ -82,6 +82,7 @@
             android:layout_height="6dp"
             app:hl_indicatorBackground="#00000000"
             app:hl_indicatorColor="#00BCD4"
+            app:hl_background_round="true"
             app:hl_indicatorLength="0.3"
             app:layout_constraintTop_toTopOf="@+id/horizontalScrollView" />
 
