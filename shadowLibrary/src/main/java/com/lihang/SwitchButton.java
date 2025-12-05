@@ -112,9 +112,6 @@ public class SwitchButton extends View implements Checkable {
                 R.styleable.SwitchButton_sb_border_width,
                 dp2pxInt(1));//dp2pxInt(1);
 
-        checkLineColor = optColor(typedArray,
-                R.styleable.SwitchButton_sb_checkline_color,
-                Color.WHITE);//Color.WHITE;
 
         buttonColor = optColor(typedArray,
                 R.styleable.SwitchButton_sb_button_color,
@@ -232,7 +229,6 @@ public class SwitchButton extends View implements Checkable {
     private void setUncheckViewState(ViewState viewState) {
         viewState.radius = 0;
         viewState.checkStateColor = uncheckColor;
-        viewState.checkedLineColor = Color.TRANSPARENT;
         viewState.buttonX = buttonMinX;
     }
 
@@ -242,7 +238,6 @@ public class SwitchButton extends View implements Checkable {
     private void setCheckedViewState(ViewState viewState) {
         viewState.radius = viewRadius;
         viewState.checkStateColor = checkedColor;
-        viewState.checkedLineColor = checkLineColor;
         viewState.buttonX = buttonMaxX;
     }
 
@@ -657,7 +652,6 @@ public class SwitchButton extends View implements Checkable {
         if (isChecked()) {
             afterState.checkStateColor = checkedColor;
             afterState.buttonX = buttonMaxX;
-            afterState.checkedLineColor = checkedColor;
         } else {
             afterState.checkStateColor = uncheckColor;
             afterState.buttonX = buttonMinX;
@@ -841,11 +835,6 @@ public class SwitchButton extends View implements Checkable {
      */
     private int borderWidth;
 
-    /**
-     * 打开指示线颜色
-     */
-    private int checkLineColor;
-
 
     /**
      * 按钮最左边
@@ -956,11 +945,6 @@ public class SwitchButton extends View implements Checkable {
                 case ANIMATE_STATE_PENDING_RESET: {
                 }
                 case ANIMATE_STATE_PENDING_DRAG: {
-                    viewState.checkedLineColor = (int) argbEvaluator.evaluate(
-                            value,
-                            beforeState.checkedLineColor,
-                            afterState.checkedLineColor
-                    );
 
                     viewState.radius = beforeState.radius
                             + (afterState.radius - beforeState.radius) * value;
@@ -991,11 +975,6 @@ public class SwitchButton extends View implements Checkable {
                     );
 
                     viewState.radius = fraction * viewRadius;
-                    viewState.checkedLineColor = (int) argbEvaluator.evaluate(
-                            fraction,
-                            Color.TRANSPARENT,
-                            checkLineColor
-                    );
                     break;
                 }
                 default:
@@ -1023,7 +1002,6 @@ public class SwitchButton extends View implements Checkable {
                 }
                 case ANIMATE_STATE_PENDING_DRAG: {
                     animateState = ANIMATE_STATE_DRAGING;
-                    viewState.checkedLineColor = Color.TRANSPARENT;
                     viewState.radius = viewRadius;
 
                     postInvalidate();
@@ -1077,10 +1055,7 @@ public class SwitchButton extends View implements Checkable {
          * 状态背景颜色
          */
         int checkStateColor;
-        /**
-         * 选中线的颜色
-         */
-        int checkedLineColor;
+
         /**
          * 状态背景的半径
          */
@@ -1092,7 +1067,6 @@ public class SwitchButton extends View implements Checkable {
         private void copy(ViewState source) {
             this.buttonX = source.buttonX;
             this.checkStateColor = source.checkStateColor;
-            this.checkedLineColor = source.checkedLineColor;
             this.radius = source.radius;
         }
     }

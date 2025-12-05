@@ -21,7 +21,9 @@
             app:sb_background="#FFAFAF"
             app:sb_button_color="#ffffff"
             app:sb_checked_color="#8587FF"
-            app:sb_uncheck_color="#FFAFAF" />
+            app:sb_uncheck_color="#FFAFAF"
+            app:sb_border_width="2dp"
+            />
 
 
         <com.lihang.SwitchButton

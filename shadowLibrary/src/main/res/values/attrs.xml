@@ -197,8 +197,6 @@
         <attr format="reference|color" name="sb_shadow_color"/>
         <attr format="reference|boolean" name="sb_shadow_effect"/>
 
-        <attr format="reference|color" name="sb_checkline_color"/>
-
 
 
 
