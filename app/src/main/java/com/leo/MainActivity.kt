@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import com.leo.databinding.ActivityMainBinding
 import com.leo.loadingview.MainLoadingActivity
 import com.leo.scrollViewIndicator.ScrollViewIndicatorActivity
+import com.leo.switchButton.SwitchButtonActivity
 
 /**
  * 首页展示
@@ -39,6 +40,10 @@ class MainActivity : AppCompatActivity() {
 
             ShadowLayoutScrollView.setOnClickListener {
                 startActivity(Intent(this@MainActivity, ScrollViewIndicatorActivity::class.java))
+            }
+
+            ShadowLayoutSwitchButton.setOnClickListener {
+                startActivity(Intent(this@MainActivity, SwitchButtonActivity::class.java))
             }
         }
     }

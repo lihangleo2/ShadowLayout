@@ -71,6 +71,14 @@
             />
 
 
+        <activity
+            android:name=".switchButton.SwitchButtonActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"
+            android:theme="@style/ActionBarTheme"
+            />
+
+
         <!--多渠道打包需要配置-->
         <meta-data
             android:name="APP_CHANNEL"

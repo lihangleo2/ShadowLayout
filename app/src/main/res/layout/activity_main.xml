@@ -189,7 +189,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             app:hl_cornerRadius="18dp"
             app:hl_cornerRadius_leftTop="0dp"
             app:hl_layoutBackground="#fff"
@@ -206,6 +206,34 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:text="ScrollViewIndicator的使用"
+                android:textColor="#000" />
+
+
+        </com.lihang.ShadowLayout>
+
+
+        <com.lihang.ShadowLayout
+            android:id="@+id/ShadowLayout_switchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            app:hl_cornerRadius="18dp"
+            app:hl_cornerRadius_leftTop="0dp"
+            app:hl_layoutBackground="#fff"
+            app:hl_layoutBackground_true="#ff0000"
+            app:hl_shadowColor="#2a000000"
+            app:hl_shadowLimit="14dp"
+            app:hl_shapeMode="ripple">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="switchButton的使用"
                 android:textColor="#000" />
 
 

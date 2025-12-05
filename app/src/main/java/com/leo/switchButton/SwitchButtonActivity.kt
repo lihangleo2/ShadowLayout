@@ -1,4 +1,4 @@
-package com.leo.scrollViewIndicator
+package com.leo.switchButton
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -6,22 +6,22 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.leo.R
 import com.leo.databinding.ActivityScrollviewIndicatorBinding
+import com.leo.databinding.ActivitySwitchbuttonBinding
 
 /**
  * @Author leo
  * github：https://github.com/lihangleo2
  * @Date 2025/12/4
  */
-class ScrollViewIndicatorActivity : AppCompatActivity() {
-    private lateinit var mBinding: ActivityScrollviewIndicatorBinding
+class SwitchButtonActivity : AppCompatActivity() {
+    private lateinit var mBinding: ActivitySwitchbuttonBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_scrollview_indicator)
-        supportActionBar?.title = "ScrollViewIndicator的使用"
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_switchbutton)
+        supportActionBar?.title = "Switch的使用"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         mBinding.run {
-            scrollViewIndicator.bindScrollView(scrollView)
-            horizontalScrollViewIndicator.bindScrollView(horizontalScrollView)
+
         }
     }
 

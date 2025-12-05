@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.lihang.SwitchButton
+            android:id="@+id/switch_button"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:sb_background="#FFAFAF"
+            app:sb_button_color="#ffffff"
+            app:sb_checked_color="#8587FF"
+            app:sb_show_indicator="false"
+            app:sb_uncheck_color="#FFAFAF" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -168,4 +168,27 @@
         <attr name="hl_showDuration" format="float" />
 
     </declare-styleable>
+
+    <!-- ***************************************** SwitchButton ******************************************* -->
+    <declare-styleable name="SwitchButton">
+        <attr format="reference|dimension" name="sb_shadow_radius"/>
+        <attr format="reference|dimension" name="sb_shadow_offset"/>
+        <attr format="reference|color" name="sb_shadow_color"/>
+        <attr format="reference|color" name="sb_uncheck_color"/>
+        <attr format="reference|color" name="sb_checked_color"/>
+        <attr format="reference|dimension" name="sb_border_width"/>
+        <attr format="reference|color" name="sb_checkline_color"/>
+        <attr format="reference|dimension" name="sb_checkline_width"/>
+        <attr format="reference|color" name="sb_uncheckcircle_color"/>
+        <attr format="reference|dimension" name="sb_uncheckcircle_width"/>
+        <attr format="reference|dimension" name="sb_uncheckcircle_radius"/>
+        <attr format="reference|boolean" name="sb_checked"/>
+        <attr format="reference|boolean" name="sb_shadow_effect"/>
+        <attr format="reference|integer" name="sb_effect_duration"/>
+        <attr format="reference|color" name="sb_button_color"/>
+        <attr format="reference|color" name="sb_button_check_color"/>
+        <attr format="reference|boolean" name="sb_show_indicator"/>
+        <attr format="reference|color" name="sb_background"/>
+        <attr format="reference|boolean" name="sb_enable_effect"/></declare-styleable>
+
 </resources>
