@@ -168,6 +168,9 @@
         <attr name="hl_animalDuration" format="float" />
         <!-- 指示器展示时长 -->
         <attr name="hl_showDuration" format="float" />
+        <!-- 是否一直展示指示器 -->
+        <attr name="hl_alwaysShow" format="boolean" />
+
 
     </declare-styleable>
 

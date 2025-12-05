@@ -39,6 +39,7 @@ public class HorizontalScrollViewIndicator extends View {
     private long mDelayDuration = 1500;
 
     private boolean mBackgroundRound = false;
+    private boolean mAlwaysShow = false;
 
 
     public HorizontalScrollViewIndicator(Context context) {
@@ -64,6 +65,7 @@ public class HorizontalScrollViewIndicator extends View {
         setBackgroundResource(0);//移除设置的背景资源
         //
         mBackgroundRound = typedArray.getBoolean(R.styleable.ScrollViewIndicator_hl_background_round, false);
+        mAlwaysShow = typedArray.getBoolean(R.styleable.ScrollViewIndicator_hl_alwaysShow, false);
         //
         int indicatorColor = typedArray.getColor(R.styleable.ScrollViewIndicator_hl_indicatorColor, getResources().getColor(R.color.default_indicator_color));
         mProgressPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -90,8 +92,10 @@ public class HorizontalScrollViewIndicator extends View {
 
                     if (mBindScrollView.getMeasuredWidth() < mBindScrollView.getChildAt(0).getMeasuredWidth()) {
                         HorizontalScrollViewIndicator.this.setVisibility(View.VISIBLE);
-                        AnimalUtil.cancleAnimate(HorizontalScrollViewIndicator.this);
-                        AnimalUtil.alphaHide(HorizontalScrollViewIndicator.this, mDuration, 1.0f, 0.0f, mDelayDuration);
+                        if (!mAlwaysShow){
+                            AnimalUtil.cancleAnimate(HorizontalScrollViewIndicator.this);
+                            AnimalUtil.alphaHide(HorizontalScrollViewIndicator.this, mDuration, 1.0f, 0.0f, mDelayDuration);
+                        }
                     } else {
                         HorizontalScrollViewIndicator.this.setVisibility(View.GONE);
                     }
@@ -184,8 +188,10 @@ public class HorizontalScrollViewIndicator extends View {
             View firstView = mScrollView.getChildAt(0);
             HorizontalScrollViewIndicator.this.setProgress((((float) mScrollView.getScrollX()) / (firstView.getMeasuredWidth() - mScrollView.getWidth())));
 
-            AnimalUtil.cancleAnimate(HorizontalScrollViewIndicator.this);
-            AnimalUtil.alphaHide(HorizontalScrollViewIndicator.this, mDuration, 1.0f, 0.0f, mDelayDuration);
+            if (!mAlwaysShow){
+                AnimalUtil.cancleAnimate(HorizontalScrollViewIndicator.this);
+                AnimalUtil.alphaHide(HorizontalScrollViewIndicator.this, mDuration, 1.0f, 0.0f, mDelayDuration);
+            }
 
         }
     }
