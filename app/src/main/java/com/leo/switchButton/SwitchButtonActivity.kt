@@ -2,6 +2,7 @@ package com.leo.switchButton
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.leo.R
@@ -21,7 +22,9 @@ class SwitchButtonActivity : AppCompatActivity() {
         supportActionBar?.title = "Switch的使用"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         mBinding.run {
-
+            switchButton.setOnCheckedChangeListener { view, isChecked ->
+                Toast.makeText(this@SwitchButtonActivity, "${isChecked}", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

@@ -87,22 +87,6 @@ public class SwitchButton extends View implements Checkable {
                 R.styleable.SwitchButton_sb_shadow_effect,
                 true);
 
-        uncheckCircleColor = optColor(typedArray,
-                R.styleable.SwitchButton_sb_uncheckcircle_color,
-                0XffAAAAAA);//0XffAAAAAA;
-
-        uncheckCircleWidth = optPixelSize(typedArray,
-                R.styleable.SwitchButton_sb_uncheckcircle_width,
-                dp2pxInt(1.5f));//dp2pxInt(1.5f);
-
-        uncheckCircleOffsetX = dp2px(10);
-
-        uncheckCircleRadius = optPixelSize(typedArray,
-                R.styleable.SwitchButton_sb_uncheckcircle_radius,
-                dp2px(4));//dp2px(4);
-
-        checkedLineOffsetX = dp2px(4);
-        checkedLineOffsetY = dp2px(4);
 
         shadowRadius = optPixelSize(typedArray,
                 R.styleable.SwitchButton_sb_shadow_radius,
@@ -132,12 +116,6 @@ public class SwitchButton extends View implements Checkable {
                 R.styleable.SwitchButton_sb_checkline_color,
                 Color.WHITE);//Color.WHITE;
 
-        checkLineWidth = optPixelSize(typedArray,
-                R.styleable.SwitchButton_sb_checkline_width,
-                dp2pxInt(1f));//dp2pxInt(1.0f);
-
-        checkLineLength = dp2px(6);
-
         buttonColor = optColor(typedArray,
                 R.styleable.SwitchButton_sb_button_color,
                 Color.WHITE);//Color.WHITE;
@@ -152,9 +130,6 @@ public class SwitchButton extends View implements Checkable {
                 R.styleable.SwitchButton_sb_checked,
                 false);
 
-        showIndicator = optBoolean(typedArray,
-                R.styleable.SwitchButton_sb_show_indicator,
-                true);
 
         background = optColor(typedArray,
                 R.styleable.SwitchButton_sb_background,
@@ -289,10 +264,6 @@ public class SwitchButton extends View implements Checkable {
                 left, top, right, bottom,
                 viewRadius, paint);
 
-        //绘制小圆圈
-        if (showIndicator) {
-            drawUncheckIndicator(canvas);
-        }
 
         //绘制开启背景色
         float des = viewState.radius * .5f;//[0-backgroundRadius*0.5f]
@@ -315,93 +286,13 @@ public class SwitchButton extends View implements Checkable {
                 viewState.buttonX, top + 2 * viewRadius,
                 paint);
 
-        //绘制小线条
-        if (showIndicator) {
-            drawCheckedIndicator(canvas);
-        }
 
         //绘制按钮
         drawButton(canvas, viewState.buttonX, centerY);
     }
 
 
-    /**
-     * 绘制选中状态指示器
-     *
-     * @param canvas
-     */
-    protected void drawCheckedIndicator(Canvas canvas) {
-        drawCheckedIndicator(canvas,
-                viewState.checkedLineColor,
-                checkLineWidth,
-                left + viewRadius - checkedLineOffsetX, centerY - checkLineLength,
-                left + viewRadius - checkedLineOffsetY, centerY + checkLineLength,
-                paint);
-    }
 
-
-    /**
-     * 绘制选中状态指示器
-     *
-     * @param canvas
-     * @param color
-     * @param lineWidth
-     * @param sx
-     * @param sy
-     * @param ex
-     * @param ey
-     * @param paint
-     */
-    protected void drawCheckedIndicator(Canvas canvas,
-                                        int color,
-                                        float lineWidth,
-                                        float sx, float sy, float ex, float ey,
-                                        Paint paint) {
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setColor(color);
-        paint.setStrokeWidth(lineWidth);
-        canvas.drawLine(
-                sx, sy, ex, ey,
-                paint);
-    }
-
-    /**
-     * 绘制关闭状态指示器
-     *
-     * @param canvas
-     */
-    private void drawUncheckIndicator(Canvas canvas) {
-        drawUncheckIndicator(canvas,
-                uncheckCircleColor,
-                uncheckCircleWidth,
-                right - uncheckCircleOffsetX, centerY,
-                uncheckCircleRadius,
-                paint);
-    }
-
-
-    /**
-     * 绘制关闭状态指示器
-     *
-     * @param canvas
-     * @param color
-     * @param lineWidth
-     * @param centerX
-     * @param centerY
-     * @param radius
-     * @param paint
-     */
-    protected void drawUncheckIndicator(Canvas canvas,
-                                        int color,
-                                        float lineWidth,
-                                        float centerX, float centerY,
-                                        float radius,
-                                        Paint paint) {
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setColor(color);
-        paint.setStrokeWidth(lineWidth);
-        canvas.drawCircle(centerX, centerY, radius, paint);
-    }
 
     /**
      * @param canvas
@@ -954,38 +845,6 @@ public class SwitchButton extends View implements Checkable {
      * 打开指示线颜色
      */
     private int checkLineColor;
-    /**
-     * 打开指示线宽
-     */
-    private int checkLineWidth;
-    /**
-     * 打开指示线长
-     */
-    private float checkLineLength;
-    /**
-     * 关闭圆圈颜色
-     */
-    private int uncheckCircleColor;
-    /**
-     * 关闭圆圈线宽
-     */
-    private int uncheckCircleWidth;
-    /**
-     * 关闭圆圈位移X
-     */
-    private float uncheckCircleOffsetX;
-    /**
-     * 关闭圆圈半径
-     */
-    private float uncheckCircleRadius;
-    /**
-     * 打开指示线位移X
-     */
-    private float checkedLineOffsetX;
-    /**
-     * 打开指示线位移Y
-     */
-    private float checkedLineOffsetY;
 
 
     /**
@@ -1039,10 +898,7 @@ public class SwitchButton extends View implements Checkable {
      * 是否启用阴影效果
      */
     private boolean shadowEffect;
-    /**
-     * 是否显示指示器
-     */
-    private boolean showIndicator;
+
     /**
      * 收拾是否按下
      */
