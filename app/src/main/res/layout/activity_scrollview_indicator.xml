@@ -84,6 +84,7 @@
             app:hl_indicatorColor="#00BCD4"
             app:hl_background_round="true"
             app:hl_indicatorLength="0.3"
+            app:hl_alwaysShow="true"
             app:layout_constraintTop_toTopOf="@+id/horizontalScrollView" />
 
 
